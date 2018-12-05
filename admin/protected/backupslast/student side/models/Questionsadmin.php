@@ -1,0 +1,117 @@
+<?php
+
+/**
+ * This is the model class for table "questions".
+ *
+ * The followings are the available columns in table 'questions':
+ * @property integer $id
+ * @property string $question
+ * @property string $type
+ * @property integer $course
+ * @property integer $institution
+ * @property integer $faculty
+ * @property string $status
+ *
+ * The followings are the available model relations:
+ * @property Assess[] $assesses
+ */
+class Questionsadmin extends CActiveRecord
+{
+	/**
+	 * @return string the associated database table name
+	 */
+	public function tableName()
+	{
+		return 'questions';
+	}
+
+	/**
+	 * @return array validation rules for model attributes.
+	 */
+	public function rules()
+	{
+		// NOTE: you should only define rules for those attributes that
+		// will receive user inputs.
+		return array(
+			array('question, course, institution, faculty', 'required'),
+			array('course, institution, faculty', 'numerical', 'integerOnly'=>true),
+			array('type', 'length', 'max'=>7),
+			array('status', 'length', 'max'=>8),
+			// The following rule is used by search().
+			// @todo Please remove those attributes that should not be searched.
+			array('id, question, type, course, institution, faculty, status', 'safe', 'on'=>'search'),
+		);
+	}
+
+	/**
+	 * @return array relational rules.
+	 */
+	public function relations()
+	{
+		// NOTE: you may need to adjust the relation name and the related
+		// class name for the relations automatically generated below.
+		return array(
+			'assesses' => array(self::HAS_MANY, 'Assess', 'question'),
+			'courses' => array(self::BELONGS_TO, 'Courses', 'course'),
+            'faculties' => array(self::BELONGS_TO, 'Faculties', 'faculty'),
+            'institution' => array(self::BELONGS_TO, 'Institutions', 'institution'),
+		);
+	}
+
+	/**
+	 * @return array customized attribute labels (name=>label)
+	 */
+	public function attributeLabels()
+	{
+		return array(
+			'id' => 'ID',
+			'question' => 'Question',
+			'type' => 'Type',
+			'course' => 'Course',
+			'institution' => 'Institution',
+			'faculty' => 'Faculty',
+			'status' => 'Status',
+            'q_type'=>'Question type'
+		);
+	}
+
+	/**
+	 * Retrieves a list of models based on the current search/filter conditions.
+	 *
+	 * Typical usecase:
+	 * - Initialize the model fields with values from filter form.
+	 * - Execute this method to get CActiveDataProvider instance which will filter
+	 * models according to data in model fields.
+	 * - Pass data provider to CGridView, CListView or any similar widget.
+	 *
+	 * @return CActiveDataProvider the data provider that can return the models
+	 * based on the search/filter conditions.
+	 */
+	public function search()
+	{
+		// @todo Please modify the following code to remove attributes that should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('id',$this->id);
+		$criteria->compare('question',$this->question,true);
+		$criteria->compare('type',$this->type,true);
+		$criteria->compare('status',$this->status,true);
+        $criteria->addCondition('type = "default"');
+        $criteria->addCondition('status = "active"');
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
+
+	/**
+	 * Returns the static model of the specified AR class.
+	 * Please note that you should have this exact method in all your CActiveRecord descendants!
+	 * @param string $className active record class name.
+	 * @return Questionsadmin the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
+	}
+}
