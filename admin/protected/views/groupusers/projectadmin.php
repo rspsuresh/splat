@@ -2,6 +2,7 @@
 $institution = Institutions::model()->find('id='.base64_decode($_GET['i']));
 $faculty = Faculties::model()->find('id='.base64_decode($_GET['f']));
 $course = Courses::model()->find('id='.base64_decode($_GET['c']));
+$project = Projects::model()->findByPk($_GET['p']);
 ?>
 <style>
     .row-inactive
@@ -72,15 +73,27 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
         color: white;
         font-size: 20px;
     }
+    .mydiv
+    {
+        padding:10px;
+    }
+    .text-align
+    {
+        text-align:center;
+    }
 </style>
-<section style="min-height:460px"><div class="container">
+<section style="min-height:460px">
+    <div class="container">
         <div class="user-institute">
             <?php  if(Yii::app()->user->getState('role')=='Superuser')
             { ?>
                 <p>You are here: <a href="<?php echo Yii::app()->createUrl('site/index'); ?>">Home</a> /
                     <a href="<?php echo Yii::app()->createUrl('site/faculties',array('i'=>base64_encode($institution->id)));?>">Faculties</a> /
                     <a href="<?php echo Yii::app()->createUrl('site/courses',array('i'=>base64_encode($institution->id),'f'=>base64_encode($faculty->id)));?>">
-                        <?php echo ucfirst($faculty->name);?></a> / <b><?php echo ucfirst($course->name); ?></b></p>
+                        <?php echo ucfirst($faculty->name);?></a> /
+                    <a href="<?=Yii::app()->createUrl('site/courseitems',array('c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f']))?>"><?php echo ucfirst($course->name); ?></a>
+                  / <b><?=$project->name?></b>
+                </p>
             <?php }
             else { ?>
                 <p>You are here: <a href="<?php echo Yii::app()->createUrl('site/faculties',array('i'=>base64_encode($institution->id)));?>">Faculties</a>
@@ -110,85 +123,56 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                             });
                             ");
         ?>
-        <h1 class="common user-assessment">Manage Groups</h1>
-        <a href="<?= Yii::app()->CreateUrl('site/courseItems',array('i'=>$_GET['i'],'f'=>$_GET['f'],'c'=>$_GET['c']))?>">
-            <button class="admin-btn btn-bs-file btn btn-info" style="margin: 0px" title="Back"> Back
-            </button></a>
-        <?php $this->widget('zii.widgets.grid.CGridView', array(
-            'id'=>'groupsdum-grid',
-            'dataProvider'=>$grpmodel->search(),
-            'template'=>'{items}{summary}{pager}',
-            'columns'=>array(
-                array(
-                    'name'=>'name',
-                    'htmlOptions' => array('width' => '50%'),
-                    'filterHtmlOptions' => array('style' => 'width: 8%;'),
-                    'value'=>function($data)
-                    {
-                        echo $data->name;
-                    }
-                ),
-                /*array(
-                    "header" => "View Users",
-                    'type' => 'raw',
-                    'htmlOptions' => array('width' => '8%'),
-                    'filterHtmlOptions' => array('style' => 'width: 8%;'),
-                    "value" => 'Groups::Viewusers($data)'
-                ),*/
-                array(
-                    'header'=>'Action',
-                    'type'=>'raw',
-                    'htmlOptions' => array('width' => '50%'),
-                    "value" => 'Groups::Actionbuttonsgroups($data)'
-                )
-                /*array(
-                    'header' => 'Action',
-                    'class' => 'CButtonColumn',
-                    'template' => '{update}{delete}',
-                    'buttons' => array('delete' =>
-                        array(
-                            'url' => 'Yii::app()->CreateUrl("groups/delete",array("id"=>$data->id))',
-                            'label' => 'delete',
-                            'options' => array(// this is the 'html' array but we specify the 'ajax' element
-                                'confirm' => "Are you sure want to delete group?",
-                                'class' => 'CButtonColumn',
-                                'ajax' => array(
-                                    'type' => 'POST',
-                                    'url' => 'Yii::app()->CreateUrl("groups/delete",array("id"=>$data->id))',
-                                    'success' => 'function(data){
-                                if(data){
-                                            
-                                                $.fn.yiiGridView.update("groupsdum-grid");
-                                                location.reload();
-                                                return false;
-                                }else{
-                                               
-                                                window.location="admin?del=exist";
-                                                return false;
-                                }
-                            }',
-                                ),
-                            ),
-                        ),
-                        'update' => array(
-                            'url' => 'Yii::app()->createUrl("groups/update",
-                            array("id"=>$data->id,"c"=>$_GET["c"],"i"=>$_GET["i"],"f"=>$_GET["f"],"p"=>$_GET["p"]))',
-                            'label' => 'update',
-                            'options' => array('class' => 'grid_action_set'),
-                        ),
+        <div class="mydiv" style="border:1px solid #00B9D1;border-radius:5px;margin-top:10px">
+            <h1 class="common user-assessment" style="margin-top:0px !important;">Manage Groups</h1>
+            <a href="<?= Yii::app()->CreateUrl('site/courseItems',array('i'=>$_GET['i'],'f'=>$_GET['f'],'c'=>$_GET['c']))?>">
+                <button class="admin-btn btn-bs-file btn btn-info" style="margin: 0px" title="Back"> Back
+                </button>
+            </a>
+            <a href="<?php echo Yii::app()->CreateUrl('groups/create',array('c'=>$_GET['c'],
+                'i'=>$_GET['i'],'f'=>$_GET['f'],'p'=>$_GET['p']));?>">
+                <button class="admin-btn btn-bs-file btn btn-info" style="margin: 0px" title="Back"> Add a Group
+                </button>
+            </a>
+            <!--<a  class="download" href="#">
+                <button class="admin-btn btn-bs-file btn btn-success" style="margin: 0px" title="Download"> Download Assessment Scores
+                </button>
+            </a>
+            <a class="save-btn" style="text-decoration:none;cursor:pointer;margin-top:0% !important;float:right"
+               href='<?php /*echo Yii::app()->CreateUrl('groups/create',array('c'=>$_GET['c'],
+                   'i'=>$_GET['i'],'f'=>$_GET['f'],'p'=>$_GET['p']));*/?>'>Add a Group
+            </a>-->
+            <?php $this->widget('zii.widgets.grid.CGridView', array(
+                'id'=>'groupsdum-grid',
+                'dataProvider'=>$grpmodel->search(),
+                'template'=>'{items}{summary}{pager}',
+                'columns'=>array(
+                    array(
+                        'name'=>'name',
+                        'sortable'=>false,
+                        'htmlOptions' => array('width' => '50%'),
+                        //'headerOptions' => array('class' => 'text-center'),
+                        //'filterHtmlOptions' => array('style' => 'width: 8%;'),
+                        'value'=>function($data)
+                        {
+                            echo $data->name;
+                        }
                     ),
-
-                    'htmlOptions' => array('width' => '8%')
-                ),*/
-
-            ),
-        )); ?>
-        <a class="save-btn" style="text-decoration:none;cursor:pointer;margin-top:0% !important;float:right"
-           href='<?php echo Yii::app()->CreateUrl('groups/create',array('c'=>$_GET['c'],
-               'i'=>$_GET['i'],'f'=>$_GET['f'],'p'=>$_GET['p']));?>'>Add a Group</a><br><br><br>
-
-        <div class="container">
-            <h3 class="user-assessment" style="font-size: 18px !important;">Assign users to the Group</h3>
+                    array(
+                        'header'=>'Action',
+                        'sortable'=>false,
+                        'type'=>'raw',
+                        'htmlOptions' => array('width' => '50%','class'=>'text-align'),
+                        "value" => 'Groups::Actionbuttonsgroups($data)'
+                    )
+                ),
+            ));
+            ?>
+        </div>
+        <br>
+        <br>
+        <div class="mydiv" style="border:1px solid #00B9D1;border-radius:5px;margin-top:10px;float:left;width:100%;">
+            <h3 class="user-assessment" style="font-size: 18px !important;margin-top:0px">Assign users to the Group</h3>
             <div class="form">
                 <?php $form=$this->beginWidget('CActiveForm', array(
                     'id'=>'group-users-form',
@@ -237,6 +221,7 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                 <?php $this->endWidget(); ?>
             </div><!-- form -->
         </div>
+        <br><br>
         <?php
         Yii::app()->clientScript->registerScript('search', "
                 $('.search-button').click(function(){
@@ -251,48 +236,59 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                 });
                 ");
         ?>
-        <h3 class="common user-assessment" style="font-size: 18px !important;"><p>Manage Assessment points</p></h3>
-        <p class="row-inactive">        <a href="#">
-                <span class="glyphicon glyphicon-info-sign"></span>
-            </a> Please activate a point of assessment. Only one assessment can be active at a time</p>
-        <?php
+        <div class="mydiv" style="border:1px solid #00B9D1;border-radius:5px;margin-top:50px;float:left;width:100%;">
+            <h3 class="common user-assessment" style="font-size: 18px !important;margin-top:0px"><p>Manage Assessment points</p></h3>
+            <p class="row-inactive">        <a href="#">
+                    <span class="glyphicon glyphicon-info-sign"></span>
+                </a> Please activate a point of assessment. Only one assessment can be active at a time</p>
+            <?php
+            $this->widget('zii.widgets.grid.CGridView', array(
+                'id'=>'multipleassesment-grid',
+                'dataProvider'=>$assesmodel->search(),
 
-        $this->widget('zii.widgets.grid.CGridView', array(
-            'id'=>'multipleassesment-grid',
-            'dataProvider'=>$assesmodel->search(),
-            'rowCssClassExpression'=>'$data->status=="I"?"row-inactive":"row-active"',
-            'template'=>'{items}{summary}{pager}',
-            'columns'=>array(
-                array(
-                    'name' => 'id',
-                    'header'=>'Assessment Point',
-                    'htmlOptions'=>array('width'=>'40px'),
-                    'value' => function ($data,$row) {
-                        return "Assessment-".($row+1);
-                    }
+                'rowCssClassExpression'=>'$data->status=="I"?"row-inactive":"row-active"',
+                'template'=>'{items}{summary}{pager}',
+                'columns'=>array(
+                    array(
+                        'name' => 'id',
+                        'header'=>'Assessment Point',
+                        'sortable'=>false,
+                        'htmlOptions'=>array('width'=>'40px'),
+                        'value' => function ($data,$row) {
+                            return "Assessment-".($row+1);
+                        }
+                    ),
+                    array(
+                        'name' => 'due_date',
+                        'header'=>'Due Date',
+                        'sortable'=>false,
+                        'htmlOptions'=>array('width'=>'20px'),
+                        'value' => function ($data) {
+                            return  date('d-m-Y h:i',strtotime($data->due_date));
+                        }
+                    ),
+                    array(
+                        'header'=>'Action',
+                        'type'=>'raw',
+                        'htmlOptions'=>array('width'=>'40px'),
+                        "value" => 'Multipleassesment::ActionButtons($data->id,$row+1)'
+                    ),
                 ),
-                array(
-                    'name' => 'id',
-                    'header'=>'Due Date',
-                    'htmlOptions'=>array('width'=>'20px'),
-                    'value' => function ($data) {
-                        return  date('d-m-Y h:i',strtotime($data->due_date));
-                    }
-                ),
-                array(
-                    'header'=>'Action',
-                    'type'=>'raw',
-                    'htmlOptions'=>array('width'=>'40px'),
-                    "value" => 'Multipleassesment::ActionButtons($data->id,$row+1)'
-                ),
-            ),
-        )); ?>
+            )); ?>
+        </div>
+        <hr>
+        <br><br>
+        <p>
+            <a  class="download" href="#">
+                <button class="admin-btn btn-bs-file btn btn-success" style="margin: 0px" title="Download"> Download Assessment Scores
+                </button>
+            </a>
+        </p>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.min.css">
         <script>
             $(function(){
                 $('.chosen-select').chosen({}).change( function(obj, result) {});
-                //$('.chosen-select').val('').trigger('chosen:updated');
             });
         </script>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -330,9 +326,13 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
     </div>
 
 </div>
+<div id="htmltable" style="display:none;">
+
+</div>
 <?php //print_r($_SESSION);die;?>
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/js/jqueryui/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/js/jqueryui/jquery-ui.min.css">
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.tabletoCSV.js"></script>
 <style>
     .datepicker {
         z-index: 100000;
@@ -341,25 +341,62 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
 <script type="text/javascript">
     $(document).ready(function() {
         $('#Multipleassesment_due_date').datepicker({ format: "yyyy/mm/dd" });
+        //$("table").tableToCSV();
     });
 </script>
 <script type="text/javascript">
-    function alternate(id)
+    function alternate(id,a)
     {
-        $.ajax({
-            url: "<?php echo Yii::app()->createUrl('site/assesmentchange') ?>",
-            type: "post",
-            data:{asses:id},
-            success: function (result) {
-                var data=JSON.parse(result);
-                if(data.status)
+        var typeofstatus=$(a).attr('data-status');
+        if(typeofstatus =='I')
+        {
+            if(confirm('Are you sure you want to set the status to Inactive for this assessment?'))
+            {
+                $.ajax({
+                    url: "<?php echo Yii::app()->createUrl('site/assesmentchange') ?>",
+                    type: "post",
+                    data:{asses:id},
+                    success: function (result) {
+                        var data=JSON.parse(result);
+                        if(data.status)
+                        {
+                            $.fn.yiiGridView.update('multipleassesment-grid');
+                            $.notify("Status changed succesfully", "success");
+                            location.reload();
+                        }
+                    }
+                });
+            }
+        }
+        else if(typeofstatus =="A")
+        {
+            if(confirm('Are you sure you want to set the status to active for this assessment?'))
+            {
+                var mycheck =$(".present").is(":visible");
+                if(!mycheck)
                 {
-                    $.fn.yiiGridView.update('multipleassesment-grid');
-                    $.notify("Status changed succesfully", "success");
-                    location.reload();
+                    $.ajax({
+                        url: "<?php echo Yii::app()->createUrl('site/assesmentchange') ?>",
+                        type: "post",
+                        data:{asses:id},
+                        success: function (result) {
+                            var data=JSON.parse(result);
+                            if(data.status)
+                            {
+                                $.fn.yiiGridView.update('multipleassesment-grid');
+                                $.notify("Status changed succesfully", "success");
+                                location.reload();
+                            }
+                        }
+                    });
+                }
+                else {
+                    alert('Another assessment is already ‘Active’, please disable it or ‘Mark as complete');
+                    return false;
                 }
             }
-        });
+
+        }
 
     }
     function deletegroup(id)
@@ -381,11 +418,20 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
             });
         }
     }
-   $(document).on('click','.download',function(){
-       var groupid=$(this).attr('data-group');
-       var url="<?= Yii::app()->CreateUrl('groupusers/download',array('c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'],'p'=>$_GET['p'],'group'=>''))?>"+groupid;
-       window.location.href=url;
-   });
+    $(document).on('click','.download',function(){
+        var groupid=$(this).attr('data-group');
+        var url="<?= Yii::app()->CreateUrl('groupusers/download',array('c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'],'p'=>$_GET['p']))?>";
+        $.ajax({
+            url: url,
+            type: "get",
+            success: function (result) {
+                $("#htmltable").html(result);
+                $("#resulttable").tableToCSV();
+                return false;
+            }
+        });
+        //window.location.href=url;
+    });
     function complete(id)
     {
         if(confirm('Are you sure want to mark this assessment as complete?'))

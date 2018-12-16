@@ -144,6 +144,7 @@
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/notify.js"></script>
 <script>
     $(document).ready(function(){
+        $("input").attr('autocomplete','off');
         // Toggle plus minus icon on show hide of collapse element
         $(".collapse").on('show.bs.collapse', function(){
             $(this).parent().find('i').removeClass("fa fa-angle-right").addClass("fa fa-angle-down");

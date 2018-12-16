@@ -22,12 +22,15 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                 <p>You are here: <a href="<?php echo Yii::app()->createUrl('site/index'); ?>">Home</a> /
                     <a href="<?php echo Yii::app()->createUrl('site/faculties',array('i'=>base64_encode($institution->id)));?>">Faculties</a> /
                     <a href="<?php echo Yii::app()->createUrl('site/courses',array('i'=>base64_encode($institution->id),'f'=>base64_encode($faculty->id)));?>">
-                        <?php echo ucfirst($faculty->name);?></a> / <b><?php echo ucfirst($course->name); ?></b></p>
+                        <?php echo ucfirst($faculty->name);?></a> /
+                    <a href="<?= Yii::app()->createUrl('users/cadmin',
+                        array('c'=>$_GET['c'],'f'=>$_GET['f'],'i'=>$_GET['i']))?>"><?php echo ucfirst($course->name); ?></a> / <b>Add Users to Course</b></p>
             <?php }
             else { ?>
                 <p>You are here: <a href="<?php echo Yii::app()->createUrl('site/faculties',array('i'=>base64_encode($institution->id)));?>">Faculties</a>
                     / <a href="<?php echo Yii::app()->createUrl('site/courses',array('i'=>base64_encode($institution->id),'f'=>base64_encode($faculty->id)));?>">
-                        <?php echo ucfirst($faculty->name);?></a> / <b><?php echo ucfirst($course->name); ?></b></p>
+                        <?php echo ucfirst($faculty->name);?></a> /<a href="<?= Yii::app()->createUrl('users/cadmin',
+                        array('c'=>$_GET['c'],'f'=>$_GET['f'],'i'=>$_GET['i']))?>"><?php echo ucfirst($course->name); ?></a> / <b>Add Users to Course</b></p>
             <?php } ?>
 			<!--<p>You are here: <a href="<?php echo Yii::app()->createUrl('site/index'); ?>">Home</a> / <b>Add Users to course</b></p>-->
 		</div>

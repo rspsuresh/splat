@@ -65,7 +65,10 @@
 			<p><?php echo $projects->description; ?></p>
 		</div>-->
         <div class="col-lg-12 col-xs-12 col-sm-12 padzero user-staff">
-            <div class="col-lg-4 col-xs-12 col-sm-4 padzero">
+            <?php $columndecide=Multipleassesment::model()->findAll("prj_id=".$_GET['id']." and status='A'");
+            $column=(count($columndecide)>0)?'4':'6';
+            ?>
+            <div class="col-lg-<?=$column?> col-xs-12 col-sm-4 padzero">
                 <!--<div class="staff">
 					<h6>Staff</h6>
 					<p><?php echo ucfirst($projects->faculty0->name); ?></p>
@@ -108,16 +111,18 @@
             $usergroup = GroupUsers::model()->find('user_id='.Yii::app()->user->id);
             $groupusers = array();
             if(count($grpresult)>0)
-                $groupusers = GroupUsers::model()->findAll('group_id='.$grpresult[0]['group_id']);
+                $groupusers = GroupUsers::model()->with('user')->findAll('group_id='.$grpresult[0]['group_id'].' and user.status="active" ');
             ?>
             <?php
-            $assescheck=Multipleassesment::model()->findAll("prj_id=".$_GET['id']." and status='A'"); ?>
-            <div class="col-liv5 col-xs-12 col-sm-4 staff-due well"  >
-                <h6>Your Group</h6>
+            $assescheck=Multipleassesment::model()->findAll("prj_id=".$_GET['id']." and status='A'");
+            //echo "<pre>";print_r(count($assescheck));die;
+            ?>
+            <div class="col-lg-<?=$column?> col-xs-12 col-sm-4 staff-due well"  >
+                <h6>Your Group : <?=$groupusers[0]->groups->name?></h6>
                 <div class="col-lg-12 col-xs-12 col-sm-12 padzero">
                     <?php
-                    if(count($groupusers)>0):
-                        foreach($groupusers as $groupuser):
+                    if(count($groupusers)>0  && count($assescheck) >0 ) {
+                        foreach($groupusers as $groupuser) {
                             $iquestions = Questions::model()->count('course='.$projects->course);
                             $iassess = Assess::model()->count('project='.$projects->id.' and
                              from_user='.Yii::app()->user->id.' and to_user='.$groupuser->user_id.' 
@@ -150,13 +155,29 @@
                                     <p><i class="fas <?php echo $class;?>" style="<?=$style?>" aria-hidden="true"></i></p>
                                 </div>
                             </div>
-                        <?php endforeach; else: ?>
-                        <div class="col-lg-12 col-xs-12 col-sm-12 padzero">
-                            <div class="col-lg-6 col-xs-6 col-sm-6 padzero">
-                                <p>No users assigned.</p>
+                        <?php } } else { ?>
+                        <?php
+                        if(count($groupusers) >0) {
+                            foreach($groupusers as $groupuser) { ?>
+                                <div class="col-lg-12 col-xs-12 col-sm-12 padzero">
+                                    <div class="col-lg-8 col-xs-10 col-sm-8 padzero">
+                                        <?php if($groupuser->user_id != Yii::app()->user->id) { ?>
+                                        <p><?php echo ucwords($groupuser->user->first_name." ".$groupuser->user->last_name); ?>
+                                            <?php } else { ?>
+                                        <p style="color:grey"><?php echo ucwords($groupuser->user->first_name." ".$groupuser->user->last_name); ?>
+                                            <?php } ?>
+                                    </div>
+                                    <div class="col-lg-3 col-xs-2 col-sm-3 padzero">
+                                        <p><i class="fas <?php echo $class;?>" style="<?=$style?>" aria-hidden="true"></i></p>
+                                    </div>
+                                </div>
+                            <?php } } else {  ?>
+                            <div class="col-lg-12 col-xs-12 col-sm-12 padzero">
+                                <div class="col-lg-6 col-xs-6 col-sm-6 padzero">
+                                    <p>No users assigned.</p>
+                                </div>
                             </div>
-                        </div>
-                    <?php endif; ?>
+                        <?php } }?>
                     <?php
                     $grpidb=($grpresult[0]['group_id'])?$grpresult[0]['group_id']:0;
                     $checkiassess = Assess::model()->count('project='.$projects->id.' 
@@ -173,6 +194,7 @@
 
                 </div>
             </div>
+            <?php if(count($assescheck)>0) { ?>
             <div class="col-lg-3 col-xs-12 col-sm-4 staff-due" style="display:<?=$showresponse?>">
                 <h6>View your responses</h6>
                 <div class="col-lg-12 col-xs-12 col-sm-12 padzero">
@@ -281,6 +303,7 @@
                 </div>
             </div>
         </div>
+        <?php } ?>
     </div>
     </div>
 </section>

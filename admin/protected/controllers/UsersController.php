@@ -91,7 +91,7 @@ class UsersController extends Controller
                 $model->attributes = $_POST['Users'];
                 $model->first_name=ucfirst($_POST['Users']['first_name']);
                 $model->last_name=ucfirst($_POST['Users']['last_name']);
-                $model->email=ucfirst($_POST['Users']['username']);
+                $model->email=$_POST['Users']['email'];
                 $model->password=$this->randompassword();
                 //$model->password=trim($_POST['Users']['password']);
                 $model->created_date = date('Y-m-d H:i:s');
@@ -203,13 +203,14 @@ class UsersController extends Controller
         $this->performAjaxValidation($model);
         if(isset($_POST['Users']))
         {
-            $checkmodel=Users::model()->findByAttributes(array('username'=>$_POST['Users']['username']));
+            $checkmodel=Users::model()->findByAttributes(array('username'=>$_POST['Users']['username'],'email'=>$_POST['Users']['email']));
             //print_r($checkmodel);die;
             if(count($checkmodel)==0)
             {
                 $model->created_date = date('Y-m-d H:i:s');
                 $model->updated_date = date('Y-m-d H:i:s');
                 $model->username=trim($_POST['Users']['username']);
+                $model->email=$_POST['Users']['email'];
                 $model->password=$this->randompassword();
                 //$model->password=trim($_POST['Users']['password']);
                 $model->first_name=$_POST['Users']['first_name'];
@@ -300,6 +301,7 @@ class UsersController extends Controller
         if(isset($_POST['Users']))
         {
             $model->attributes=$_POST['Users'];
+            $model->email=$_POST['Users']['email'];
             $model->updated_date = date('Y-m-d H:i:s');
             if($_POST['Users']['role'] ==5 ||  $_POST['Users']['role'] ==3)
             {
@@ -370,12 +372,29 @@ class UsersController extends Controller
         $delete->update('status');
 
         $usersmodel=Users::model()->deleteByPk($id);
-        $userfaculty=UserFaculties::model()->deleteAllByAttributes(['user_id' => $id]);
-        $usercourse=UserCourses::model()->deleteAllByAttributes(['user_id' => $id]);
-        $insusemodel=InstitutionUser::model()->deleteAllByAttributes(['user_id'=>$id]);
-        $grpusers=GroupUsers::model()->deleteAllByAttributes(['user_id'=>$id]);
-        $asscomment=AssessComments::model()->deleteAllByAttributes('from_user=:from or to_user=:touser',[':from'=>$id,':touser'=>$id]);
-        $asscomment=Assess::model()->deleteAllByAttributes('from_user=:from or to_user=:touser',[':from'=>$id,':touser'=>$id]);
+        $userfaculty=UserFaculties::model()->findAllByAttributes(['user_id' => $id]);
+        if($userfaculty)
+            UserFaculties::model()->deleteAllByAttributes(['user_id' => $id]);
+
+        $usercourse=UserCourses::model()->findAllByAttributes(['user_id' => $id]);
+        if($usercourse)
+            UserCourses::model()->deleteAllByAttributes(['user_id' => $id]);
+
+        $insusemodel=InstitutionUser::model()->findAllByAttributes(['user_id'=>$id]);
+        if($insusemodel)
+            InstitutionUser::model()->deleteAllByAttributes(['user_id'=>$id]);
+
+        $grpusers=GroupUsers::model()->findAllByAttributes(['user_id'=>$id]);
+        if($grpusers)
+            GroupUsers::model()->deleteAllByAttributes(['user_id'=>$id]);
+
+        $asscomment=AssessComments::model()->findAllByAttributes('from_user=:from or to_user=:touser',[':from'=>$id,':touser'=>$id]);
+        if($asscomment)
+            AssessComments::model()->deleteAllByAttributes('from_user=:from or to_user=:touser',[':from'=>$id,':touser'=>$id]);
+
+        $ass=Assess::model()->findAllByAttributes('from_user=:from or to_user=:touser',[':from'=>$id,':touser'=>$id]);
+        if($ass)
+            Assess::model()->deleteAllByAttributes('from_user=:from or to_user=:touser',[':from'=>$id,':touser'=>$id]);
 
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
         if(!isset($_GET['ajax']))
@@ -418,62 +437,66 @@ class UsersController extends Controller
         $savecount=0;
         $unsavecount=0;
         if(isset($_FILES['csv_file'])){
-            if(is_uploaded_file($_FILES['csv_file']['tmp_name'])){
+            if(is_uploaded_file($_FILES['csv_file']['tmp_name'])) {
+                // echo $_FILES['csv_file']['tmp_name'];die;
                 $csvFile = fopen($_FILES['csv_file']['tmp_name'], 'r');
+
                 //skip first line
-                $header=fgetcsv($csvFile);
-                while(($line = fgetcsv($csvFile)) !== FALSE){
+                $header = fgetcsv($csvFile);
+                while (($line = fgetcsv($csvFile)) !== FALSE) {
                     $all_rows[] = array_combine($header, $line);
                 }
-                foreach($all_rows as $key =>$val) {
-                    //while(($line = fgetcsv($csvFile)) !== FALSE){
-                    $users = Users::model()->find('(username="'.$val['Username'].' or email="'.$val['Email'].'") and status="active"');
-                    if(count($users)<=0) {
-                        $users = new Users();
-                        $users->username = $val['Username'];
-                        $users->first_name = $val['First Name'];
-                        $users->last_name = $val['Last Name'];
-                        $users->email = $val['Email'];
-                        $users->course_id = base64_decode($_GET['c']);
-                        $users->fac_id = base64_decode($_GET['f']);
-                        $users->institution_id = base64_decode($_GET['i']);
-                        $password = bin2hex(openssl_random_pseudo_bytes(4));
-                        $users->password = $password;
-                        $users->role = '5';
+                if (!empty($all_rows)) {
+                    foreach ($all_rows as $key => $val) {
+                        //while(($line = fgetcsv($csvFile)) !== FALSE){
+                        $users = Users::model()->find("(username='" . $val['Username'] . "' or email='" . $val["Email"] . "') and status='active'");
+                        if (count($users) <= 0) {
+                            $users = new Users();
+                            $users->username = str_replace('#', '', $val['Username']);
+                            $users->first_name = $val['First Name'];
+                            $users->last_name = $val['Last Name'];
+                            $users->email = $val['Email'];
+                            $users->course_id = base64_decode($_GET['c']);
+                            $users->fac_id = base64_decode($_GET['f']);
+                            $users->institution_id = base64_decode($_GET['i']);
+                            $password = bin2hex(openssl_random_pseudo_bytes(4));
+                            $users->password = $password;
+                            $users->role = '5';
+                            $users->created_date = date('Y-m-d h:i:s');
+                            $users->updated_date = date('Y-m-d h:i:s');
 
-                        if($users->save(false)){
-                            $savecount=$savecount+1;
-                            $UserFaculties = new UserFaculties();
-                            $UserFaculties->user_id = $users->id;
-                            $UserFaculties->faculty_id = base64_decode($_GET['f']);
-                            $UserFaculties->save(false);
+                            if ($users->save(false)) {
+                                $savecount = $savecount + 1;
+                                $UserFaculties = new UserFaculties();
+                                $UserFaculties->user_id = $users->id;
+                                $UserFaculties->faculty_id = base64_decode($_GET['f']);
+                                $UserFaculties->save(false);
 
-                            $UserCourses = new UserCourses();
-                            $UserCourses->user_id = $users->id;
-                            $UserCourses->course_id = base64_decode($_GET['c']);
-                            $UserCourses->save(false);
+                                $UserCourses = new UserCourses();
+                                $UserCourses->user_id = $users->id;
+                                $UserCourses->course_id = base64_decode($_GET['c']);
+                                $UserCourses->save(false);
 
-                            //$to = $users->username;
-                            $course_name = $users->courses->name;
+                                //$to = $users->username;
+                                $course_name = $users->courses->name;
 
-                            $headers = "MIME-Version: 1.0" . "\r\n";
-                            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-                            $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
-                            $subject="Splat User registration";
-                            $url = $_SERVER['SERVER_NAME']."/site/login";
-                            $to =$users->email;
-                            $message = 'Dear '.$users->first_name.'<br/><br/>You have been added to the 
-                            Bournemouth University SPLAT website for the course '.$course_name.'. 
+                                $headers = "MIME-Version: 1.0" . "\r\n";
+                                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                                $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
+                                $subject = "Splat User registration";
+                                $url = $_SERVER['SERVER_NAME'] . "/site/login";
+                                $to = $users->email;
+                                $message = 'Dear ' . $users->first_name . '<br/><br/>You have been added to the 
+                            Bournemouth University SPLAT website for the course ' . $course_name . '. 
                             You can now login to assess your peers.<br/><br/>Your credentials are:<br/>
-							Website: '.$url.'<br/>
-							Username: '.$to.'<br/>
-							Password: '.$users->password;
-                            mail($to,$subject,$message,$headers);
+							Website: ' . $url . '<br/>
+							Username: ' . $to . '<br/>
+							Password: ' . $users->password;
+                                mail($to, $subject, $message, $headers);
+                            }
+                        } else {
+                            $unsavecount = +$unsavecount;
                         }
-                    }
-                    else
-                    {
-                        $unsavecount=+$unsavecount1;
                     }
                 }
                 fclose($csvFile);
@@ -546,7 +569,7 @@ class UsersController extends Controller
     public function actionDownload()
     {
         // Fetch the file info.
-        $filePath = Yii::app()->basePath."/../../bulkimport/Splat_Bulk_import.csv";
+        $filePath = Yii::app()->basePath."/../../bulkimport/SPLAT-Bulk import template.csv";
         $name="Splat_Bulk_import.csv";
         if(file_exists($filePath)) {
             Yii::app()->getRequest()->sendFile($name,file_get_contents( $filePath));

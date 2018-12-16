@@ -56,7 +56,7 @@ $avg=0;
                             <h4 class="panel-title">
                                 <a href="#" class="ing">
                                     <?= $i ." . " . $question->question ?>
-                                    <?php if($question->q_type=="R") { ?>
+                                    <?php if($question->q_type=="R")  { ?>
                                         : <b style="color:black !important"  data-qtype="<?=$question->q_type?>"
                                              class="que" id="question_<?=$i?>"></b>
                                     <?php } ?>

@@ -100,6 +100,9 @@ class Groups extends CActiveRecord
 
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
+            /*'pagination' => array(
+                'pageSize' => 2,
+            ),*/
         ));
     }
 
@@ -122,6 +125,7 @@ class Groups extends CActiveRecord
         $buttons.="<td class='button-column'>";
         $buttons .= CHtml::link('<img src="/admin/assets/f0f2f69/gridview/update.png" alt="Update">',
             Yii::app()->createUrl("groups/update",array('id'=>$data->id,'c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'])));
+
         $buttons .= CHtml::link('<img src="/admin/assets/f0f2f69/gridview/delete.png" alt="Delete">',
             Yii::app()->createUrl("groups/delete",array('id'=>$data->id,'c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'])),array('class'=>'linkClass','onclick'=>'return deletegroup()'));
         $buttons.="</td>";
@@ -137,15 +141,27 @@ class Groups extends CActiveRecord
     }
     public static function Actionbuttonsgroups($data)
     {
-        $buttons= "<td class='button-column'><a href=\"#\" id='$data->id' data-grp='$data->name' onclick='openmodel($data->id)' class=\"btn btn-info btn-sm\">
-          <span class=\"glyphicon glyphicon-eye-open\"></span> View
+
+       /* $buttons='<div class="btn-group">
+                <a href=\"#\" id=\'$data->id\' data-grp=\'$data->name\' onclick=\'openmodel($data->id)\' class=\"btn btn-info btn-sm\">
+                <button type="button" class="btn btn-primary fa fa-eye">View</button>
+                </a>
+                <a href="'.Yii::app()->CreateUrl("groups/update",array('id'=>$data->id,'c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'],'p'=>$_GET['p'])).'" >
+                <button type="button" class="btn btn-warning fa fa-edit"> Edit</button></a> 
+                <a onclick="deletegroup('.$data->id.')">
+                <button type="button" class="btn btn-danger fa fa-trash"> Delete</button></a>
+                </div>';*/
+
+        $buttons= "<div class='btn-group'>
+         <a href=\"#\" id='$data->id' data-grp='$data->name' onclick='openmodel($data->id)'>
+          <button type=\"button\" class=\"btn btn-info fa fa-eye\"> View</button>
         </a>";
-        //$buttons.='<td class="button-column">';
         $buttons .= '<a href="'.Yii::app()->CreateUrl("groups/update",array('id'=>$data->id,'c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'],'p'=>$_GET['p'])).'" >
                     <button type="button" class="btn btn-warning fa fa-edit"> Edit</button></a>  ';
-        $buttons .= '<a onclick="deletegroup('.$data->id.')"><button type="button" class="btn btn-danger fa fa-trash"> Delete</button></a>';
-        $buttons .= '<a data-group="'.$data->id.'" class="download"><button type="button" class="btn btn-success fa fa-download"> Download</button></a>';
-        $buttons.="</td>";
+        $buttons .= '<a onclick="deletegroup('.$data->id.')">
+        <button type="button" class="btn btn-danger fa fa-trash"> Delete</button></a>';
+        //$buttons .= '<a data-group="'.$data->id.'" class="download"><button type="button" class="btn btn-success fa fa-download"> Download</button></a>';
+        $buttons.="</div>";
         echo $buttons;
     }
 

@@ -49,6 +49,7 @@ class Users extends CActiveRecord
             array('username,first_name,password,last_name, course_id, institution_id, fac_id, role', 'required','on'=>'update'),
             array('institution_id', 'numerical', 'integerOnly'=>true),
             array('first_name,last_name','required','on'=>'edit'),
+            array('email', 'email','message'=>"The email isn't correct"),
             array('username, password, first_name, last_name,role', 'required','on'=>'negelect'),
             array('username, password, first_name, last_name, profile', 'length', 'max'=>255),
             array('status', 'length', 'max'=>8),
@@ -58,7 +59,8 @@ class Users extends CActiveRecord
             // array('username','unique'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, username, password, first_name, last_name, profile, status, created_date, updated_date,email,course_id, institution_id, fac_id, role', 'safe', 'on'=>'search'),
+            array('id, username, password, first_name, last_name, profile, status, created_date, 
+            updated_date,email,course_id, institution_id, fac_id, role', 'safe', 'on'=>'search'),
         );
     }
 
@@ -92,7 +94,7 @@ class Users extends CActiveRecord
     {
         return array(
             'id' => 'ID',
-            'username' => 'Email',
+            'username' => 'Username',
             'password' => 'Password',
             'first_name' => 'First Name',
             'last_name' => 'Last Name',
@@ -155,6 +157,9 @@ class Users extends CActiveRecord
 
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
+            'pagination' => array(
+                'pageSize' => 8,
+            ),
         ));
     }
 

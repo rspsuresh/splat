@@ -3866,3 +3866,776 @@ Stack trace:
 REQUEST_URI=/splat/admin/users/delete/27?ajax=users-grid
 HTTP_REFERER=http://localhost/splat/admin/users/admin
 ---
+2018/12/06 16:13:59 [error] [php] Invalid argument supplied for foreach() (H:\xampp\htdocs\splat\yii\framework\db\schema\CDbCommandBuilder.php:1345)
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): GroupusersController->actionDownload()
+#1 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#2 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): GroupusersController->runAction()
+#3 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#4 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#5 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): GroupusersController->filterAccessControl()
+#6 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#7 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#8 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): GroupusersController->runActionWithFilters()
+#9 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): GroupusersController->run()
+#10 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#11 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#12 H:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/groupusers/download?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1&group=3
+in H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php (220)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2018/12/06 16:15:02 [error] [php] Invalid argument supplied for foreach() (H:\xampp\htdocs\splat\yii\framework\db\schema\CDbCommandBuilder.php:1345)
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): GroupusersController->actionDownload()
+#1 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#2 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): GroupusersController->runAction()
+#3 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#4 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#5 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): GroupusersController->filterAccessControl()
+#6 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#7 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#8 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): GroupusersController->runActionWithFilters()
+#9 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): GroupusersController->run()
+#10 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#11 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#12 H:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/groupusers/download?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1&group=3
+in H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php (220)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2018/12/06 16:15:19 [error] [php] Invalid argument supplied for foreach() (H:\xampp\htdocs\splat\yii\framework\db\schema\CDbCommandBuilder.php:1345)
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): GroupusersController->actionDownload()
+#1 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#2 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): GroupusersController->runAction()
+#3 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#4 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#5 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): GroupusersController->filterAccessControl()
+#6 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#7 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#8 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): GroupusersController->runActionWithFilters()
+#9 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): GroupusersController->run()
+#10 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#11 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#12 H:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/groupusers/download?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1&group=3
+in H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php (220)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2018/12/07 17:14:30 [error] [php] Invalid argument supplied for foreach() (H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php:310)
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#1 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): GroupusersController->runAction()
+#2 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#3 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#4 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): GroupusersController->filterAccessControl()
+#5 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#6 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#7 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): GroupusersController->runActionWithFilters()
+#8 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): GroupusersController->run()
+#9 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#10 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#11 H:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/groupusers/download?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D&p=1
+in H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php (310)
+in H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php (300)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2018/12/07 17:14:33 [error] [php] Invalid argument supplied for foreach() (H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php:310)
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#1 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): GroupusersController->runAction()
+#2 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#3 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#4 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): GroupusersController->filterAccessControl()
+#5 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#6 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#7 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): GroupusersController->runActionWithFilters()
+#8 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): GroupusersController->run()
+#9 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#10 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#11 H:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/groupusers/download?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D&p=1
+in H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php (310)
+in H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php (300)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2018/12/07 17:14:39 [error] [php] Invalid argument supplied for foreach() (H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php:310)
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#1 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): GroupusersController->runAction()
+#2 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#3 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#4 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): GroupusersController->filterAccessControl()
+#5 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#6 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#7 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): GroupusersController->runActionWithFilters()
+#8 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): GroupusersController->run()
+#9 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#10 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#11 H:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/groupusers/download?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D&p=1
+in H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php (310)
+in H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php (300)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2018/12/07 17:32:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.tabletoCSV.js".' in H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/jquery.table...')
+#1 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/jquery.tabletoCSV.js
+HTTP_REFERER=http://localhost/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2018/12/07 17:32:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.tabletoCSV.js".' in H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/jquery.table...')
+#1 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/jquery.tabletoCSV.js
+HTTP_REFERER=http://localhost/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2018/12/07 17:34:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.tabletoCSV.js".' in H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/jquery.table...')
+#1 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/jquery.tabletoCSV.js
+HTTP_REFERER=http://localhost/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2018/12/07 17:34:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.tabletoCSV.js".' in H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/jquery.table...')
+#1 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/jquery.tabletoCSV.js
+HTTP_REFERER=http://localhost/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2018/12/07 17:36:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.tabletoCSV.js".' in H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/jquery.table...')
+#1 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/jquery.tabletoCSV.js
+HTTP_REFERER=http://localhost/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2018/12/07 17:36:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.tabletoCSV.js".' in H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/jquery.table...')
+#1 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/jquery.tabletoCSV.js
+HTTP_REFERER=http://localhost/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2018/12/07 17:36:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.tabletoCSV.js".' in H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/jquery.table...')
+#1 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/jquery.tabletoCSV.js
+HTTP_REFERER=http://localhost/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2018/12/07 17:36:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.tabletoCSV.js".' in H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/jquery.table...')
+#1 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/jquery.tabletoCSV.js
+HTTP_REFERER=http://localhost/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2018/12/07 17:36:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.tabletoCSV.js".' in H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/jquery.table...')
+#1 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/jquery.tabletoCSV.js
+HTTP_REFERER=http://localhost/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2018/12/07 17:38:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.tabletoCSV.js".' in H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/jquery.table...')
+#1 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/jquery.tabletoCSV.js
+HTTP_REFERER=http://localhost/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2018/12/07 17:38:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.tabletoCSV.js".' in H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/jquery.table...')
+#1 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/jquery.tabletoCSV.js
+HTTP_REFERER=http://localhost/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2018/12/07 17:39:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.tabletoCSV.js".' in H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/jquery.table...')
+#1 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/jquery.tabletoCSV.js
+HTTP_REFERER=http://localhost/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2018/12/07 17:40:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.tabletoCSV.js".' in H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/jquery.table...')
+#1 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/jquery.tabletoCSV.js
+HTTP_REFERER=http://localhost/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2018/12/07 17:40:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.tabletoCSV.js".' in H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/jquery.table...')
+#1 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/jquery.tabletoCSV.js
+HTTP_REFERER=http://localhost/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2018/12/07 17:40:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.tabletoCSV.js".' in H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/jquery.table...')
+#1 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/jquery.tabletoCSV.js
+HTTP_REFERER=http://localhost/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2018/12/07 17:42:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.tabletoCSV.js".' in H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/jquery.table...')
+#1 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/jquery.tabletoCSV.js
+HTTP_REFERER=http://localhost/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2018/12/07 17:43:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.tabletoCSV.js".' in H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/jquery.table...')
+#1 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/jquery.tabletoCSV.js
+HTTP_REFERER=http://localhost/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2018/12/07 17:43:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.tabletoCSV.js".' in H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/jquery.table...')
+#1 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/jquery.tabletoCSV.js
+HTTP_REFERER=http://localhost/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2018/12/07 17:43:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.tabletoCSV.js".' in H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/jquery.table...')
+#1 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/jquery.tabletoCSV.js
+HTTP_REFERER=http://localhost/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2018/12/07 17:44:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.tabletoCSV.js".' in H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/jquery.table...')
+#1 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/jquery.tabletoCSV.js
+HTTP_REFERER=http://localhost/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2018/12/07 17:44:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.tabletoCSV.js".' in H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/jquery.table...')
+#1 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/jquery.tabletoCSV.js
+HTTP_REFERER=http://localhost/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2018/12/07 17:45:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.tabletoCSV.js".' in H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/jquery.table...')
+#1 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/jquery.tabletoCSV.js
+HTTP_REFERER=http://localhost/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2018/12/07 17:45:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/jquery.tabletoCSV.js".' in H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/jquery.table...')
+#1 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/jquery.tabletoCSV.js
+---
+2018/12/09 17:18:12 [error] [exception.CException] exception 'CException' with message 'Property "CDbCriteria.0" is not defined.' in H:\xampp\htdocs\splat\yii\framework\base\CComponent.php:345
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\db\schema\CDbCriteria.php(319): CComponent->__set('0', Array)
+#1 H:\xampp\htdocs\splat\yii\framework\db\schema\CDbCommandBuilder.php(1175): CDbCriteria->__construct(Array)
+#2 H:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2947): CDbCommandBuilder->createCriteria(Array, Array)
+#3 H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php(208): CActiveRecord->findAll(Array)
+#4 H:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): GroupusersController->actionDownload()
+#5 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#6 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#7 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#8 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#9 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#10 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#11 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#12 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('download')
+#14 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('groupusers/down...')
+#15 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#16 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/splat/admin/groupusers/download?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2018/12/10 17:33:32 [error] [php] Invalid argument supplied for foreach() (H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php:430)
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CInlineAction->runWithParamsInternal()
+#1 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#2 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): UsersController->runAction()
+#3 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#4 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#5 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): UsersController->filterAccessControl()
+#6 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#7 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#8 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): UsersController->runActionWithFilters()
+#9 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): UsersController->run()
+#10 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#11 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#12 H:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/users/cadmin?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+in H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (430)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2018/12/10 17:47:03 [error] [php] fopen() expects parameter 1 to be a valid path, array given (H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php:424)
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs()
+#1 H:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CInlineAction->runWithParamsInternal()
+#2 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#3 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): UsersController->runAction()
+#4 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#5 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#6 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): UsersController->filterAccessControl()
+#7 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#8 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#9 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): UsersController->runActionWithFilters()
+#10 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): UsersController->run()
+#11 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#12 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#13 H:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/users/cadmin?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+in H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (424)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2018/12/10 17:49:16 [error] [php] array_combine() expects parameter 1 to be array, null given (H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php:429)
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs()
+#1 H:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CInlineAction->runWithParamsInternal()
+#2 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#3 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): UsersController->runAction()
+#4 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#5 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#6 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): UsersController->filterAccessControl()
+#7 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#8 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#9 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): UsersController->runActionWithFilters()
+#10 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): UsersController->run()
+#11 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#12 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#13 H:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/users/cadmin?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+in H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (429)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2018/12/10 17:55:03 [error] [php] fgetcsv() expects parameter 1 to be resource, null given (H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php:426)
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs()
+#1 H:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CInlineAction->runWithParamsInternal()
+#2 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#3 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): UsersController->runAction()
+#4 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#5 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#6 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): UsersController->filterAccessControl()
+#7 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#8 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#9 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): UsersController->runActionWithFilters()
+#10 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): UsersController->run()
+#11 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#12 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#13 H:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/users/cadmin?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+in H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (426)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2018/12/11 13:33:40 [error] [php] array_combine() expects parameter 1 to be array, null given (H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php:429)
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs()
+#1 H:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CInlineAction->runWithParamsInternal()
+#2 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#3 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): UsersController->runAction()
+#4 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#5 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#6 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): UsersController->filterAccessControl()
+#7 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#8 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#9 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): UsersController->runActionWithFilters()
+#10 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): UsersController->run()
+#11 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#12 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#13 H:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/users/cadmin?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+in H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (429)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2018/12/11 13:37:35 [error] [php] fgetcsv() expects parameter 1 to be resource, string given (H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php:431)
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs()
+#1 H:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CInlineAction->runWithParamsInternal()
+#2 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#3 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): UsersController->runAction()
+#4 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#5 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#6 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): UsersController->filterAccessControl()
+#7 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#8 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#9 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): UsersController->runActionWithFilters()
+#10 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): UsersController->run()
+#11 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#12 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#13 H:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/users/cadmin?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+in H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (431)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2018/12/11 14:01:41 [error] [php] fopen(SPLAT - Bulk import test file.csv): failed to open stream: No such file or directory (H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php:426)
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs()
+#1 H:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CInlineAction->runWithParamsInternal()
+#2 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#3 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): UsersController->runAction()
+#4 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#5 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#6 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): UsersController->filterAccessControl()
+#7 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#8 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#9 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): UsersController->runActionWithFilters()
+#10 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): UsersController->run()
+#11 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#12 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#13 H:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/users/cadmin?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+in H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (426)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2018/12/11 14:36:17 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ben.kenbobi@bournemouth.ac.uk") and status="active" LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `users` `t` WHERE (username="#Ben.Kenbobi or email="ben.kenbobi@bournemouth.ac.uk") and status="active" LIMIT 1.
+in H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (435)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2018/12/11 14:36:17 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ben.kenbobi@bournemouth.ac.uk") and status="active" LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `users` `t` WHERE (username="#Ben.Kenbobi or email="ben.kenbobi@bournemouth.ac.uk") and status="active" LIMIT 1' in H:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(829): CDbCommand->queryInternal('fetch', Array, Array)
+#1 H:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryRow()
+#2 H:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2921): CActiveRecord->query(Object(CDbCriteria))
+#3 H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(435): CActiveRecord->find('(username="#Ben...')
+#4 [internal function]: UsersController->actionCAdmin('MQ==')
+#5 H:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#6 H:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#7 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#8 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#9 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#10 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#11 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#12 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#13 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#14 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('cadmin')
+#16 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/cadmin')
+#17 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#18 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/splat/admin/users/cadmin?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+---
+2018/12/11 14:36:35 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ben.kenbobi@bournemouth.ac.uk") and status="active" LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `users` `t` WHERE (username="#Ben.Kenbobi or email="ben.kenbobi@bournemouth.ac.uk") and status="active" LIMIT 1.
+in H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (435)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2018/12/11 14:36:35 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ben.kenbobi@bournemouth.ac.uk") and status="active" LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `users` `t` WHERE (username="#Ben.Kenbobi or email="ben.kenbobi@bournemouth.ac.uk") and status="active" LIMIT 1' in H:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(829): CDbCommand->queryInternal('fetch', Array, Array)
+#1 H:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryRow()
+#2 H:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2921): CActiveRecord->query(Object(CDbCriteria))
+#3 H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(435): CActiveRecord->find('(username="#Ben...')
+#4 [internal function]: UsersController->actionCAdmin('MQ==')
+#5 H:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#6 H:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#7 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#8 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#9 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#10 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#11 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#12 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#13 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#14 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('cadmin')
+#16 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/cadmin')
+#17 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#18 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/splat/admin/users/cadmin?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+---
+2018/12/11 16:59:20 [error] [php] count() expects at least 1 parameter, 0 given (H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php:269)
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#1 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): GroupusersController->runAction()
+#2 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#3 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#4 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): GroupusersController->filterAccessControl()
+#5 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#6 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#7 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): GroupusersController->runActionWithFilters()
+#8 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): GroupusersController->run()
+#9 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#10 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#11 H:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/groupusers/download?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+in H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php (269)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2018/12/11 16:59:23 [error] [php] count() expects at least 1 parameter, 0 given (H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php:269)
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#1 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): GroupusersController->runAction()
+#2 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#3 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#4 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): GroupusersController->filterAccessControl()
+#5 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#6 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#7 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): GroupusersController->runActionWithFilters()
+#8 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): GroupusersController->run()
+#9 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#10 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#11 H:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/groupusers/download?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+in H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php (269)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2018/12/11 17:00:02 [error] [php] count() expects at least 1 parameter, 0 given (H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php:269)
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#1 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): GroupusersController->runAction()
+#2 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#3 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#4 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): GroupusersController->filterAccessControl()
+#5 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#6 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#7 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): GroupusersController->runActionWithFilters()
+#8 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): GroupusersController->run()
+#9 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#10 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#11 H:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/groupusers/download?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+in H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php (269)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2018/12/11 17:00:47 [error] [php] count() expects at least 1 parameter, 0 given (H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php:269)
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#1 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): GroupusersController->runAction()
+#2 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#3 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#4 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): GroupusersController->filterAccessControl()
+#5 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#6 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#7 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): GroupusersController->runActionWithFilters()
+#8 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): GroupusersController->run()
+#9 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#10 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#11 H:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/groupusers/download?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+in H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php (269)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2018/12/11 17:04:41 [error] [php] count() expects at least 1 parameter, 0 given (H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php:267)
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#1 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): GroupusersController->runAction()
+#2 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#3 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#4 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): GroupusersController->filterAccessControl()
+#5 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#6 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#7 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): GroupusersController->runActionWithFilters()
+#8 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): GroupusersController->run()
+#9 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#10 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#11 H:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/groupusers/download?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+in H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php (267)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2018/12/11 17:11:39 [error] [exception.CException] exception 'CException' with message 'Property "CDbCriteria.:from" is not defined.' in H:\xampp\htdocs\splat\yii\framework\base\CComponent.php:345
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\db\schema\CDbCriteria.php(319): CComponent->__set(':from', '74')
+#1 H:\xampp\htdocs\splat\yii\framework\db\schema\CDbCommandBuilder.php(1175): CDbCriteria->__construct(Array)
+#2 H:\xampp\htdocs\splat\yii\framework\db\schema\CDbCommandBuilder.php(1327): CDbCommandBuilder->createCriteria(Array, Array)
+#3 H:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(3679): CDbCommandBuilder->createColumnCriteria(Object(CMysqlTableSchema), 'from_user=:from...', Array, Array)
+#4 H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(379): CActiveRecord->deleteAllByAttributes('from_user=:from...', Array)
+#5 [internal function]: UsersController->actionDelete('74')
+#6 H:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 H:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#8 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#9 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#10 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#11 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#12 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#13 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#14 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#15 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('delete')
+#17 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/delete')
+#18 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#19 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/splat/admin/users/delete/74?ajax=users-grid
+HTTP_REFERER=http://localhost/splat/admin/users/admin
+---
+2018/12/11 17:19:15 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (91)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2018/12/11 17:19:15 [warning] [application] Failed to set unsafe attribute "fac_id" of "Users".
+in H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (91)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2018/12/11 17:19:15 [warning] [application] Failed to set unsafe attribute "course_id" of "Users".
+in H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (91)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2018/12/11 17:19:17 [error] [php] mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php:173)
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#1 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): UsersController->runAction()
+#2 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#3 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#4 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): UsersController->filterAccessControl()
+#5 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#6 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#7 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): UsersController->runActionWithFilters()
+#8 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): UsersController->run()
+#9 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#10 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#11 H:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/users/create
+in H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (173)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2018/12/12 12:18:47 [error] [exception.CException] exception 'CException' with message 'Property "CGridView.sortable" is not defined.' in H:\xampp\htdocs\splat\yii\framework\base\CComponent.php:345
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CWidgetFactory.php(321): CComponent->__set('sortable', false)
+#1 H:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(291): CWidgetFactory->createWidget(Object(GroupusersController), 'zii.widgets.gri...', Array)
+#2 H:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(359): CBaseController->createWidget('zii.widgets.gri...', Array)
+#3 H:\xampp\htdocs\splat\admin\protected\views\groupusers\projectadmin.php(245): CBaseController->widget('zii.widgets.gri...', Array)
+#4 H:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('H:\\xampp\\htdocs...')
+#5 H:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('H:\\xampp\\htdocs...', Array, true)
+#6 H:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('H:\\xampp\\htdocs...', Array, true)
+#7 H:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('projectadmin', Array, true)
+#8 H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php(201): CController->render('projectadmin', Array)
+#9 [internal function]: GroupusersController->actionProjectgroups('1')
+#10 H:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(GroupusersController), Array)
+#11 H:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(GroupusersController), Object(ReflectionMethod), Array)
+#12 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#13 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#14 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#15 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#16 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#17 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#18 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#19 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('projectgroups')
+#21 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('groupusers/proj...')
+#22 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#23 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+HTTP_REFERER=http://localhost/splat/admin/site/courseItems?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D
+---
+2018/12/16 14:19:59 [error] [exception.CException] exception 'CException' with message 'Property "CDataColumn.headerOptions" is not defined.' in H:\xampp\htdocs\splat\yii\framework\base\CComponent.php:345
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\YiiBase.php(439): CComponent->__set('headerOptions', Array)
+#1 H:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(775): YiiBase::createComponent(Array, Object(CGridView))
+#2 H:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(717): CGridView->initColumns()
+#3 H:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(293): CGridView->init()
+#4 H:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(359): CBaseController->createWidget('zii.widgets.gri...', Array)
+#5 H:\xampp\htdocs\splat\admin\protected\views\groupusers\projectadmin.php(162): CBaseController->widget('zii.widgets.gri...', Array)
+#6 H:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('H:\\xampp\\htdocs...')
+#7 H:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('H:\\xampp\\htdocs...', Array, true)
+#8 H:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('H:\\xampp\\htdocs...', Array, true)
+#9 H:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('projectadmin', Array, true)
+#10 H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php(201): CController->render('projectadmin', Array)
+#11 [internal function]: GroupusersController->actionProjectgroups('1')
+#12 H:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(GroupusersController), Array)
+#13 H:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(GroupusersController), Object(ReflectionMethod), Array)
+#14 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#15 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#16 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#17 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#18 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#19 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#20 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#21 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('projectgroups')
+#23 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('groupusers/proj...')
+#24 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#25 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+HTTP_REFERER=http://localhost/splat/admin/site/courseItems?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D
+---
+2018/12/16 14:20:36 [error] [exception.CException] exception 'CException' with message 'Property "CDataColumn.headerOptions" is not defined.' in H:\xampp\htdocs\splat\yii\framework\base\CComponent.php:345
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\YiiBase.php(439): CComponent->__set('headerOptions', Array)
+#1 H:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(775): YiiBase::createComponent(Array, Object(CGridView))
+#2 H:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(717): CGridView->initColumns()
+#3 H:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(293): CGridView->init()
+#4 H:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(359): CBaseController->createWidget('zii.widgets.gri...', Array)
+#5 H:\xampp\htdocs\splat\admin\protected\views\groupusers\projectadmin.php(162): CBaseController->widget('zii.widgets.gri...', Array)
+#6 H:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('H:\\xampp\\htdocs...')
+#7 H:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('H:\\xampp\\htdocs...', Array, true)
+#8 H:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('H:\\xampp\\htdocs...', Array, true)
+#9 H:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('projectadmin', Array, true)
+#10 H:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php(201): CController->render('projectadmin', Array)
+#11 [internal function]: GroupusersController->actionProjectgroups('1')
+#12 H:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(GroupusersController), Array)
+#13 H:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(GroupusersController), Object(ReflectionMethod), Array)
+#14 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#15 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#16 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#17 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#18 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#19 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#20 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#21 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('projectgroups')
+#23 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('groupusers/proj...')
+#24 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#25 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/splat/admin/groupusers/projectgroups/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+HTTP_REFERER=http://localhost/splat/admin/site/courseItems?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D
+---
+2018/12/16 15:03:09 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in H:\xampp\htdocs\splat\yii\framework\web\CController.php:671
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\CController.php(617): CController->invalidActionParams(Object(CInlineAction))
+#1 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#2 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#3 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#4 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#5 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#6 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#7 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('courseitems')
+#9 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/courseitem...')
+#10 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#11 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/splat/admin/site/courseitems
+HTTP_REFERER=http://localhost/splat/admin/groups/create?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---

@@ -28,8 +28,17 @@
             <?php echo $form->labelEx($model,'username'); ?>
         </div>
         <div class="col-lg-8 padzero">
-            <?php echo $form->textField($model,'username',array('size'=>60,'maxlength'=>255,'placeholder'=>'Email')); ?>
+            <?php echo $form->textField($model,'username',array('size'=>60,'maxlength'=>255,'placeholder'=>'Username')); ?>
             <?php echo $form->error($model,'username'); ?>
+        </div>
+    </div>
+    <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
+        <div class="col-lg-4 padzero">
+            <?php echo $form->labelEx($model,'email'); ?>
+        </div>
+        <div class="col-lg-8 padzero">
+            <?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>255,'placeholder'=>'Email')); ?>
+            <?php echo $form->error($model,'email'); ?>
         </div>
     </div>
     <?php if(!$model->getIsNewRecord()) { ?>
@@ -148,8 +157,8 @@
             if (e.which == 32)
                 return false;
         });
-        $('#Users_username,#Users_password').bind("cut copy paste",function(e) {
+        /*$('#Users_username,#Users_password').bind("cut copy paste",function(e) {
             e.preventDefault();
-        });
+        });*/
     });
 </script>

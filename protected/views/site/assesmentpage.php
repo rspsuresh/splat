@@ -32,7 +32,7 @@
 $usergroup = GroupUsers::model()->find('user_id='.Yii::app()->user->id);
 $groupusers = array();
 if(count($usergroup)>0)
-    $groupusers = GroupUsers::model()->findAll('group_id='.$usergroup->group_id);
+    $groupusers = GroupUsers::model()->with('user')->findAll('group_id='.$usergroup->group_id.' and user.status="active"');
 ?>
 <section id="wrapper" >
     <div class="container">

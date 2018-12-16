@@ -205,91 +205,98 @@ class GroupusersController extends Controller
     {
         //$val['Username']="dhamuace@gmail.com";
         //$users = Users::model()->find('(username="'.$val['Username'].'" or email="'.$val['Username'].'") and status="active"');
-
-        $projectassesment=Multipleassesment::model()->findAll("prj_id={$_GET['p']}");
+        $projectassesment=Multipleassesment::model()->findAll(array('condition'=>'prj_id='.$_GET['p'],'order'=>'due_date asc'));
+        //echo "<pre>";print_r($projectassesment);die;
         $test="";
-        $html='<table class="table" border = \'1\'>
+        $html='<table id="resulttable" class="table" border = \'1\'>
 <tr><th scope="col">Username</th>';
         for($i=1;$i<=count($projectassesment);$i++)
         {
             $html.='<th>Assessment '.$i .' Points Grade</th>';
         }
         $html.='<th>End-of-Line Indicator</th></tr>';
-        //echo $html;die;
-
-        $sql="SELECT A.*,B.first_name,B.last_name,B.id as userid, C.project_id  FROM `group_users` 
+        $html.="<tbody>";
+        $projectgrp=ProjectGroups::model()->findAll(array('condition'=>'project_id='.$_GET['p'],'order'=>'id asc'));
+        if(!empty($projectgrp))
+        {
+            foreach($projectgrp as $key =>$prval)
+            {
+                $sql="SELECT A.*,B.first_name,B.last_name,B.username,B.id as userid, C.project_id  FROM `group_users` 
                   as A left join users as B on B.id=A.user_id
-                   left join project_groups as C on A.group_id=C.group_id WHERE A.`group_id` ={$_GET['group']} and B.status='active'";
-        $usermodel=Yii::app()->db->Createcommand($sql)->QueryAll();
-        //echo "<pre>";print_r($usermodel);die;
+                   left join project_groups as C on A.group_id=C.group_id WHERE A.`group_id` ={$prval['group_id']} and B.status='active'";
+                $usermodel=Yii::app()->db->Createcommand($sql)->QueryAll();
 
 
-        $courseid=base64_decode($_GET['c']);
-        $sqldcque="SELECT GROUP_CONCAT(question_id) as question 
+
+                $courseid=base64_decode($_GET['c']);
+                $sqldcque="SELECT GROUP_CONCAT(question_id) as question 
          FROM `delete_custom_question` WHERE `course_id` =$courseid";
-        $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
-        $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
-        $questions=Questions::model()->findAll('institution='.base64_decode($_GET['i']).'
+                $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
+                $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
+                $questions=Questions::model()->findAll('institution='.base64_decode($_GET['i']).'
             and faculty='.base64_decode($_GET['f']).'
              and course='.base64_decode($_GET['c']).' and status="active" and id NOT IN ('.$ids.') 
              or ( type="default" and id NOT IN ('.$ids.')) and q_type="R"');
 
 
-        $dividedcount=count($questions);
-        $html.="<tbody>";
-        foreach($usermodel as $key =>$val)
-        {
-            $test.="<td>".$val['first_name']."</td>";
-            for($i=0;$i<count($projectassesment);$i++)
-            {
-                $resultsql="SELECT sum(value) as total FROM `assess` 
+                $dividedcount=count($questions);
+
+                foreach($usermodel as $key =>$val)
+                {
+                    $test.="<td>".$val['username']."</td>";
+                    for($i=0;$i<count($projectassesment);$i++)
+                    {
+                        $resultsql="SELECT sum(value) as total FROM `assess` 
                  left join questions on assess.question=questions.id
                   where to_user={$val['user_id']} and (value !='' and value !=0) 
                   and questions.q_type='R' and  questions.status='active' 
-                  and assess.project={$_GET["p"]} and assess.grp_id={$_GET['group']}
+                  and assess.project={$_GET["p"]} and assess.grp_id={$prval['group_id']}
                   and  assess.asses_id={$projectassesment[$i]["id"]}  order by assess.question asc";
-                $sumresult=Yii::app()->db->Createcommand($resultsql)->QueryAll();
-              // echo $resultsql."<pre>";
-                $rowfind="SELECT * FROM `assess` left join questions on assess.question=questions.id
+                        $sumresult=Yii::app()->db->Createcommand($resultsql)->QueryAll();
+                        // echo $resultsql."<pre>";
+                        $rowfind="SELECT * FROM `assess` left join questions on assess.question=questions.id
                   where to_user={$val['user_id']} and (value !='' and value !=0) 
                   and questions.q_type='R' and  questions.status='active' 
                   and  assess.asses_id={$projectassesment[$i]["id"]}  
-                  and assess.project={$_GET["p"]} and assess.grp_id={$_GET['group']}
+                  and assess.project={$_GET["p"]} and assess.grp_id={$prval['group_id']}
                   group by assess.from_user order by assess.question asc";
 
-                $rowfindresult=Yii::app()->db->Createcommand($rowfind)->QueryAll();
+                        $rowfindresult=Yii::app()->db->Createcommand($rowfind)->QueryAll();
 
 
-                if(count($rowfindresult) >0)
-                {
+                        if(count($rowfindresult) >0)
+                        {
 
-                    $assesvaluebyquestion=($sumresult[0]['total'])/($dividedcount);
-                    $asses=($assesvaluebyquestion)/count($rowfindresult);
-                    $valuecheck=(!empty($asses))?$asses:'#';
-                    $test.='<td>'.$valuecheck.'</td>';
+                            $assesvaluebyquestion=($sumresult[0]['total'])/($dividedcount);
+                            $asses=($assesvaluebyquestion)/count($rowfindresult);
+                            $valuecheck=(!empty($asses))?$asses:'#';
+                            $test.='<td aligh="left">'.round($valuecheck, 2).'</td>';
 
-                }
-                else
-                {
+                        }
+                        else
+                        {
+                            $test.='<td>#</td>';
+                        }
+
+                    }
                     $test.='<td>#</td>';
-                }
+                    $html.="<tr>".$test."</tr>";
+                    $test="";
 
+                }
             }
-            $test.='<td>#</td>';
-            $html.="<tr>".$test."</tr>";
-            $test="";
 
         }
 
         $html.='</table>';
-        //echo $html;die;
-        $file="demo.xls";
-        header("Content-type: application/vnd.ms-excel");
-        header("Content-Disposition: attachment; filename=$file");
-        Yii::app()->user->setFlash('success','Report download successfully');
+
+        /*   $file="Export scores template.csv";
+           header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+           header("Content-type: text/csv");
+           header("Content-Disposition: attachment; filename=\"$file\"");
+           header("Expires: 0");*/
         echo $html;die;
     }
-
     public function actiongroupasses($id)
     {
         $this->pageTitle="SPLAT - Assessment";
@@ -378,7 +385,6 @@ class GroupusersController extends Controller
     }
     public function actionUsercheck()
     {
-
         if($_POST)
         {
             $usercheck=Users::model()->findByAttributes(array("username"=>$_POST['emailid']));

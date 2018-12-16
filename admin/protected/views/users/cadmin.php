@@ -42,22 +42,22 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
     <div class="container">
         <div class="user-institute">
             <?php  if(Yii::app()->user->getState('role')=='Superuser')
-            { ?>
+            {?>
                 <p>You are here: <a href="<?php echo Yii::app()->createUrl('site/index'); ?>">Home</a> /
                     <a href="<?php echo Yii::app()->createUrl('site/faculties',
                         array('i'=>base64_encode($institution->id)));?>">Faculties</a> /
                     <a href="<?php echo Yii::app()->createUrl('site/courses',array('i'=>base64_encode($institution->id),
                         'f'=>base64_encode($faculty->id)));?>"><?php echo ucfirst($faculty->name);?></a> /
-                    <b><?php echo ucfirst($course->name); ?></b></p>
+                    <a href="<?=Yii::app()->createUrl('site/courseitems',array('c'=>$_GET['c'],'f'=>$_GET['f'],'i'=>$_GET['i']))?>"><?php echo ucfirst($course->name); ?></a> / <b>Users</b></p>
             <?php }
             else { ?>
-                <p>You are here: <a href="<?php echo Yii::app()->createUrl('site/faculties',
+                <a>You are here: <a href="<?php echo Yii::app()->createUrl('site/faculties',
                         array('i'=>base64_encode($institution->id)));?>">Faculties</a> /
                     <a href="<?php echo Yii::app()->createUrl('site/courses',
                         array('i'=>base64_encode($institution->id),
                             'f'=>base64_encode($faculty->id)));?>">
-                        <?php echo ucfirst($faculty->name);?></a> / <b>
-                        <?php echo ucfirst($course->name); ?></b></p>
+                        <?php echo ucfirst($faculty->name);?></a> /
+                    <a href="<?=Yii::app()->createUrl('site/courseitems',array('c'=>$_GET['c'],'f'=>$_GET['f'],'i'=>$_GET['i']))?>"><?php echo ucfirst($course->name); ?></a> / <b>Users</b>
             <?php } ?>
         </div>
     </div>
@@ -87,11 +87,11 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                 </button></a>
             </div>
             <div class="col-lg-12" style="padding-top: 10px">
-               <!-- <p><span style="color:red;"><a href="#">
+               <p><span style="color:red;"><a href="#">
           <span class="glyphicon glyphicon-info-sign"></span>
         </a>   The file should only be in .csv format.
                         Please download and refer to the attached file
-                        <a  onclick='download1()'>Splat_Bulk_import.csv</a></span></p>-->
+                        <a  onclick='download1()'>Splat_Bulk_import.csv</a></span></p>
             </div>
         </div>
         <?php $this->widget('zii.widgets.grid.CGridView', array(
@@ -135,6 +135,7 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
 </section>
 <script type="text/javascript">
     $(function () {
+        $('input').addClass('form-control');
         $('#bulk_import').change(function(){
             $('#bulk-import').submit();
         });

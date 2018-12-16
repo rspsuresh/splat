@@ -190,6 +190,7 @@ class Multipleassesment extends CActiveRecord
 
     }
     public static function ActionButtons($id,$row) {
+
         $statusknw=Multipleassesment::model()->findByPk($id);
         $icon=($statusknw->status =="I")?'<i class="fa fa-times" aria-hidden="true"></i>':'<i class="fa fa-check" aria-hidden="true"></i>';
         $iconview='<i class="fa fa-eye" aria-hidden="true"></i>';
@@ -201,12 +202,18 @@ class Multipleassesment extends CActiveRecord
         $buttons="<td class='button-column'>";
         if($statusknw->status=="I")
         {
-            $buttons.="<a href='#' onclick='alternate($id)'><button type=\"button\" class=\"btn btn-danger\">Activate</button></a>
+            $buttons.="<a href='#' data-status='A' onclick='alternate($id,this)'><button type=\"button\" class=\"btn btn-danger\">Inactive</button></a>
                        <a href='#' onclick='deleteasses($id)'><button type=\"button\" class=\"btn btn-warning\">Delete</button></a>";
         }
         else if($statusknw->status=="A")
-        {
-            $buttons.="<a href='#' onclick='alternate($id)'><button type=\"button\" class=\"btn btn-success\">Active</button></a>
+        {   $html="<div class=\"dropdown\">
+                          <button class=\"btn btn-primary dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\">Active
+                          <span class=\"caret\"></span></button>
+                          <ul class=\"dropdown-menu\">
+                            <li><a href=\"#\">In-active</a></li>
+                          </ul>
+                  </div>";
+            $buttons.="<a href='#' data-status='I' onclick='alternate($id,this)'><button type=\"button\" class=\"btn btn-success present\">Active</button></a>
                        <a href='#' onclick='complete($id)'><button type=\"button\" class=\"btn btn-primary\">Mark as Complete</button></a>
                        <a href='$action' ><button type=\"button\" class=\"btn btn - info\">View</button></a>";
         }
@@ -217,6 +224,7 @@ class Multipleassesment extends CActiveRecord
         }
         $buttons .= "</td>";
         echo  $buttons;
+
     }
 
     /**
@@ -237,6 +245,11 @@ class Multipleassesment extends CActiveRecord
 
         return parent::model($className);
 
+    }
+    public function scopes() {
+        return array(
+            'bystatus' => array('order' => 'status DESC'),
+        );
     }
 
 }
