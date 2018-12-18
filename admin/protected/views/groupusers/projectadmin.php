@@ -350,7 +350,7 @@ $project = Projects::model()->findByPk($_GET['p']);
         var typeofstatus=$(a).attr('data-status');
         if(typeofstatus =='I')
         {
-            if(confirm('Are you sure you want to set the status to Inactive for this assessment?'))
+            if(confirm('Are you sure you want to set the status to Inactive for this assessment? Students cannot view and submit feedbacks unless it is active.'))
             {
                 $.ajax({
                     url: "<?php echo Yii::app()->createUrl('site/assesmentchange') ?>",
@@ -370,7 +370,9 @@ $project = Projects::model()->findByPk($_GET['p']);
         }
         else if(typeofstatus =="A")
         {
-            if(confirm('Are you sure you want to set the status to active for this assessment?'))
+            if(confirm('Are you sure you want to set the status to active for this assessment? Students can view and provide feedback.' +
+                    '\n' +
+                    '\n'))
             {
                 var mycheck =$(".present").is(":visible");
                 if(!mycheck)
