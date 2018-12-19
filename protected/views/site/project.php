@@ -47,6 +47,26 @@
     {
         margin-right:.3em !important ;
     }
+    [data-toggle="collapse"]:after {
+        display: inline-block;
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        content: "\f105";
+        transform: rotate(90deg) ;
+        transition: all linear 0.25s;
+        float: right;
+        margin-right: 20px;
+        margin-top: -17px;
+    }
+    [data-toggle="collapse"].collapsed:after {
+        transform: rotate(0deg) ;
+        margin-right: 20px;
+        margin-top: -17px;
+    }
 </style>
 <section id="wrapper" >
     <div class="container">
@@ -96,7 +116,7 @@
                 <?php }
                 else {?>
                     <div class="staff">
-                        <p style="color:red">Assessment not created yet or More than one assessment is active</p>
+                        <p style="color:red">No Assessment created yet.</p>
                     </div>
                 <?php  }?>
             </div>
@@ -118,7 +138,7 @@
             //echo "<pre>";print_r(count($assescheck));die;
             ?>
             <div class="col-lg-<?=$column?> col-xs-12 col-sm-4 staff-due well"  >
-                <h6>Your Group : <?=$groupusers[0]->groups->name?></h6>
+                <h6>Group : <?=$groupusers[0]->groups->name?></h6>
                 <div class="col-lg-12 col-xs-12 col-sm-12 padzero">
                     <?php
                     if(count($groupusers)>0  && count($assescheck) >0 ) {
@@ -240,15 +260,17 @@
         </div>
         <div class="col-lg-12 col-xs-12 col-sm-12 padzero" style="display:<?=$showresponse?>">
             <h1 class="text-center response"><span id="rmd"></span> </h1>
-            <div class="bs-example">
+            <div class="bs-example" id="mycontent">
                 <div class="panel-group" id="faqAccordion">
                     <?php
                     if(count($groupusers)>0):
                         $u = 0;
                         foreach($groupusers as$key=>$groupuser):
                             $u++;
+                            $myclass=($groupuser->user_id==Yii::app()->user->id)?'mine':'others';
                             ?>
-                            <div class="panel panel-default ">
+
+                            <div class="panel panel-default <?=$myclass?> " style="margin-bottom:5px !important;">
                                 <div class="panel-heading accordion-toggle question-toggle collapsed"
                                      data-toggle="collapse" data-parent="#faqAccordion"
                                      data-target="#question_<?php echo $groupuser->id;?>" aria-expanded="false">
@@ -383,4 +405,15 @@
         var cms="View your responses for "+prjname+"("+assm+")";
         $("#rmd").text(cms);
     });
+   // $(function(){
+        var container = $('#mycontent').clone();
+        $('#mycontent').html('');
+        container.find('.others').each(function() {
+            $('#mycontent').append($(this)[0].outerHTML);
+        })
+        container.find('.mine').each(function() {
+            $('#mycontent').append($(this)[0].outerHTML);
+        })
+   // });
+
 </script>

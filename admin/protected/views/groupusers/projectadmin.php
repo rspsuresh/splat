@@ -92,7 +92,7 @@ $project = Projects::model()->findByPk($_GET['p']);
                     <a href="<?php echo Yii::app()->createUrl('site/courses',array('i'=>base64_encode($institution->id),'f'=>base64_encode($faculty->id)));?>">
                         <?php echo ucfirst($faculty->name);?></a> /
                     <a href="<?=Yii::app()->createUrl('site/courseitems',array('c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f']))?>"><?php echo ucfirst($course->name); ?></a>
-                  / <b><?=$project->name?></b>
+                    / <b><?=$project->name?></b>
                 </p>
             <?php }
             else { ?>
@@ -275,15 +275,13 @@ $project = Projects::model()->findByPk($_GET['p']);
                     ),
                 ),
             )); ?>
+            <p>
+                <a  class="download" href="#">
+                    <button class="admin-btn btn-bs-file btn btn-success" style="margin: 0px" title="Download"> Download Assessment Scores
+                    </button>
+                </a>
+            </p>
         </div>
-        <hr>
-        <br><br>
-        <p>
-            <a  class="download" href="#">
-                <button class="admin-btn btn-bs-file btn btn-success" style="margin: 0px" title="Download"> Download Assessment Scores
-                </button>
-            </a>
-        </p>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.min.css">
         <script>
@@ -348,6 +346,7 @@ $project = Projects::model()->findByPk($_GET['p']);
     function alternate(id,a)
     {
         var typeofstatus=$(a).attr('data-status');
+        console.log(typeofstatus);
         if(typeofstatus =='I')
         {
             if(confirm('Are you sure you want to set the status to Inactive for this assessment? Students cannot view and submit feedbacks unless it is active.'))

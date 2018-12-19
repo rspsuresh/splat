@@ -27,6 +27,7 @@
     {
         font-size: 17px !important;
     }
+
 </style>
 <?php
 $usergroup = GroupUsers::model()->find('user_id='.Yii::app()->user->id);
@@ -37,7 +38,8 @@ if(count($usergroup)>0)
 <section id="wrapper" >
     <div class="container">
         <div class="col-lg-12 col-xs-12 col-sm-12 padzero" style="display:<?=$showresponse?>">
-            <h1 class="text-center response"> Assessment for Assessment <?= $_GET['key']?> <a href="#" onclick="window.history.back()" class="btn btn-primary" style="float:right">Back</a></h1>
+            <h1 class="text-center response"> Responses for <?php echo ucfirst($projects->name)?> Assessment <?= $_GET['key']?>
+                <a href="<?=Yii::app()->createUrl('site/projects',array('id'=>$projects->id))?>" class="btn btn-primary" style="float:right">Back</a></h1>
             <div class="bs-example">
                 <div class="panel-group" id="accordion">
                     <?php
@@ -45,9 +47,10 @@ if(count($usergroup)>0)
                         $u = 0;
                         foreach($groupusers as $groupuser):
                             $u++;
+                            $myclass=($groupuser->user_id==Yii::app()->user->id)?'mine':'others';
                             ?>
 
-                            <div class="panel" >
+                            <div class="panel <?=$myclass?>" >
                                 <div class="panel-heading" style="background-color: #f5f5f5 !important;">
                                     <h4 class="panel-title">
                                         <a data-toggle="collapse"  href="#collapseOne_<?php echo $groupuser->id;?>">
@@ -110,3 +113,13 @@ if(count($usergroup)>0)
         </div>
     </div>
 </section>
+<script type="text/javascript">
+    var container = $('#accordion').clone();
+    $('#accordion').html('');
+    container.find('.others').each(function() {
+        $('#accordion').append($(this)[0].outerHTML);
+    })
+    container.find('.mine').each(function() {
+        $('#accordion').append($(this)[0].outerHTML);
+    })
+</script>

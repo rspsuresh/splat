@@ -206,13 +206,7 @@ class Multipleassesment extends CActiveRecord
                        <a href='#' onclick='deleteasses($id)'><button type=\"button\" class=\"btn btn-warning\">Delete</button></a>";
         }
         else if($statusknw->status=="A")
-        {   $html="<div class=\"dropdown\">
-                          <button class=\"btn btn-primary dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\">Active
-                          <span class=\"caret\"></span></button>
-                          <ul class=\"dropdown-menu\">
-                            <li><a href=\"#\">In-active</a></li>
-                          </ul>
-                  </div>";
+        {
             $buttons.="<a href='#' data-status='I' onclick='alternate($id,this)'><button type=\"button\" class=\"btn btn-success present\">Active</button></a>
                        <a href='#' onclick='complete($id)'><button type=\"button\" class=\"btn btn-primary\">Mark as Complete</button></a>
                        <a href='$action' ><button type=\"button\" class=\"btn btn - info\">View</button></a>";
@@ -220,7 +214,7 @@ class Multipleassesment extends CActiveRecord
         else if($statusknw->status=="C")
         {
             $buttons.="<a href='$action' ><button type=\"button\" class=\"btn btn-info\">View</button></a>
-                       <a href='#' onclick='alternate($id)'><button type=\"button\" class=\"btn btn-danger\">Re activate</button></a>";
+                       <a href='#' data-status='A' onclick='alternate($id,this)'><button type=\"button\" class=\"btn btn-danger\">Re activate</button></a>";
         }
         $buttons .= "</td>";
         echo  $buttons;
