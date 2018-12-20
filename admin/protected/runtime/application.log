@@ -4639,3 +4639,22 @@ Stack trace:
 REQUEST_URI=/splat/admin/site/courseitems
 HTTP_REFERER=http://localhost/splat/admin/groups/create?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
 ---
+2018/12/19 17:46:17 [error] [php] mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php:496)
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs()
+#1 H:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CInlineAction->runWithParamsInternal()
+#2 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#3 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): UsersController->runAction()
+#4 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#5 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#6 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): UsersController->filterAccessControl()
+#7 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#8 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#9 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): UsersController->runActionWithFilters()
+#10 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): UsersController->run()
+#11 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#12 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#13 H:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/users/cadmin?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+in H:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (496)
+in H:\xampp\htdocs\splat\admin\index.php (13)

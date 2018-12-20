@@ -1,5 +1,4 @@
 <?php
-
 class UsersController extends Controller
 {
     /**
@@ -428,8 +427,7 @@ class UsersController extends Controller
 
     public function actionCAdmin($c)
     {
-        //echo Yii::app()->getBaseUrl(true);die;
-        //echo $_SERVER['SERVER_NAME'];die;
+        
         $this->pageTitle = "SPLAT-Course admin";
         $model=new Users('search');
         $model->unsetAttributes();  // clear any default values
@@ -446,70 +444,85 @@ class UsersController extends Controller
                 while (($line = fgetcsv($csvFile)) !== FALSE) {
                     $all_rows[] = array_combine($header, $line);
                 }
+                // echo "<pre>";print_r($all_rows);die;
                 if (!empty($all_rows)) {
-                    foreach ($all_rows as $key => $val) {
-                        //while(($line = fgetcsv($csvFile)) !== FALSE){
-                        $users = Users::model()->find("(username='" . $val['Username'] . "' or email='" . $val["Email"] . "') and status='active'");
-                        if (count($users) <= 0) {
-                            $users = new Users();
-                            $users->username = str_replace('#', '', $val['Username']);
-                            $users->first_name = $val['First Name'];
-                            $users->last_name = $val['Last Name'];
-                            $users->email = $val['Email'];
-                            $users->course_id = base64_decode($_GET['c']);
-                            $users->fac_id = base64_decode($_GET['f']);
-                            $users->institution_id = base64_decode($_GET['i']);
-                            $password = bin2hex(openssl_random_pseudo_bytes(4));
-                            $users->password = $password;
-                            $users->role = '5';
-                            $users->created_date = date('Y-m-d h:i:s');
-                            $users->updated_date = date('Y-m-d h:i:s');
+                    if(isset($all_rows[0]['Username']) && isset($all_rows[0]['Email']) && isset($all_rows[0]['First Name']) && isset($all_rows[0]['Last Name']))
+                    {
+                        foreach ($all_rows as $key => $val) {
+                            //while(($line = fgetcsv($csvFile)) !== FALSE){
+                            $users = Users::model()->find("(username='" . $val['Username'] . "' or email='" . $val["Email"] . "') and status='active'");
+                            if (count($users) == 0) {
+                                $users = new Users();
+                                $users->username = str_replace('#', '', $val['Username']);
+                                $users->first_name = $val['First Name'];
+                                $users->last_name = $val['Last Name'];
+                                $users->email = $val['Email'];
+                                $users->course_id = base64_decode($_GET['c']);
+                                $users->fac_id = base64_decode($_GET['f']);
+                                $users->institution_id = base64_decode($_GET['i']);
+                                $password = bin2hex(openssl_random_pseudo_bytes(4));
+                                $users->password = $password;
+                                $users->role = '5';
+                                $users->created_date = date('Y-m-d h:i:s');
+                                $users->updated_date = date('Y-m-d h:i:s');
 
-                            if ($users->save(false)) {
-                                $savecount = $savecount + 1;
-                                $UserFaculties = new UserFaculties();
-                                $UserFaculties->user_id = $users->id;
-                                $UserFaculties->faculty_id = base64_decode($_GET['f']);
-                                $UserFaculties->save(false);
+                                if ($users->save(false)) {
+                                    //echo "ffsdfdsf";die;
+                                    $savecount = $savecount + 1;
+                                    $UserFaculties = new UserFaculties();
+                                    $UserFaculties->user_id = $users->id;
+                                    $UserFaculties->faculty_id = base64_decode($_GET['f']);
+                                    $UserFaculties->save(false);
 
-                                $UserCourses = new UserCourses();
-                                $UserCourses->user_id = $users->id;
-                                $UserCourses->course_id = base64_decode($_GET['c']);
-                                $UserCourses->save(false);
+                                    $UserCourses = new UserCourses();
+                                    $UserCourses->user_id = $users->id;
+                                    $UserCourses->course_id = base64_decode($_GET['c']);
+                                    $UserCourses->save(false);
 
-                                //$to = $users->username;
-                                $course_name = $users->courses->name;
+                                    //$to = $users->username;
+                                    $course_name = $users->courses->name;
 
-                                $headers = "MIME-Version: 1.0" . "\r\n";
-                                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-                                $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
-                                $subject = "Splat User registration";
-                                $url = $_SERVER['SERVER_NAME'] . "/site/login";
-                                $to = $users->email;
-                                $message = 'Dear ' . $users->first_name . '<br/><br/>You have been added to the 
-                            Bournemouth University SPLAT website for the course ' . $course_name . '. 
-                            You can now login to assess your peers.<br/><br/>Your credentials are:<br/>
-							Website: ' . $url . '<br/>
-							Username: ' . $to . '<br/>
-							Password: ' . $users->password;
-                                mail($to, $subject, $message, $headers);
+                                    $headers = "MIME-Version: 1.0" . "\r\n";
+                                    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                                    $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
+                                    $subject = "Splat User registration";
+                                    $url = $_SERVER['SERVER_NAME'] . "/site/login";
+                                    $to = $users->email;
+                                    $message = 'Dear ' . $users->first_name . '<br/><br/>You have been added to the 
+                                 Bournemouth University SPLAT website for the course ' . $course_name . '. 
+                                 You can now login to assess your peers.<br/><br/>Your credentials are:<br/>
+                                 Website: ' . $url . '<br/>
+                                 Username: ' . $to . '<br/>
+                                 Password: ' . $users->password;
+                                    mail($to, $subject, $message, $headers);
+                                }
+                                else
+                                {
+                                    echo "<pre>";print_r($users->getErrors());die;
+                                }
+                            } else {
+                                $unsavecount = $unsavecount+1;
                             }
-                        } else {
-                            $unsavecount = +$unsavecount;
                         }
+                        fclose($csvFile);
+                        if($savecount >0)
+                        {
+                            Yii::app()->user->setFlash('success',$savecount."- new users has been created.");
+                        }
+                        if($unsavecount >0)
+                        {
+                            Yii::app()->user->setFlash('error',$unsavecount." - Existing users have been assigned to this course.");
+                        }
+
+                        $this->refresh();
                     }
-                }
-                fclose($csvFile);
-                if($savecount >0)
-                {
-                    Yii::app()->user->setFlash('success',$savecount."- new users has been created.");
-                }
-                if($unsavecount >0)
-                {
-                    Yii::app()->user->setFlash('error',$unsavecount." - Existing users have been assigned to this course.");
+                    else
+                    {
+                        Yii::app()->user->setFlash('error','Fields are not matched.please try after some time');
+                    }
+
                 }
 
-                $this->refresh();
             }
         }
         if(isset($_GET['Users']))
