@@ -85,9 +85,11 @@ class UsersController extends Controller
         if(isset($_POST['Users']))
         {
             //print_r($_POST);die;
-            $checkuser=Users::model()->findByAttributes(array('username'=>trim($_POST['Users']['username'])));
+            $checkuser=Users::model()->findByAttributes(array('username'=>trim($_POST['Users']['username']),'email'=>$_POST['Users']['email']));
             if(empty($checkuser)) {
                 $model->attributes = $_POST['Users'];
+                $myexplode=explode('@',$_POST['Users']['email']);
+                $model->username=$myexplode[0];
                 $model->first_name=ucfirst($_POST['Users']['first_name']);
                 $model->last_name=ucfirst($_POST['Users']['last_name']);
                 $model->email=$_POST['Users']['email'];
@@ -427,7 +429,7 @@ class UsersController extends Controller
 
     public function actionCAdmin($c)
     {
-        
+
         $this->pageTitle = "SPLAT-Course admin";
         $model=new Users('search');
         $model->unsetAttributes();  // clear any default values
@@ -453,7 +455,8 @@ class UsersController extends Controller
                             $users = Users::model()->find("(username='" . $val['Username'] . "' or email='" . $val["Email"] . "') and status='active'");
                             if (count($users) == 0) {
                                 $users = new Users();
-                                $users->username = str_replace('#', '', $val['Username']);
+                                $emailexplode=explode('@',$val['Email']);
+                                $users->username = $emailexplode[0];
                                 $users->first_name = $val['First Name'];
                                 $users->last_name = $val['Last Name'];
                                 $users->email = $val['Email'];
@@ -500,8 +503,26 @@ class UsersController extends Controller
                                 {
                                     echo "<pre>";print_r($users->getErrors());die;
                                 }
-                            } else {
-                                $unsavecount = $unsavecount+1;
+                            }
+                            else {
+                                $facultymodel=UserFaculties::model()->findByAttributes(array('user_id'=>$users->id,'faculty_id'=>base64_decode($_GET['c'])));
+                                $coursemodel=UserCourses::model()->findByAttributes(array('user_id'=>$users->id,'course_id'=>base64_decode($_GET['c'])));
+                                if(empty($facultymodel) && empty($coursemodel))
+                                {
+                                    $UserFaculties = new UserFaculties();
+                                    $UserFaculties->user_id = $users->id;
+                                    $UserFaculties->faculty_id = base64_decode($_GET['f']);
+                                    $UserFaculties->save(false);
+
+                                    $UserCourses = new UserCourses();
+                                    $UserCourses->user_id = $users->id;
+                                    $UserCourses->course_id = base64_decode($_GET['c']);
+                                    $UserCourses->save(false);
+                                }
+                                else{
+                                    $unsavecount = $unsavecount+1;
+                                }
+
                             }
                         }
                         fclose($csvFile);

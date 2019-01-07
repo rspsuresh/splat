@@ -200,13 +200,12 @@ $project = Projects::model()->findByPk($_GET['p']);
                     </div>
                     <div class="col-lg-10 padzero">
                         <?php
-                        $list= Yii::app()->db->createCommand('SELECT GROUP_CONCAT(user_id) as user FROM `group_users`')->queryAll();
+                        $list= Yii::app()->db->createCommand('SELECT GROUP_CONCAT(user_id) as user FROM `group_users` where group_id=13')->queryAll();
                         $data=$list[0]['user'];
+                        //echo "<pre>";print_r($data);die;
                         $cond=(isset($list[0]['user']))? "and A.user_id not in($data)":'';
                         $c=base64_decode($_GET['c']);
-                        $sql='SELECT A.*,concat(first_name," ",last_name) as name
-                             FROM `user_courses` as A
-                             left join users as B on B.id=A.user_id
+                        $sql='SELECT A.*,concat(first_name," ",last_name) as name FROM `user_courses` as A left join users as B on B.id=A.user_id
                              WHERE A.course_id='.$c.' and B.role=5 and B.status="active" '. $cond;
                         $result=Yii::app()->db->CreateCommand($sql)->QueryAll();
                         ?>
