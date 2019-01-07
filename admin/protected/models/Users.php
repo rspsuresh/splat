@@ -132,12 +132,15 @@ class Users extends CActiveRecord
 
         if(isset($_GET['c']) && !empty($_GET['c']))
         {
-            $sql="SELECT group_concat(user_id) as user_id FROM `user_courses` 
+            $sql="SELECT user_id as user_id FROM `user_courses` 
                   join users on user_courses.user_id=users.id and users.role=5
                   WHERE user_courses.`course_id` = ".base64_decode($_GET["c"]);
             $result=Yii::app()->db->createCommand($sql)->queryAll();
+            $uniquesdata=array_unique(array_column($result,'user_id'));
+            $uniquesdata=implode(',',$uniquesdata);
+
             $users=($result[0]['user_id'])?$result[0]['user_id']:0;
-            $criteria->addcondition(' id in(' . $users .') and role =5');          // for exact match
+            $criteria->addcondition(' id in(' . $uniquesdata .') and role =5');          // for exact match
         }
         if(isset($_REQUEST['Users']['course_id']))
         {

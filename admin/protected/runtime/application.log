@@ -4734,3 +4734,111 @@ in H:\xampp\htdocs\splat\admin\index.php (13)
 2019/01/07 18:17:27 [warning] [application] Failed to set unsafe attribute "description" of "Courses".
 in H:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (154)
 in H:\xampp\htdocs\splat\admin\index.php (13)
+2019/01/07 18:38:12 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_courses.course_id123' in 'where clause'. The SQL statement executed was: SELECT count(*) as count FROM `user_courses` 
+                                                       join users on user_courses.user_id=users.id and users.role=5 and users.status='active'
+                                                        WHERE user_courses.`course_id123` = 1.
+in H:\xampp\htdocs\splat\admin\protected\views\site\courses.php (67)
+in H:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (173)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2019/01/07 18:38:12 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_courses.course_id123' in 'where clause'. The SQL statement executed was: SELECT count(*) as count FROM `user_courses` 
+                                                       join users on user_courses.user_id=users.id and users.role=5 and users.status='active'
+                                                        WHERE user_courses.`course_id123` = 1' in H:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 H:\xampp\htdocs\splat\admin\protected\views\site\courses.php(67): CDbCommand->queryAll()
+#2 H:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('H:\\xampp\\htdocs...')
+#3 H:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('H:\\xampp\\htdocs...', Array, true)
+#4 H:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('H:\\xampp\\htdocs...', Array, true)
+#5 H:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('courses', Array, true)
+#6 H:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php(173): CController->render('courses', Array)
+#7 [internal function]: SiteController->actionCourses('MQ==')
+#8 H:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#9 H:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#10 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#11 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#12 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#13 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#14 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#15 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#16 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#17 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('courses')
+#19 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/courses')
+#20 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#21 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/splat/admin/site/courses?i=MQ%3D%3D&f=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/site/courseItems?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D
+---
+2019/01/07 18:46:37 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_courses.course_id1' in 'where clause'. The SQL statement executed was: SELECT user_id as user_id FROM `user_courses` 
+                                                           join users on user_courses.user_id=users.id and users.role=5
+                                                           WHERE user_courses.`course_id1` = 1.
+in H:\xampp\htdocs\splat\admin\protected\views\site\courses.php (72)
+in H:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (173)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2019/01/07 18:46:37 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_courses.course_id1' in 'where clause'. The SQL statement executed was: SELECT user_id as user_id FROM `user_courses` 
+                                                           join users on user_courses.user_id=users.id and users.role=5
+                                                           WHERE user_courses.`course_id1` = 1' in H:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 H:\xampp\htdocs\splat\admin\protected\views\site\courses.php(72): CDbCommand->queryAll()
+#2 H:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('H:\\xampp\\htdocs...')
+#3 H:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('H:\\xampp\\htdocs...', Array, true)
+#4 H:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('H:\\xampp\\htdocs...', Array, true)
+#5 H:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('courses', Array, true)
+#6 H:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php(173): CController->render('courses', Array)
+#7 [internal function]: SiteController->actionCourses('MQ==')
+#8 H:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#9 H:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#10 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#11 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#12 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#13 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#14 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#15 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#16 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#17 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('courses')
+#19 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/courses')
+#20 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#21 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/splat/admin/site/courses?i=MQ%3D%3D&f=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/site/courseItems?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D
+---
+2019/01/07 18:57:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 3. The SQL statement executed was: SELECT user_id as user_id FROM `user_courses` 
+                                                      join users on user_courses.user_id=users.id and users.role=5
+                                                      WHERE user_courses.`course_id` = .
+in H:\xampp\htdocs\splat\admin\protected\views\site\courses.php (71)
+in H:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (173)
+in H:\xampp\htdocs\splat\admin\index.php (13)
+2019/01/07 18:57:47 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 3. The SQL statement executed was: SELECT user_id as user_id FROM `user_courses` 
+                                                      join users on user_courses.user_id=users.id and users.role=5
+                                                      WHERE user_courses.`course_id` = ' in H:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 H:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 H:\xampp\htdocs\splat\admin\protected\views\site\courses.php(71): CDbCommand->queryAll()
+#2 H:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('H:\\xampp\\htdocs...')
+#3 H:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('H:\\xampp\\htdocs...', Array, true)
+#4 H:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('H:\\xampp\\htdocs...', Array, true)
+#5 H:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('courses', Array, true)
+#6 H:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php(173): CController->render('courses', Array)
+#7 [internal function]: SiteController->actionCourses('MQ==')
+#8 H:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#9 H:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#10 H:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#11 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#12 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#13 H:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#14 H:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#15 H:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#16 H:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#17 H:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('courses')
+#19 H:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/courses')
+#20 H:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#21 H:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/splat/admin/site/courses?i=MQ%3D%3D&f=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/site/courseItems?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D
+---

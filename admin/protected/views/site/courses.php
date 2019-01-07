@@ -64,9 +64,14 @@
                                                 $sql="SELECT count(*) as count FROM `user_courses` 
                                                        join users on user_courses.user_id=users.id and users.role=5 and users.status='active'
                                                         WHERE user_courses.`course_id` = $models->id";
+
+                                                $sql="SELECT user_id as user_id FROM `user_courses` 
+                                                      join users on user_courses.user_id=users.id and users.role=5
+                                                      WHERE user_courses.`course_id` = ".$models->id." and users.status='active'";
                                                 $result=Yii::app()->db->createCommand($sql)->queryAll();
-                                                $count=($result[0]['count'])?$result[0]['count']:0;
-                                                echo $count; ?>
+                                                $uniquesdata=array_unique(array_column($result,'user_id'));
+                                                //echo "<pre>";print_r($result);die;
+                                                echo count($uniquesdata); ?>
                                             </span></p>
                                     </div>
                                     <div class="modal fade" id="courseModal_<?php echo $models->id;?>" role="dialog">
