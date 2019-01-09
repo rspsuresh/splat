@@ -128,6 +128,7 @@
             left join `groups` as B on A.`group_id`=B.`id`
             WHERE A.`group_id` IN ($grpstr) and A.`user_id`=".Yii::app()->user->id;
             $grpresult=Yii::app()->db->CreateCommand($grpfind)->QueryAll();
+            //echo "<pre>";print_r($grpresult);die;
             $usergroup = GroupUsers::model()->find('user_id='.Yii::app()->user->id);
             $groupusers = array();
             if(count($grpresult)>0)
@@ -135,11 +136,11 @@
             ?>
             <?php
             $assescheck=Multipleassesment::model()->findAll("prj_id=".$_GET['id']." and status='A'");
-            //echo "<pre>";print_r(count($assescheck));die;
+            //echo "<pre>";print_r($assescheck);die;
             ?>
             <div class="col-lg-<?=$column?> col-xs-12 col-sm-4 staff-due well"  >
                 <h6>Group : <?=$groupusers[0]->groups->name?></h6>
-                <div class="col-lg-12 col-xs-12 col-sm-12 padzero">
+                <div class="col-lg-12 col-xs-12 col-sm-12 padzero" style="overflow-y: scroll; height:300px;">
                     <?php
                     if(count($groupusers)>0  && count($assescheck) >0 ) {
                         foreach($groupusers as $groupuser) {
@@ -202,9 +203,11 @@
                     $grpidb=($grpresult[0]['group_id'])?$grpresult[0]['group_id']:0;
                     $checkiassess = Assess::model()->count('project='.$projects->id.' 
                              and grp_id='.$grpidb.' and from_user='.Yii::app()->user->id);
+                   // echo $grpidb;die;
                     ?>
                     <?php
                     $activeass=$assescheck[0]['id'];
+                    //echo count($assescheck)."---".$checkiassess;die;
                     if(count($assescheck)==1 && $checkiassess==0 ) {
                         ?>
                         <a href="<?php echo Yii::app()->createUrl('site/assessment',

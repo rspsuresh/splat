@@ -209,9 +209,11 @@ $project = Projects::model()->findByPk($_GET['p']);
                              WHERE A.course_id='.$c.' and B.role=5 and B.status="active" '. $cond;
                         $result=Yii::app()->db->CreateCommand($sql)->QueryAll();
                         ?>
-                        <?php echo $form->dropDownList($model, 'user_id',
-                            CHtml::listData($result,'user_id','name'), array('class'=>'chosen-select form-control','multiple' => 'multiple'));?>
-                        <?php echo $form->error($model,'user_id'); ?>
+                        <select class="form-control chosen-select"  multiple="multiple" name="GroupUsers[user_id][]" id="GroupUsers_user_id">
+                        </select>
+                     <!--   <?php /*echo $form->dropDownList($model, 'user_id',
+                            CHtml::listData($result,'user_id','name'), array('class'=>'chosen-select form-control','multiple' => 'multiple'));*/?>
+                        --><?php /*echo $form->error($model,'user_id'); */?>
                     </div>
                 </div>
                 <div class="col-lg-8 buttons">
@@ -285,7 +287,7 @@ $project = Projects::model()->findByPk($_GET['p']);
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.min.css">
         <script>
             $(function(){
-                $('.chosen-select').chosen({}).change( function(obj, result) {});
+
             });
         </script>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -338,6 +340,8 @@ $project = Projects::model()->findByPk($_GET['p']);
 <script type="text/javascript">
     $(document).ready(function() {
         $('#Multipleassesment_due_date').datepicker({ format: "yyyy/mm/dd" });
+        $('.chosen-select').chosen({}).change( function(obj, result) {});
+
         //$("table").tableToCSV();
     });
 </script>
@@ -519,5 +523,24 @@ $project = Projects::model()->findByPk($_GET['p']);
         }
 
     }
+ $(document).on('change','#GroupUsers_group_id',function () {
+     alert($(this).val());
+     if($(this).val())
+     {
+         //$("#GroupUsers_user_id").html('');
+         var course='<?=base64_decode($_GET['c'])?>';
+         var id=$(this).val();
+         $.ajax({
+             url: "<?php echo Yii::app()->createUrl('groupusers/pasteusers') ?>/" + id,
+             type: "post",
+             data: {course: course},
+             success: function (result) {
+                 alert("cxcxcxc");
+                 $("#GroupUsers_user_id").append(result);
+                 $('.chosen-select').trigger("chosen:updated");
 
+             }
+         });
+     }
+ })
 </script>

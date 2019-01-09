@@ -33,7 +33,7 @@ class GroupusersController extends Controller
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
                 'actions'=>array('create','update', 'admin','delete',
-                    'projectgroups','groupasses','viewusers','deleteasses','unlockusers','usercheck','download'),
+                    'projectgroups','groupasses','viewusers','deleteasses','unlockusers','usercheck','download','pasteusers'),
                 'users'=>array('@'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -400,5 +400,33 @@ class GroupusersController extends Controller
             }
         }
         echo json_encode($result);die;
+    }
+
+    public function actionPasteusers($id)
+    {
+        if(is_numeric($id))
+        {
+            $list= Yii::app()->db->createCommand('SELECT GROUP_CONCAT(user_id) as user FROM `group_users` where group_id='.$id)->queryAll();
+            $data=$list[0]['user'];
+
+            //echo $data;die;
+
+            $cond=(isset($list[0]['user']))? "and A.user_id not in($data)":'';
+            $sql='SELECT A.*,concat(first_name," ",last_name) as name FROM `user_courses` as A left join users as B on B.id=A.user_id
+                             WHERE A.course_id='.$_POST['course'].' and B.role=5 and B.status="active" '. $cond;
+            $result=Yii::app()->db->CreateCommand($sql)->QueryAll();
+            $html='';
+            //echo "<pre>";print_r($result);die;
+           if(!empty($result))
+           {
+               foreach($result as $val)
+               {
+                   $html.='<option value="'.$val['user_id'].'">'.$val["name"].'</option>';
+               }
+
+           }
+
+           echo  $html;die;
+        }
     }
 }

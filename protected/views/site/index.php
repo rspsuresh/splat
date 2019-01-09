@@ -65,10 +65,20 @@ $this->pageTitle=Yii::app()->name;
                         <div class="panel-group" id="accordion">
                             <div class="panel">
                                 <?php
-                                $groupusers = GroupUsers::model()->find('user_id='.Yii::app()->user->id);
-                                $projectgroups = array();
-                                if(count($groupusers)>0)
-                                    $projectgroups = ProjectGroups::model()->findAll('group_id='.$groupusers->group_id);
+                                //$groupusers = GroupUsers::model()->findAll('user_id='.Yii::app()->user->id);
+                                $sqlg="SELECT * FROM `group_users` WHERE user_id=".Yii::app()->user->id;
+                                $groupusers=Yii::app()->db->CreateCommand($sqlg)->QueryAll();
+                                $mysare=array_column($groupusers,'group_id');
+                                if(!empty($mysare))
+                                {
+                                    $string=implode(',',$mysare);
+                                }
+                                if(strlen($string)>0)
+                                {
+                                    $projectgroups = ProjectGroups::model()->findAll('group_id in ('.$string.')');
+
+                                }
+
 
                                 if(count($projectgroups)>0){
                                     foreach($projectgroups as $projectgroup){
@@ -76,7 +86,7 @@ $this->pageTitle=Yii::app()->name;
                                         $userprojects[$projectgroup->project_id] = $projectgroup->project_id;
                                     }
                                 }
-
+                               //echo "<pre>";print_r($courses);die;
                                 if(count($courses)>0):
                                     foreach($courses as $course):
                                         $coursesdetails = Courses::model()->findByPk($course);
