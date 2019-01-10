@@ -37,7 +37,7 @@ $avg=0;
             $indarray=array();
             $user=Users::model()->findByPk($_GET['u']);
             $projectsname=Projects::model()->findByPk($_GET['p']);?>
-            <p><?=$projectsname->name?> Assessment for <?= $user->first_name ." ".$user->last_name?></p>
+            <p><?=ucfirst($projectsname->name)?> Assessment for <?= $user->first_name ." ".$user->last_name?></p>
         </div>
         <div class="panel-group" id="faqAccordion">
             <?php $groupusers = GroupUsers::model()->findAll('group_id='.$_GET['g']);
@@ -87,7 +87,8 @@ $avg=0;
                                                         ?>
                                                     </b>
                                                 </div>
-                                                <div class="col-lg-7"><p>:
+                                                <div class="col-lg-7">
+                                                    <p>:
                                                         <?php if($_GET['u'] == $groupuser->user_id) {?>
                                                             <b style="color:red;" class="answser_<?=$i?>"
                                                                data-val="<?=($assess->value)?$assess->value:'#';?>"
@@ -113,7 +114,6 @@ $avg=0;
                                                                 echo ($assess->value)?$assess->value : '-';
                                                                 ?>
                                                             </b>
-
                                                         <?php } ?>
 
                                                     </p>

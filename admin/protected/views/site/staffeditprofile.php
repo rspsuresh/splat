@@ -96,7 +96,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td>User Email:</td>
-                                                            <td> <?php echo trim($modeluser->username)?></td>
+                                                            <td> <?php echo trim($modeluser->email)?></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Status</td>

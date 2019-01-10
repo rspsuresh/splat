@@ -49,6 +49,7 @@ class Users extends CActiveRecord
             array('first_name,password,last_name, course_id, institution_id, fac_id, role', 'required','on'=>'update'),
             array('institution_id', 'numerical', 'integerOnly'=>true),
             array('first_name,last_name','required','on'=>'edit'),
+            array('email', 'unique'),
             array('email', 'email','message'=>"The email isn't correct"),
             array('username, password, first_name, last_name,role', 'required','on'=>'negelect'),
             array('username, password, first_name, last_name, profile', 'length', 'max'=>255),

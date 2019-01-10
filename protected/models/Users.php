@@ -34,11 +34,11 @@ class Users extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password, first_name, last_name, created_date, updated_date', 'required'),
-			array('username, password, first_name, last_name', 'length', 'max'=>255),
+			array('password, first_name, last_name, created_date, updated_date', 'required'),
+			array('password, first_name, last_name', 'length', 'max'=>255),
 			array('first_name,last_name','required','on'=>'edit'),
-			array('username', 'unique'),
-			array('username', 'email'),
+            array('email', 'unique'),
+			//array('username', 'email'),
 			array('newpassword,confirmpassword','required','on'=>'changepwd'),
 			array('newpassword', 'compare', 'compareAttribute'=>'confirmpassword' ,'message'=>"Passwords don't match",'on'=>'changepwd'),
 			array('status', 'length', 'max'=>8),

@@ -199,19 +199,9 @@ $project = Projects::model()->findByPk($_GET['p']);
                         <?php echo $form->labelEx($model,'user_id'); ?>
                     </div>
                     <div class="col-lg-10 padzero">
-                        <?php
-                        $list= Yii::app()->db->createCommand('SELECT GROUP_CONCAT(user_id) as user FROM `group_users` where group_id=13')->queryAll();
-                        $data=$list[0]['user'];
-                        //echo "<pre>";print_r($data);die;
-                        $cond=(isset($list[0]['user']))? "and A.user_id not in($data)":'';
-                        $c=base64_decode($_GET['c']);
-                        $sql='SELECT A.*,concat(first_name," ",last_name) as name FROM `user_courses` as A left join users as B on B.id=A.user_id
-                             WHERE A.course_id='.$c.' and B.role=5 and B.status="active" '. $cond;
-                        $result=Yii::app()->db->CreateCommand($sql)->QueryAll();
-                        ?>
                         <select class="form-control chosen-select"  multiple="multiple" name="GroupUsers[user_id][]" id="GroupUsers_user_id">
                         </select>
-                     <!--   <?php /*echo $form->dropDownList($model, 'user_id',
+                        <!--   <?php /*echo $form->dropDownList($model, 'user_id',
                             CHtml::listData($result,'user_id','name'), array('class'=>'chosen-select form-control','multiple' => 'multiple'));*/?>
                         --><?php /*echo $form->error($model,'user_id'); */?>
                     </div>
@@ -523,24 +513,22 @@ $project = Projects::model()->findByPk($_GET['p']);
         }
 
     }
- $(document).on('change','#GroupUsers_group_id',function () {
-     alert($(this).val());
-     if($(this).val())
-     {
-         //$("#GroupUsers_user_id").html('');
-         var course='<?=base64_decode($_GET['c'])?>';
-         var id=$(this).val();
-         $.ajax({
-             url: "<?php echo Yii::app()->createUrl('groupusers/pasteusers') ?>/" + id,
-             type: "post",
-             data: {course: course},
-             success: function (result) {
-                 alert("cxcxcxc");
-                 $("#GroupUsers_user_id").append(result);
-                 $('.chosen-select').trigger("chosen:updated");
+    $(document).on('change','#GroupUsers_group_id',function () {
+        if($(this).val())
+        {
+            //$("#GroupUsers_user_id").html('');
+            var course='<?=base64_decode($_GET['c'])?>';
+            var id=$(this).val();
+            $.ajax({
+                url: "<?php echo Yii::app()->createUrl('groupusers/pasteusers') ?>/" + id,
+                type: "post",
+                data: {course: course},
+                success: function (result) {
+                    $("#GroupUsers_user_id").append(result);
+                    $('.chosen-select').trigger("chosen:updated");
 
-             }
-         });
-     }
- })
+                }
+            });
+        }
+    })
 </script>

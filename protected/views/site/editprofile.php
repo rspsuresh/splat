@@ -62,15 +62,15 @@
                                                     'id'=>'users-form','enableClientValidation'=>true,'htmlOptions' => array('enctype' => 'multipart/form-data'),
                                                     'clientOptions'=>array('validateOnSubmit'=>true),
                                                 )); ?>
-                                                <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
+                                              <!--  <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
                                                     <div class="col-lg-4 padzero">
-                                                        <?php echo $form->labelEx($usermodel,'username'); ?>
+                                                        <?php /*echo $form->labelEx($usermodel,'username'); */?>
                                                     </div><div class="col-lg-8 padzero">
-                                                        <?php echo $form->textField($usermodel,'username',array('size'=>60,'maxlength'=>255,
-                                                            'placeholder'=>'User Name')); ?>
-                                                        <?php echo $form->error($usermodel,'username'); ?>
+                                                        <?php /*echo $form->textField($usermodel,'username',array('size'=>60,'maxlength'=>255,
+                                                            'placeholder'=>'User Name')); */?>
+                                                        <?php /*echo $form->error($usermodel,'username'); */?>
                                                     </div>
-                                                </div>
+                                                </div>-->
                                                 <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
                                                     <div class="col-lg-4 padzero">
                                                         <?php echo $form->labelEx($usermodel,'first_name'); ?>
@@ -111,7 +111,7 @@
                                                                 Email
                                                             </td>
                                                             <td>
-                                                                <?php echo $makemodel->username; ?>
+                                                                <?php echo $makemodel->email; ?>
                                                             </td>
                                                         </tr>
                                                         <tr>

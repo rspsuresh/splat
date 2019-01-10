@@ -3639,3 +3639,15 @@ REQUEST_URI=/splat/
 in H:\xampp\htdocs\splat\protected\views\site\index.php (76)
 in H:\xampp\htdocs\splat\protected\controllers\SiteController.php (60)
 in H:\xampp\htdocs\splat\index.php (25)
+2019/01/10 18:39:44 [warning] [application] Failed to set unsafe attribute "username" of "Users".
+in H:\xampp\htdocs\splat\protected\controllers\SiteController.php (285)
+in H:\xampp\htdocs\splat\index.php (25)
+2019/01/10 18:39:44 [warning] [application] Failed to set unsafe attribute "profile" of "Users".
+in H:\xampp\htdocs\splat\protected\controllers\SiteController.php (285)
+in H:\xampp\htdocs\splat\index.php (25)
+2019/01/10 18:41:12 [warning] [application] Failed to set unsafe attribute "username" of "Users".
+in H:\xampp\htdocs\splat\protected\controllers\SiteController.php (285)
+in H:\xampp\htdocs\splat\index.php (25)
+2019/01/10 18:41:12 [warning] [application] Failed to set unsafe attribute "profile" of "Users".
+in H:\xampp\htdocs\splat\protected\controllers\SiteController.php (285)
+in H:\xampp\htdocs\splat\index.php (25)
