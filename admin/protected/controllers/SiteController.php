@@ -209,9 +209,9 @@ class SiteController extends Controller
          FROM `delete_custom_question` WHERE `course_id` = $questions->course";
         $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
         $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
-        /* $question = Questions::model()->findAll('(institution=:i and faculty=:f and
-         course=:c and status=:s) or (type=:ty and status=:s)', array(':i'=>base64_decode($_GET['i']),':f'=>base64_decode($_GET['f']),
-             ':c'=>base64_decode($c),':s'=>"active",':ty'=>'default'));*/
+
+
+
         $question=Questions::model()->findAll('institution='.base64_decode($_GET['i']).'
             and faculty='.base64_decode($_GET['f']).'
              and course='.base64_decode($_GET['c']).' and status="active" and id NOT IN ('.$ids.') 
@@ -230,6 +230,7 @@ class SiteController extends Controller
             $formModel->attributes 	= $_POST['Projects'];
             $formModel->course	= base64_decode($_GET['c']);
             $formModel->faculty=base64_decode($_GET['f']);
+            $formModel->assess_date= date('Y-m-d H:i:s');
             $formModel->created_by	= Yii::app()->user->id;
             $formModel->created_date= date('Y-m-d H:i:s');
             $formModel->updated_date= date('Y-m-d H:i:s');
@@ -745,7 +746,7 @@ class SiteController extends Controller
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }
-
+        //echo "<pre>";print_r(Users::model()->findAll());die;
         // collect user input data
         if(isset($_POST['LoginForm']))
         {
@@ -842,7 +843,7 @@ class SiteController extends Controller
         if(isset($_POST['Users']['first_name']) && !empty($_POST['Users']['first_name']))
         {
             $usermodel->attributes=$_POST['Users'];
-            $usermodel->username=$_POST['Users']['username'];
+            //$usermodel->username='admin@splat.com';
             $uploadedFile=CUploadedFile::getInstance($model,'profile');
             if($uploadedFile)
             {
@@ -996,8 +997,8 @@ class SiteController extends Controller
         }
         $table.="</table>";
         $file="demo.xls";
-         header("Content-type: application/vnd.ms-excel");
-         header("Content-Disposition: attachment; filename=$file");
+        header("Content-type: application/vnd.ms-excel");
+        header("Content-Disposition: attachment; filename=$file");
         echo $table;die;
     }
 }

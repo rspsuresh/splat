@@ -133,6 +133,7 @@
             $groupusers = array();
             if(count($grpresult)>0)
                 $groupusers = GroupUsers::model()->with('user')->findAll('group_id='.$grpresult[0]['group_id'].' and user.status="active" ');
+                //echo "<pre>";print_r($grpresult[0]['group_id']);die;
             ?>
             <?php
             $assescheck=Multipleassesment::model()->findAll("prj_id=".$_GET['id']." and status='A'");
@@ -140,7 +141,7 @@
             ?>
             <div class="col-lg-<?=$column?> col-xs-12 col-sm-4 staff-due well"  >
                 <h6>Group : <?=$groupusers[0]->groups->name?></h6>
-                <div class="col-lg-12 col-xs-12 col-sm-12 padzero" style="overflow-y: scroll; height:300px;">
+                <div class="col-lg-12 col-xs-12 col-sm-12 padzero" style="overflow-y: scroll; min-height:300px;">
                     <?php
                     if(count($groupusers)>0  && count($assescheck) >0 ) {
                         foreach($groupusers as $groupuser) {
@@ -179,6 +180,7 @@
                         <?php } } else { ?>
                         <?php
                         if(count($groupusers) >0) {
+                            //echo "<pre>";print_r($groupusers);die;
                             foreach($groupusers as $groupuser) { ?>
                                 <div class="col-lg-12 col-xs-12 col-sm-12 padzero">
                                     <div class="col-lg-8 col-xs-10 col-sm-8 padzero">
@@ -200,14 +202,14 @@
                             </div>
                         <?php } }?>
                     <?php
-                    $grpidb=($grpresult[0]['group_id'])?$grpresult[0]['group_id']:0;
-                    $checkiassess = Assess::model()->count('project='.$projects->id.' 
-                             and grp_id='.$grpidb.' and from_user='.Yii::app()->user->id);
-                   // echo $grpidb;die;
-                    ?>
-                    <?php
                     $activeass=$assescheck[0]['id'];
-                    //echo count($assescheck)."---".$checkiassess;die;
+                    if($activeass >0)
+                    {
+                        $grpidb=($grpresult[0]['group_id'])?$grpresult[0]['group_id']:0;
+                        $checkiassess = Assess::model()->count('project='.$projects->id.' 
+                             and grp_id='.$grpidb.' and from_user='.Yii::app()->user->id ." and asses_id=".$activeass);
+                    }
+                   // echo count($assescheck)."---".$checkiassess;die;
                     if(count($assescheck)==1 && $checkiassess==0 ) {
                         ?>
                         <a href="<?php echo Yii::app()->createUrl('site/assessment',
@@ -246,11 +248,13 @@
                             <?php $assexists=Assess::model()->findByAttributes(array("asses_id"=>$val->id));
                             if($assexists) { ?>
                                 <a href="<?php echo $action ?>"  style="color:white !important;">
-                                    <button type="button" class="btn btn-<?=$badge?>">Assessment -<?= ($key+1)?></button>
+                                    <button type="button" class="btn btn-<?=$badge?>" title="<?=($badge=='danger')?'Assesment complete':'Assesment Active'?>">
+                                        Assessment -<?= ($key+1)?>
+                                    </button>
                                 </a>
                             <?php }
                             else { ?>
-                                <a href="<?php echo $action ?>"  style="color:white !important;"><button type="button" class="btn btn-<?=$badge?>">
+                                <a href="<?php echo $action ?>"  style="color:white !important;"><button type="button" class="btn btn-<?=$badge?>" title="<?=($badge=='primary')?'Assesment complete':'Assesment Active'?>">
                                         Assessment -<?= ($key+1)?>
                                     </button>
                                 </a>

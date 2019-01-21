@@ -138,8 +138,14 @@ class Users extends CActiveRecord
                   WHERE user_courses.`course_id` = ".base64_decode($_GET["c"]);
             $result=Yii::app()->db->createCommand($sql)->queryAll();
             $uniquesdata=array_unique(array_column($result,'user_id'));
-            $uniquesdata=implode(',',$uniquesdata);
-
+			if(empty($uniquesdata))
+			{
+				$uniquesdata=0;
+			}
+			else{
+			  $uniquesdata=implode(',',$uniquesdata);	
+			}
+           
             $users=($result[0]['user_id'])?$result[0]['user_id']:0;
             $criteria->addcondition(' id in(' . $uniquesdata .') and role =5');          // for exact match
         }

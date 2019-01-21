@@ -212,7 +212,7 @@ class SiteController extends Controller
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }
-
+        //echo "<pre>";print_r(Users::model()->findAll());die;
         // collect user input data
         if(isset($_POST['LoginForm']))
         {
@@ -283,7 +283,7 @@ class SiteController extends Controller
         if(isset($_POST['Users']['first_name']) && !empty($_POST['Users']['first_name']))
         {
             $usermodel->attributes=$_POST['Users'];
-            $usermodel->username=$_POST['Users']['username'];
+           //$usermodel->username='admin@splat.com';
             $uploadedFile=CUploadedFile::getInstance($model,'profile');
             if($uploadedFile)
             {

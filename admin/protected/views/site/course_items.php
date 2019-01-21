@@ -58,7 +58,7 @@
     <div class="container-fluid user-assessment">
         <p>Manage Course Items</p>
     </div>
-   <!-- <div class="admin-manage col-lg-12 col-xs-12 col-sm-12 padzero">-->
+    <!-- <div class="admin-manage col-lg-12 col-xs-12 col-sm-12 padzero">-->
     <div class="script-section col-xs-12 col-lg-12 col-sm-12">
         <div  class="mydiv">
             <h1 class="center m-projects">Manage users</h1>
@@ -105,7 +105,7 @@
             </div>
         </div>
     </div>
-   <!-- <div class="admin-manage col-lg-12 col-xs-12 col-sm-12 padzero">-->
+    <!-- <div class="admin-manage col-lg-12 col-xs-12 col-sm-12 padzero">-->
     <div class="script-section col-xs-12 col-lg-12 col-sm-12">
 
         <div  class="mydiv">
@@ -616,6 +616,7 @@
         $('.appenddate input').datetimepicker({
             inline:false,
             format: 'Y-m-d H:i',
+            orientation: "top" // add this
 
         });
     });

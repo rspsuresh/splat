@@ -52,7 +52,10 @@
                         if(count($groupusers)>0):
                             foreach($groupusers as $groupuser):
                                 $assess = Assess::model()->find('question=:q and project=:p and from_user=:f
-                                 and to_user=:t',array(':q'=>$question->id,':p'=>$projects->id,':f'=>Yii::app()->user->id,':t'=>$groupuser->user_id));
+                                 and to_user=:t and asses_id=:ass',array(':q'=>$question->id,
+                                    ':p'=>$projects->id,
+                                    ':f'=>Yii::app()->user->id,
+                                    ':t'=>$groupuser->user_id,':ass'=>$_GET['asm']));
                                 ?>
                                 <p class="selp-pad">
                                     <label>

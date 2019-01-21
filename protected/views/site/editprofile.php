@@ -111,7 +111,7 @@
                                                                 Email
                                                             </td>
                                                             <td>
-                                                                <?php echo $makemodel->email; ?>
+                                                                <?php echo (!empty($makemodel->email))?$makemodel->email:$makemodel->username; ?>
                                                             </td>
                                                         </tr>
                                                         <tr>

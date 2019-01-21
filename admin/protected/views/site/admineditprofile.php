@@ -131,6 +131,9 @@
                                                         <tbody>
                                                         <tr>
                                                             <td>Email:</td>
+                                                            <?php
+                                                            //echo "<pre>";print_r($makemodel);die;
+                                                            //$users=Users::model()->findAll();echo "<pre>";print_r($users);die;?>
                                                             <td><input type="text" id="fn1" style="border:none;" size="30"
                                                                        readonly value="<?php echo (!empty($makemodel->email))?$makemodel->email:$makemodel->username; ?>">
                                                             </td>
@@ -218,7 +221,7 @@
                                                     <div class="input-group">
                                                         <div class="input-group-addon">
                                                             <span class="glyphicon glyphicon-cog"></span></div>
-                                                        <?php echo $form->passwordField($model,'confirmpassword', array('placeholder'=>'Newpassword','class'=>'form-control'));?>
+                                                        <?php echo $form->passwordField($model,'confirmpassword', array('placeholder'=>'Confirm Password','class'=>'form-control'));?>
                                                         <?php echo $form->error($model,'confirmpassword'); ?>                                                </div>
                                                 </div>
                                             </div>

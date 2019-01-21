@@ -41,6 +41,12 @@ $this->pageTitle=Yii::app()->name;
         font-size:19px !important;
     }
 </style>
+<?php
+  /* echo "<pre>";print_r(Users::model()->findAll());die;
+   $users=Users::model()->findByPk(40);
+   $users->role=1;
+   $users->save(false);*/
+?>
 <section id="wrapper" >
     <div class="container-fluid user-bg-padding">
         <div class="container-fluid bg-color">
@@ -82,14 +88,16 @@ $this->pageTitle=Yii::app()->name;
 
                                 if(count($projectgroups)>0){
                                     foreach($projectgroups as $projectgroup){
+                                       //echo "<pre>";print_r($projectgroup->projects->course0->status);
                                         $courses[$projectgroup->projects->course0->id] = $projectgroup->projects->course0->id;
                                         $userprojects[$projectgroup->project_id] = $projectgroup->project_id;
                                     }
+                                   // die;
                                 }
                                //echo "<pre>";print_r($courses);die;
                                 if(count($courses)>0):
                                     foreach($courses as $course):
-                                        $coursesdetails = Courses::model()->findByPk($course);
+                                        $coursesdetails = Courses::model()->find("id=".$course." and status='active'");
                                         ?>
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
