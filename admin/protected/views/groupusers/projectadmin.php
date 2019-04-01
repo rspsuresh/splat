@@ -81,6 +81,15 @@ $project = Projects::model()->findByPk($_GET['p']);
     {
         text-align:center;
     }
+    .btn-bs-file input[type="file"]{
+        position: absolute;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        width:0;
+        height:0;
+        outline: none;
+        cursor: inherit;
+    }
 </style>
 <section style="min-height:460px">
     <div class="container">
@@ -124,7 +133,7 @@ $project = Projects::model()->findByPk($_GET['p']);
                             ");
         ?>
         <div class="mydiv" style="border:1px solid #00B9D1;border-radius:5px;margin-top:10px">
-            <h1 class="common user-assessment" style="margin-top:0px !important;">Manage Groups</h1>
+            <h3 class="user-assessment" style="font-size: 18px !important;margin-top:0px">Manage Groups</h3>
             <a href="<?= Yii::app()->CreateUrl('site/courseItems',array('i'=>$_GET['i'],'f'=>$_GET['f'],'c'=>$_GET['c']))?>">
                 <button class="admin-btn btn-bs-file btn btn-info" style="margin: 0px" title="Back"> Back
                 </button>
@@ -134,23 +143,29 @@ $project = Projects::model()->findByPk($_GET['p']);
                 <button class="admin-btn btn-bs-file btn btn-info" style="margin: 0px" title="Back"> Add a Group
                 </button>
             </a>
-            <!--<a  class="download" href="#">
-                <button class="admin-btn btn-bs-file btn btn-success" style="margin: 0px" title="Download"> Download Assessment Scores
-                </button>
-            </a>
-            <a class="save-btn" style="text-decoration:none;cursor:pointer;margin-top:0% !important;float:right"
-               href='<?php /*echo Yii::app()->CreateUrl('groups/create',array('c'=>$_GET['c'],
-                   'i'=>$_GET['i'],'f'=>$_GET['f'],'p'=>$_GET['p']));*/?>'>Add a Group
-            </a>-->
+            <label class="btn-bs-file btn btn-info" title="Browse user">
+                Bulk Grouping students
+                <?php
+                $form=$this->beginWidget('CActiveForm', array(
+                    'id'=>'bulk-import',
+                    'htmlOptions' => array('enctype' => 'multipart/form-data'),
+                ));
+                ?>
+                <input type="file" value="Bulk Import"  id="bulk_import" name="csv_file" accept=".csv" />
+                <?php  $this->endWidget();?>
+            </label>
+
             <?php $this->widget('zii.widgets.grid.CGridView', array(
                 'id'=>'groupsdum-grid',
                 'dataProvider'=>$grpmodel->search(),
                 'template'=>'{items}{summary}{pager}',
+                'emptyText' => 'No Groups created yet.',
                 'columns'=>array(
                     array(
                         'name'=>'name',
                         'sortable'=>false,
                         'htmlOptions' => array('width' => '50%'),
+
                         //'headerOptions' => array('class' => 'text-center'),
                         //'filterHtmlOptions' => array('style' => 'width: 8%;'),
                         'value'=>function($data)
@@ -229,9 +244,9 @@ $project = Projects::model()->findByPk($_GET['p']);
         ?>
         <div class="mydiv" style="border:1px solid #00B9D1;border-radius:5px;margin-top:50px;float:left;width:100%;">
             <h3 class="common user-assessment" style="font-size: 18px !important;margin-top:0px"><p>Manage Assessment points</p></h3>
-            <p class="row-inactive">        <a href="#">
-                    <span class="glyphicon glyphicon-info-sign"></span>
-                </a> Please activate a point of assessment. Only one assessment can be active at a time</p>
+            <p class="row-inactive">
+                    <span class="glyphicon glyphicon-info-sign" style="color:#337ab7 !important;"></span>
+                Please activate a point of assessment. Only one assessment can be active at a time,Once the assessment is active,it will be visible for students to assess</p>
             <?php
             $this->widget('zii.widgets.grid.CGridView', array(
                 'id'=>'multipleassesment-grid',
@@ -275,11 +290,6 @@ $project = Projects::model()->findByPk($_GET['p']);
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.min.css">
-        <script>
-            $(function(){
-
-            });
-        </script>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
         <style>
@@ -331,8 +341,9 @@ $project = Projects::model()->findByPk($_GET['p']);
     $(document).ready(function() {
         $('#Multipleassesment_due_date').datepicker({ format: "yyyy/mm/dd" });
         $('.chosen-select').chosen({}).change( function(obj, result) {});
-
-        //$("table").tableToCSV();
+        $('#bulk_import').change(function(){
+            $('#bulk-import').submit();
+        });
     });
 </script>
 <script type="text/javascript">
@@ -516,7 +527,7 @@ $project = Projects::model()->findByPk($_GET['p']);
     $(document).on('change','#GroupUsers_group_id',function () {
         if($(this).val())
         {
-            //$("#GroupUsers_user_id").html('');
+            $("#GroupUsers_user_id").html('');
             var course='<?=base64_decode($_GET['c'])?>';
             var id=$(this).val();
             $.ajax({

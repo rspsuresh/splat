@@ -152,7 +152,8 @@ class SiteController extends Controller
             if(isset($_POST['Courses']['id']) && $_POST['Courses']['id']!='')
                 $formModel = Courses::model()->find('id='.$_POST['Courses']['id']);
             $formModel->attributes 	= $_POST['Courses'];
-            $formModel->year=$_POST['Courses']['year'];
+            $formModel->year=date('Y-m',strtotime($_POST['Courses']['year']));
+            $formModel->course_level=$_POST['Courses']['course_level'];
             $formModel->created_by	= Yii::app()->user->id;
             $formModel->created_date= date('Y-m-d H:i:s');
             $formModel->updated_date= date('Y-m-d H:i:s');
@@ -210,12 +211,11 @@ class SiteController extends Controller
         $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
         $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
 
-
-
         $question=Questions::model()->findAll('institution='.base64_decode($_GET['i']).'
             and faculty='.base64_decode($_GET['f']).'
-             and course='.base64_decode($_GET['c']).' and status="active" and id NOT IN ('.$ids.') 
-             or ( type="default" and id NOT IN ('.$ids.'))');
+             and course='.base64_decode($_GET['c']).' and status="active" and id NOT IN ('.$ids.')');
+
+
 
         $existing_users = array();
         $institutionUsers = InstitutionUser::model()->findAll('institution=:i and faculty=:f and course=:c', array(':i'=>base64_decode($_GET['i']),':f'=>base64_decode($_GET['f']),':c'=>base64_decode($c)));
@@ -242,7 +242,8 @@ class SiteController extends Controller
                     foreach($checkmulasses as $key =>$val)
                     {
                         $updatemultiple=Multipleassesment::model()->findByPk($val->id);
-                        $updatemultiple->due_date=$_POST["multipleassesment_$updatemultiple->id"];
+                        $updatemultiple->due_date=date('Y-m-d H:i',
+                            strtotime($_POST["multipleassesment_$updatemultiple->id"]));
                         $updatemultiple->update('due_date');
                     }
                 }
@@ -252,7 +253,7 @@ class SiteController extends Controller
                     if (!empty($val)) {
                         $multipleAsses = new Multipleassesment();
                         $multipleAsses->prj_id = $formModel->id;
-                        $multipleAsses->due_date = $val;
+                        $multipleAsses->due_date = date('Y-m-d H:i',strtotime($val));
                         $multipleAsses->created_date = date('Y-m-d H:i:s');
                         $multipleAsses->save();
                     }
@@ -319,19 +320,25 @@ class SiteController extends Controller
             if(isset($_POST['defaultQuestions']) && count(['defaultQuestions'])>0){
                 //print_r($_POST['defaultQuestions']);die;
                 foreach($_POST['defaultQuestions'] as $dquestions){
-                    $mdquestions = Questions::model()->findByPk($dquestions);
+                    $ownmdquestions = Questions::model()->findByPk($dquestions);
+                    $mdquestions = Questions::model()->find("id=".$dquestions." and type='custom' and course=".base64_decode($_GET['c'])." and faculty=".base64_decode($_GET['f'])." and institution=".base64_decode($_GET['i']));
                     if(!$mdquestions)
                     {
                         $questions = new Questions();
                         $questions->faculty = base64_decode($_GET['f']);
                         $questions->institution = base64_decode($_GET['i']);
                         $questions->course = base64_decode($c);
-                        $questions->question= $mdquestions->question;
+                        $questions->question= $ownmdquestions->question;
                         $questions->type= 'custom';
+                        $questions->q_type=$ownmdquestions->q_type;
                         $questions->status= 'active';
                         if($questions->validate())
                         {
                             $questions->save();
+                        }
+                        else
+                        {
+                            echo "<pre>";print_r($questions);die;
                         }
                     }
                     else
@@ -914,8 +921,7 @@ class SiteController extends Controller
         $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
         $questions=Questions::model()->findAll('institution='.base64_decode($_GET['i']).'
             and faculty='.base64_decode($_GET['f']).'
-             and course='.base64_decode($_GET['c']).' and status="active" and id NOT IN ('.$ids.') 
-             or ( type="default" and id NOT IN ('.$ids.'))');
+             and course='.base64_decode($_GET['c']).' and status="active" and id NOT IN ('.$ids.')');
         //echo "<pre>";print_r($question);die;
         $groupUsers = GroupUsers::model()->findAll('group_id='.$_GET['g']);
         $this->render('responsepage',
@@ -1001,4 +1007,7 @@ class SiteController extends Controller
         header("Content-Disposition: attachment; filename=$file");
         echo $table;die;
     }
+
+
+
 }

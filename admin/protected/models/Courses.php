@@ -42,14 +42,14 @@ class Courses extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('name,institution, faculty,
+            array('name,institution, faculty,course_type,
  year,created_by, created_date, updated_date', 'required'),
-            array('type, institution, faculty, department, created_by', 'numerical', 'integerOnly'=>true),
+            array('institution, faculty, department, created_by', 'numerical', 'integerOnly'=>true),
             array('name', 'length', 'max'=>255),
             array('status', 'length', 'max'=>8),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, name,institution, faculty, department, description,year,status, created_by, created_date, updated_date', 'safe', 'on'=>'search'),
+            array('id, name,institution, faculty, department,course_level, description,year,status, created_by, created_date, updated_date', 'safe', 'on'=>'search'),
         );
     }
 
@@ -76,7 +76,7 @@ class Courses extends CActiveRecord
         return array(
             'id' => 'ID',
             'name' => 'Course Name',
-            'type' => 'Level',
+            'course_type' => 'Degree Level',
             'institution' => 'Institution',
             'faculty' => 'Faculty',
             'year'=>'Start Year',

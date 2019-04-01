@@ -42,6 +42,21 @@
     {
         font-size:25px !important;
     }
+    .m-projects-user
+    {
+        color: #00B9CF;
+        font-size: 30px;
+        text-align: left;
+        margin-top: 0px;
+
+    }
+    table th{
+        color:white;
+    }
+    table thead{
+        background-color: #00B9D1 !important;
+    }
+
 </style>
 <section id="wrapper" >
     <div class="container">
@@ -64,37 +79,58 @@
             <h1 class="center m-projects">Manage users</h1>
             <div class="col-lg-12 col-xs-12 col-sm-12 m-t-10 padzero">
                 <div class="col-lg-12 col-xs-12 col-sm-6 padzero">
+                    <p class="row-inactive">
+                        <span class="glyphicon glyphicon-info-sign" style="color:#337ab7 !important;"></span>
+                        <span style="color:red">First thing first,add students to the course.</span>
+                       </p>
                     <h4><b>Recently added Users</b></h4>
-                    <hr style="border:1px solid #9F9F9F !important">
+                    <!--<hr style="border:1px solid #9F9F9F !important">-->
                     <?php
                     $UserCourses = UserCourses::model()->with('user')->findAll(array('condition'=>'t.course_id='.base64_decode($_GET['c']).' 
                 and user.role="5" and user.status="active"','limit'=>5,'order'=>'t.ID DESC'));
                     $i=0;
                     if(count($UserCourses)>0):
+
+                        echo ' <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Firstname /LastName</th>
+                                    <th>UserName</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>';
                         foreach($UserCourses as $imodels):
                             $i++;
                             ?>
-                            <div class="col-lg-12 col-xs-12 col-sm-12 padzero script-text" style="border-bottom:1px solid #eee !important; " id="urow_<?php echo $imodels->user->id  ?>">
+                            <tr>
+                                <td><?php echo ucwords($imodels->user->first_name.' '.$imodels->user->last_name); ?></td>
+                                <td><?php echo $imodels->user->username; ?></td>
+                                <td><i class="fa fa-trash" onclick="ConfirmDelete('<?php echo $imodels->user->id  ?>',3,'<?php echo $imodels->course_id;?>')"></i></td>
+                            </tr>
+
+                            <!-- <div class="col-lg-12 col-xs-12 col-sm-12 padzero script-text" style="border-bottom:1px solid #eee !important; " id="urow_<?php /*echo $imodels->user->id  */?>">
                                 <div class="col-lg-5 col-xs-5 col-sm-5 current-status padzero">
-                                    <p><?php echo ucwords($imodels->user->first_name.' '.$imodels->user->last_name); ?></p>
+                                    <p><?php /*echo ucwords($imodels->user->first_name.' '.$imodels->user->last_name); */?></p>
                                 </div>
                                 <div class="col-lg-5 col-xs-5 col-sm-5 current-status padzero">
-                                    <p><?php echo $imodels->user->username; ?></p>
+                                    <p><?php /*echo $imodels->user->username; */?></p>
                                 </div>
-                                <?php  //if(Yii::app()->user->getState('role')=='Superuser'){ ?>
+
                                 <div class="col-lg-2 col-xs-2 col-sm-2 padzero current-fa text-right">
-                                    <p><i class="fa fa-trash" onclick="ConfirmDelete('<?php echo $imodels->user->id  ?>',3,'<?php echo $imodels->course_id;?>')"></i></p>
+                                    <p><i class="fa fa-trash" onclick="ConfirmDelete('<?php /*echo $imodels->user->id  */?>',3,'<?php /*echo $imodels->course_id;*/?>')"></i></p>
                                 </div>
-                                <?php //} ?>
-                            </div>
-                            <?php
+
+                            </div>-->
+                        <?php
                         endforeach;
+                        echo '</tbody></table>';
                         ?>
                     <?php else: ?>
                         <div class="script-text">
                             <h1>No Users assigned to course.</h1>
                         </div>
-                        <?php
+                    <?php
                     endif;
                     ?>
                     <?php  //$this->endWidget();?>
@@ -107,45 +143,46 @@
     </div>
     <!-- <div class="admin-manage col-lg-12 col-xs-12 col-sm-12 padzero">-->
     <div class="script-section col-xs-12 col-lg-12 col-sm-12">
-
         <div  class="mydiv">
             <h1 class="center m-projects">Manage Projects</h1>
-            <div class="col-lg-12 col-xs-12 col-sm-12 padzero">
-                <div class="col-lg-5 col-xs-5 col-sm-5 padzero">
-                    <p></p>
-                </div>
-                <div class="col-lg-5 col-xs-5 col-sm-5 padzero">
-                    <p class="status">Status</p>
-                </div>
-                <div class="col-lg-2 col-xs-2 col-sm-2 padzero">
-                    <p></p>
-                </div>
-            </div>
+            <p class="row-inactive">
+                <span class="glyphicon glyphicon-info-sign" style="color:#337ab7 !important;"></span>
+                <span style="color:red">Projects can be created here and students can be grouped inside the project.A project can have multiple assessments points set while creation.</span>
+            </p>
             <?php
             $i=0;
             if(count($model)>0):
+                echo ' <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Assessments</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>';
                 foreach($model as $models):
                     $i++;
                     ?>
-                    <div class="col-lg-12 col-xs-12 col-sm-12 padzero script-text" style="padding:5px !important;" id="row_<?php echo $models->id ?>">
-                        <div class="col-lg-5 col-xs-5 col-sm-5 current-status padzero">
-                            <p><a href="javascript:void(0);" style="color:#000000;"><?php echo ucfirst($models->name);?></a></p>
-                        </div>
-                        <div class="col-lg-5 col-xs-5 col-sm-5 current-status padzero">
-                            <p><?php echo ucfirst($models->status);?></p>
-                        </div>
-                        <?php  //if(Yii::app()->user->getState('role')=='Superuser'){ ?>
-                        <div class="col-lg-2 col-xs-2 col-sm-2 padzero current-fa text-right" style="padding:5px !important;" >
-                            <p><a href="<?php echo Yii::app()->createUrl('groupusers/projectgroups',
+                    <tr>
+                        <td><a href="javascript:void(0);" style="color:#000000;"><?php echo ucfirst($models->name);?></a></td>
+                        <td><?php echo ucfirst($models->status);?></td>
+                        <td>
+                            <p>
+                                <a href="<?php echo Yii::app()->createUrl('groupusers/projectgroups',
                                     array('id'=>$models->id,'c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'],'p'=>$models->id));?>"
-                                  title="Groups & Assessment"><i class="fa fa-users" style="font-size:25px;"></i></a>&nbsp;
-                                &nbsp;
-                                <i class="fa fa-cog" title="edit settings" data-toggle="modal" data-target="#courseModal_<?php echo $models->id; ?>"></i>
-                                <i class="fa fa-trash" title="delete" onclick="ConfirmDelete('<?php echo $models->id?>',1,'')"></i>
+                                   title="Groups & Assessment"><i class="fa fa-users"></i>
+                                </a>&nbsp;
+                                <a href="javascript:void(0)">
+                                    <i class="fa fa-cog" title="edit settings" data-toggle="modal" data-target="#courseModal_<?php echo $models->id; ?>"></i>
+                                </a>
+                                <a href="javascript:void(0)">
+                                    <i class="fa fa-trash" title="delete" onclick="ConfirmDelete('<?php echo $models->id?>',1,'')"></i>
+                                </a>
                             </p>
-                        </div>
-                        <?php //} ?>
-                    </div>
+                        </td>
+                    </tr>
+
                     <div class="modal fade" id="courseModal_<?php echo $models->id;?>" role="dialog">
                         <div class="modal-dialog">
                             <!-- Modal content-->
@@ -190,26 +227,31 @@
                                             <?php echo $form->error($models,'status'); ?>
                                         </div>
                                     </div>
-                                    <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
-                                        <div class="col-lg-4 padzero">
-                                            <b>Assessment Point(s) &<br>Due date</b>
-                                            <?php //echo $form->labelEx($models,'assess_date'); ?>
-                                        </div>
+                                    <div class="col-lg-offset-8 col-lg-4 text-right">
+                                        <span onclick="appenddateupdate()" class="badge badge-primary">Add</span>
+                                    </div>
+                                    <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero appenddate apdedit">
+
                                         <?php
                                         $assmnt=Multipleassesment::model()->findAll("prj_id=".$models->id);?>
+                                        <?php  if(count($assmnt)>0) {
+                                            foreach($assmnt as $key =>$val){ ?>
+                                                <div class="col-lg-4 padzero countclass">
+                                                    <b>Assessment <?=$key+1?> due date</b>
+                                                </div>
 
-                                        <div class="col-lg-8 padzero appenddate">
-                                            <?php  if(count($assmnt)>0) {
-                                                foreach($assmnt as $key =>$val){?>
-                                                    <label style="color:#00B9D1">Assessment-<?=($key+1)?></label>
+                                                <div class="col-lg-8 padzero">
                                                     <input class="edit"  name="multipleassesment_<?=$val->id?>"
-                                                           value="<?=$val->due_date?>" type="text">
-                                                <?php } } ?>
-                                            <a onclick="appenddate()" style="background-color: #00B9D1">Add</a>
-                                            <input class="edit1"
-                                                   name="multipleassesment[]" type="text">
-
+                                                           value="<?=date('d-m-Y H:i',strtotime($val->due_date))?>" type="text">
+                                                </div>
+                                            <?php } } ?>
+                                        <div class="col-lg-4 padzero countclass">
+                                            <b>Assessment <?=count($assmnt)+1?> due date</b>
                                         </div>
+                                        <div class="col-lg-8 padzero">
+                                            <input class="edit" name="multipleassesment[]" type="text">
+                                        </div>
+                                        <input type="hidden" id="numberofrows" value="<?=count($assmnt)+1?>" name="nameofrows">
                                     </div>
                                     <?php echo CHtml::submitButton('Save',array('class'=>'save-btn')); ?>
                                     <?php $this->endWidget(); ?>
@@ -217,8 +259,9 @@
                             </div>
                         </div>
                     </div>
-                    <?php
+                <?php
                 endforeach;
+                echo '</tbody></table>';
             else:
                 ?>
                 <div class="script-text">
@@ -237,18 +280,37 @@
             <?php
             $i=0;
             if(count($question)>0):
+                echo ' <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>S.No</th>
+                                    <th>Question Name</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>';
                 foreach($question as $iquestion):
                     $i++;
                     ?>
-                    <div class="script-text" id="qrow_<?php echo $iquestion->id; ?>">
-                        <h1><a href="javascript:void(0);" class="item_link"><?php echo $i; ?>. <?php echo ucfirst($iquestion->question); ?></a>
-                            <?php  //if(Yii::app()->user->getState('role')=='Superuser'){ ?>
+                    <tr>
+                        <td><?php echo $i; ?></td>
+                        <td><?php echo ucfirst($iquestion->question); ?></td>
+                        <td>
+                    <span class="pull-left">
+                    <i class="fa fa-trash" onclick="ConfirmDelete('<?php echo $iquestion->id ?>',2,'')"></i>
+                    <i class="fa fa-cog" data-toggle="modal" data-target="#questionModal_<?php echo $iquestion->id; ?>"></i>
+                    </span>
+                        </td>
+                    </tr>
+
+                    <!-- <div class="script-text" id="qrow_<?php /*echo $iquestion->id; */?>">
+                        <h1><a href="javascript:void(0);" class="item_link"><?php /*echo $i; */?>. <?php /*echo ucfirst($iquestion->question); */?></a>
+
                             <span class="pull-right">
-			<i class="fa fa-trash" onclick="ConfirmDelete('<?php echo $iquestion->id ?>',2,'')"></i>
-			<i class="fa fa-cog" data-toggle="modal" data-target="#questionModal_<?php echo $iquestion->id; ?>"></i>
+			<i class="fa fa-trash" onclick="ConfirmDelete('<?php /*echo $iquestion->id */?>',2,'')"></i>
+			<i class="fa fa-cog" data-toggle="modal" data-target="#questionModal_<?php /*echo $iquestion->id; */?>"></i>
 			</span>
-                            <?php //} ?></h1>
-                    </div>
+                    </div>-->
                     <div class="modal fade" id="questionModal_<?php echo $iquestion->id;?>" role="dialog">
                         <div class="modal-dialog">
                             <!-- Modal content-->
@@ -299,8 +361,9 @@
                             </div>
                         </div>
                     </div>
-                    <?php
+                <?php
                 endforeach;
+                echo "</tbody></table>";
             else:
                 ?>
                 <div class="script-text">
@@ -350,17 +413,18 @@
                         <?php echo $form->error($formModel,'description'); ?>
                     </div>
                 </div>
-                <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero ">
-                    <div class="col-lg-4 padzero">
-                        <?php //echo $form->labelEx($formModel,'assess_date'); ?>
-                        Assessment Multiple
+                <div class="col-lg-offset-8 col-lg-4 text-right">
+                    <span onclick="appenddate()" class="badge badge-primary">Add</span>
+                </div>
+                <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero appenddate appendinsert ">
+                    <div class="col-lg-4 padzero countclass">
+                        <b>Assessment 1 due date</b>
                     </div>
-                    <div class="col-lg-8 padzero appenddate">
-                        <input class="datepicker" id="Projects_assess_date"  name="multipleassesment[]"  required type="text">
-                        <a onclick="appenddate()" style="background-color: #00B9D1">Add</a>
-                        <?php echo $form->error($formModel,'assess_date'); ?>
+                    <div class="col-lg-8 padzero">
+                        <input class="datepicker"   name="multipleassesment[]"  required type="text">
                     </div>
                 </div>
+                <input type="hidden" id="inshidden" value="1" name="inshidden">
                 <?php echo CHtml::submitButton('Save',array('class'=>'save-btn')); ?>
                 <?php $this->endWidget(); ?>
             </div>
@@ -605,17 +669,17 @@
             alias: "yyyy-mm-dd"
         });*/
 
-        $('.appenddate input').datetimepicker({
+        $('.appenddate > input,.edit').datetimepicker({
             inline:false,
-            format: 'Y-m-d H:i',
+            format: 'd-m-Y H:i',
 
         });
 
     });
     $('body').on('focus',".datepicker", function(){
-        $('.appenddate input').datetimepicker({
+        $('.appenddate input,.edit').datetimepicker({
             inline:false,
-            format: 'Y-m-d H:i',
+            format: 'd-m-Y H:i',
             orientation: "top" // add this
 
         });
@@ -686,6 +750,25 @@
     }
     function appenddate()
     {
-        $(".appenddate").append('<input  type="text" class="col-lg-2 datepicker" name="multipleassesment[]">');
+        var rwcnt=parseInt($("#inshidden").val())+1;
+        $(".appendinsert").append('<div class="col-lg-4 padzero">\n' +
+            '            <b>Assessment '+rwcnt+' due date</b></div>\n' +
+            '    <div class="col-lg-8 padzero">\n' +
+            '        <input type="text"  name="multipleassesment[]" autocomplete="off" class="datepicker edit"  >\n' +
+            '        </div>');
+
+        $("#inshidden").val(rwcnt)
+    }
+
+    function appenddateupdate()
+    {
+        var rowcnt=parseInt($("#numberofrows").val())+1;
+
+        $(".apdedit").append('<div class="col-lg-4 padzero">\n' +
+            '            <b>Assessment '+rowcnt+' due date</b></div>\n' +
+            '    <div class="col-lg-8 padzero">\n' +
+            '        <input type="text"  name="multipleassesment[]" autocomplete="off" class="datepicker edit"  >\n' +
+            '        </div>');
+        $("#numberofrows").val(rowcnt);
     }
 </script>

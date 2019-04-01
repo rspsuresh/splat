@@ -26,11 +26,11 @@ class ProjectGroups extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('project_id, group_id', 'required'),
-			array('project_id, group_id', 'numerical', 'integerOnly'=>true),
+			array('course_id, group_id', 'required'),
+			array('course_id, group_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, project_id, group_id', 'safe', 'on'=>'search'),
+			array('id, course_id, group_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -41,9 +41,9 @@ class ProjectGroups extends CActiveRecord
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-		return array(
+	/*	return array(
 		    'groups' => array(self::BELONGS_TO, 'Groups', 'group_id'),
-		);
+		);*/
 	}
 
 	/**
@@ -77,7 +77,7 @@ class ProjectGroups extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('project_id',$this->project_id);
+		$criteria->compare('course_id',$this->course_id);
 		$criteria->compare('group_id',$this->group_id);
 
 		return new CActiveDataProvider($this, array(

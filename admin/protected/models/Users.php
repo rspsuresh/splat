@@ -60,7 +60,7 @@ class Users extends CActiveRecord
             // array('username','unique'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, username, password, first_name, last_name, profile, status, created_date, 
+            array('id, username, password, first_name, last_name, profile,send_email, status, created_date, 
             updated_date,email,course_id, institution_id, fac_id, role', 'safe', 'on'=>'search'),
         );
     }
@@ -168,7 +168,7 @@ class Users extends CActiveRecord
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
             'pagination' => array(
-                'pageSize' => 8,
+                'pageSize' => 10,
             ),
         ));
     }

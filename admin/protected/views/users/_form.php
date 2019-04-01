@@ -28,7 +28,8 @@
             <?php echo $form->labelEx($model,'username'); ?>
         </div>
         <div class="col-lg-8 padzero">
-            <?php echo $form->textField($model,'username',array('size'=>60,'maxlength'=>255,'placeholder'=>'Username')); ?>
+            <?php echo $form->textField($model,'username',array('size'=>60,'maxlength'=>255,
+        'placeholder'=>'Username')); ?>
             <?php echo $form->error($model,'username'); ?>
         </div>
     </div>-->
@@ -37,7 +38,10 @@
             <?php echo $form->labelEx($model,'email'); ?>
         </div>
         <div class="col-lg-8 padzero">
-            <?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>255,'placeholder'=>'Email')); ?>
+            <?php //echo "<pre>";print_r($model);die;?>
+            <?php echo $form->textField($model,'email',
+                array('size'=>60,
+                'maxlength'=>255,'placeholder'=>'Email')); ?>
             <?php echo $form->error($model,'email'); ?>
         </div>
     </div>
@@ -142,6 +146,7 @@
 <script>
     $(function() {
         $('.faccourse').show();
+        //$('#Users_email').attr('disabled',true)
         $("#Users_role").change(function() {
             if($('option:selected', this).val() ==1)
             {

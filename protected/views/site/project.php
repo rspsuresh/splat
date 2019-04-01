@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<script src="https://www.solodev.com/_/assets/pagination/jquery.twbsPagination.js"></script>
 <style>
     .staff
     {
@@ -67,6 +68,12 @@
         margin-right: 20px;
         margin-top: -17px;
     }
+    .page {
+        display: none;
+    }
+    .page-active {
+        display: block;
+    }
 </style>
 <section id="wrapper" >
     <div class="container">
@@ -93,10 +100,12 @@
 					<h6>Staff</h6>
 					<p><?php echo ucfirst($projects->faculty0->name); ?></p>
 				</div>-->
-                <div class="staff">
-                    <h6>Description</h6>
-                    <p id="projectname"><?php echo $projects->description; ?></p>
-                </div>
+                <?php if(!empty($projects->description)) { ?>
+                    <div class="staff">
+                        <h6>Description</h6>
+                        <p id="projectname"><?php echo $projects->description; ?></p>
+                    </div>
+                <?php } ?>
                 <div class="staff">
                     <h6>Course</h6>
                     <p><?php echo ucfirst($projects->course0->name); ?></p>
@@ -121,7 +130,7 @@
                 <?php  }?>
             </div>
             <?php
-            $prj="SELECT group_concat(group_id) as grp  FROM `project_groups` WHERE `project_id` =".$_GET['id'];
+            $prj="SELECT group_concat(group_id) as grp  FROM `project_groups` WHERE `course_id` =".$_GET['id'];
             $prjresult=Yii::app()->db->CreateCommand($prj)->QueryAll();
             $grpstr=$prjresult[0]['grp'];
             $grpfind="SELECT A.`group_id`,B.`name` FROM `group_users` as A
@@ -140,8 +149,8 @@
             //echo "<pre>";print_r($assescheck);die;
             ?>
             <div class="col-lg-<?=$column?> col-xs-12 col-sm-4 staff-due well"  >
-                <h6>Group : <?=$groupusers[0]->groups->name?></h6>
-                <div class="col-lg-12 col-xs-12 col-sm-12 padzero" style="overflow-y: scroll; min-height:300px;">
+                <h6>Group : <?=$groupusers[0]->groups->name?></h6><br>
+                <div class="col-lg-12 col-xs-12 col-sm-12 padzero">
                     <?php
                     if(count($groupusers)>0  && count($assescheck) >0 ) {
                         foreach($groupusers as $groupuser) {
@@ -210,18 +219,21 @@
                              and grp_id='.$grpidb.' and from_user='.Yii::app()->user->id ." and asses_id=".$activeass);
                     }
                    // echo count($assescheck)."---".$checkiassess;die;
-                    if(count($assescheck)==1 && $checkiassess==0 ) {
-                        ?>
+//                    if(count($assescheck)==1 && $checkiassess==0 ) {
+//                        ?>
                         <a href="<?php echo Yii::app()->createUrl('site/assessment',
                             array('id'=>$projects->id,'g'=>$grpresult[0]['group_id'],'asm'=>$assescheck[0]['id'])); ?>"
                            class="add-course pull-left">Assess</a>
-                    <?php  } ?>
+<!--                    --><?php // }  else  {
+//
+//                      echo '<a href="#"  id ="completed" style="background-color:grey;hover:none"  class="add-course pull-left">Completed</a>';
+//                  } ?>
 
                 </div>
             </div>
             <?php if(count($assescheck)>0) { ?>
             <div class="col-lg-3 col-xs-12 col-sm-4 staff-due" style="display:<?=$showresponse?>">
-                <h6>View your responses</h6>
+                <h6>View your feedback to Peer</h6>
                 <div class="col-lg-12 col-xs-12 col-sm-12 padzero">
                     <?php $assesall=Multipleassesment::model()->findAll("prj_id=".$_GET['id']." and (status='A' or status='C')");?>
                     <?php foreach($assesall as $key=>$val){
@@ -241,14 +253,13 @@
                         $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
                         $questions=Questions::model()->findAll('institution='.$projects->institution.'
                         and faculty='.$projects->faculty.'
-                         and course='.$projects->course.' and status="active" and id NOT IN ('.$ids.') 
-                         or ( type="default" and id NOT IN ('.$ids.'))');
+                         and course='.$projects->course.' and status="active" and id NOT IN ('.$ids.') ');
                         ?>
                         <div class="col-lg-12 col-xs-12 col-sm-12 padzero" style="margin:5px;">
                             <?php $assexists=Assess::model()->findByAttributes(array("asses_id"=>$val->id));
                             if($assexists) { ?>
                                 <a href="<?php echo $action ?>"  style="color:white !important;">
-                                    <button type="button" class="btn btn-<?=$badge?>" title="<?=($badge=='danger')?'Assesment complete':'Assesment Active'?>">
+                                    <button type="button" class="mycheckclass btn btn-<?=$badge?>" title="<?=($badge=='danger')?'Assesment complete':'Assesment Active'?>">
                                         Assessment -<?= ($key+1)?>
                                     </button>
                                 </a>
@@ -272,15 +283,17 @@
                     <?php
                     if(count($groupusers)>0):
                         $u = 0;
-                        foreach($groupusers as$key=>$groupuser):
+                    $chunkarray=array_chunk($groupusers,5);
+                    foreach($chunkarray as $ckey =>$cval) :
+                        foreach($cval  as $key=>$groupuser):
                             $u++;
                             $myclass=($groupuser->user_id==Yii::app()->user->id)?'mine':'others';
                             ?>
 
-                            <div class="panel panel-default <?=$myclass?> " style="margin-bottom:5px !important;">
-                                <div class="panel-heading accordion-toggle question-toggle collapsed"
+                            <div class="panel panel-default <?=$myclass?> page page_<?=$ckey+1?> " style="margin-bottom:5px !important;">
+                                <div class="panel-heading accordion-toggle question-toggle"
                                      data-toggle="collapse" data-parent="#faqAccordion"
-                                     data-target="#question_<?php echo $groupuser->id;?>" aria-expanded="false">
+                                     data-target="#question_<?php echo $groupuser->id;?>" >
                                     <h4 class="panel-title">
                                         <a href="#" class="ing">
                                             <?php
@@ -295,7 +308,7 @@
                                     </h4>
                                 </div>
                                 <div id="question_<?php echo $groupuser->id;?>" class="panel-collapse collapse"
-                                     aria-expanded="false" style="height: 0px;">
+                                      style="height: 0px;">
                                     <div class="panel-body">
                                         <div class="script-texts">
                                             <?php
@@ -320,7 +333,9 @@
                                     </div>
                                 </div>
                             </div>
-                        <?php endforeach; else: ?>
+                        <?php endforeach;
+                         endforeach;
+                        else: ?>
                         <div class="panel">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
@@ -336,49 +351,9 @@
     </div>
     </div>
 </section>
-<div class="modal fade" id="groupModal" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content col-xs-12 col-lg-12 col-sm-12">
-            <div class="modal-header col-lg-12">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title text-center">Add Group to Projects</h4>
-            </div>
-            <div class="model-form col-lg-12 col-xs-12 col-sm-12 form">
-                <?php $form=$this->beginWidget('CActiveForm', array(
-                    'id'=>'group-form',
-                    'enableClientValidation'=>true,
-                    'clientOptions'=>array(
-                        'validateOnSubmit'=>true,
-                    ),
-                ));
-                $gmodel->group_id = $grpresult[0]['group_id'];
-                ?>
-                <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
-                    <div class="col-lg-4 padzero">
-                        <?php echo $form->labelEx($gmodel,'user_id'); ?>
-                    </div>
-                    <div class="col-lg-8 padzero">
-                        <?php echo $form->dropDownList($gmodel, 'user_id', CHtml::listData(Users::model()->findAll('role="5" and status="active"'), 'id', 'first_name'), array('empty'=>'Select User')); ?>
 
-                        <?php echo $form->error($gmodel,'user_id'); ?>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero" style="display:none;">
-                    <div class="col-lg-4 padzero">
-                        <?php echo $form->labelEx($gmodel,'group_id'); ?>
-                    </div>
-                    <div class="col-lg-8 padzero">
-                        <?php echo $form->dropDownList($gmodel, 'group_id', CHtml::listData(Groups::model()->findAll('status!="inactive"'), 'id', 'name'), array('empty'=>'Select Group')); ?>
-                        <?php echo $form->error($gmodel,'group_id'); ?>
-                    </div>
-                </div>
-                <?php echo CHtml::submitButton('Save',array('class'=>'save-btn')); ?>
-                <?php $this->endWidget(); ?>
-            </div>
-        </div>
-    </div>
-</div>
+<?php $totalcount=count($chunkarray);?>
+<script src="https://www.solodev.com/_/assets/pagination/jquery.twbsPagination.js"></script>
 <script type="text/javascript">
     function assesment(id)
     {
@@ -405,14 +380,12 @@
         }
     }
     $( document ).ready(function() {
-        console.log( "ready!" );
         var prjname=$("#projectname").text();
-        var assm=$(".btn-primary").text();
-        //var cms="Assesment for "+prjname+"("+assm+")";
-        var cms="View your responses for "+prjname+"("+assm+")";
+        var assm=$(".btn-primary").text().trim();
+        var cms="View feedback from Peer "+prjname+"("+assm+")";
         $("#rmd").text(cms);
     });
-   // $(function(){
+
         var container = $('#mycontent').clone();
         $('#mycontent').html('');
         container.find('.others').each(function() {
@@ -421,6 +394,49 @@
         container.find('.mine').each(function() {
             $('#mycontent').append($(this)[0].outerHTML);
         })
-   // });
+
+
+    $('#mycontent').twbsPagination({
+        totalPages:<?=$totalcount?>,
+// the current page that show on start
+        startPage: 1,
+
+// maximum visible pages
+        visiblePages: 10,
+
+        initiateStartPageClick: true,
+
+// template for pagination links
+        href: false,
+
+// variable name in href template for page number
+        hrefVariable: '{{number}}',
+
+// Text labels
+        first: 'First',
+        prev: 'Previous',
+        next: 'Next',
+        last: 'Last',
+
+// carousel-style pagination
+        loop: false,
+
+// callback function
+        onPageClick: function (event, page) {
+            $('.page-active').removeClass('page-active');
+            $('.page_'+page).addClass('page-active');
+        },
+
+// pagination Classes
+        paginationClass: 'pagination',
+        nextClass: 'next',
+        prevClass: 'prev',
+        lastClass: 'last',
+        firstClass: 'first',
+        pageClass: 'page',
+        activeClass: 'active',
+        disabledClass: 'disabled'
+
+    });
 
 </script>

@@ -13,30 +13,36 @@
 $institution = Institutions::model()->find('id='.base64_decode($_GET['i']));
 $faculty = Faculties::model()->find('id='.base64_decode($_GET['f']));
 $course = Courses::model()->find('id='.base64_decode($_GET['c']));
+  $stafforuser=(Yii::app()->controller->action->id =='staffusers')?'Staff':'User';
 ?>
 <section id="wrapper" >
 	<div class="container">
 		<div class="user-institute">
             <?php  if(Yii::app()->user->getState('role')=='Superuser')
-            { ?>
-                <p>You are here: <a href="<?php echo Yii::app()->createUrl('site/index'); ?>">Home</a> /
+            {  ?>
+                <p>
+                    You are here: <a href="<?php echo Yii::app()->createUrl('site/index'); ?>">Home</a> /
                     <a href="<?php echo Yii::app()->createUrl('site/faculties',array('i'=>base64_encode($institution->id)));?>">Faculties</a> /
                     <a href="<?php echo Yii::app()->createUrl('site/courses',array('i'=>base64_encode($institution->id),'f'=>base64_encode($faculty->id)));?>">
                         <?php echo ucfirst($faculty->name);?></a> /
                     <a href="<?= Yii::app()->createUrl('users/cadmin',
-                        array('c'=>$_GET['c'],'f'=>$_GET['f'],'i'=>$_GET['i']))?>"><?php echo ucfirst($course->name); ?></a> / <b>Add Users to Course</b></p>
+                        array('c'=>$_GET['c'],'f'=>$_GET['f'],'i'=>$_GET['i']))?>"><?php echo ucfirst($course->name); ?></a> /
+                    <b>Add <?=$stafforuser?> to Course</b>
+                </p>
             <?php }
             else { ?>
-                <p>You are here: <a href="<?php echo Yii::app()->createUrl('site/faculties',array('i'=>base64_encode($institution->id)));?>">Faculties</a>
+                <p>You are here:
+                    <a href="<?php echo Yii::app()->createUrl('site/faculties',array('i'=>base64_encode($institution->id)));?>">Faculties</a>
                     / <a href="<?php echo Yii::app()->createUrl('site/courses',array('i'=>base64_encode($institution->id),'f'=>base64_encode($faculty->id)));?>">
                         <?php echo ucfirst($faculty->name);?></a> /<a href="<?= Yii::app()->createUrl('users/cadmin',
-                        array('c'=>$_GET['c'],'f'=>$_GET['f'],'i'=>$_GET['i']))?>"><?php echo ucfirst($course->name); ?></a> / <b>Add Users to Course</b></p>
+                        array('c'=>$_GET['c'],'f'=>$_GET['f'],'i'=>$_GET['i']))?>"><?php echo ucfirst($course->name); ?></a> /
+                    <b>Add <?=$stafforuser?> to Course</b>
+                </p>
             <?php } ?>
-			<!--<p>You are here: <a href="<?php echo Yii::app()->createUrl('site/index'); ?>">Home</a> / <b>Add Users to course</b></p>-->
 		</div>
 	</div>
 	<div class="container-fluid user-assessment">
-		<p>Add a User to course</p>
+		<p>Add a <?=$stafforuser?> to course</p>
 	</div>
 	<div class="container">
 		<br/><?php $this->renderPartial('_cform', array('model'=>$model)); ?>
@@ -44,7 +50,6 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
 </section>
 <script>
     $('#Users_username').on('blur', function() {
-        console.log(this.value)
         if(this.value !='')
         {
             $.ajax({

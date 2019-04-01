@@ -160,40 +160,227 @@ class GroupusersController extends Controller
     public function actionProjectgroups($id)
     {
         //$asses=Assess::model()->deleteAll("(from_user=2 or to_user=2) and project=1 and grp_id=".$grp);
-        $model=new GroupUsers;
-        $this->pageTitle="SPLAT - Group users";
+        $model = new GroupUsers;
+        $this->pageTitle = "SPLAT - Group users";
         $model->group_id = $_GET['id'];
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
-        $grpmodel=new Groups('search');
+        $grpmodel = new Groups('search');
         $grpmodel->unsetAttributes();  // clear any default values
-        if(isset($_GET['Groups']))
-            $grpmodel->attributes=$_GET['Groups'];
-        $assesmodel=new Multipleassesment('search');
+        if (isset($_GET['Groups']))
+            $grpmodel->attributes = $_GET['Groups'];
+        $assesmodel = new Multipleassesment('search');
         $assesmodel->unsetAttributes();  // clear any default values
-        if(isset($_GET['Multipleassesment']))
-            $grpmodel->attributes=$_GET['Multipleassesment'];
+        if (isset($_GET['Multipleassesment']))
+            $grpmodel->attributes = $_GET['Multipleassesment'];
 
-        if(isset($_POST['GroupUsers']))
-        {
-            foreach($_POST['GroupUsers']['user_id'] as $val)
-            {
-                $GroupUsers = GroupUsers::model()->findAll('group_id='.$_GET['id'].' and user_id='.$val);
-                if(count($GroupUsers)<=0){
-                    $model=new GroupUsers;
-                    $model->user_id=$val;
-                    $model->group_id=$_POST['GroupUsers']['group_id'];
+        if (isset($_POST['GroupUsers'])) {
+            foreach ($_POST['GroupUsers']['user_id'] as $val) {
+                $GroupUsers = GroupUsers::model()->findAll('group_id=' . $_GET['id'] . ' and user_id=' . $val);
+                if (count($GroupUsers) <= 0) {
+                    $model = new GroupUsers;
+                    $model->user_id = $val;
+                    $model->group_id = $_POST['GroupUsers']['group_id'];
                     $model->status = 'active';
                     $model->created_date = date('Y-m-d H:i:s');
                     $model->updated_date = date('Y-m-d H:i:s');
                     $model->save();
-
                 }
             }
             Yii::app()->user->setFlash('success','Student(s) has been assigned to the group.');
             $this->refresh();
-            //$this->redirect(Yii::app()->createUrl('groupusers/admin',array('id'=>$_GET['id'],'c'=>$_GET['c'],'f'=>$_GET['f'],'i'=>$_GET['i'])));
+        }
+        if(isset($_FILES['csv_file'])){
+            $savecount=0;
+            $unsavecount=0;
+            if(is_uploaded_file($_FILES['csv_file']['tmp_name'])) {
+                // echo $_FILES['csv_file']['tmp_name'];die;
+                $csvFile = fopen($_FILES['csv_file']['tmp_name'], 'r');
 
+                //skip first line
+                $header = fgetcsv($csvFile);
+                echo "<pre>";print_r($header);die;
+                while (($line = fgetcsv($csvFile)) !== FALSE) {
+                    $all_rows[] = array_combine($header, $line);
+                }
+                fclose($csvFile);
+                //echo "<pre>";print_r($all_rows);die;
+                $uniquegrouparray=array_filter(array_unique(array_column($all_rows,$header[count($header) -2])));
+                $courseid=base64_decode($_GET['c']);
+                if(is_array($uniquegrouparray) && !empty($uniquegrouparray))
+                {
+                    foreach($uniquegrouparray as $key =>$val)
+                    {
+                        $groupmodel=Groups::model()->find("name='{$val}' and course_id='{$courseid}'");
+                        if(count($groupmodel) == 0)
+                        {
+                            $grpmodels=new Groups();
+                            $grpmodels->name=$val;
+                            $grpmodels->course_id=base64_decode($_GET['c']);
+                            $grpmodels->status='active';
+                            $grpmodels->created_date=$grpmodels->updated_date=date('Y-m-d H:i:s');
+                            if($grpmodels->save(false))
+                            {
+                                $projectgroupp=ProjectGroups::model()->find("group_id=".$grpmodels->id." and course_id=".$_GET['p']);
+                                //echo "<pre>";print_r($projectgroupp);
+                                if(count($projectgroupp) <=0)
+                                {
+                                    $prjmodelgrp=new ProjectGroups();
+                                    $prjmodelgrp->course_id=$_GET['p'];
+                                    $prjmodelgrp->group_id=$grpmodels->id;
+                                    if($prjmodelgrp->save(false))
+                                    {
+
+                                    }
+                                    else
+                                    {
+                                        echo "<pre>";print_r($prjmodelgrp->getErrors());
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    foreach($all_rows as $key =>$values)
+                    {
+
+                        if(!empty($all_rows))
+                        {
+                            $explodeusrdata=explode('@',$values['Email']);
+                            $usersmodel=Users::model()->find("username='{$explodeusrdata[0]}' and email='{$explodeusrdata[1]}'");
+                            if(count($usersmodel) <=0)
+                            {
+                                $usermodalmain=new Users();
+                                $usermodalmain->role=5;
+                                $usermodalmain->course_id=base64_decode($_GET['c']);
+                                $usermodalmain->institution_id=1;
+                                $usermodalmain->fac_id=base64_decode($_GET['f']);
+                                $usermodalmain->status='active';
+                                $usermodalmain->created_date=$usermodalmain->updated_date=date('Y-m-d h:i:s');
+                                $usermodalmain->first_name=(isset($values['First Name']))?$values['First Name']:$explodeusrdata[0];
+                                $usermodalmain->last_name=$values['Last Name'];
+                                $usermodalmain->password=bin2hex(openssl_random_pseudo_bytes(4));
+                                $usermodalmain->profile=' ';
+                                $usermodalmain->save();
+
+                                if($savecount >0)
+                                {
+                                    Yii::app()->user->setFlash('success',$savecount."- new users has been created.");
+                                }
+                                if($unsavecount >0)
+                                {
+                                    Yii::app()->user->setFlash('error',$unsavecount." - Existing users have been assigned to this course.");
+                                }
+                                $this->mappingusers($usermodalmain->id,$values[$header[count($header) -2]],$courseid);
+                            }
+                            else{
+                                $this->mappingusers($usersmodel->id,$values[$header[count($header) -2]],$courseid);
+                            }
+                        }
+
+
+                    }
+
+                }
+
+//                if (!empty($all_rows)) {
+//                    if(isset($all_rows[0]['Username']) && isset($all_rows[0]['Email']) && isset($all_rows[0]['First Name']) && isset($all_rows[0]['Last Name']))
+//                    {
+//                        foreach ($all_rows as $key => $val) {
+//                            //while(($line = fgetcsv($csvFile)) !== FALSE){
+//                            $users = Users::model()->find("(username='" . $val['Username'] . "' or email='" . $val["Email"] . "') and status='active'");
+//                            if (count($users) == 0) {
+//                                $users = new Users();
+//                                $emailexplode=explode('@',$val['Email']);
+//                                $users->username = $emailexplode[0];
+//                                $users->first_name = $val['First Name'];
+//                                $users->last_name = $val['Last Name'];
+//                                $users->email = $val['Email'];
+//                                $users->course_id = base64_decode($_GET['c']);
+//                                $users->fac_id = base64_decode($_GET['f']);
+//                                $users->institution_id = base64_decode($_GET['i']);
+//                                $password = bin2hex(openssl_random_pseudo_bytes(4));
+//                                $users->password = $password;
+//                                $users->role = '5';
+//                                $users->created_date = date('Y-m-d h:i:s');
+//                                $users->updated_date = date('Y-m-d h:i:s');
+//
+//                                if ($users->save(false)) {
+//                                    //echo "ffsdfdsf";die;
+//                                    $savecount = $savecount + 1;
+//                                    $UserFaculties = new UserFaculties();
+//                                    $UserFaculties->user_id = $users->id;
+//                                    $UserFaculties->faculty_id = base64_decode($_GET['f']);
+//                                    $UserFaculties->save(false);
+//
+//                                    $UserCourses = new UserCourses();
+//                                    $UserCourses->user_id = $users->id;
+//                                    $UserCourses->course_id = base64_decode($_GET['c']);
+//                                    $UserCourses->save(false);
+//
+//                                    //$to = $users->username;
+//                                    $course_name = $users->courses->name;
+//
+//                                    $headers = "MIME-Version: 1.0" . "\r\n";
+//                                    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+//                                    $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
+//                                    $subject = "Splat User registration";
+//                                    $url = $_SERVER['SERVER_NAME'] . "/site/login";
+//                                    $to = $users->email;
+//                                    $message = 'Dear ' . $users->first_name . '<br/><br/>You have been added to the
+//                                 Bournemouth University SPLAT website for the course ' . $course_name . '.
+//                                 You can now login to assess your peers.<br/><br/>Your credentials are:<br/>
+//                                 Website: ' . $url . '<br/>
+//                                 Username: ' . $to . '<br/>
+//                                 Password: ' . $users->password;
+//                                    mail($to, $subject, $message, $headers);
+//                                }
+//                                else
+//                                {
+//                                    echo "<pre>";print_r($users->getErrors());die;
+//                                }
+//                            }
+//                            else {
+//                                $facultymodel=UserFaculties::model()->findByAttributes(array('user_id'=>$users->id,'faculty_id'=>base64_decode($_GET['c'])));
+//                                $coursemodel=UserCourses::model()->findByAttributes(array('user_id'=>$users->id,'course_id'=>base64_decode($_GET['c'])));
+//                                if(empty($facultymodel) && empty($coursemodel))
+//                                {
+//                                    $UserFaculties = new UserFaculties();
+//                                    $UserFaculties->user_id = $users->id;
+//                                    $UserFaculties->faculty_id = base64_decode($_GET['f']);
+//                                    $UserFaculties->save(false);
+//
+//                                    $UserCourses = new UserCourses();
+//                                    $UserCourses->user_id = $users->id;
+//                                    $UserCourses->course_id = base64_decode($_GET['c']);
+//                                    $UserCourses->save(false);
+//                                }
+//                                else{
+//                                    $unsavecount = $unsavecount+1;
+//                                }
+//
+//                            }
+//                        }
+//                        fclose($csvFile);
+//                        if($savecount >0)
+//                        {
+//                            Yii::app()->user->setFlash('success',$savecount."- new users has been created.");
+//                        }
+//                        if($unsavecount >0)
+//                        {
+//                            Yii::app()->user->setFlash('error',$unsavecount." - Existing users have been assigned to this course.");
+//                        }
+//
+//                        $this->refresh();
+//                    }
+//                    else
+//                    {
+//                        Yii::app()->user->setFlash('error','Fields are not matched.please try after some time');
+//                    }
+//
+//                }
+
+            }
         }
 
         $this->render('projectadmin',array(
@@ -201,12 +388,46 @@ class GroupusersController extends Controller
         ));
     }
 
+    public function mappingusers($userid,$header,$courseid)
+    {
+        if(!empty($userid))
+        {
+            $usercourses=UserCourses::model()->find("user_id=".$userid." and course_id=".base64_decode($_GET['c']));
+            if(count($usercourses)<=0)
+            {
+                $ucmodal=new UserCourses();
+                $ucmodal->course_id=base64_decode($_GET['c']);
+                $ucmodal->user_id=$userid;
+                $ucmodal->save(false);
+            }
+
+            $userfaculty=UserFaculties::model()->find("user_id=".$userid." and faculty_id=".base64_decode($_GET['f']));
+
+            if(count($userfaculty)<=0)
+            {
+                $ucfacmodel=new UserFaculties();
+                $ucfacmodel->user_id=$userid;
+                $ucfacmodel->faculty_id=base64_decode($_GET['f']);
+            }
+            $groupmainmodel=Groups::model()->find("name='{$header}' and course_id='{$courseid}'");
+            if(count($groupmainmodel) >0)
+            {
+                $groupusersmodel=new GroupUsers();
+                $groupusersmodel->user_id=$userid;
+                $groupusersmodel->group_id=$groupmainmodel->id;
+                $groupusersmodel->status='active';
+                $groupusersmodel->created_date=$groupusersmodel->updated_date=date('Y-m-d h:i:s');
+                $groupusersmodel->save(false);
+
+            }
+        }
+
+    }
+
     public function actionDownload()
     {
-        //$val['Username']="dhamuace@gmail.com";
-        //$users = Users::model()->find('(username="'.$val['Username'].'" or email="'.$val['Username'].'") and status="active"');
+
         $projectassesment=Multipleassesment::model()->findAll(array('condition'=>'prj_id='.$_GET['p'],'order'=>'due_date asc'));
-        //echo "<pre>";print_r($projectassesment);die;
         $test="";
         $html='<table id="resulttable" class="table" border = \'1\'>
 <tr><th scope="col">Username</th>';
@@ -417,16 +638,16 @@ class GroupusersController extends Controller
             $result=Yii::app()->db->CreateCommand($sql)->QueryAll();
             $html='';
             //echo "<pre>";print_r($result);die;
-           if(!empty($result))
-           {
-               foreach($result as $val)
-               {
-                   $html.='<option value="'.$val['user_id'].'">'.$val["name"].'</option>';
-               }
+            if(!empty($result))
+            {
+                foreach($result as $val)
+                {
+                    $html.='<option value="'.$val['user_id'].'">'.$val["name"].'</option>';
+                }
 
-           }
+            }
 
-           echo  $html;die;
+            echo  $html;die;
         }
     }
 }

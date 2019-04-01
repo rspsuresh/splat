@@ -12,6 +12,10 @@
         font-weight:bold;
         font-size:16px !important;
     }
+    .grey
+    {
+        color:grey;
+    }
 </style>
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jqueryui/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/js/jqueryui/jquery-ui.min.css">
@@ -46,10 +50,11 @@
                                     $i++;
                                     ?>
                                     <div class="script-text" id="row_<?php echo $models->id ?>">
-                                        <h1><a href="<?php echo Yii::app()->createUrl('site/courseItems',array('i'=>$_GET['i'],
+                                        <h1>
+                                            <a href="<?php echo Yii::app()->createUrl('users/cadmin',array('i'=>$_GET['i'],
                                                 'f'=>$_GET['f'], 'c'=>base64_encode($models->id))); ?>"
                                                class="item_link"><?php echo $i; ?>.
-                                                <?php echo ucwords ($models->type0->name." ".$models->name); ?></a>
+                                                <?php echo ucwords ($models->course_type." ".$models->name); ?>  <span class="grey"><?=($models->course_level !='')?' | Level :'.$models->course_level:''?> <?=($models->year !='')?' | Year : '.$models->year:''?></span></a>
 
                                             <span class="pull-right">
                                                 <?php  if(Yii::app()->user->getState('role')=='Superuser') { ?>
@@ -102,11 +107,20 @@
                                                     </div>
                                                     <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
                                                         <div class="col-lg-4 padzero">
-                                                            <?php echo $form->labelEx($models,'type'); ?>
+                                                            <?php echo $form->labelEx($models,'course_type'); ?>
                                                         </div>
                                                         <div class="col-lg-8 padzero">
-                                                            <?php echo $form->dropDownList($models, 'type', CHtml::listData(CourseTypes::model()->findAll(), 'id', 'name'), array('empty'=>'Select Type')); ?>
-                                                            <?php echo $form->error($models,'type'); ?>
+                                                            <?php echo $form->textField($models,'course_type', array('placeholder'=>'MA(Hons),M.sc..')); ?>
+                                                            <?php echo $form->error($models,'course_type'); ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
+                                                        <div class="col-lg-4 padzero">
+                                                            <?php echo $form->labelEx($models,'course_level'); ?>
+                                                        </div>
+                                                        <div class="col-lg-8 padzero">
+                                                            <?php echo $form->textField($models,'course_level', array('placeholder'=>'Ex:2')); ?>
+                                                            <?php echo $form->error($models,'course_level'); ?>
                                                         </div>
                                                     </div>
                                                     <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
@@ -114,7 +128,8 @@
                                                             <?php echo $form->labelEx($models,'year'); ?>
                                                         </div>
                                                         <div class="col-lg-8 padzero">
-                                                            <?php echo $form->textField($models,'year', array('placeholder'=>'year','maxlength'=>4, 'class'=>'datepicker','id'=>'Courses_year_'.$models->id)); ?>
+                                                            <?php $models->year=date('d-m-Y',strtotime($models->year));
+                                                            echo $form->textField($models,'year', array('placeholder'=>'year','maxlength'=>4, 'class'=>'datepicker','id'=>'Courses_year_'.$models->id)); ?>
                                                             <?php echo $form->error($models,'year'); ?>
                                                         </div>
                                                     </div>
@@ -136,13 +151,20 @@
                                                             <?php echo $form->error($models,'status'); ?>
                                                         </div>
                                                     </div>
+                                                    <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
+                                                        <div class="col-lg-4 padzero">
+                                                            <label>Delete Course</label>
+                                                        </div>
+                                                        <div class="col-lg-8 padzero formradio">
+                                                            <i class="fa fa-trash" onclick="ConfirmDelete('<?php echo $models->id ?>')"></i></div>
+                                                    </div>
                                                     <?php echo CHtml::submitButton('Save',array('class'=>'save-btn')); ?>
                                                     <?php $this->endWidget(); ?>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <?php
+                                <?php
                                 endforeach;
                             else:
                                 ?>
@@ -166,7 +188,7 @@
                                     $i++;
                                     ?>
                                     <div class="script-text" id="row_<?php echo $models->id ?>">
-                                        <h1><a href="<?php echo Yii::app()->createUrl('site/courseItems',array('i'=>$_GET['i'],'f'=>$_GET['f'], 'c'=>base64_encode($models->id))); ?>" class="item_link"><?php echo $i; ?>.<?php echo ucwords ($models->type0->name." ".$models->name); ?></a>
+                                        <h1><a href="<?php echo Yii::app()->createUrl('site/courseItems',array('i'=>$_GET['i'],'f'=>$_GET['f'], 'c'=>base64_encode($models->id))); ?>" class="item_link"><?php echo $i; ?>.<?php echo ucwords ($models->course_type." ".$models->name); ?></a>
                                             <?php  //if(Yii::app()->user->getState('role')=='Superuser') { ?>
                                             <span class="pull-right">
                                                 <?php if(Yii::app()->user->getState('role') !='Staff') { ?>
@@ -205,19 +227,31 @@
                                                     </div>
                                                     <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
                                                         <div class="col-lg-4 padzero">
-                                                            <?php echo $form->labelEx($models,'type'); ?>
+                                                            <?php echo $form->labelEx($models,'course_type'); ?>
                                                         </div>
                                                         <div class="col-lg-8 padzero">
-                                                            <?php echo $form->dropDownList($models, 'type', CHtml::listData(CourseTypes::model()->findAll(), 'id', 'name'), array('empty'=>'Select Type')); ?>
-                                                            <?php echo $form->error($models,'type'); ?>
+                                                            <?php echo $form->textField($models,'course_type', array('placeholder'=>'MA(Hons),M.sc..')); ?>
+                                                            <?php echo $form->error($models,'course_type'); ?>
                                                         </div>
                                                     </div>
                                                     <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
                                                         <div class="col-lg-4 padzero">
-                                                            <?php echo $form->labelEx($models,'year'); ?>
+                                                            <?php echo $form->labelEx($models,'course_level'); ?>
                                                         </div>
                                                         <div class="col-lg-8 padzero">
-                                                            <?php echo $form->textField($models,'year', array('placeholder'=>'year','maxlength'=>4, 'class'=>'datepicker','id'=>'Courses_year_'.$models->id)); ?>
+                                                            <?php echo $form->textField($models,'course_level', array('placeholder'=>'Ex:2')); ?>
+                                                            <?php echo $form->error($models,'course_level'); ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
+                                                        <div class="col-lg-4 padzero">
+                                                            <?php
+                                                            echo $form->labelEx($models,'year'); ?>
+                                                        </div>
+                                                        <div class="col-lg-8 padzero">
+
+                                                            <?php $models->year=date('d-m-Y',strtotime($models->year));
+                                                            echo $form->textField($models,'year', array('placeholder'=>'year','maxlength'=>4, 'class'=>'datepicker','id'=>'Courses_year_'.$models->id)); ?>
                                                             <?php echo $form->error($models,'year'); ?>
                                                         </div>
                                                     </div>
@@ -239,13 +273,20 @@
                                                             <?php echo $form->error($models,'status'); ?>
                                                         </div>
                                                     </div>
+                                                    <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
+                                                        <div class="col-lg-4 padzero">
+                                                            <label>Delete Course</label>
+                                                        </div>
+                                                        <div class="col-lg-8 padzero formradio">
+                                                            <i class="fa fa-trash" onclick="ConfirmDelete('<?php echo $models->id ?>')"></i></div>
+                                                    </div>
                                                     <?php echo CHtml::submitButton('Save',array('class'=>'save-btn')); ?>
                                                     <?php $this->endWidget(); ?>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <?php
+                                <?php
                                 endforeach;
                             else:
                                 ?>
@@ -258,7 +299,7 @@
                 </div>
             </div>
         </div>
-        <?php  if(Yii::app()->user->getState('role')=='Superuser'){ ?>
+        <?php  if(Yii::app()->user->getState('role')=='Superuser' || Yii::app()->user->getState('role')=='Staff'){ ?>
             <input type="button" value="Add a Course" class="add-course" data-toggle="modal" data-target="#courseModal">
         <?php } ?>
     </div>
@@ -291,11 +332,20 @@
                 </div>
                 <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
                     <div class="col-lg-4 padzero">
-                        <?php echo $form->labelEx($formModel,'type'); ?>
+                        <?php echo $form->labelEx($formModel,'course_type'); ?>
                     </div>
                     <div class="col-lg-8 padzero">
-                        <?php echo $form->dropDownList($formModel, 'type', CHtml::listData(CourseTypes::model()->findAll(), 'id', 'name'), array('empty'=>'Select Level')); ?>
-                        <?php echo $form->error($formModel,'type'); ?>
+                        <?php echo $form->textField($formModel,'course_type', array('placeholder'=>'MA(Hons),M.Sc..')); ?>
+                        <?php echo $form->error($formModel,'course_type'); ?>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
+                    <div class="col-lg-4 padzero">
+                        <?php echo $form->labelEx($formModel,'course_level'); ?>
+                    </div>
+                    <div class="col-lg-8 padzero">
+                        <?php echo $form->textField($formModel,'course_level', array('placeholder'=>'Ex:2')); ?>
+                        <?php echo $form->error($formModel,'course_level'); ?>
                     </div>
                 </div>
                 <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
@@ -303,7 +353,8 @@
                         <?php echo $form->labelEx($formModel,'year'); ?>
                     </div>
                     <div class="col-lg-8 padzero">
-                        <?php echo $form->textField($formModel,'year', array('placeholder'=>'year','maxlength'=>4,'class'=>'datepicker')); ?>
+                        <?php
+                        echo $form->textField($formModel,'year', array('placeholder'=>'year','maxlength'=>4,'class'=>'datepicker')); ?>
                         <?php echo $form->error($formModel,'year'); ?>
                     </div>
                 </div>
@@ -337,7 +388,7 @@
 <script type="text/javascript">
     function ConfirmDelete(id)
     {
-        var x = confirm("Are you sure you want to delete course?");
+        var x = confirm("Are you sure you want to delete this course? The action cannot be undone and all the responses in here will be deleted.");
         if (x)
         {
 
@@ -359,7 +410,7 @@
     }
     $(function() {
         $('.datepicker').each(function(){
-            $(this).datepicker();
+            $(this).datepicker({ dateFormat: 'yy-mm' });
         });
     });
 </script>

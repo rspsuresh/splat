@@ -139,11 +139,11 @@
                                         <?php echo $form->error($models,'description'); ?>
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
+                                <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero" style="display:none;">
                                     <div class="col-lg-4 padzero">
                                         <?php echo $form->labelEx($models,'status'); ?>
                                     </div>
-                                    <div class="col-lg-8 padzero formradio">
+                                    <div class="col-lg-8 padzero formradio" >
                                         <?php echo $form->radioButtonList($models,'status', array('active'=>'Active','inactive'=>'Inactive'),
                                             array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
                                         <?php echo $form->error($models,'status'); ?>
@@ -164,7 +164,8 @@
                 <h1>No Faculties found.</h1>
             </div>
         <?php endif; ?>
-        <?php  if(Yii::app()->user->getState('role')=='Superuser'){ ?>
+		
+        <?php if(Yii::app()->user->getState('role')=='Superuser'){ ?>
             <input type="button" value="Add a Faculty" class="add-course" data-toggle="modal" data-target="#facultyModal">
         <?php } ?>
     </div>

@@ -37,7 +37,7 @@ $avg=0;
             $indarray=array();
             $user=Users::model()->findByPk($_GET['u']);
             $projectsname=Projects::model()->findByPk($_GET['p']);?>
-            <p><?=ucfirst($projectsname->name)?> Assessment for <?= $user->first_name ." ".$user->last_name?></p>
+            <p><?=ucfirst($projectsname->name) .'  '. $user->first_name ." ".$user->last_name?></p>
         </div>
         <div class="panel-group" id="faqAccordion">
             <?php $groupusers = GroupUsers::model()->findAll('group_id='.$_GET['g']);
@@ -71,9 +71,9 @@ $avg=0;
                                     //print_r(count($groupusers));die;
                                     foreach($groupusers as $groupuser){
                                         $assess = Assess::model()->find('question=:q and project=:p and 
-                                        from_user=:f and to_user=:t and asses_id=:as and grp_id=:grp',
+                                        from_user=:f and to_user=:t and grp_id=:grp',
                                             array(':q'=>$question->id,':p'=>$projects->id,':t'=>$_GET['u'],
-                                                ':f'=>$groupuser->user_id,':as'=>$_GET['as'],':grp'=>$_GET['g']));
+                                                ':f'=>$groupuser->user_id,':grp'=>$_GET['g']));
                                         ?>
                                         <div class="row">
                                             <?php $stcheck=Users::model()->findByPk($groupuser->user_id);?>
@@ -170,7 +170,6 @@ $avg=0;
             $(".answser_"+i).each(function(index, element) {
                 if($(this).attr('data-type')=="R" && $(this).attr('data-val') !="#" ) {
                     testarr.push($(this).attr('data-val'));
-                    //console.log("answer_"+i+"-----"+$('.answser_'+i).length);
                     sum=sum+parseInt($(this).attr('data-val'));
                     queans.push($(this).attr('data-val'));
                 }
@@ -188,10 +187,10 @@ $avg=0;
                 {
                     $("#question_"+i).text('No response yet');
                 }
-
             }
         }
         var avg=<?php echo $avg?>;
+        console.log(avg);
         var avgtotal=(sumarr/avg).toFixed(1);
         $("#score").text(avgtotal);
     });

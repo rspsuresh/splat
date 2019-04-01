@@ -22,23 +22,58 @@
     {
         font-size: 17px !important;
     }
+    .btn-infomy {
+        color: #fff;
+        background-color:#212323;
+    }
+    .btn-infomy:hover
+    {
+        text-decoration:none;
+    }
 </style>
-<section id="wrapper" style="height:auto !important">
-    <div class="container">
-        <div class="admin-home user-ass">
-            <p>You are here: <a href="<?php echo Yii::app()->createUrl('site/index');?>">Projects</a> /
-                <a href="<?php echo Yii::app()->createUrl('site/projects',array('id'=>$projects->id));?>"><?php echo $projects->name;?></a> / <a href="javascritp:void(0);">Assessment</a></p>
+<section id="wrapper" style="height:auto !important;margin-top:5px;">
+<!--    <div class="container">-->
+<!--        <div class="admin-home user-ass">-->
+<!--            <p>You are here: <a href="--><?php //echo Yii::app()->createUrl('site/index');?><!--">Projects</a> /-->
+<!--                <a href="--><?php //echo Yii::app()->createUrl('site/projects',array('id'=>$projects->id));?><!--">--><?php //echo $projects->name;?><!--</a> / <a href="javascritp:void(0);">Assessment</a></p>-->
+<!--        </div>-->
+<!--    </div>-->
+    <?php $course=Courses::model()->findByPk($_GET['course']);
+     $assesmentdetails=Projects::model()->findByPk($_GET['id'])?>
+    <div class="container-fluid user-assessment">
+        <div class="col-lg-4" style="text-align: left">
+            <a href="#" class="btn btn-infomy btn-lg">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+            </a>
+        </div>
+        <div class="col-lg-4">
+            <p><?=$course->name?></p>
         </div>
     </div>
-    <div class="container-fluid user-assessment">
-        <p><?=$projects->name?>  (Assessment  <?=$_GET['id']?>)</p>
-    </div>
-    <?php $assement=Multipleassesment::model()->find("prj_id=".$projects->id." and status='A'");?>
     <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 style="color:#00BACF">Description</h3>
+            </div>
+            <div class="col-lg-12">
+                <h5><?=$assesmentdetails->description?></h5>
+            </div>
+        </div>
+        <div class="row">
+            <h2 style="color:#00BACF;text-align: center;">Assessment</h2>
+        </div>
         <form method="POST" id="assesmentsubmit">
-            <input type="hidden" value="<?=$assement->id?>" name="assesmentid">
+            <input type="hidden" value="<?=$_GET['id']?>" name="assesmentid">
+            <h3>Please provide feedback for the below questions.</h3>
             <?php
             $groupusers = GroupUsers::model()->findAll('group_id='.$_GET['g']);
+            $sqldcque="SELECT GROUP_CONCAT(question_id) as question 
+                                              FROM `delete_custom_question` WHERE `course_id` =$projects->course";
+            $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
+            $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
+            $questions=Questions::model()->findAll('institution='.$projects->institution.'
+                                                           and faculty='.$projects->faculty.'
+                                                           and course='.$projects->course.' and status="active" and id NOT IN ('.$ids.')');
             if(count($questions)>0):
                 $i=0;
                 foreach($questions as $question):
@@ -96,7 +131,7 @@
                     <p>No questions assigned yet.</p>
                 </div>
             <?php endif;?>
-            <input type="submit" class="add-course" value="Save"> <div style="clear:both;"></div><br/>
+            <input type="submit" class="add-course" value="Submit"> <div style="clear:both;"></div><br/>
             <!--<div class="comments">
                 <label>Comments</label>
                 <br/>
@@ -127,7 +162,7 @@
     $( document ).ready(function() {
         $("#assesmentsubmit").submit(function(e){
             //e.preventDefault();
-            if(confirm("Once response is submitted it should not be edited again.Are you sure you want to mark this as completed? Once saved, the responses cannot be edited."))
+            if(confirm("The responses submitted are permanent are cannot be edited and submitted again.Are you sure want to submit your response ?"))
             {
                 return true;
             }

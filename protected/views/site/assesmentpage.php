@@ -29,7 +29,9 @@
     }
 
 </style>
+
 <?php
+echo "<pre>";print_r($_REQUEST);die;
 $usergroup = GroupUsers::model()->find('user_id='.Yii::app()->user->id .' and group_id='.$_GET['g']);
 $groupusers = array();
 if(count($usergroup)>0)
@@ -38,7 +40,7 @@ if(count($usergroup)>0)
 <section id="wrapper" >
     <div class="container">
         <div class="col-lg-12 col-xs-12 col-sm-12 padzero" style="display:<?=$showresponse?>">
-            <h1 class="text-center response"> Responses for <?php echo ucfirst($projects->name)?> Assessment <?= $_GET['key']?>
+            <h1 class="text-center response"> Responses for <?php echo ucfirst($projects->name)?>
                 <a href="<?=Yii::app()->createUrl('site/projects',array('id'=>$projects->id))?>" class="btn btn-primary" style="float:right">Back</a></h1>
             <div class="bs-example">
                 <div class="panel-group" id="accordion">
@@ -69,7 +71,7 @@ if(count($usergroup)>0)
                                             <?php
                                             $iquestions = Questions::model()->findAll('course='.$projects->course);
                                             $icomments = AssessComments::model()->find('project='.$projects->id.'
-                                             and to_user='.$groupuser->user_id.' and from_user='.Yii::app()->user->id.' and asses_id='.$_GET['as']);
+                                             and to_user='.$groupuser->user_id.' and from_user='.Yii::app()->user->id);
 
                                             $sqldcque="SELECT GROUP_CONCAT(question_id) as question 
                                               FROM `delete_custom_question` WHERE `course_id` =$projects->course";
@@ -77,15 +79,12 @@ if(count($usergroup)>0)
                                             $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
                                             $questions=Questions::model()->findAll('institution='.$projects->institution.'
                                                            and faculty='.$projects->faculty.'
-                                                           and course='.$projects->course.' and status="active" and id NOT IN ('.$ids.') 
-                                                        or ( type="default" and id NOT IN ('.$ids.'))');
+                                                           and course='.$projects->course.' and status="active" and id NOT IN ('.$ids.')');
                                             $i=0;
                                             foreach($questions as $iquestion):
-                                                //echo $iquestion->id.''.$institutionUser->user_id.''.Yii::app()->user->id.''.$projects->id ;
                                                 $i++;
                                                 $iassess = Assess::model()->find('project='.$projects->id.'
-                                                 and to_user='.$groupuser->user_id.' and from_user='.Yii::app()->user->id.' and question='.$iquestion->id.' and asses_id='.$_GET['as']);
-                                                //print_r($iassess);
+                                                 and to_user='.$groupuser->user_id.' and from_user='.Yii::app()->user->id.' and question='.$iquestion->id);
                                                 ?>
                                                 <p class="m-t-10"><?php echo $i;?>. <?php echo $iquestion->question;?> : <b> <?php if(count($iassess)>0) echo $iassess->value; else echo '-'; ?></b></p>
                                                 <?php

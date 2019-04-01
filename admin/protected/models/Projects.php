@@ -70,7 +70,7 @@ class Projects extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Project Name',
+			'name' => 'Assessment Name',
 			'institution' => 'Institution',
 			'faculty' => 'Faculty',
 			'course' => 'Course',

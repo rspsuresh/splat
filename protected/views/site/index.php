@@ -1,210 +1,215 @@
-<?php
-/* @var $this SiteController */
-
-$this->pageTitle=Yii::app()->name;
-?>
 <style>
-    .container-fluid.bg-color {
-        background-color: #00B9D1 !important;
-        padding:40px 0px;
-        margin-bottom:22px;
+    .fullbg{
+        background-image: url("https://mobirise.com/bootstrap-template/bootstrap-layout-templates/assets/images/nathan-dumlao-576657-unsplash-2000x1333.jpg");
+        display:block;
+        width:100%;
+        height:500px;
     }
-    .head-bg{margin-bottom:0px;}
-    .bg-text{
+    .mbr-white {
         color: #ffffff;
-        font-size: 37px;
-        font-weight: bold;
+    }
+    .align-left {
+        text-align: left;
+    }
+    .container-fluid.bg-color1 {
+        background-color: rgb(242, 242, 242);
+
+        margin-top: 85px;
+        width: 500px;
+    }
+    .container-fluid.bg-color2 {
+        background-color: rgb(242, 242, 242);
+
+        margin-top: 15px;
+        width: 610px;
+    }
+    .welcome
+    {
+        font-size: 30px;
         text-align: center;
     }
-    .oppo-color{
-        color:#5FFC7B;
-    }
-    .production{
-        color: #fff;
-        font-size: 20px;
-        font-weight: bold;
-        padding: 20px 0 0;
-    }
-    .recent {
-
-        margin-top: 60px;
-        padding: 0;
-    }
-    .font-normal{
-        font-family:"Conv_helveticaneuecyr-roman" !important;
-        font-weight:bold !important;
-        color:#337AB7 !important;
-        font-size:22px !important;
-    }
-    .user-assessment
+    .welcomeforp
     {
-        font-size:19px !important;
+        text-align: center;
+        font-size:20px
+    }
+    .f-20
+    {
+        font-size:20px
+    }
+    .containers >p
+    {
+        margin:0px !important;
+    }
+    .container-fluid.bg-color2>.containers
+    {
+        padding:5px;
+    }
+    .asses {
+        text-align: center;
+        color: #ffff;
+    }
+    .margin-top {
+        background: #00CFE8;
+        margin-top: 29px;
+    }
+    .course {
+        color:black !important;
+    }
+    .black-clr {
+        color: red;
+        margin-left: 20px;
     }
 </style>
-<?php
-  /* echo "<pre>";print_r(Users::model()->findAll());die;
-   $users=Users::model()->findByPk(40);
-   $users->role=1;
-   $users->save(false);*/
-?>
-<section id="wrapper" >
-    <div class="container-fluid user-bg-padding">
-        <div class="container-fluid bg-color">
-            <div class="container">
-                <p class="text-center bg-text">Welcome<span class="oppo-color">  <?php echo ucwords(Yii::app()->session['user']->first_name ." ".Yii::app()->session['user']->last_name) ?></span></p>
-                <p class="text-center production">SPLAT is a Self & Peer Learning Assessment Tool. Here you can assess your group and provide feedback. </p>
-            </div>
+<div class="container fullbg">
+    <div class="container-fluid bg-color1">
+        <div class="containers">
+            <h4 class="welcome"> Welcome <?php echo ucwords(Yii::app()->session['user']->first_name ." ".Yii::app()->session['user']->last_name) ?></h4>
         </div>
     </div>
-    <div class="container-fluid user-assessment">
-        <p>Projects / Units</p>
+    <div class="container-fluid bg-color2">
+        <div class="containers">
+            <p class="welcomeforp"> Splat is a Self and Peer Learning Assesment Tool</p>
+            <p class="text-center production f-20">Here you can assess your group and provide feedback. </p>
+        </div>
     </div>
-    <div class="script-section col-lg-12 col-xs-12 col-sm-12">
-        <div class="">
-            <ul class="nav nav-tabs script-tab text-center">
-                <li class="active"><a data-toggle="tab" href="#home">Current (<span id="activespan"></span>)</a></li>
-                <li class="blue-clr"><a data-toggle="tab" href="#menu1">Archived (<span id="inactivespan"></span>)</a></li>
-            </ul>
-            <div class="tab-content">
-                <div id="home" class="tab-pane fade in active">
-                    <div class="bs-example">
-                        <div class="panel-group" id="accordion">
-                            <div class="panel">
-                                <?php
-                                //$groupusers = GroupUsers::model()->findAll('user_id='.Yii::app()->user->id);
-                                $sqlg="SELECT * FROM `group_users` WHERE user_id=".Yii::app()->user->id;
-                                $groupusers=Yii::app()->db->CreateCommand($sqlg)->QueryAll();
-                                $mysare=array_column($groupusers,'group_id');
-                                if(!empty($mysare))
-                                {
-                                    $string=implode(',',$mysare);
-                                }
-                                if(strlen($string)>0)
-                                {
-                                    $projectgroups = ProjectGroups::model()->findAll('group_id in ('.$string.')');
+</div>
 
-                                }
-
-
-                                if(count($projectgroups)>0){
-                                    foreach($projectgroups as $projectgroup){
-                                       //echo "<pre>";print_r($projectgroup->projects->course0->status);
-                                        $courses[$projectgroup->projects->course0->id] = $projectgroup->projects->course0->id;
-                                        $userprojects[$projectgroup->project_id] = $projectgroup->project_id;
-                                    }
-                                   // die;
-                                }
-                               //echo "<pre>";print_r($courses);die;
-                                if(count($courses)>0):
-                                    foreach($courses as $course):
-                                        $coursesdetails = Courses::model()->find("id=".$course." and status='active'");
-                                        ?>
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse_<?php echo $coursesdetails->id; ?>"> <?php echo ucfirst($coursesdetails->name); ?> <i class="fa fa-angle-down pull-right blue-clr" aria-hidden="true"></i></a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapse_<?php echo $coursesdetails->id; ?>" class="panel-collapse collapse in">
-                                            <div class="panel-body" id="activecount">
-                                                <?php
-                                                $projects = Projects::model()->findAll('course='.$course.' and status="current"');
-                                                $activecount=count($projects);
-                                                if(count($projects)>0):
-                                                    $activecount=0;
-                                                    foreach($projects as $project):
-                                                        if(in_array($project->id,$userprojects)) {
-                                                            $activecount+=1;
-                                                            ?>
-                                                            <div class="script-texts actclass" style="margin-left:30px;" id="<?=$activecount?>"  data-count="<?=$activecount?>" >
-                                                                <a href="<?php echo Yii::app()->createUrl('site/projects',array('id'=>$project->id)); ?>" >
-                                                                    <h1 class="blue-clr"><?php echo $project->name; ?></h1></a>
-                                                                <!--<p>Assessment due date : <?php echo date('d-M-Y',strtotime($project->assess_date)); ?></p>-->
-                                                            </div>
-                                                            <?php
-                                                        }
-                                                    endforeach;
-                                                else:
+<div class="container-fluid user-assessment">
+    <p>Assessments</p>
+</div>
+<div class="script-section col-lg-12 col-xs-12 col-sm-12">
+    <div class="">
+        <ul class="nav nav-tabs script-tab text-center">
+            <li class="active"><a data-toggle="tab" href="#home" aria-expanded="true">Live (<span id="activespan">1</span>)</a></li>
+            <li class="blue-clr"><a data-toggle="tab" href="#menu1" aria-expanded="false">Completed (<span id="inactivespan">0</span>)</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <div class="bs-example">
+                    <div class="panel-group" id="accordion">
+                        <?php
+                        $userid=Yii::app()->user->id;
+                        $coursessql="SELECT * FROM `user_courses` as A left join courses as B on A.course_id=B.id and B.status=\"active\" WHERE A.`user_id` ={$userid}";
+                        $courseresult=Yii::app()->db->CreateCommand($coursessql)->QueryAll();
+                        if(count($courseresult)>0) {
+                            foreach($courseresult as $course)    {
+                                $groupfind="SELECT *  FROM `group_users` as A left join groups as B  on A.`group_id`=B.`id`  WHERE A.`user_id` ={$userid}
+  and B.`course_id`={$course['id']}";
+                                $groupfindresult=Yii::app()->db->CreateCommand($groupfind)->QueryRow();
+                                ?>
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a  class="course" data-toggle="collapse" data-parent="#accordion" href="#collapse_<?php echo $course['id']; ?>"> <?php echo ucfirst($course['course_type']." ".$course['name']. " | Level : ".$course['type']." | Year : ".date('Y-m',strtotime($course['year']))); ?> <i class="fa fa-angle-down pull-right blue-clr" aria-hidden="true"></i></a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse_<?php echo $course['id']; ?>" class="panel-collapse collapse in">
+                                        <div class="panel-body" id="activecount">
+                                            <?php
+                                            $assesmentsql="SELECT *  FROM `projects` WHERE `institution` ={$course['institution']} 
+AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='current'";
+                                            $aseesresult=Yii::app()->db->CreateCommand($assesmentsql)->QueryAll();
+                                            if(!empty($aseesresult)) {
+                                                foreach ($aseesresult as $asees)  {
                                                     ?>
-                                                    <div class="script-texts">
-                                                        <h3 class="black-clr">No projects to show</h3>
+                                                    <div class="script-texts actclass" style="margin-left:30px;border-bottom:1px solid rgb(242, 242, 242)"
+                                                         id="ssd"
+                                                         data-count="dsd">
+                                                        <?php //$asmodel=Assess::model()->findAll()?>
+                                                        <a href="<?php echo Yii::app()->createUrl('site/assessment', array('id' => $asees['id'],'course'=>$course['id'],'g'=>$groupfindresult['id'],'asm'=>$asees['id'])); ?>">
+                                                            <h1 class="blue-clr">
+                                                                <i class="fa fa-pencil-square-o" aria-hidden="true" style="color:#333 !important;"></i> <?=$asees['name']?>
+                                                            </h1>
+                                                            <p>Due By : <?=date('d-m-Y',strtotime($asees['assess_date']))?></p>
+                                                        </a>
+
+<!--                                                        <a href="--><?php //echo Yii::app()->createUrl('site/assesmentresponse', array('id' => $asees['id'],'course'=>base64_encode($course['id']),'g'=>$groupfindresult['id'])); ?><!--">-->
+<!--                                                            <h1 class="blue-clr"><i-->
+<!--                                                                        class="fa fa-pencil-square-o"-->
+<!--                                                                        aria-hidden="true"-->
+<!--                                                                        style="color:#333 !important;"></i> --><?//=$asees['name']?>
+<!--                                                            </h1>-->
+<!--                                                            <p>Due By : --><?//=date('d-m-Y',strtotime($asees['assess_date']))?><!--</p>-->
+<!--                                                        </a>-->
                                                     </div>
-                                                <?php endif; ?>
-                                            </div>
+                                                <?php } } else {
+                                                echo '<div class="script-texts">
+                                            <h3 class="black-clr">No Assesments Created Yet</h3>
+                                        </div>';
+                                                ?>
+                                            <?php } ?>
+
                                         </div>
-                                    <?php endforeach; else: ?>
-                                    <h4 class="panel-title">No courses assigned.</h4>
-                                <?php endif; ?>
-                            </div>
-                        </div>
+                                    </div>
+                                </div>
+                            <?php } }  ?>
+
                     </div>
                 </div>
-                <div id="menu1" class="tab-pane fade">
-                    <?php
-                    $groupusers = GroupUsers::model()->find('user_id='.Yii::app()->user->id);
-                    $projectgroups = array();
-                    if(count($groupusers)>0)
-                        $projectgroups = ProjectGroups::model()->findAll('group_id='.$groupusers->group_id);
-
-                    if(count($projectgroups)>0){
-                        foreach($projectgroups as $projectgroup){
-                            $courses[$projectgroup->projects->course0->id] = $projectgroup->projects->course0->id;
-                            $userprojects[$projectgroup->project_id] = $projectgroup->project_id;
-                        }
-                    }
-
-                    if(count($courses)>0):
-                        foreach($courses as $course):
-                            $coursesdetails = Courses::model()->findByPk($course);
-                            ?>
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse_<?php echo $coursesdetails->id; ?>"> <?php echo ucfirst($coursesdetails->name); ?> <i class="fa fa-angle-down pull-right blue-clr" aria-hidden="true"></i></a>
-                                </h4>
-                            </div>
-                            <div id="collapse_<?php echo $coursesdetails->id; ?>" class="panel-collapse collapse in">
-                                <div class="panel-body" id="inactivecount">
-                                    <?php
-                                    $projects = Projects::model()->findAll('course='.$course.' and status="archieved"');
-                                    if(count($projects)>0):
-                                        $inactivecount=0;
-                                        foreach($projects as $project):
-                                            if(in_array($project->id,$userprojects)) {
-                                                $inactivecount+=1;
+            </div>
+            <div id="menu1" class="tab-pane fade">
+                <div class="bs-example">
+                    <div class="panel-group" id="accordion1">
+                        <?php
+                        if(count($courseresult)>0) {
+                            foreach($courseresult as $course)    {
+                                $groupfind="SELECT *  FROM `group_users` as A left join groups as B  on A.`group_id`=B.`id`  WHERE A.`user_id` ={$userid}  and B.course_id={$course['id']}";
+                                $groupfindresult=Yii::app()->db->CreateCommand($groupfind)->QueryRow();
+                                ?>
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a  class="course" data-toggle="collapse" data-parent="#accordion1" href="#incollapse_<?php echo $course['id']; ?>"> <?php echo ucfirst($course['course_type']." ".$course['name']. "Type-".$course['type']); ?> <i class="fa fa-angle-down pull-right blue-clr" aria-hidden="true"></i></a>
+                                        </h4>
+                                    </div>
+                                    <div id="incollapse_<?php echo $course['id']; ?>" class="panel-collapse collapse in">
+                                        <div class="panel-body" id="inactivecount">
+                                            <?php
+                                            $assesmentsql="SELECT *  FROM `projects` WHERE `institution` ={$course['institution']} 
+AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='archieved'";
+                                            $aseesresult=Yii::app()->db->CreateCommand($assesmentsql)->QueryAll();
+                                            if(!empty($aseesresult)) {
+                                                foreach ($aseesresult as $asees)  {
+                                                    ?>
+                                                    <div class="script-texts actclass" style="margin-left:30px;"
+                                                         id="ssd"
+                                                         data-count="dsd">
+                                                        <a href="<?php echo Yii::app()->createUrl('site/assesmentresponse', array('id' => $asees['id'],'course'=>base64_encode($course['id']),'g'=>$groupfindresult['id'])); ?>">
+                                                            <h1 class="blue-clr"><i
+                                                                        class="fa fa-pencil-square-o"
+                                                                        aria-hidden="true"
+                                                                        style="color:#333 !important;"></i> <?=$asees['name']?>
+                                                            </h1>
+                                                            <p>Due By : <?=date('d-m-Y',strtotime($asees['assess_date']))?></p>
+                                                        </a>
+                                                    </div>
+                                                <?php } } else {
+                                                echo '<div class="script-texts">
+                                            <h3 class="black-clr">No Assesments Created Yet</h3>
+                                        </div>';
                                                 ?>
-                                                <div class="script-texts inactclass" style="margin-left:30px;" id="<?=$inactivecount?>"  data-count="<?=$inactivecount?>">
-                                                    <a href="<?php echo Yii::app()->createUrl('site/projects',array('id'=>$project->id)); ?>" >
-                                                        <h1 class="blue-clr"><?php echo $project->name; ?></h1>
-                                                    </a>
-                                                    <!--<p>Assessment due date : <?php echo date('d-M-Y',strtotime($project->assess_date)); ?></p>-->
-                                                </div>
-                                                <?php
-                                            }
-                                        endforeach;
-                                    else:
-                                        ?>
-                                        <div class="script-texts">
-                                            <h3 class="black-clr">No projects to show</h3>
+                                            <?php } ?>
+
                                         </div>
-                                    <?php endif; ?>
+                                    </div>
                                 </div>
-                            </div>
-                        <?php endforeach; else: ?>
-                        <h4 class="panel-title">No courses assigned.</h4>
-                    <?php endif; ?>
+                            <?php } }  ?>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </div></div>
 <script>
     $(window).bind("load", function() {
 
-        var act=$('#activecount').children().last().attr('data-count');
-        var inact= $('#inactivecount').children().last().attr('data-count');
+        var act=$('#accordion>.panel').length;
+        var inact= $('#accordion1>.panel').length;
         var finalact=(typeof act =='undefined')?'0':act;
         var finalinact=(typeof inact =='undefined')?'0':inact;
-            $("#activespan").text(finalact);
-            $("#inactivespan").text(finalinact);
+        $("#activespan").text(finalact);
+        $("#inactivespan").text(finalinact);
 
 
     });
