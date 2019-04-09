@@ -32,6 +32,7 @@ class Users extends CActiveRecord
     public $usertype;
     public $newpassword,$confirmpassword;
     private $fullname;
+    public $grp;
     public function tableName()
     {
         return 'users';

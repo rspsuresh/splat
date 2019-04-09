@@ -39,7 +39,7 @@ class Assess extends CActiveRecord
 			array('question, from_user, to_user, project', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, question, from_user, to_user,asses_id,project,grp_id, value', 'safe', 'on'=>'search'),
+			array('id, question, from_user, to_user,project,grp_id, value', 'safe', 'on'=>'search'),
 		);
 	}
 

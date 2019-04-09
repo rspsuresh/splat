@@ -1,6 +1,6 @@
 <style>
     .fullbg{
-        background-image: url("https://mobirise.com/bootstrap-template/bootstrap-layout-templates/assets/images/nathan-dumlao-576657-unsplash-2000x1333.jpg");
+        background-image: url(<?=Yii::app()->request->baseUrl?>/images/Asses.jpg);
         display:block;
         width:100%;
         height:500px;
@@ -108,7 +108,7 @@
                                         <div class="panel-body" id="activecount">
                                             <?php
                                             $assesmentsql="SELECT *  FROM `projects` WHERE `institution` ={$course['institution']} 
-AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='current'";
+AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='live'";
                                             $aseesresult=Yii::app()->db->CreateCommand($assesmentsql)->QueryAll();
                                             if(!empty($aseesresult)) {
                                                 foreach ($aseesresult as $asees)  {
@@ -117,21 +117,12 @@ AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='
                                                          id="ssd"
                                                          data-count="dsd">
                                                         <?php //$asmodel=Assess::model()->findAll()?>
-                                                        <a href="<?php echo Yii::app()->createUrl('site/assessment', array('id' => $asees['id'],'course'=>$course['id'],'g'=>$groupfindresult['id'],'asm'=>$asees['id'])); ?>">
+                                                        <a href="<?php echo Yii::app()->createUrl('site/assessment', array('id' => $asees['id'],'course'=>$course['id'],'g'=>$groupfindresult['id'])); ?>">
                                                             <h1 class="blue-clr">
                                                                 <i class="fa fa-pencil-square-o" aria-hidden="true" style="color:#333 !important;"></i> <?=$asees['name']?>
                                                             </h1>
                                                             <p>Due By : <?=date('d-m-Y',strtotime($asees['assess_date']))?></p>
                                                         </a>
-
-<!--                                                        <a href="--><?php //echo Yii::app()->createUrl('site/assesmentresponse', array('id' => $asees['id'],'course'=>base64_encode($course['id']),'g'=>$groupfindresult['id'])); ?><!--">-->
-<!--                                                            <h1 class="blue-clr"><i-->
-<!--                                                                        class="fa fa-pencil-square-o"-->
-<!--                                                                        aria-hidden="true"-->
-<!--                                                                        style="color:#333 !important;"></i> --><?//=$asees['name']?>
-<!--                                                            </h1>-->
-<!--                                                            <p>Due By : --><?//=date('d-m-Y',strtotime($asees['assess_date']))?><!--</p>-->
-<!--                                                        </a>-->
                                                     </div>
                                                 <?php } } else {
                                                 echo '<div class="script-texts">
@@ -156,6 +147,7 @@ AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='
                             foreach($courseresult as $course)    {
                                 $groupfind="SELECT *  FROM `group_users` as A left join groups as B  on A.`group_id`=B.`id`  WHERE A.`user_id` ={$userid}  and B.course_id={$course['id']}";
                                 $groupfindresult=Yii::app()->db->CreateCommand($groupfind)->QueryRow();
+                                //echo "<pre>";print_r($groupfindresult);
                                 ?>
                                 <div class="panel">
                                     <div class="panel-heading">
@@ -167,7 +159,7 @@ AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='
                                         <div class="panel-body" id="inactivecount">
                                             <?php
                                             $assesmentsql="SELECT *  FROM `projects` WHERE `institution` ={$course['institution']} 
-AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='archieved'";
+AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='completed'";
                                             $aseesresult=Yii::app()->db->CreateCommand($assesmentsql)->QueryAll();
                                             if(!empty($aseesresult)) {
                                                 foreach ($aseesresult as $asees)  {
@@ -175,7 +167,7 @@ AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='
                                                     <div class="script-texts actclass" style="margin-left:30px;"
                                                          id="ssd"
                                                          data-count="dsd">
-                                                        <a href="<?php echo Yii::app()->createUrl('site/assesmentresponse', array('id' => $asees['id'],'course'=>base64_encode($course['id']),'g'=>$groupfindresult['id'])); ?>">
+                                                        <a href="<?php echo Yii::app()->createUrl('site/projects', array('id' => $asees['id'],'c'=>$course['id'])); ?>">
                                                             <h1 class="blue-clr"><i
                                                                         class="fa fa-pencil-square-o"
                                                                         aria-hidden="true"
@@ -208,8 +200,21 @@ AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='
         var inact= $('#accordion1>.panel').length;
         var finalact=(typeof act =='undefined')?'0':act;
         var finalinact=(typeof inact =='undefined')?'0':inact;
-        $("#activespan").text(finalact);
-        $("#inactivespan").text(finalinact);
+        var empdivactive=$("#accordion .script-texts >h3").parent().parent().parent().parent().length;
+        var empdivinactive=$("#accordion1 .script-texts >h3").parent().parent().parent().parent().length;
+        $("#activespan").text(finalact-empdivactive);
+        $("#inactivespan").text(finalinact - empdivinactive);
+        var checkcount=finalinact - empdivinactive;
+        console.log(checkcount);
+        if(checkcount ==0)
+        {
+            $("#accordion1").html('<h3> No complete assessment yet</h3>');
+
+        }
+
+
+       $("#accordion .script-texts >h3").parent().parent().parent().parent().hide();
+       $("#accordion1 .script-texts >h3").parent().parent().parent().parent().hide();
 
 
     });

@@ -204,13 +204,14 @@ class UsersController extends Controller
         $this->performAjaxValidation($model);
         if(isset($_POST['Users']))
         {
-            $checkmodel=Users::model()->findByAttributes(array('username'=>$_POST['Users']['username'],'email'=>$_POST['Users']['email']));
+            $checkmodel=Users::model()->findByAttributes(array('email'=>$_POST['Users']['email']));
             //print_r($checkmodel);die;
             if(count($checkmodel)==0)
             {
+                $splitemail=explode('@',$_POST['Users']['email']);
                 $model->created_date = date('Y-m-d H:i:s');
                 $model->updated_date = date('Y-m-d H:i:s');
-                $model->username=trim($_POST['Users']['username']);
+                $model->username=trim($splitemail[0]);
                 $model->email=$_POST['Users']['email'];
                 $model->password=$this->randompassword();
                 //$model->password=trim($_POST['Users']['password']);
@@ -232,9 +233,20 @@ class UsersController extends Controller
                     $UserCourses->save();
                     $fMsg="A new student has been created";
                     $fstatus="success";
+
+                    $groupusermodel=GroupUsers::model()->find("group_id=".$_POST['Users']['grp']." and user_id=".$model->id);
+                    if(empty($groupusermodel))
+                    {
+                        $groupusermodel=new GroupUsers();
+                        $groupusermodel->user_id=$model->id;
+                        $groupusermodel->group_id=$_POST['Users']['grp'];
+                        $groupusermodel->save(false);
+                    }
                 }
 
-                $to =trim($_POST['Users']['username']);
+
+
+                $to =trim($splitemail[0]);
                 $firstname=$_POST['Users']['first_name'];
                 $lastname=$_POST['Users']['lastname'];
                 $password=$model->password;
@@ -250,7 +262,7 @@ class UsersController extends Controller
 				Link to the site:'.$url.'<br/>
 				Username: '.$to.'<br/>
 				Password: '.$password;
-                mail($to,$subject,$message,$headers);
+               // mail($to,$subject,$message,$headers);
 
             }
             else
@@ -567,7 +579,7 @@ class UsersController extends Controller
             $formModel->attributes 	= $_POST['Projects'];
             $formModel->course	= base64_decode($_GET['c']);
             $formModel->faculty=base64_decode($_GET['f']);
-            $formModel->assess_date= date('Y-m-d H:i:s');
+            $formModel->assess_date= date('y-m-d',strtotime($_POST['Projects']['assess_date']));
             $formModel->created_by	= Yii::app()->user->id;
             $formModel->created_date= date('Y-m-d H:i:s');
             $formModel->updated_date= date('Y-m-d H:i:s');
@@ -718,6 +730,16 @@ class UsersController extends Controller
                 $groupusersmodel->status='active';
                 $groupusersmodel->created_date=$groupusersmodel->updated_date=date('Y-m-d h:i:s');
                 $groupusersmodel->save(false);
+
+                $userdetails=Userdetails::model()->find("course=".base64_decode($_GET['c'])." and grp_id=".$groupmainmodel->id." and user_id=".$userid);
+                if(empty($userdetails))
+                {
+                    $modeluserdetails=new Userdetails();
+                    $modeluserdetails->user_id=$userid;
+                    $modeluserdetails->grp_id=$groupmainmodel->id;
+                    $modeluserdetails->course=base64_decode($_GET['c']);
+                    $modeluserdetails->save(false);
+                }
 
             }
         }
@@ -918,8 +940,12 @@ class UsersController extends Controller
         if(isset($_POST) && !empty($_POST))
         {
             $mailmodel=MailSend::model()->findAll('c_id='.$_POST['course'].' and i_id='.$_POST['inst'].' and f_id='.$_POST['fac'].' and as_id='.$_POST['asses']);
+            $projectupdate=Projects::model()->findByPk($_POST['asses']);
+            $projectupdate->status='live';
+            $projectupdate->update('status');
             if(empty($mailmodel))
             {
+
                 $sql="SELECT user_id as user_id FROM `user_courses` 
                   join users on user_courses.user_id=users.id and users.role=5 and users.status='active'
                   WHERE user_courses.`course_id` = ".$_POST['course'];
@@ -937,20 +963,20 @@ class UsersController extends Controller
                 $tripsArray = CHtml::listData($usersmodel, 'id','email');
                 $tripsArrayfilter=array_filter($tripsArray);
                 $ids= implode(',', array_keys($tripsArrayfilter));
-               $this->readytosend($ids,'1');
+
+                $this->readytosend($ids,'1');
             }
             else
             {
-
-
                 $tripsArray = CHtml::listData($mailmodel, 'u_id', 'c_id');
                 //echo "<pre>";print_r(count($tripsArray));die;
                 $tripsArrayfilter=array_filter($tripsArray);
                 $ids= implode(',', array_keys($tripsArrayfilter));
-               // echo $ids;die;
+                // echo $ids;die;
                 $this->readytosend($ids,'2');
             }
         }
+        echo "Y";die;
     }
 
     public  function readytosend($ids,$type)
@@ -959,8 +985,7 @@ class UsersController extends Controller
         if(is_string($ids))
         {
             $condition=($type==2)?"'id not in ($ids )'":"'id in ($ids)'";
-            $usersmodel=Users::model()->findAll($condition);
-            //echo "<pre>";print_r($condition);die;
+            $usersmodel=Users::model()->findAll('id in ('.$ids.')');
             $course_name=Courses::model()->findByPk(base64_decode($_POST['course']));
             $coursename=$course_name->course_type."". $course_name->name." Level".$course_name->course_level;
             if(!empty($usersmodel))
@@ -979,19 +1004,15 @@ class UsersController extends Controller
                                  Website: ' . $url . '<br/>
                                  Username: ' . $to . '<br/>
                                  Password: ' . $user->password;
-                    /*  if(mail($to, $subject, $message, $headers))
-                      {*/
-                    $mailtosendmodel=new MailSend();
-                    $mailtosendmodel->i_id=$_POST['inst'];
-                    $mailtosendmodel->c_id=$_POST['course'];
-                    $mailtosendmodel->as_id=$_POST['asses'];
-                    $mailtosendmodel->f_id=$_POST['fac'];
-                    $mailtosendmodel->u_id=$user->id;
-                    if($mailtosendmodel->save(false))
-                    {
-
-                    }
-                    /*  ca}*/
+                    if(mail($to, $subject, $message, $headers)) {
+                    $mailtosendmodel = new MailSend();
+                    $mailtosendmodel->i_id = $_POST['inst'];
+                    $mailtosendmodel->c_id = $_POST['course'];
+                    $mailtosendmodel->as_id = $_POST['asses'];
+                    $mailtosendmodel->f_id = $_POST['fac'];
+                    $mailtosendmodel->u_id = $user->id;
+                    $mailtosendmodel->save(false);
+                     }
 
                 }
             }

@@ -63,7 +63,7 @@ class SiteController extends Controller
     public function actionProjects($id)
     {
         $projects = Projects::model()->find('id='.$id);
-        $institutionUsers = InstitutionUser::model()->findAll('course='.$projects->course);
+      //  $institutionUsers = InstitutionUser::model()->findAll('course='.$projects->course);
         $gmodel = new GroupUsers;
 
         if(isset($_POST['GroupUsers']))
@@ -90,7 +90,7 @@ class SiteController extends Controller
         $this->render('project',
             array(
                 'projects' => $projects,
-                'institutionUsers' => $institutionUsers,
+               /// 'institutionUsers' => $institutionUsers,
                 'gmodel' => $gmodel
             )
         );
@@ -125,14 +125,14 @@ class SiteController extends Controller
                     $assess = Assess::model()->find('question=:q and project=:p and from_user=:f and to_user=:t',
                         array(':q'=>$key,':p'=>$id,':f'=>Yii::app()->user->id,':t'=>$ukey));
                     if(count($assess)>0){
-                        $assess->asses_id=$_POST['assesmentid'];
+                       // $assess->asses_id=$_POST['assesmentid'];
                         $assess->grp_id=$_GET['g'];
                         $assess->value = $value;
                         $assess->save();
 
                     } else{
                         $assess = new Assess();
-                        $assess->asses_id=$_POST['assesmentid'];
+                       // $assess->asses_id=$_POST['assesmentid'];
                         $assess->grp_id=$_GET['g'];
                         $assess->question = $key;
                         $assess->project = $id;
@@ -145,7 +145,7 @@ class SiteController extends Controller
 
             }
             Yii::app()->user->setFlash('success','Assessment has been updated successfully.');
-            $this->redirect(Yii::app()->createUrl('site/projects',array('id'=>$id)));
+            $this->redirect(Yii::app()->createUrl('site/index'));
         }
 
 

@@ -29,7 +29,7 @@ class GroupUsers extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, group_id, created_date, updated_date', 'required'),
+			array('user_id, group_id', 'required'),
 			array('user_id, group_id', 'numerical', 'integerOnly'=>true),
 			array('status', 'length', 'max'=>8),
 			// The following rule is used by search().

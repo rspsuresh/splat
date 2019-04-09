@@ -30,6 +30,19 @@ $avg=0;
 <section>
     <div class="container ">
         <button class="btn btn-primary align" onclick="goBack()">Back</button>
+        <?php $cmpsql="SELECT CAST(A.submitted_at AS DATE) as subdate,B.assess_date from assess as A left join projects as B on A.project=B.id where from_user={$_GET['u']}";
+               $cmpsqlresult=Yii::app()->db->createCommand($cmpsql)->queryRow();
+               if(!empty($cmpsqlresult)) {
+                   $date2=date_create($cmpsqlresult['subdate']);
+                   $date1=date_create($cmpsqlresult['assess_date']);
+                   $diff=date_diff($date1,$date2);
+                   $resultgign=$diff->format("%R%a");
+                   if($resultgign >=1)
+                   {
+                       echo "<button class=\"btn btn-danger align\">Late Submission</button>";
+                   }
+               }?>
+
         <button class="btn btn-success align">Mean Score : <span id="score">
                 <?php echo $meanscore?></span></button>
         <div class="user-assessment">

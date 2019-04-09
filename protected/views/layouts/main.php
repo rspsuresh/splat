@@ -46,7 +46,9 @@
 					  $path=$modeluser->profile?"images/profile/".$modeluser->profile:"images/user.jpg";
 					 ?>
 					<div class="col-lg-3 col-xs-12 col-sm-3 text-right padzero user">
-						<a href="javascript:void(0);" class='dropdown-toggle' id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><?php echo ucfirst($modeluser->first_name.' '.$modeluser->last_name); ?></span><img style="width:45px;height:45px;" class="img-circle" src="<?php echo  Yii::app()->request->baseUrl."/".$path?>"><i class="fa fa-caret-down" aria-hidden="true"style="color:#fff"></i></a>
+						<a href="javascript:void(0);" class='dropdown-toggle' id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><?php echo ucfirst($modeluser->first_name.' '.$modeluser->last_name); ?></span>
+                            <img onerror="this.onerror=null;this.src='<?php echo Yii::app()->request->baseUrl; ?>/images/Asses.jpg';" style="width:45px;height:45px;" class="img-circle" src="<?php echo  Yii::app()->request->baseUrl."/".$path?>">
+                            <i class="fa fa-caret-down" aria-hidden="true"style="color:#fff"></i></a>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="width:100%;padding:2px;">
                             <a class="dropdown-item" href="<?php echo Yii::app()->createUrl('site/editprofile'); ?>" style="width:100%;background:#00B9D1;color:#ffffff;padding:10px;display:block;border-bottom:2px solid;">
                                 Edit Profile</a>

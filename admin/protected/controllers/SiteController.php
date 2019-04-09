@@ -154,6 +154,7 @@ class SiteController extends Controller
             $formModel->attributes 	= $_POST['Courses'];
             $formModel->year=date('Y-m',strtotime($_POST['Courses']['year']));
             $formModel->course_level=$_POST['Courses']['course_level'];
+            $formModel->description=$_POST['Courses']['description'];
             $formModel->created_by	= Yii::app()->user->id;
             $formModel->created_date= date('Y-m-d H:i:s');
             $formModel->updated_date= date('Y-m-d H:i:s');

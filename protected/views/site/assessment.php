@@ -32,17 +32,11 @@
     }
 </style>
 <section id="wrapper" style="height:auto !important;margin-top:5px;">
-<!--    <div class="container">-->
-<!--        <div class="admin-home user-ass">-->
-<!--            <p>You are here: <a href="--><?php //echo Yii::app()->createUrl('site/index');?><!--">Projects</a> /-->
-<!--                <a href="--><?php //echo Yii::app()->createUrl('site/projects',array('id'=>$projects->id));?><!--">--><?php //echo $projects->name;?><!--</a> / <a href="javascritp:void(0);">Assessment</a></p>-->
-<!--        </div>-->
-<!--    </div>-->
     <?php $course=Courses::model()->findByPk($_GET['course']);
-     $assesmentdetails=Projects::model()->findByPk($_GET['id'])?>
+    $assesmentdetails=Projects::model()->findByPk($_GET['id'])?>
     <div class="container-fluid user-assessment">
         <div class="col-lg-4" style="text-align: left">
-            <a href="#" class="btn btn-infomy btn-lg">
+            <a href="#"  onclick="window.history.back()" class="btn btn-infomy btn-lg">
                 <span class="glyphicon glyphicon-arrow-left"></span>
             </a>
         </div>
@@ -56,7 +50,7 @@
                 <h3 style="color:#00BACF">Description</h3>
             </div>
             <div class="col-lg-12">
-                <h5><?=$assesmentdetails->description?></h5>
+                <h4><?=$assesmentdetails->description?></h4>
             </div>
         </div>
         <div class="row">
@@ -67,6 +61,7 @@
             <h3>Please provide feedback for the below questions.</h3>
             <?php
             $groupusers = GroupUsers::model()->findAll('group_id='.$_GET['g']);
+           // echo "<pre>";print_r(array_column($groupusers,'user_id'));die;
             $sqldcque="SELECT GROUP_CONCAT(question_id) as question 
                                               FROM `delete_custom_question` WHERE `course_id` =$projects->course";
             $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
@@ -87,11 +82,12 @@
                         if(count($groupusers)>0):
                             foreach($groupusers as $groupuser):
                                 $assess = Assess::model()->find('question=:q and project=:p and from_user=:f
-                                 and to_user=:t and asses_id=:ass',array(':q'=>$question->id,
+                                 and to_user=:t',array(':q'=>$question->id,
                                     ':p'=>$projects->id,
                                     ':f'=>Yii::app()->user->id,
-                                    ':t'=>$groupuser->user_id,':ass'=>$_GET['asm']));
+                                    ':t'=>$groupuser->user_id));
                                 ?>
+                                <?php if($groupuser->user->status =="active") { ?>
                                 <p class="selp-pad">
                                     <label>
                                         <?php if(Yii::app()->user->id == $groupuser->user_id)
@@ -120,6 +116,8 @@
 
                                     <?php } ?>
                                 </p>
+
+                            <?php } ?>
                             <?php endforeach; else: ?>
                             <p class="selp-pad">
                                 <label>No users assigned to project.</label>
@@ -136,21 +134,21 @@
                 <label>Comments</label>
                 <br/>
                 <?php
-                if(count($groupusers)>0):
-                    foreach($groupusers as $groupuser):
-                        $comments = AssessComments::model()->find('project=:p and from_user=:f and to_user=:t',array(':p'=>$projects->id,':f'=>Yii::app()->user->id,':t'=>$groupuser->user_id));
-                        ?>
+            if(count($groupusers)>0):
+                foreach($groupusers as $groupuser):
+                    $comments = AssessComments::model()->find('project=:p and from_user=:f and to_user=:t',array(':p'=>$projects->id,':f'=>Yii::app()->user->id,':t'=>$groupuser->user_id));
+                    ?>
                         <label class="text-label">About
                             <?php if(Yii::app()->user->id == $groupuser->user_id)
-                                echo 'me';
-                            else
-                                echo ucfirst($groupuser->user->first_name);
-                            ?>
+                    echo 'me';
+                else
+                    echo ucfirst($groupuser->user->first_name);
+                    ?>
                         </label>
                         <textarea class="text-field" name="comments[<?php echo $groupuser->user_id; ?>]"><?php if(count($comments)>0) echo trim($comments->comments);?></textarea>
                     <?php endforeach;
-                else:
-                    ?>
+            else:
+                ?>
                     <label class="text-label">No users assigned to project.</label>
                 <?php endif;?>
                 <input type="submit" class="add-course" value="Save"> <div style="clear:both;"></div><br/>

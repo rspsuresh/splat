@@ -54,12 +54,9 @@
                                             <a href="<?php echo Yii::app()->createUrl('users/cadmin',array('i'=>$_GET['i'],
                                                 'f'=>$_GET['f'], 'c'=>base64_encode($models->id))); ?>"
                                                class="item_link"><?php echo $i; ?>.
-                                                <?php echo ucwords ($models->course_type." ".$models->name); ?>  <span class="grey"><?=($models->course_level !='')?' | Level :'.$models->course_level:''?> <?=($models->year !='')?' | Year : '.$models->year:''?></span></a>
+                                                <?php echo ucwords ($models->course_type." ".$models->name); ?>  <span class="grey"><?=($models->course_level !='')?' | Level :'.$models->course_level:''?> <?=($models->year !='')?' | Year: '.$models->year:''?></span></a>
 
                                             <span class="pull-right">
-                                                <?php  if(Yii::app()->user->getState('role')=='Superuser') { ?>
-                                                    <i class="fa fa-trash" onclick="ConfirmDelete('<?php echo $models->id ?>')"></i>
-                                                <?php } ?>
                                                 <i class="fa fa-cog" data-toggle="modal"
                                                    data-target="#courseModal_<?php echo $models->id; ?>"></i>
 								  </span>
@@ -128,7 +125,7 @@
                                                             <?php echo $form->labelEx($models,'year'); ?>
                                                         </div>
                                                         <div class="col-lg-8 padzero">
-                                                            <?php $models->year=date('d-m-Y',strtotime($models->year));
+                                                            <?php $models->year=date('Y-m',strtotime($models->year));
                                                             echo $form->textField($models,'year', array('placeholder'=>'year','maxlength'=>4, 'class'=>'datepicker','id'=>'Courses_year_'.$models->id)); ?>
                                                             <?php echo $form->error($models,'year'); ?>
                                                         </div>
@@ -149,6 +146,15 @@
                                                         <div class="col-lg-8 padzero formradio">
                                                             <?php echo $form->radioButtonList($models,'status', array('active'=>'Active','inactive'=>'Inactive'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
                                                             <?php echo $form->error($models,'status'); ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
+                                                        <div class="col-lg-4 padzero">
+                                                            <label>Anonymous</label>
+                                                        </div>
+                                                        <div class="col-lg-8 padzero formradio">
+                                                            <?php echo $form->radioButtonList($models,'anonymous', array('1'=>'ON','2'=>'OFF'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
+                                                            <?php echo $form->error($models,'anonymous'); ?>
                                                         </div>
                                                     </div>
                                                     <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
@@ -275,6 +281,15 @@
                                                     </div>
                                                     <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
                                                         <div class="col-lg-4 padzero">
+                                                            <label>Anonymous Option</label>
+                                                        </div>
+                                                        <div class="col-lg-8 padzero formradio">
+                                                            <?php echo $form->radioButtonList($models,'anonymous', array('1'=>'ON','2'=>'OFF'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
+                                                            <?php echo $form->error($models,'anonymous'); ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
+                                                        <div class="col-lg-4 padzero">
                                                             <label>Delete Course</label>
                                                         </div>
                                                         <div class="col-lg-8 padzero formradio">
@@ -374,6 +389,15 @@
                     <div class="col-lg-8 padzero formradio">
                         <?php echo $form->radioButtonList($formModel,'status', array('active'=>'Active','inactive'=>'Inactive'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
                         <?php echo $form->error($formModel,'status'); ?>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
+                    <div class="col-lg-4 padzero">
+                        <label>Anonymous Option</label>
+                    </div>
+                    <div class="col-lg-8 padzero formradio">
+                        <?php echo $form->radioButtonList($models,'anonymous', array('1'=>'ON','2'=>'OFF'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
+                        <?php echo $form->error($models,'anonymous'); ?>
                     </div>
                 </div>
                 <?php echo CHtml::submitButton('Save',array('class'=>'save-btn')); ?>
