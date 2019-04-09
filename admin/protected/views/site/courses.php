@@ -314,6 +314,7 @@
                 </div>
             </div>
         </div>
+
         <?php  if(Yii::app()->user->getState('role')=='Superuser' || Yii::app()->user->getState('role')=='Staff'){ ?>
             <input type="button" value="Add a Course" class="add-course" data-toggle="modal" data-target="#courseModal">
         <?php } ?>
@@ -373,6 +374,7 @@
                         <?php echo $form->error($formModel,'year'); ?>
                     </div>
                 </div>
+
                 <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
                     <div class="col-lg-4 padzero">
                         <?php echo $form->labelEx($formModel,'description'); ?>
@@ -382,6 +384,7 @@
                         <?php echo $form->error($formModel,'description'); ?>
                     </div>
                 </div>
+
                 <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
                     <div class="col-lg-4 padzero">
                         <?php echo $form->labelEx($formModel,'status'); ?>
@@ -396,8 +399,8 @@
                         <label>Anonymous Option</label>
                     </div>
                     <div class="col-lg-8 padzero formradio">
-                        <?php echo $form->radioButtonList($models,'anonymous', array('1'=>'ON','2'=>'OFF'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
-                        <?php echo $form->error($models,'anonymous'); ?>
+                        <?php echo $form->radioButtonList($formModel,'anonymous', array('1'=>'ON','2'=>'OFF'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
+                        <?php echo $form->error($formModel,'anonymous'); ?>
                     </div>
                 </div>
                 <?php echo CHtml::submitButton('Save',array('class'=>'save-btn')); ?>

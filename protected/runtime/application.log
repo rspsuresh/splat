@@ -4317,3 +4317,31 @@ REQUEST_URI=/splat/site/projects/12?c=1
 in C:\xampp\htdocs\splat\protected\views\site\project.php (85)
 in C:\xampp\htdocs\splat\protected\controllers\SiteController.php (96)
 in C:\xampp\htdocs\splat\index.php (25)
+2019/04/09 18:30:12 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT * FROM `institution_user` `t` WHERE course=.
+in C:\xampp\htdocs\splat\protected\controllers\SiteController.php (110)
+in C:\xampp\htdocs\splat\index.php (25)
+2019/04/09 18:30:13 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT * FROM `institution_user` `t` WHERE course=' in C:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 C:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2949): CActiveRecord->query(Object(CDbCriteria), true)
+#3 C:\xampp\htdocs\splat\protected\controllers\SiteController.php(110): CActiveRecord->findAll('course=')
+#4 [internal function]: SiteController->actionAssessment('12')
+#5 C:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#6 C:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#7 C:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#8 C:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#9 C:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#10 C:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#14 C:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('assessment')
+#16 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/assessment')
+#17 C:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#19 {main}
+REQUEST_URI=/splat/site/assessment/12?course=1&g=1
+HTTP_REFERER=http://localhost/splat/site/index
+---

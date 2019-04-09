@@ -8011,3 +8011,126 @@ in C:\xampp\htdocs\splat\admin\index.php (13)
 2019/04/09 16:54:34 [warning] [application] Failed to set unsafe attribute "description" of "Courses".
 in C:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (154)
 in C:\xampp\htdocs\splat\admin\index.php (13)
+2019/04/09 17:31:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/mask.js".' in C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/mask.js')
+#1 C:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/mask.js
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D
+---
+2019/04/09 17:31:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/mask.js".' in C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/mask.js')
+#1 C:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/mask.js
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D
+---
+2019/04/09 17:31:56 [warning] [application] Failed to set unsafe attribute "q_type" of "Questionsadmin".
+in C:\xampp\htdocs\splat\admin\protected\controllers\QuestionsadminController.php (73)
+in C:\xampp\htdocs\splat\admin\index.php (13)
+2019/04/09 17:32:03 [warning] [application] Failed to set unsafe attribute "q_type" of "Questionsadmin".
+in C:\xampp\htdocs\splat\admin\protected\controllers\QuestionsadminController.php (98)
+in C:\xampp\htdocs\splat\admin\index.php (13)
+2019/04/09 17:41:48 [warning] [application] Failed to set unsafe attribute "description" of "Faculties".
+in C:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (630)
+in C:\xampp\htdocs\splat\admin\index.php (13)
+2019/04/09 17:57:26 [warning] [application] Failed to set unsafe attribute "course_level" of "Courses".
+in C:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (154)
+in C:\xampp\htdocs\splat\admin\index.php (13)
+2019/04/09 17:57:26 [warning] [application] Failed to set unsafe attribute "description" of "Courses".
+in C:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (154)
+in C:\xampp\htdocs\splat\admin\index.php (13)
+2019/04/09 17:57:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/mask.js".' in C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/mask.js')
+#1 C:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/mask.js
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D
+---
+2019/04/09 17:57:44 [error] [php] Invalid argument supplied for foreach() (C:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php:4825)
+Stack trace:
+#0 C:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php(198): ProjectGroups->__construct()
+#1 unknown(0): SiteController->actionCourseItems()
+#2 C:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs()
+#3 C:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CInlineAction->runWithParamsInternal()
+#4 C:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): SiteController->runAction()
+#6 C:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#7 C:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#8 C:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): SiteController->filterAccessControl()
+#9 C:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#10 C:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#11 C:\xampp\htdocs\splat\yii\framework\web\CController.php(529): SiteController->runActionWithFilters()
+#12 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): SiteController->run()
+#13 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#14 C:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/site/courseitems?c=MQ%3D%3D&f=MQ%3D%3D&i=MQ%3D%3D
+in C:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (198)
+in C:\xampp\htdocs\splat\admin\index.php (13)
+2019/04/09 17:57:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/mask.js".' in C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/mask.js')
+#1 C:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/mask.js
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D
+---
+2019/04/09 18:00:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/mask.js".' in C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/mask.js')
+#1 C:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/mask.js
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D
+---
+2019/04/09 18:00:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/mask.js".' in C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/mask.js')
+#1 C:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/mask.js
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D
+---
+2019/04/09 18:01:17 [warning] [application] Failed to set unsafe attribute "assess_date" of "Projects".
+in C:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (579)
+in C:\xampp\htdocs\splat\admin\index.php (13)
+2019/04/09 18:01:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/mask.js".' in C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/mask.js')
+#1 C:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/mask.js
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D
+---
+2019/04/09 18:01:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/mask.js".' in C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/mask.js')
+#1 C:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/mask.js
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D
+---
+2019/04/09 18:01:35 [warning] [application] Failed to set unsafe attribute "id" of "Questions".
+in C:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (617)
+in C:\xampp\htdocs\splat\admin\index.php (13)
+2019/04/09 18:01:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/mask.js".' in C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/mask.js')
+#1 C:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/js/mask.js
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D
+---
