@@ -84,7 +84,7 @@
     <?php
     $prj= Userdetails::model()->find("course=".$_GET['c']." and user_id=".Yii::app()->user->id);
     if(count($prj)>0)
-        $groupusers = GroupUsers::model()->with('user')->findAll('group_id='.$prj->grp_id.' and user.status="active" ');
+        $groupusers = Userdetails::model()->with('user')->findAll('grp_id='.$prj->grp_id.' and user.status="active" and course='.$_GET['c']);
     //echo "<pre>";print_r($groupusers);die;
 
     $sqldcque="SELECT GROUP_CONCAT(question_id) as question
@@ -209,7 +209,7 @@
                                                             echo "From anonymous user";
                                                         }
                                                         else{
-                                                            echo $groupuser->user->firstname;
+                                                            echo $groupuser->user->first_name;
                                                         }
                                                     }
                                                     ?>

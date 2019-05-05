@@ -92,6 +92,7 @@ $project = Projects::model()->findByPk($_GET['p']);
     }
 </style>
 <section style="min-height:460px">
+
     <div class="container">
         <div class="user-institute">
             <?php  if(Yii::app()->user->getState('role')=='Superuser')

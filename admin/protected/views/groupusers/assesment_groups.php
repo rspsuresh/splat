@@ -76,12 +76,27 @@ $project=Projects::model()->findByPk($_GET['id']);
         background-color: #00B9D1 !important;
         border-color:#00B9D1 !important;
     }
-/*    .page-link
-    {
-       background-color:#00B9D1 !important;
-      border-color:#00B9D1 !important;
-    }*/
+    /*    .page-link
+        {
+           background-color:#00B9D1 !important;
+          border-color:#00B9D1 !important;
+        }*/
 </style>
+<div class="container">
+    <?php
+    $facultymdel=Faculties::model()->findByPk(base64_decode($_GET['f']));
+    $couesemodels=Courses::model()->findByPk(base64_decode($_GET['c']));
+    $assessmodel=Projects::model()->findByPk($_GET['p']);
+    $groupmodel=Groups::model()->findByPk($_GET['g']);
+    ?>
+    <div class="user-institute">
+        <p>You are here: <a href="/splat/admin/site/index">Home</a> /
+            <a href="<?=Yii::app()->createUrl('site/faculties',array('i'=>$_GET['i']));?>">Faculties</a> /
+            <a href="<?=Yii::app()->createUrl('site/faculties',array('i'=>$_GET['i'],'f'=>base64_encode($facultymdel->id)));?>"><?=$facultymdel->name?></a> /
+            <a href="<?=Yii::app()->createUrl('site/courses',array('i'=>$_GET['i'],'f'=>base64_encode($facultymdel->id),'c'=>base64_encode($couesemodels->id)));?>"><?=$couesemodels->name?></a> /
+            <a href="<?=Yii::app()->createUrl('users/cadmin',array('i'=>$_GET['i'],'f'=>base64_encode($facultymdel->id),'c'=>base64_encode($couesemodels->id)));?>"><?=$assessmodel->name?></a> / <b>Groups</b></p>
+    </div>
+</div>
 <div class="container">
     <div class="row">
         <div class="col-lg-10">
@@ -96,25 +111,55 @@ $project=Projects::model()->findByPk($_GET['id']);
         <div class="col-lg-12" id="main">
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 <?php
+                $usermodelsql="SELECT user_id,users.first_name,users.last_name,users.username as username FROM `user_courses` 
+                  join users on user_courses.user_id=users.id and users.role=5 and users.status='active'
+                  WHERE user_courses.`course_id` = ".base64_decode($_GET["c"]);
+
+                $usermodel=Yii::app()->db->createCommand($usermodelsql)->queryAll();
+                $courseid=base64_decode($_GET['c']);
+
+
+                $sqldcque="SELECT GROUP_CONCAT(question_id) as question 
+                                   FROM `delete_custom_question` WHERE `course_id` =$courseid";
+                $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
+                $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
+                $questions=Questions::model()->findAll('institution='.base64_decode($_GET['i']).'
+                        and faculty='.base64_decode($_GET['f']).' and q_type="R"
+                         and course='.base64_decode($_GET['c']).' and status="active" and id NOT IN ('.$ids.') ');
+                $dividedcount=count($questions);
+
                 $chunkarray=array_chunk($grp,10);
                 foreach($chunkarray as $ckey =>$cval) {
-                foreach($cval as $val) { ?>
+                    foreach($cval as $val) {
+
+                        $totalusertowardsgrp=count(Userdetails::model()->findAll('course='.base64_decode($_GET['c']).' and grp_id='.$val->id));
+                        $meansql="SELECT (sum(value)/$dividedcount) as mean FROM `assess` WHERE `project` ={$_GET['p']} AND `grp_id` ={$val->id} ORDER BY `id`  DESC";
+                        $meansocre=Yii::app()->db->Createcommand($meansql)->QueryAll();
+                        $scoremean=(!empty($meansocre[0]['mean']))?$meansocre[0]['mean']/$totalusertowardsgrp:"0";
+                        ?>
+
                         <div class="panel panel-default page page_<?=$ckey+1?>">
                             <div class="panel-heading" role="tab" id="headingOne<?=$val->id?>" style="background-color:#00B9D1;color:#fff; ">
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
                                        data-parent="#accordion" href="#collapseOne<?=$val->id?>"
                                        aria-expanded="false" aria-controls="collapseOne<?=$val->id?>">
-                                        <?=$val->name?>
+                                        <?=$val->name?>  <span style="float:right;color:red"><?=$scoremean?></span>
                                     </a>
                                 </h4>
                             </div>
                             <div id="collapseOne<?=$val->id?>" class="panel-collapse collapse" role="tabpanel"
                                  aria-labelledby="headingOne<?=$val->id?>">
                                 <div class="panel-body">
-                                    <?php $grpuser=GroupUsers::model()->with('user')->findAll('group_id='.$val->id.' and user.status="active"');
+                                    <?php $grpuser=Userdetails::model()->with('user')->findAll('grp_id='.$val->id.' and user.status="active"');
                                     if($grpuser) {
-                                        foreach ($grpuser as $gval) { ?>
+                                        foreach ($grpuser as $gval) {
+                                            //echo "<pre>";print_r($totalusertowardsgrp);
+                                            $meansqlind="SELECT (sum(value)/$dividedcount) as mean FROM `assess` WHERE `project` ={$_GET['p']} AND `grp_id` ={$val->id} and `to_user`={$gval->user_id} group by to_user ORDER BY `id`  DESC";
+                                            //echo $meansqlind;
+                                            $meansocreind=Yii::app()->db->Createcommand($meansqlind)->QueryAll();
+                                            $scoremeanind=(!empty($meansocreind[0]['mean']))?$meansocreind[0]['mean']:"0";
+                                            ?>
                                             <?php $action=Yii::app()->CreateUrl('site/responsepage',
                                                 array('id'=>$project->id,
                                                     'u'=>$gval->user->id,'c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'],
@@ -123,6 +168,7 @@ $project=Projects::model()->findByPk($_GET['id']);
                                                 <br/>
                                                 <span> <?=$gval->user->first_name." ".$gval->user->last_name?>
                                             </span>
+                                                <p style="color:red"><?=$scoremeanind?></p>
                                             </a>
                                         <?php }
                                     }
@@ -135,7 +181,7 @@ $project=Projects::model()->findByPk($_GET['id']);
                                 </div>
                             </div>
                         </div>
-                <?php } } ?>
+                    <?php } } ?>
                 <ul id="pagination-demo" class="pagination-lg pull-right"></ul>
             </div>
         </div>

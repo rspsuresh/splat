@@ -3,6 +3,10 @@
     input::-webkit-input-placeholder {
         font-size:0.9em;
     }
+    select option
+    {
+        font-size: 14px !important;
+    }
 </style>
 <?php
 Yii::app()->clientScript->registerScript('search', "
@@ -63,16 +67,15 @@ $('.search-form form').submit(function(){
                 'last_name',
                 'username',*/
                 array(
-                    'header' => 'first_name',
+                    'header' => 'First Name',
                     'filter' => CHtml::textField('Users[first_name]', $model->first_name,array('placeholder'=>'Enter first name','class'=>'form-control')),
-                    //'value'=>'$data->courses->name',
                     'value'=>function($data)
                     {
                         return $data->first_name;
                     },
                 ),
                 array(
-                    'header' => 'last_name',
+                    'header' => 'Last Name',
                     'filter' => CHtml::textField('Users[last_name]', $model->last_name,array('placeholder'=>'Enter last name','class'=>'form-control')),
                     //'value'=>'$data->courses->name',
                     'value'=>function($data)
@@ -81,7 +84,7 @@ $('.search-form form').submit(function(){
                     },
                 ),
                 array(
-                    'header' => 'username',
+                    'header' => 'Username',
                     'filter' => CHtml::textField('Users[username]', $model->username,array('placeholder'=>'Enter user name','class'=>'form-control')),
                     //'value'=>'$data->courses->name',
                     'value'=>function($data)

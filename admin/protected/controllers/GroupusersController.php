@@ -427,15 +427,19 @@ class GroupusersController extends Controller
     public function actionDownload()
     {
 
-        $project=Projects::model()->find("id=".$_GET['p']." and status='completed'");
+        $project=Projects::model()->find("id=".$_GET['p']);
         $test="";
         $html='<table id="resulttable" class="table" border = \'1\'>
 <tr><th scope="col">Username</th>';
         $html.='<th>'.$project->name.'</th>';
+        $html.='<th>Group Name</th>';
+        $html.='<th>Team Mean</th>';
+        $html.='<th>Late Submission</th>';
+//        $html.='<th>Late Submission</th></tr>';
         $html.='<th>End-of-Line Indicator</th></tr>';
         $html.="<tbody>";
 
-        $usermodelsql="SELECT user_id as user_id,users.first_name,users.last_name,users.username as username FROM `user_courses` 
+        $usermodelsql="SELECT user_id,users.first_name,users.last_name,users.username as username FROM `user_courses` 
                   join users on user_courses.user_id=users.id and users.role=5 and users.status='active'
                   WHERE user_courses.`course_id` = ".base64_decode($_GET["c"]);
 
@@ -454,25 +458,37 @@ class GroupusersController extends Controller
 
         foreach($usermodel as $key =>$val)
         {
-            $test.="<td>".$val['username']."</td>";
 
-            $resultsql="SELECT sum(value) as total FROM `assess` 
+            $userdetails=Userdetails::model()->find("course=".$courseid." and user_id=".$val['user_id']);
+           // echo "<pre>";print_r($userdetails[0]['grp_id']);
+
+            if($userdetails)
+            {
+                $meansql="SELECT (sum(value)/$dividedcount) as mean FROM `assess` WHERE `project` ={$_GET['p']} AND `grp_id` ={$userdetails->grp_id}  ORDER BY `id`  DESC";
+                //echo $userdetails->grp_id."<br>";
+                $grpuserscount=count(Userdetails::model()->findAll("grp_id=".$userdetails->grp_id));
+                $meansocre=Yii::app()->db->Createcommand($meansql)->QueryAll();
+                $scoremean=(!empty($meansocre[0]['mean']))?$meansocre[0]['mean']/$grpuserscount:"#";
+            }
+            else{
+                $scoremean="#";
+            }
+
+            $test.="<td>".$val['username']."</td>";
+            $resultsql="SELECT sum(value) as total,submitted_at FROM `assess`
                  left join questions on assess.question=questions.id
                   where to_user={$val['user_id']} and (value !='' and value !=0) 
                    and questions.q_type='R' and  questions.status='active' 
                   and assess.project={$_GET["p"]} 
                  order by assess.question asc";
             $sumresult=Yii::app()->db->Createcommand($resultsql)->QueryAll();
-            // echo $resultsql."<pre>";
+         // echo "<pre>";print_r($sumresult);
             $rowfind="SELECT * FROM `assess` left join questions on assess.question=questions.id
                   where to_user={$val['user_id']} and (value !='' and value !=0) 
                   and questions.q_type='R' and  questions.status='active' 
                   and assess.project={$_GET["p"]} 
                   group by assess.from_user order by assess.question asc";
-
             $rowfindresult=Yii::app()->db->Createcommand($rowfind)->QueryAll();
-
-
             if(count($rowfindresult) >0)
             {
 
@@ -485,19 +501,27 @@ class GroupusersController extends Controller
             else
             {
                 $test.='<td>#</td>';
+               // $test.='<td>#</td>';
+
             }
 
-
+            $test.='<td>'.$userdetails->groupname->name.'</td>';
+            $test.='<td>'.$scoremean.'</td>';
+            $date=!empty($sumresult[0]['submitted_at'])?$sumresult[0]['submitted_at']:date("Y-m-d H:i:s");
+            $differncesql="select timediff('$project->assess_date','$date') as diff";
+            $executequery=Yii::app()->db->Createcommand($differncesql)->queryRow();
+            //echo $differncesql ."++".$executequery['diff']."<br>";
+            $sign=(stristr($executequery['diff'],'-')==$executequery['diff'])?"Yes":"No";
+            //echo $sign."<br>";
+            $test.='<td>'.$sign.'</td>';
             $test.='<td>#</td>';
             $html.="<tr>".$test."</tr>";
             $test="";
 
 
         }
-
         $html.='</table>';
-
-        echo $html;die;
+       echo $html;die;
     }
     public function actiongroupasses($id)
     {

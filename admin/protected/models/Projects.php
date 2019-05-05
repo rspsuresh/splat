@@ -39,7 +39,7 @@ class Projects extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, institution, faculty, course', 'required'),
+			array('name, assess_date, faculty, course', 'required'),
 			array('institution, faculty, course, created_by', 'numerical', 'integerOnly'=>true),
 			array('name, description', 'length', 'max'=>255),
 			array('status', 'length', 'max'=>9),

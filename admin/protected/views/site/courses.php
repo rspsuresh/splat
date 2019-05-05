@@ -54,7 +54,7 @@
                                             <a href="<?php echo Yii::app()->createUrl('users/cadmin',array('i'=>$_GET['i'],
                                                 'f'=>$_GET['f'], 'c'=>base64_encode($models->id))); ?>"
                                                class="item_link"><?php echo $i; ?>.
-                                                <?php echo ucwords ($models->course_type." ".$models->name); ?>  <span class="grey"><?=($models->course_level !='')?' | Level :'.$models->course_level:''?> <?=($models->year !='')?' | Year: '.$models->year:''?></span></a>
+                                                <?php echo ucwords ($models->course_type." ".$models->name); ?>  <span class="grey"><?=($models->course_level !='')?' | Level: '.$models->course_level:''?> <?=($models->year !='')?' | Year: '.$models->year:''?></span></a>
 
                                             <span class="pull-right">
                                                 <i class="fa fa-cog" data-toggle="modal"
@@ -72,7 +72,7 @@
                                                       WHERE user_courses.`course_id` = ".$models->id." and users.status='active'";
                                                 $result=Yii::app()->db->createCommand($sql)->queryAll();
                                                 $uniquesdata=array_unique(array_column($result,'user_id'));
-                                                //echo "<pre>";print_r($result);die;
+
                                                 echo count($uniquesdata); ?>
                                             </span></p>
                                     </div>

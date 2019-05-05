@@ -28,7 +28,23 @@ $meanscore='';
 $avg=0;
 ?>
 <section>
+    <?php
+      $facultymdel=Faculties::model()->findByPk(base64_decode($_GET['f']));
+      $couesemodels=Courses::model()->findByPk(base64_decode($_GET['c']));
+      $assessmodel=Projects::model()->findByPk($_GET['p']);
+      $groupmodel=Groups::model()->findByPk($_GET['g']);
+    ?>
     <div class="container ">
+        <div class="user-institute">
+            <p>You are here: <a href="/splat/admin/site/index">Home</a> /
+                <a href="<?=Yii::app()->createUrl('site/faculties',array('i'=>$_GET['i']));?>">Faculties</a> /
+                <a href="<?=Yii::app()->createUrl('site/faculties',array('i'=>$_GET['i'],'f'=>base64_encode($facultymdel->id)));?>"><?=$facultymdel->name?></a> /
+                <a href="<?=Yii::app()->createUrl('site/courses',array('i'=>$_GET['i'],'f'=>base64_encode($facultymdel->id),'c'=>base64_encode($couesemodels->id)));?>"><?=$couesemodels->name?></a> /
+                <a href="<?=Yii::app()->createUrl('users/cadmin',array('i'=>$_GET['i'],'f'=>base64_encode($facultymdel->id),'c'=>base64_encode($couesemodels->id)));?>"><?=$assessmodel->name?></a> /
+                <a href="<?=Yii::app()->createUrl('roupusers/groupasses',array('id'=>$_GET['id'],'i'=>$_GET['i'],'f'=>base64_encode($facultymdel->id),'c'=>base64_encode($couesemodels->id),'p'=>$_GET['id']));?>"><?=$groupmodel->name?></a> /
+                <b>Responses</b></p>
+        </div>
+
         <button class="btn btn-primary align" onclick="goBack()">Back</button>
         <?php $cmpsql="SELECT CAST(A.submitted_at AS DATE) as subdate,B.assess_date from assess as A left join projects as B on A.project=B.id where from_user={$_GET['u']}";
                $cmpsqlresult=Yii::app()->db->createCommand($cmpsql)->queryRow();
@@ -187,7 +203,6 @@ $avg=0;
                     queans.push($(this).attr('data-val'));
                 }
             });
-            console.log(sum);
             if(sum !=0)
             {
                 var usercount=parseInt($(".usercount").val())-1;
@@ -195,7 +210,8 @@ $avg=0;
                 $("#question_"+i).text(cal);
                 sumarr=sumarr+parseFloat(cal);
             }
-            else {
+            else
+            {
                 if($("#question_"+i).attr('data-qtype') !="S")
                 {
                     $("#question_"+i).text('No response yet');
@@ -203,7 +219,6 @@ $avg=0;
             }
         }
         var avg=<?php echo $avg?>;
-        console.log(avg);
         var avgtotal=(sumarr/avg).toFixed(1);
         $("#score").text(avgtotal);
     });

@@ -159,82 +159,79 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
     <div class="container-fluid user-assessment">
         <p>Manage Course Users</p>
     </div>
-    <div class="container">
-        <?php $this->widget('zii.widgets.grid.CGridView', array(
-            'id'=>'users-grid',
-            'dataProvider'=>$modeluser->search(),
-            'filter'=>$modeluser,
-            'columns'=>array(
-                'email',
-                'first_name',
-                'last_name',
-                array
-                (
-                    'class'=>'CButtonColumn',
-                    'template'=>'{view}{update}{delete}',
-                    'buttons'=>array
-                    (
-                        'update' => array
+    <div class="container-fluid">
+        <div class="script-section col-xs-12 col-lg-12 col-sm-12">
+            <div class="mydiv">
+                <?php $this->widget('zii.widgets.grid.CGridView', array(
+                    'id'=>'users-grid',
+                    'dataProvider'=>$modeluser->search(),
+                    'filter'=>$modeluser,
+                    'columns'=>array(
+                        'email',
+                        'first_name',
+                        'last_name',
+                        array
                         (
-                            'url'=>'$this->grid->controller->createUrl("/users/update", array("id"=>$data->id,"c"=>$_GET["c"],"i"=>$_GET["i"],"f"=>$_GET["f"]))',
+                            'class'=>'CButtonColumn',
+                            'template'=>'{view}{update}{delete}',
+                            'buttons'=>array
+                            (
+                                'update' => array
+                                (
+                                    'url'=>'$this->grid->controller->createUrl("/users/update", array("id"=>$data->id,"c"=>$_GET["c"],"i"=>$_GET["i"],"f"=>$_GET["f"]))',
+                                ),
+                            ),
                         ),
                     ),
-                ),
-            ),
-        )); ?>
-        <div class="row">
-            <div class="col-sm-12" style="margin-top:30px;">
-                <a href="<?= Yii::app()->CreateUrl('site/courseItems',array('c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f']))?>">
-                    <button class="admin-btn btn-bs-file btn btn-info" title="Back">
-                        Back
-                    </button></a>
-                <!--  <?php /*echo CHtml::link('Add a student to the course', Yii::app()->createUrl('users/ccreate',
-                    array('c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'])),
-                    array('class'=>'admin-btn btn btn-info')); */?>
-                <label class="admin-btn btn-bs-file btn btn-info" title="Browse user">
-                    Bulk import students
-                    <?php
-                /*                    $form=$this->beginWidget('CActiveForm', array(
-                                        'id'=>'bulk-import',
-                                        'htmlOptions' => array('enctype' => 'multipart/form-data'),
-                                    ));
-                                    */?>
-                    <input type="file" value="Bulk Import"  id="bulk_import" name="csv_file" accept=".csv" />
-                    <?php /* $this->endWidget();*/?>
-                </label>-->
+                )); ?>
+                <div class="row">
+                    <div class="col-sm-12" style="margin-top:30px;">
+                        <a href="<?= Yii::app()->CreateUrl('site/courseItems',array('c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f']))?>">
+                            <button class="admin-btn btn-bs-file btn btn-info" title="Back">
+                                Back
+                            </button></a>
+                        <?php $grpmodel=Groups::model()->find('course_id='.base64_decode($_GET['c'])) ?>
 
-                <?php echo CHtml::link('Add a student to the course', Yii::app()->createUrl('users/ccreate',
-                    array('c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'])),
-                    array('class'=>'admin-btn btn btn-info')); ?>
-                <label class="admin-btn btn-bs-file btn btn-info" title="Browse user">
-                    Bulk Grouping students
-                    <?php
-                    $form=$this->beginWidget('CActiveForm', array(
-                        'id'=>'bulk_import_group_users',
-                        'htmlOptions' => array('enctype' => 'multipart/form-data'),
-                    ));
-                    ?>
-                    <input type="file"  onchange="filechange()" value="Bulk Import"  id="bulk_import_group_users" name="csv_file" accept=".csv" />
-                    <?php  $this->endWidget();?>
-                </label>
-                <a href="<?= Yii::app()->CreateUrl('users/staffusers',array('c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f']))?>">
-                    <button class="admin-btn btn-bs-file btn btn-info" title="Back">
-                        Add a Staff to the Course
-                    </button></a>
-            </div>
-            <div class="col-lg-12" style="padding-top: 10px">
-                <p><span style="color:red;"><a href="#">
+                        <?php if($grpmodel) {
+                            echo CHtml::link('Add a student to the course', Yii::app()->createUrl('users/ccreate',
+                                array('c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'])),
+                                array('class'=>'admin-btn btn btn-info'));
+                        }
+                        ?>
+
+                        <label class="admin-btn btn-bs-file btn btn-info" title="Browse user">
+                            Bulk import users
+                            <?php
+                            $form=$this->beginWidget('CActiveForm', array(
+                                'id'=>'bulk_import_group_users',
+                                'htmlOptions' => array('enctype' => 'multipart/form-data'),
+                            ));
+                            ?>
+                            <input type="file"  onchange="filechange()" value="Bulk Import"  id="bulk_import_group_users" name="csv_file" accept=".csv" />
+                            <?php  $this->endWidget();?>
+                        </label>
+                        <a href="<?= Yii::app()->CreateUrl('users/staffusers',array('c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f']))?>">
+                            <button class="admin-btn btn-bs-file btn btn-info" title="Back">
+                                Add a Staff to the Course
+                            </button></a>
+                    </div>
+                    <div class="col-lg-12" style="padding-top: 10px">
+                        <p><span style="color:red;"><a href="#">
           <span class="glyphicon glyphicon-info-sign"></span>
         </a>   The file should only be in .csv format.
                         Please download and refer to the attached file
                         <a  onclick='download1()'>Splat_Bulk_import.csv</a></span><br>
-                    &nbsp;&nbsp;&nbsp <span style="color:red">
+                            &nbsp;&nbsp;&nbsp <span style="color:red">
                        You can import the students list from 'Grades' section in the Brightspace.<br>&nbsp;&nbsp;&nbsp
                    if you are editing the file on a Mac,save the file as Windows csv file to work</span>
 
-                </p>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
+
+
     </div>
     <div class="container-fluid user-assessment">
         <p>Manage Assesments</p>
@@ -254,8 +251,8 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                                     <th>Assessment  Name</th>
                                     <th>Status</th>
                                     <th>Due By</th>
-                                    <th style="text-align:center">Email Action</th>
-                                    <th>Action</th>
+                                    <th style="text-align:center">Email Actions</th>
+                                    <th>Result Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>';
@@ -268,34 +265,10 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                             </a>  <a href="javascript:void(0);" style="color:#000000;"><?php echo ucfirst($models->name);?></a></td>
                         <td><?php echo ucfirst($models->status);?></td>
                         <td>
-                            <?=date('d-m-Y',strtotime($models->assess_date))?>
+                            <?=date('d-m-Y H:i:s',strtotime($models->assess_date))?>
                         </td>
                         <?php
-                        $sql="SELECT user_id as user_id FROM `user_courses` 
-                  join users on user_courses.user_id=users.id and users.role=5 and users.status='active' and users.email !=''
-                  WHERE user_courses.`course_id` = ".base64_decode($_GET["c"]);
-
-                        $result=Yii::app()->db->createCommand($sql)->queryAll();
-                        $uniquesdataaarray=array_unique(array_column($result,'user_id'));
-                        if(empty($uniquesdata))
-                        {
-                            $uniquesdata=0;
-                        }
-                        else{
-                            $uniquesdata=implode(',',$uniquesdataaarray);
-                        }
-                        $mailmodel=MailSend::model()->findAll('c_id='.base64_decode($_GET['c']).' and i_id='.base64_decode($_GET['i']).' and f_id='.base64_decode($_GET['f']).' and as_id='.$models->id);
-
-                        $users=($result[0]['user_id'])?$result[0]['user_id']:0;
-                        $usersmodel=Users::model()->findAll("id in (".$uniquesdata.")");
-                        if($mailmodel)
-                        {
-                            $countdata=count($uniquesdataaarray) - count($mailmodel);
-                        }
-                        else
-                        {
-                            $countdata=count($uniquesdataaarray);
-                        }
+                            $countdata=count(Userdetails::model()->findAll('course='.base64_decode($_GET['c'])));
                         ?>
                         <td>
                             <?php if($countdata !=0) {
@@ -310,8 +283,14 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                         </td>
                         <td>
                             <a  href="<?php echo Yii::app()->createUrl('groupusers/groupasses',
-                                array('id'=>$models->id,'c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'],'p'=>$models->id));?>"><button class="info-student">View</button></a>
-                            <a  class="<?=($models->status =='live' || $models->status =='draft' )?'grayclass':'download';?>" title="Download responses" data-status="<?=$models->status?>" data-project='<?=$models->id?>'><button  class="<?=($models->status =='live' || $models->status =='draft' )?'info-gray':'info-student';?>">Download</button></a>
+                                array('id'=>$models->id,'c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'],'p'=>$models->id));?>">
+                                <button class="info-student">View</button></a>
+                            <a  class="download" title="Download responses"
+                                data-status="<?=$models->status?>"
+                                data-projectname="<?=$models->name?>"
+                                data-project='<?=$models->id?>'>
+                                <button  class="info-student">Download</button>
+                            </a>
                         </td>
                     </tr>
 
@@ -366,8 +345,8 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                                         </div>
                                         <div class="col-lg-8 padzero">
                                             <?php
-                                            $models->assess_date=date('d-m-Y',strtotime($models->assess_date));
-                                            echo $form->textField($models,'assess_date', array('placeholder'=>'yyyy-mm-dd')); ?>
+                                            $models->assess_date=date('d-m-Y H:i:s',strtotime($models->assess_date));
+                                            echo $form->textField($models,'assess_date', array('placeholder'=>'yyyy-mm-dd','class'=>'datepickerp')); ?>
                                             <?php echo $form->error($models,'assess_date'); ?>
                                         </div>
                                     </div>
@@ -420,13 +399,6 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                     </span>
                         </td>
                     </tr>
-
-                    <!-- <div class="script-text" id="qrow_<?php /*echo $iquestion->id; */?>">
-                        <h1><a href="javascript:void(0);" class="item_link"><?php /*echo $i; */?>. <?php /*echo ucfirst($iquestion->question); */?></a>
-
-                            <span class="pull-right">
-			<i class="fa fa-trash" onclick="ConfirmDelete('<?php /*echo $iquestion->id */?>',2,'')"></i>
-			<i class="fa fa-cog" data-toggle="modal" data-target="#questionModal_<?php /*echo $iquestion->id; */?>"></i>
 			</span>
                     </div>-->
                     <div class="modal fade" id="questionModal_<?php echo $iquestion->id;?>" role="dialog">
@@ -464,15 +436,6 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                                             <?php echo $form->error($iquestion,'type'); ?>
                                         </div>
                                     </div>
-                                    <!-- <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
-                                    <div class="col-lg-4 padzero">
-                                        <?php echo $form->labelEx($iquestion,'status'); ?>
-                                    </div>
-                                    <div class="col-lg-8 padzero formradio">
-                                        <?php echo $form->radioButtonList($iquestion,'status', array('active'=>'Active','inactive'=>'Inactive'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
-                                        <?php echo $form->error($iquestion,'status'); ?>
-                                    </div>
-                                </div>-->
                                     <?php echo CHtml::submitButton('Save',array('class'=>'save-btn')); ?>
                                     <?php $this->endWidget(); ?>
                                 </div>
@@ -537,7 +500,7 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                     </div>
                     <div class="col-lg-8 padzero">
                         <?php
-                        echo $form->textField($formModel,'assess_date', array('placeholder'=>'yyyy-mm-dd')); ?>
+                        echo $form->textField($formModel,'assess_date', array('placeholder'=>'dd-mm-yyyy','class'=>'datepickerp')); ?>
                         <?php echo $form->error($formModel,'assess_date'); ?>
                     </div>
                 </div>
@@ -630,15 +593,6 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                         <?php echo $form->error($questions,'q_type'); ?>
                     </div>
                 </div>
-                <!--<div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
-                    <div class="col-lg-4 padzero">
-                        <?php echo $form->labelEx($questions,'status'); ?>
-                    </div>
-                    <div class="col-lg-8 padzero formradio">
-                        <?php echo $form->radioButtonList($questions,'status', array('active'=>'Active','inactive'=>'Inactive'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
-                        <?php echo $form->error($questions,'status'); ?>
-                    </div>
-                </div>-->
                 <?php echo CHtml::submitButton('Save',array('class'=>'save-btn')); ?>
                 <?php $this->endWidget(); ?>
             </div>
@@ -694,46 +648,9 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
         </div>
     </div>
 </div>
-<!-- model -->
-<!--<div class="modal fade" id="groupModal" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content col-xs-12 col-lg-12 col-sm-12">
-            <div class="modal-header col-lg-12">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title text-center">Add Group to Projects</h4>
-            </div>
-            <div class="model-form col-lg-12 col-xs-12 col-sm-12 form">
-                <?php /*$form=$this->beginWidget('CActiveForm', array(
-                    'id'=>'project-form1',
-                    'enableClientValidation'=>true,
-                    'clientOptions'=>array(
-                        'validateOnSubmit'=>true,
-                    ),
-                )); */?>
-                <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
-                    <div class="col-lg-4 padzero">
-                        <?php /*echo $form->labelEx($pmodel,'course_id'); */?>
-                    </div>
-                    <div class="col-lg-8 padzero">
-                        <?php /*echo $form->dropDownList($pmodel, 'course_id', CHtml::listData(Projects::model()->findAll('faculty='.base64_decode($_GET['c'])), 'id', 'name'), array('empty'=>'Select Group')); */?>
-                        <?php /*echo $form->error($pmodel,'course_id'); */?>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
-                    <div class="col-lg-4 padzero">
-                        <?php /*echo $form->labelEx($pmodel,'group_id'); */?>
-                    </div>
-                    <div class="col-lg-8 padzero">
-                        <?php /*echo $form->dropDownList($pmodel, 'group_id', CHtml::listData(Groups::model()->findAll('status!="inactive"'), 'id', 'name'), array('empty'=>'Select Group')); */?>
-                        <?php /*echo $form->error($pmodel,'group_id'); */?>
-                    </div>
-                </div>
-                <?php /*echo CHtml::submitButton('Save',array('class'=>'save-btn')); */?>
-                <?php /*$this->endWidget(); */?>
-            </div>
-        </div>
-    </div>
-</div>-->
+<link rel="stylesheet" href="<?=Yii::app()->request->baseUrl?>/css/bootstrap-datetimepicker.css">
+<script src="<?=Yii::app()->request->baseUrl?>/js/moment.min.js"></script>
+<script src="<?=Yii::app()->request->baseUrl?>/js/bootstrap-datetimepicker.js"></script>
 <style>
     #defaultQuestions input{
         width:auto;
@@ -746,58 +663,10 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
     }
 </style>
 <script type="text/javascript">
-    function alternate(id)
-    {
-        $.ajax({
-            url: "<?php echo Yii::app()->createUrl('site/assesmentchange') ?>",
-            type: "post",
-            data:{asses:id},
-            success: function (result) {
-                var data=JSON.parse(result);
-                if(data.status=='A' || data.status=='I')
-                {
-                    $.fn.yiiGridView.update('multipleassesment-grid');
-                    $.notify("Status changed succesfully", "success");
-                }
-                else if(data.status=='E') {
-                    $.fn.yiiGridView.update('multipleassesment-grid');
-                    $.notify("Already assessment is progess.please try after some time", "warning");                }
-            }
-        });
-
-    }
     $(document).ready(function(){
-        $('input').attr('autocomplete','off');
-        $("td:empty").remove();
-        /*$(".datepicker").inputmask("datetime",{
-            mask: "y-2-1 h:s",
-            placeholder: "yyyy-mm-dd hh:mm",
-            leapday: "-02-29",
-            separator: "-",
-            alias: "yyyy-mm-dd"
-        });
-        $(".edit,.edit1").inputmask("datetime",{
-            mask: "y-2-1 h:s",
-            placeholder: "yyyy-mm-dd hh:mm",
-            leapday: "-02-29",
-            separator: "-",
-            alias: "yyyy-mm-dd"
-        });*/
+        $('input[type="text"]').attr('autocomplete','off');
+        $('.datepickerp').datetimepicker({format: 'DD-MM-YYYY HH:mm'});
 
-        $('.appenddate > input,.edit').datetimepicker({
-            inline:false,
-            format: 'd-m-Y H:i',
-
-        });
-
-    });
-    $('body').on('focus',".datepicker", function(){
-        $('.appenddate input,.edit').datetimepicker({
-            inline:false,
-            format: 'd-m-Y H:i',
-            orientation: "top" // add this
-
-        });
     });
     function ConfirmDelete(id,type,course)
 
@@ -826,7 +695,6 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
 
         if (x)
         {
-
             $.ajax({
                 url:url,
                 type: 'post',
@@ -863,29 +731,7 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
             return false;
         }
     }
-    function appenddate()
-    {
-        var rwcnt=parseInt($("#inshidden").val())+1;
-        $(".appendinsert").append('<div class="col-lg-4 padzero">\n' +
-            '            <b>Assessment '+rwcnt+' due date</b></div>\n' +
-            '    <div class="col-lg-8 padzero">\n' +
-            '        <input type="text"  name="multipleassesment[]" autocomplete="off" class="datepicker edit"  >\n' +
-            '        </div>');
 
-        $("#inshidden").val(rwcnt)
-    }
-
-    function appenddateupdate()
-    {
-        var rowcnt=parseInt($("#numberofrows").val())+1;
-
-        $(".apdedit").append('<div class="col-lg-4 padzero">\n' +
-            '            <b>Assessment '+rowcnt+' due date</b></div>\n' +
-            '    <div class="col-lg-8 padzero">\n' +
-            '        <input type="text"  name="multipleassesment[]" autocomplete="off" class="datepicker edit"  >\n' +
-            '        </div>');
-        $("#numberofrows").val(rowcnt);
-    }
     function mailprocess(c,i,f,p)
     {
         $("#loading").show();
@@ -906,13 +752,11 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
 </script>
 </section>
 <div id="htmltable" style="display:none;">
-
 </div>
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.tabletoCSV.js"></script>
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/mask.js"></script>
 <script type="text/javascript">
     $(function () {
-        $('input').addClass('form-control');
+        $('input[type="text"]').addClass('form-control');
         $('td > input').attr('placeholder','Search');
         function download()
         {
@@ -927,8 +771,9 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
     $(document).on('click','.download',function(){
 
         var p=$(this).attr('data-project');
-        var status=$(this).attr('data-status');
-        if(status =="completed")
+        var projectname=$(this).attr('data-projectname');
+        var stustus=($(this).attr('data-status') =='completed')?'Are you sure want to download report?':'Assessment is not fully complete. Awaiting feedback from some students. Proceed to download?';
+        if(confirm(stustus))
         {
             var url="<?= Yii::app()->CreateUrl('groupusers/download',array('c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'],'p'=>''))?>"+p;
             $.ajax({
@@ -936,17 +781,17 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                 type: "get",
                 success: function (result) {
                     $("#htmltable").html(result);
-                    $("#resulttable").tableToCSV();
+                    //$("#resulttable").tableToCSV(projectname);
                     return false;
                 }
             });
         }
+      /*  }
         else
         {
             alert('Current assessment not yet completed');
-        }
+        }*/
 
-//window.location.href=url;
     });
 </script>
 <script>
@@ -954,6 +799,5 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
     {
         window.location.href='<?php echo Yii::app()->CreateUrl('users/download')?>';
     }
-    $('#Users_username').on('focus', function() {
-    });
+    $('#Users_username').on('focus', function() {});
 </script>

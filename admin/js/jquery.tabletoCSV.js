@@ -1,5 +1,5 @@
-jQuery.fn.tableToCSV = function() {
-    
+jQuery.fn.tableToCSV = function(projectname) {
+
     var clean_text = function(text){
         text = text.replace(/"/g, '""');
         return '"'+text+'"';
@@ -31,7 +31,7 @@ jQuery.fn.tableToCSV = function() {
 			var uri = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
 			var download_link = document.createElement('a');
 			download_link.href = uri;
-			var ts = 'Export scores template';
+			var ts = projectname;
 			if(caption==""){
 				download_link.download = ts+".csv";
 			} else {

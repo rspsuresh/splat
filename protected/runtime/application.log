@@ -4345,3 +4345,152 @@ Stack trace:
 REQUEST_URI=/splat/site/assessment/12?course=1&g=1
 HTTP_REFERER=http://localhost/splat/site/index
 ---
+2019/04/13 09:37:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "adminjs/datetimepicker/datetimepicker.js".' in C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('adminjs/datetim...')
+#1 C:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/adminjs/datetimepicker/datetimepicker.js
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D
+---
+2019/05/05 18:13:49 [error] [exception.CException] exception 'CException' with message 'Property "Users.firstname" is not defined.' in C:\xampp\htdocs\splat\yii\framework\base\CComponent.php:259
+Stack trace:
+#0 C:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(289): CComponent->__get('firstname')
+#1 C:\xampp\htdocs\splat\protected\views\site\project.php(212): CActiveRecord->__get('firstname')
+#2 C:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#4 C:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('project', Array, true)
+#6 C:\xampp\htdocs\splat\protected\controllers\SiteController.php(96): CController->render('project', Array)
+#7 [internal function]: SiteController->actionProjects('1')
+#8 C:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#9 C:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#10 C:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#13 C:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#17 C:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('projects')
+#19 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/projects')
+#20 C:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#22 {main}
+REQUEST_URI=/splat/site/projects/1?c=1
+HTTP_REFERER=http://localhost/splat/
+---
+2019/05/05 18:16:14 [error] [exception.CException] exception 'CException' with message 'Property "Users.firstname" is not defined.' in C:\xampp\htdocs\splat\yii\framework\base\CComponent.php:259
+Stack trace:
+#0 C:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(289): CComponent->__get('firstname')
+#1 C:\xampp\htdocs\splat\protected\views\site\project.php(212): CActiveRecord->__get('firstname')
+#2 C:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#4 C:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('project', Array, true)
+#6 C:\xampp\htdocs\splat\protected\controllers\SiteController.php(96): CController->render('project', Array)
+#7 [internal function]: SiteController->actionProjects('1')
+#8 C:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#9 C:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#10 C:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#13 C:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#17 C:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('projects')
+#19 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/projects')
+#20 C:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#22 {main}
+REQUEST_URI=/splat/site/projects/1?c=1
+HTTP_REFERER=http://localhost/splat/
+---
+2019/05/05 18:16:17 [error] [exception.CException] exception 'CException' with message 'Property "Users.firstname" is not defined.' in C:\xampp\htdocs\splat\yii\framework\base\CComponent.php:259
+Stack trace:
+#0 C:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(289): CComponent->__get('firstname')
+#1 C:\xampp\htdocs\splat\protected\views\site\project.php(212): CActiveRecord->__get('firstname')
+#2 C:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#4 C:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('project', Array, true)
+#6 C:\xampp\htdocs\splat\protected\controllers\SiteController.php(96): CController->render('project', Array)
+#7 [internal function]: SiteController->actionProjects('1')
+#8 C:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#9 C:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#10 C:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#13 C:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#17 C:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('projects')
+#19 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/projects')
+#20 C:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#22 {main}
+REQUEST_URI=/splat/site/projects/1?c=1
+HTTP_REFERER=http://localhost/splat/
+---
+2019/05/05 18:17:38 [error] [exception.CException] exception 'CException' with message 'Property "Users.firstname" is not defined.' in C:\xampp\htdocs\splat\yii\framework\base\CComponent.php:259
+Stack trace:
+#0 C:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(289): CComponent->__get('firstname')
+#1 C:\xampp\htdocs\splat\protected\views\site\project.php(212): CActiveRecord->__get('firstname')
+#2 C:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#4 C:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('project', Array, true)
+#6 C:\xampp\htdocs\splat\protected\controllers\SiteController.php(96): CController->render('project', Array)
+#7 [internal function]: SiteController->actionProjects('1')
+#8 C:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#9 C:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#10 C:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#13 C:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#17 C:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('projects')
+#19 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/projects')
+#20 C:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#22 {main}
+REQUEST_URI=/splat/site/projects/1?c=1
+HTTP_REFERER=http://localhost/splat/
+---
+2019/05/05 18:18:11 [error] [exception.CException] exception 'CException' with message 'Property "Users.firstname" is not defined.' in C:\xampp\htdocs\splat\yii\framework\base\CComponent.php:259
+Stack trace:
+#0 C:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(289): CComponent->__get('firstname')
+#1 C:\xampp\htdocs\splat\protected\views\site\project.php(212): CActiveRecord->__get('firstname')
+#2 C:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#4 C:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('project', Array, true)
+#6 C:\xampp\htdocs\splat\protected\controllers\SiteController.php(96): CController->render('project', Array)
+#7 [internal function]: SiteController->actionProjects('1')
+#8 C:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#9 C:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#10 C:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#13 C:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#17 C:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('projects')
+#19 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/projects')
+#20 C:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#22 {main}
+REQUEST_URI=/splat/site/projects/1?c=1
+HTTP_REFERER=http://localhost/splat/
+---

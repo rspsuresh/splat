@@ -242,6 +242,16 @@ class UsersController extends Controller
                         $groupusermodel->group_id=$_POST['Users']['grp'];
                         $groupusermodel->save(false);
                     }
+
+                    $userdetail=Userdetails::model()->find('grp_id='.$_POST['Users']['grp'].' and course='.base64_decode($_GET['c']));
+                    if(empty($userdetail))
+                    {
+                        $userdetailmodel=new Userdetails();
+                        $userdetail->course=base64_decode($_GET['c']);
+                        $userdetail->user_id=$model->id;
+                        $userdetail->grp_id=$_POST['Users']['grp'];
+                        $userdetail->save(false);
+                    }
                 }
 
 
@@ -498,11 +508,11 @@ class UsersController extends Controller
                                     $usermodalmain->password = bin2hex(openssl_random_pseudo_bytes(4));
                                     $usermodalmain->profile = ' ';
                                     $usermodalmain->save();
-                                    $savecount ++;
+                                    //$savecount ++;
 
                                     $this->mappingusers($usermodalmain->id, $values[$header[count($header) - 2]], $courseid);
                                 } else {
-                                    $unsavecount ++;
+                                   // $unsavecount ++;
                                     $this->mappingusers($usersmodel->id, $values[$header[count($header) - 2]], $courseid);
                                 }
                             }
@@ -513,12 +523,13 @@ class UsersController extends Controller
                         $transaction->rollBack();
                         // other actions to perform on fail (redirect, alert, etc.)
                     }
-                    if ($savecount > 0) {
-                        Yii::app()->user->setFlash('success', $savecount . "- new users has been created.");
-                    }
-                    if ($unsavecount > 0) {
-                        Yii::app()->user->setFlash('error', $unsavecount . " - Existing users have been assigned to this course.");
-                    }
+//                    if ($savecount > 0) {
+//                        Yii::app()->user->setFlash('success', $savecount . "- new users has been created.");
+//                    }
+//                    if ($unsavecount > 0) {
+//                        Yii::app()->user->setFlash('error', $unsavecount . " - Existing users have been assigned to this course.");
+//                    }
+                    Yii::app()->user->setFlash('success',"users have been assigned to this course.");
                 } else {
                     Yii::app()->user->setFlash('error', 'Fields are not matched.please check file');
                 }
@@ -579,7 +590,7 @@ class UsersController extends Controller
             $formModel->attributes 	= $_POST['Projects'];
             $formModel->course	= base64_decode($_GET['c']);
             $formModel->faculty=base64_decode($_GET['f']);
-            $formModel->assess_date= date('y-m-d',strtotime($_POST['Projects']['assess_date']));
+            $formModel->assess_date= date('y-m-d H:i',strtotime($_POST['Projects']['assess_date']));
             $formModel->created_by	= Yii::app()->user->id;
             $formModel->created_date= date('Y-m-d H:i:s');
             $formModel->updated_date= date('Y-m-d H:i:s');

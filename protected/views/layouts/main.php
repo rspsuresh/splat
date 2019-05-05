@@ -71,7 +71,7 @@
                         <ul class="footer-menu" style="margin-right: 78px;">
                             <li><a target="_blank" href="https://www1.bournemouth.ac.uk/about/governance/digital-security/website-privacy-cookies-policy">Privacy</a></li>
                         </ul>
-                        <p class="copyright">&copy;Copyright <?php echo date('Y');?> SPLAT</p>
+                        <p class="copyright">&copy; Copyright <?php echo date('Y');?> SPLAT</p>
                     </div>
 					<div class="col-lg-5 col-xs-12 col-sm-5 text-right footer-logo">
 						<a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png"></a>

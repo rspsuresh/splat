@@ -60,7 +60,7 @@
             <input type="hidden" value="<?=$_GET['id']?>" name="assesmentid">
             <h3>Please provide feedback for the below questions.</h3>
             <?php
-            $groupusers = GroupUsers::model()->findAll('group_id='.$_GET['g']);
+            $groupusers = Userdetails::model()->with('user')->findAll('grp_id='.$_GET['g'].' and user.status="active"');
            // echo "<pre>";print_r(array_column($groupusers,'user_id'));die;
             $sqldcque="SELECT GROUP_CONCAT(question_id) as question 
                                               FROM `delete_custom_question` WHERE `course_id` =$projects->course";
