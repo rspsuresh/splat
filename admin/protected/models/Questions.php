@@ -30,7 +30,7 @@ class Questions extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('question, q_type,course, institution, faculty', 'required'),
+			array('question,course, institution, faculty', 'required'),
 			array('course, institution, faculty', 'numerical', 'integerOnly'=>true),
 			array('type', 'length', 'max'=>7),
 			array('status', 'length', 'max'=>8),

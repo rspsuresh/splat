@@ -129,7 +129,7 @@
         <div class="col-lg-12 col-xs-12 col-sm-12 padzero">
             <div class="col-lg-7 col-xs-12 col-sm-7">
                 <ul class="footer-menu" style="margin-right: 78px;">
-                    <li><a target="_blank" href="https://www1.bournemouth.ac.uk/about/governance/digital-security/website-privacy-cookies-policy">Privacy</a></li>
+                    <li><a target="_blank" href="https://www1.bournemouth.ac.uk/about/governance/digital-security/website-privacy-cookies-policy">Privacy policy</a></li>
                 </ul>
                 <p class="copyright">&copy; Copyright <?php echo date('Y');?> SPLAT</p>
             </div>

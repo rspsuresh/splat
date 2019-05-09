@@ -6,25 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="569f891a-5c37-4652-9e91-bcf773c3ff1f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/js/jquery.tabletoCSV.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/js/jquery.tabletoCSV.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/controllers/GroupusersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/GroupusersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/controllers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/Projects.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Projects.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/Userdetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Userdetails.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/models/Questions.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Questions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/runtime/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/runtime/application.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupusers/assesment_groups.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupusers/assesment_groups.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupusers/projectadmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupusers/projectadmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/layouts/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/courses.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/responsepage.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/responsepage.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/views/users/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/views/users/cadmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/cadmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bulkimport/Splat_Bulk_import.csv" beforeDir="false" afterPath="$PROJECT_DIR$/bulkimport/Splat_Bulk_import.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/Userdetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/Userdetails.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/runtime/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/protected/runtime/application.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/layouts/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/site/assessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/assessment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/site/project.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/project.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,14 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin/protected/views/users/cadmin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="783" column="22" selection-start-line="783" selection-start-column="22" selection-end-line="783" selection-end-column="22" />
-              <folding>
-                <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="331">
+              <caret line="402" column="26" selection-start-line="402" selection-start-column="26" selection-end-line="402" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -49,7 +33,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/views/site/project.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
+            <state relative-caret-position="3587">
               <caret line="211" column="93" selection-start-line="211" selection-start-column="93" selection-end-line="211" selection-end-column="93" />
             </state>
           </provider>
@@ -58,17 +42,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/protected/models/Users.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-623">
+            <state relative-caret-position="578">
               <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/protected/controllers/GroupusersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="512" column="14" selection-start-line="512" selection-start-column="14" selection-end-line="512" selection-end-column="14" />
+            <state relative-caret-position="8704">
+              <caret line="512" column="89" selection-start-line="512" selection-start-column="89" selection-end-line="512" selection-end-column="89" />
             </state>
           </provider>
         </entry>
@@ -76,12 +60,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/protected/views/groupusers/assesment_groups.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="2329">
               <caret line="137" column="109" selection-start-line="137" selection-start-column="89" selection-end-line="137" selection-end-column="109" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#a#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#a#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -89,7 +69,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/views/site/assessment.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
+            <state relative-caret-position="1479">
               <caret line="87" column="61" selection-start-line="87" selection-start-column="54" selection-end-line="87" selection-end-column="61" />
             </state>
           </provider>
@@ -98,7 +78,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/protected/models/GroupUsers.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
+            <state relative-caret-position="816">
               <caret line="48" column="10" selection-start-line="47" selection-start-column="8" selection-end-line="48" selection-end-column="10" />
             </state>
           </provider>
@@ -107,7 +87,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/protected/controllers/UsersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
+            <state relative-caret-position="4284">
               <caret line="252" column="49" selection-start-line="252" selection-start-column="49" selection-end-line="252" selection-end-column="49" />
             </state>
           </provider>
@@ -116,7 +96,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/protected/models/Userdetails.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
+            <state relative-caret-position="1343">
               <caret line="101" column="16" selection-start-line="101" selection-start-column="16" selection-end-line="101" selection-end-column="16" />
             </state>
           </provider>
@@ -207,8 +187,8 @@
         <option value="$PROJECT_DIR$/admin/protected/controllers/UsersController.php" />
         <option value="$PROJECT_DIR$/admin/protected/views/groupusers/assesment_groups.php" />
         <option value="$PROJECT_DIR$/protected/views/site/project.php" />
-        <option value="$PROJECT_DIR$/admin/protected/views/users/cadmin.php" />
         <option value="$PROJECT_DIR$/admin/protected/controllers/GroupusersController.php" />
+        <option value="$PROJECT_DIR$/admin/protected/views/users/cadmin.php" />
       </list>
     </option>
   </component>
@@ -221,15 +201,12 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane" />
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="sitecon&#9;FILE&#9;file://H:/xampp/htdocs/splat/admin/protected/controllers/SiteController.php&#10;course&#9;FILE&#9;file://H:/xampp/htdocs/splat/admin/protected/views/site/course_items.php&#10;courseitem&#9;FILE&#9;file://C:/xampp/htdocs/splat/admin/protected/views/site/course_items.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../JCP" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sporkey/api" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
@@ -277,16 +254,18 @@
       <workItem from="1556636817912" duration="857000" />
       <workItem from="1556686693166" duration="3220000" />
       <workItem from="1556982405232" duration="12374000" />
-      <workItem from="1557065999535" duration="9672000" />
+      <workItem from="1557065999535" duration="10412000" />
+      <workItem from="1557149257864" duration="1160000" />
+      <workItem from="1557423575235" duration="336000" />
+      <workItem from="1557424486599" duration="587000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119174000" />
+    <option name="totallyTimeSpent" value="121997000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.2806354" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -322,7 +301,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/admin/protected/controllers/UsersController.php</url>
-          <line>652</line>
+          <line>658</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -520,80 +499,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/protected/config/database.php">
+    <entry file="file://$PROJECT_DIR$/admin/protected/views/users/cadmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/protected/models/GroupUsers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="48" column="10" selection-start-line="47" selection-start-column="8" selection-end-line="48" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/protected/models/Users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-623">
-          <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/protected/models/Userdetails.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="101" column="16" selection-start-line="101" selection-start-column="16" selection-end-line="101" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/protected/controllers/UsersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="252" column="49" selection-start-line="252" selection-start-column="49" selection-end-line="252" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/site/assessment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="87" column="61" selection-start-line="87" selection-start-column="54" selection-end-line="87" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/protected/views/groupusers/assesment_groups.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="137" column="109" selection-start-line="137" selection-start-column="89" selection-end-line="137" selection-end-column="109" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#a#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#a#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="331">
+          <caret line="402" column="26" selection-start-line="402" selection-start-column="26" selection-end-line="402" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/site/project.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
+        <state relative-caret-position="3587">
           <caret line="211" column="93" selection-start-line="211" selection-start-column="93" selection-end-line="211" selection-end-column="93" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/protected/views/users/cadmin.php">
+    <entry file="file://$PROJECT_DIR$/admin/protected/models/Users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="783" column="22" selection-start-line="783" selection-start-column="22" selection-end-line="783" selection-end-column="22" />
-          <folding>
-            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="578">
+          <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/protected/controllers/GroupusersController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="512" column="14" selection-start-line="512" selection-start-column="14" selection-end-line="512" selection-end-column="14" />
+        <state relative-caret-position="8704">
+          <caret line="512" column="89" selection-start-line="512" selection-start-column="89" selection-end-line="512" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/protected/views/groupusers/assesment_groups.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2329">
+          <caret line="137" column="109" selection-start-line="137" selection-start-column="89" selection-end-line="137" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/site/assessment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1479">
+          <caret line="87" column="61" selection-start-line="87" selection-start-column="54" selection-end-line="87" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/protected/models/GroupUsers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="48" column="10" selection-start-line="47" selection-start-column="8" selection-end-line="48" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/protected/controllers/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4284">
+          <caret line="252" column="49" selection-start-line="252" selection-start-column="49" selection-end-line="252" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/protected/models/Userdetails.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1343">
+          <caret line="101" column="16" selection-start-line="101" selection-start-column="16" selection-end-line="101" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/protected/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
         </state>
       </provider>
     </entry>

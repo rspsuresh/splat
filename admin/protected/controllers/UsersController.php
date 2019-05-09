@@ -625,12 +625,18 @@ class UsersController extends Controller
         if(isset($_POST['Questions'])){
             if(isset($_POST['Questions']['id']) && $_POST['Questions']['id']!='')
                 $questions = Questions::model()->find('id='.$_POST['Questions']['id']);
+               // echo "<pre>";print_r($questions);die;
             $questions->attributes 	= $_POST['Questions'];
             $questions->q_type=$_POST['Questions']['q_type'];
+            $questions->type=$_POST['Questions']['type'];
             if($questions->validate() && $questions->save())
             {
                 Yii::app()->user->setFlash('success','Question has been added successfully.');
                 $this->refresh();
+            }
+            else
+            {
+                echo "<pre>";print_r($questions->getErrors());die;
             }
         }
 

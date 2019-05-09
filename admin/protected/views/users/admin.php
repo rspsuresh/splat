@@ -84,7 +84,7 @@ $('.search-form form').submit(function(){
                     },
                 ),
                 array(
-                    'header' => 'Username',
+                    'header' => 'Email',
                     'filter' => CHtml::textField('Users[username]', $model->username,array('placeholder'=>'Enter user name','class'=>'form-control')),
                     //'value'=>'$data->courses->name',
                     'value'=>function($data)

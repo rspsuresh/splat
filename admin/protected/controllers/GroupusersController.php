@@ -510,9 +510,7 @@ class GroupusersController extends Controller
             $date=!empty($sumresult[0]['submitted_at'])?$sumresult[0]['submitted_at']:date("Y-m-d H:i:s");
             $differncesql="select timediff('$project->assess_date','$date') as diff";
             $executequery=Yii::app()->db->Createcommand($differncesql)->queryRow();
-            //echo $differncesql ."++".$executequery['diff']."<br>";
             $sign=(stristr($executequery['diff'],'-')==$executequery['diff'])?"Yes":"No";
-            //echo $sign."<br>";
             $test.='<td>'.$sign.'</td>';
             $test.='<td>#</td>';
             $html.="<tr>".$test."</tr>";

@@ -117,6 +117,10 @@ $('.search-form form').submit(function(){
         left: 691px;
         z-index: 100;
     }
+    .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th
+    {
+        vertical-align:unset !important;
+    }
 </style>
 <?php
 $institution = Institutions::model()->find('id='.base64_decode($_GET['i']));
@@ -400,7 +404,7 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                         </td>
                     </tr>
 			</span>
-                    </div>-->
+                    </div>
                     <div class="modal fade" id="questionModal_<?php echo $iquestion->id;?>" role="dialog">
                         <div class="modal-dialog">
                             <!-- Modal content-->
