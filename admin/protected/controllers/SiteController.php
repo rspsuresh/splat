@@ -152,7 +152,7 @@ class SiteController extends Controller
             if(isset($_POST['Courses']['id']) && $_POST['Courses']['id']!='')
                 $formModel = Courses::model()->find('id='.$_POST['Courses']['id']);
             $formModel->attributes 	= $_POST['Courses'];
-            $formModel->year=date('Y-m',strtotime($_POST['Courses']['year']));
+            $formModel->year=$_POST['Courses']['year'];
             $formModel->course_level=$_POST['Courses']['course_level'];
             $formModel->description=$_POST['Courses']['description'];
             $formModel->created_by	= Yii::app()->user->id;
@@ -186,7 +186,7 @@ class SiteController extends Controller
         $assesmodel->unsetAttributes();  // clear any default values
         if(isset($_GET['Multipleassesment']))
             $grpmodel->attributes=$_GET['Multipleassesment'];
-        $model = Projects::model()->findAll('faculty='.base64_decode($_GET['f']).' and course='.base64_decode($_GET['c']).' and institution='.base64_decode($_GET['i']));
+        $model = Projects::model()->findAll('faculty='.base64_decode($_GET['f']).' and course='.base64_decode($_GET['c']).' and institution='.base64_decode($_GET['i']).' and status !="inactive"');
         $formModel = new Projects();
         $formModel->faculty = base64_decode($_GET['f']);
         $formModel->institution = base64_decode($_GET['i']);
@@ -398,7 +398,7 @@ class SiteController extends Controller
 							Username: '.$to.'<br/>
 							Password: '.$users->password;
 
-                            mail($to,$subject,$message,$headers);
+                           // mail($to,$subject,$message,$headers);
                         }
                     } else {
                         $UserFaculties = UserFaculties::model()->findAll('user_id='.$users->id.' and faculty_id='.base64_decode($_GET['f']));
@@ -426,7 +426,7 @@ class SiteController extends Controller
 							Username: '.$to.'<br/>
 							Password: '.$users->password;
 
-                            mail($to,$subject,$message,$headers);
+                            //mail($to,$subject,$message,$headers);
                         }
                     }
                 }
@@ -462,7 +462,7 @@ class SiteController extends Controller
 
     public function actionProjectquestions($id)
     {
-        $projects = Projects::model()->find('id='.$id);
+        $projects = Projects::model()->find('id='.$id.' and status !="inactive"');
         $questions	= Questions::model()->findAll('course='.base64_decode($_GET['c']));
 
         $groupUsers = GroupUsers::model()->findAll('group_id='.$_GET['g']);
@@ -479,8 +479,10 @@ class SiteController extends Controller
     {
         $message='';
         if(isset($_POST['id']) && !empty($_POST['id'])){
-            Projects::model()->findByPk($_POST['id'])->delete();
-            $message = "Project has been deleted successfully";
+            $pmodel=Projects::model()->findByPk($_POST['id']);
+            $pmodel->status="inactive";
+            $pmodel->save(false);
+            $message = "Assesment has been deleted successfully";
             $msg['status'] = 'S';
             echo json_encode($msg, true);
             die();
@@ -732,7 +734,7 @@ class SiteController extends Controller
                     "MIME-Version: 1.0\r\n".
                     "Content-Type: text/plain; charset=UTF-8";
 
-                mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);
+              //  mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);
                 Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
                 $this->refresh();
             }
@@ -920,9 +922,8 @@ class SiteController extends Controller
          FROM `delete_custom_question` WHERE `course_id` =$courseid";
         $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
         $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
-        $questions=Questions::model()->findAll('institution='.base64_decode($_GET['i']).'
-            and faculty='.base64_decode($_GET['f']).'
-             and course='.base64_decode($_GET['c']).' and status="active" and id NOT IN ('.$ids.')');
+        $questions=Questions::model()->findAll('faculty='.base64_decode($_GET['f']).'
+             and course='.base64_decode($_GET['c']).' and status="active" or type="default" and id NOT IN ('.$ids.')');
         //echo "<pre>";print_r($question);die;
         $groupUsers = GroupUsers::model()->findAll('group_id='.$_GET['g']);
         $this->render('responsepage',

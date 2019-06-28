@@ -13,7 +13,7 @@
     }
     .container-fluid.bg-color1 {
         background-color: rgb(242, 242, 242);
-
+        opacity:0.8;
         margin-top: 85px;
         width: 500px;
     }
@@ -60,6 +60,10 @@
         color: red;
         margin-left: 20px;
     }
+    .containers >p {
+        opacity:0.8;
+    }
+
 </style>
 <div class="container fullbg">
     <div class="container-fluid bg-color1">

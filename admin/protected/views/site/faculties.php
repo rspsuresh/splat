@@ -5,7 +5,7 @@
     .container-fluid.bg-color {
         background-color: #00B9D1 !important;
         padding:40px 0px;
-        margin-bottom:22px;
+        margin-bottom:22px;opacity:0.9;
     }
     .head-bg{margin-bottom:0px;}
     .bg-text{
@@ -45,15 +45,59 @@
         font-size: 15px !important;
         font-weight:bold;
     }
+    .fullbg{
+        background-image: url(/images/Asses.jpg);
+        display:block;
+        width:100%;
+        height:500px;
+    }
+    .container-fluid.bg-color1 {
+        background-color: rgb(242, 242, 242);
+
+        margin-top: 150px;
+        width: 500px;
+    }
+    .container-fluid.bg-color2 {
+        background-color: rgb(242, 242, 242);
+
+        margin-top: 15px;
+        width: 610px;
+    }
+    .welcome
+    {
+        font-size: 30px;
+        text-align: center;
+    }
+    .welcomeforp
+    {
+        text-align: center;
+        font-size:20px
+    }
+    .containers >p
+    {
+        margin:0px !important;
+    }
+    .container-fluid.bg-color2>.containers
+    {
+        padding:5px;
+    }
+    .footer-sec{
+        bottom:auto !important;
+    }
 </style>
 <section id="wrapper" >
     <?php  if(Yii::app()->user->getState('role')=='Staff') { ?>
-        <div class="container-fluid bg-color">
-            <div class="container">
-                <p class="text-center bg-text">Welcome <span class="oppo-color">
-                    <?php echo ucwords(Yii::app()->session['user']->first_name." ".Yii::app()->session['user']->last_name) ?></span></p>
-                <p class="text-center production">You have Staff permissions. SPLAT is a Self Learning and Peer Assessment Tool where you can create courses, add users to the course, setup projects, create groups & view peer assessment feedback.
-                </p>
+        <div class="container fullbg">
+            <div class="container-fluid bg-color1">
+                <div class="containers">
+                    <h4 class="welcome"> Welcome <span class="oppo-color">
+                                             <?php echo ucwords(Yii::app()->session['user']->first_name." ".Yii::app()->session['user']->last_name)?></span></h4>
+                </div>
+            </div>
+            <div class="container-fluid bg-color2">
+                <div class="containers">
+                    <p class="welcomeforp">You have Staff permissions. SPLAT is a Self Learning and Peer Assessment Tool where you can create courses, add users to the course, setup projects, create groups & view peer assessment feedback.</p>
+                </div>
             </div>
         </div>
     <?php } ?>

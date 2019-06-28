@@ -1,4 +1,3 @@
-<?php //echo "fgnfng";die; ?>
 <style>
     .panel-body
     {
@@ -21,6 +20,14 @@
         margin-right:12px;
         float:right;
     }
+    .fa.pull-right
+    {
+        margin-right:10px !important;
+    }
+    .footer-sec
+    {
+        bottom:auto !important;
+    }
 </style>
 <br><br>
 <?php $sum=array();
@@ -41,12 +48,12 @@ $avg=0;
                 <a href="<?=Yii::app()->createUrl('site/faculties',array('i'=>$_GET['i'],'f'=>base64_encode($facultymdel->id)));?>"><?=$facultymdel->name?></a> /
                 <a href="<?=Yii::app()->createUrl('site/courses',array('i'=>$_GET['i'],'f'=>base64_encode($facultymdel->id),'c'=>base64_encode($couesemodels->id)));?>"><?=$couesemodels->name?></a> /
                 <a href="<?=Yii::app()->createUrl('users/cadmin',array('i'=>$_GET['i'],'f'=>base64_encode($facultymdel->id),'c'=>base64_encode($couesemodels->id)));?>"><?=$assessmodel->name?></a> /
-                <a href="<?=Yii::app()->createUrl('roupusers/groupasses',array('id'=>$_GET['id'],'i'=>$_GET['i'],'f'=>base64_encode($facultymdel->id),'c'=>base64_encode($couesemodels->id),'p'=>$_GET['id']));?>"><?=$groupmodel->name?></a> /
+                <a href="<?=Yii::app()->createUrl('groupusers/groupasses',array('id'=>$_GET['id'],'i'=>$_GET['i'],'f'=>base64_encode($facultymdel->id),'c'=>base64_encode($couesemodels->id),'p'=>$_GET['id']));?>"><?=$groupmodel->name?></a> /
                 <b>Responses</b></p>
         </div>
 
         <button class="btn btn-primary align" onclick="goBack()">Back</button>
-        <?php $cmpsql="SELECT CAST(A.submitted_at AS DATE) as subdate,B.assess_date from assess as A left join projects as B on A.project=B.id where from_user={$_GET['u']}";
+        <?php $cmpsql="SELECT CAST(A.submitted_at AS DATE) as subdate,B.assess_date from assess as A left join projects as B on A.project=B.id and B.status !='inactive' where from_user={$_GET['u']}";
                $cmpsqlresult=Yii::app()->db->createCommand($cmpsql)->queryRow();
                if(!empty($cmpsqlresult)) {
                    $date2=date_create($cmpsqlresult['subdate']);
@@ -69,7 +76,9 @@ $avg=0;
             <p><?=ucfirst($projectsname->name) .'  '. $user->first_name ." ".$user->last_name?></p>
         </div>
         <div class="panel-group" id="faqAccordion">
-            <?php $groupusers = GroupUsers::model()->findAll('group_id='.$_GET['g']);
+            <?php
+            // $groupusers = GroupUsers::model()->findAll('group_id='.$_GET['g']);
+            $groupusers=Userdetails::model()->with('user')->findAll('grp_id='.$_GET['g'].' and user.status="active"');
             if(count($questions)>0){
                 $i=0;
                 foreach($questions as $question){
@@ -84,7 +93,7 @@ $avg=0;
                              data-toggle="collapse"  data-target="#question<?=$i?>">
                             <h4 class="panel-title">
                                 <a href="#" class="ing">
-                                    <?= $i ." . " . $question->question ?>
+                                    <?= $i .". " . $question->question ?>
                                     <?php if($question->q_type=="R")  { ?>
                                         : <b style="color:black !important"  data-qtype="<?=$question->q_type?>"
                                              class="que" id="question_<?=$i?>"></b>
@@ -167,9 +176,6 @@ $avg=0;
             } ?>
         </div>
         <?php
-        // echo $meanscore=array_sum(array_filter($sum));
-        //echo $avg;
-        // die;
         $meanscore=array_sum(array_filter($sum))/$avg;
         $meanscore=number_format((float)$meanscore,1,'.','');
         ?>
@@ -187,7 +193,7 @@ $avg=0;
     function goBack() {
         window.history.back();
     }
-    //$("#score").text(<?php //echo $meanscore ?>);
+    //$("#score").text(<?php echo $meanscore ?>);
     var sumarr=0;
     $(window).on('load', function() {
         quelength=$(".que").length;
@@ -197,7 +203,7 @@ $avg=0;
             var sum=0;
             var testarr=[];
             $(".answser_"+i).each(function(index, element) {
-                if($(this).attr('data-type')=="R" && $(this).attr('data-val') !="#" ) {
+                if($(this).attr('data-val') !="#" ) {
                     testarr.push($(this).attr('data-val'));
                     sum=sum+parseInt($(this).attr('data-val'));
                     queans.push($(this).attr('data-val'));

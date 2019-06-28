@@ -48,6 +48,7 @@ ul{
 }
 .header-top{
 	padding-top:20px !important;
+	padding-bottom:20px !important;
 }
 .hello-admin{
 	padding:4% 8%;
@@ -74,7 +75,7 @@ ul{
 	font-size:20px;
 	padding:12% 8% !important;
 	width:100%;
-	background-color:#00B9D1;
+	background-color:#03c6e3;
 	border-radius:8px;
 	display:block;
 }
@@ -93,9 +94,9 @@ ul{
 .footer-sec{
 	border-top:1px solid #000;
 	padding:15px 30px 20px !important;
-    background: #ddd;
+    background: #ddd !important;
     position: absolute;
-    bottom: auto;
+    bottom:0;
 }
 .copyright{
 	text-align:right;
@@ -137,7 +138,7 @@ ul{
 	text-align:center;
 	font-size:25px;
 	color:#fff;
-	background-color:#00B9D1;
+	background-color:#03c6e3;
 	padding:10px;
 }
 .user-assessment p{
@@ -207,7 +208,7 @@ ul{
 	color:#fff;
 	text-align:center;
 	margin-top:40px;
-	background:#1CBBB4;
+	background:#03c6e3;
 	border-radius:15px;
 	padding:12px 35px;
 	float:right;
@@ -496,7 +497,7 @@ ul{
     padding: 10px 20px;
 }
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover{
-    background-color:  #00B9D1;
+    background-color:#03c6e3;
     color: #fff;
     cursor: pointer;
 	border: 0px solid #ddd;
@@ -598,8 +599,9 @@ ul{
 	width:auto;
 }
 .grid-view table.items th{
-	background: #00B9D1 !important;
+	background: #03c6e3 !important;
 }
+
 .grid-view table.items tr.odd{
 	background: #efefef;
 }
@@ -613,6 +615,9 @@ ul{
 .fa {
 	color:#000;
 	cursor:pointer;
+}
+#content{
+	min-height:500px !important;
 }
 /*****************************/
 

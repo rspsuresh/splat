@@ -4494,3 +4494,39 @@ Stack trace:
 REQUEST_URI=/splat/site/projects/1?c=1
 HTTP_REFERER=http://localhost/splat/
 ---
+2019/05/10 23:47:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "adminimages/404png".' in C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('adminimages/404...')
+#1 C:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/adminimages/404png
+HTTP_REFERER=http://localhost/splat/admin/site/indexsdds
+---
+2019/05/20 18:18:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/500.png".' in C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('images/500.png')
+#1 C:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/images/500.png
+HTTP_REFERER=http://localhost/splat/admin/groupusers/groupasses/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2019/05/20 18:23:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/500.png".' in C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('images/500.png')
+#1 C:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/images/500.png
+HTTP_REFERER=http://localhost/splat/admin/groupusers/groupasses/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---
+2019/05/25 13:38:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "jquery.twbsPagination.js".' in C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 C:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('jquery.twbsPagi...')
+#1 C:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/jquery.twbsPagination.js
+HTTP_REFERER=http://localhost/splat/admin/groupusers/groupasses/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
+---

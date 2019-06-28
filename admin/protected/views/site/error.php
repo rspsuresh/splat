@@ -1,15 +1,8 @@
 <?php
-/* @var $this SiteController */
-/* @var $error array */
-
 $this->pageTitle=Yii::app()->name . ' - Error';
-$this->breadcrumbs=array(
-	'Error',
-);
 ?>
-
-<h2>Error <?php echo $code; ?></h2>
-
 <div class="error">
-<?php echo CHtml::encode($message); ?>
+<center>
+  <img src="<?=Yii::app()->request->baseUrl."/../images/$code".".png"?>">
+  </center>
 </div>

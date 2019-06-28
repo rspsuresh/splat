@@ -7,6 +7,9 @@
     {
         font-size: 14px !important;
     }
+    .footer-sec{
+        bottom:auto !important;
+    }
 </style>
 <?php
 Yii::app()->clientScript->registerScript('search', "
@@ -27,15 +30,15 @@ $('.search-form form').submit(function(){
         <div class="user-institute">
             <?php  if(Yii::app()->user->getState('role')=='Superuser')
             { ?>
-                <p>You are here: <a href="<?php echo Yii::app()->createUrl('site/index'); ?>">Home</a> / <b>Manage Users</b></p>
+                <p>You are here: <a href="<?php echo Yii::app()->createUrl('site/index'); ?>">Home</a> / <b>Manage All Users</b></p>
             <?php }
             else { ?>
-                <p>You are here: <a href="<?php echo Yii::app()->createUrl('site/index'); ?>">Home</a> / <b>Manage Users</b></p>
+                <p>You are here: <a href="<?php echo Yii::app()->createUrl('site/index'); ?>">Home</a> / <b>Manage All Users</b></p>
             <?php } ?>
         </div>
     </div>
     <div class="container-fluid user-assessment">
-        <p>Manage Users</p>
+        <p>Manage All Users</p>
     </div>
     <div class="container">
         <?php //echo CHtml::link('Advanced Search','#',array('class'=>'search-button btn btn-success admin-btn')); ?>
@@ -85,7 +88,7 @@ $('.search-form form').submit(function(){
                 ),
                 array(
                     'header' => 'Email',
-                    'filter' => CHtml::textField('Users[username]', $model->username,array('placeholder'=>'Enter user name','class'=>'form-control')),
+                    'filter' => CHtml::textField('Users[username]', $model->username,array('placeholder'=>'Enter  email','class'=>'form-control')),
                     //'value'=>'$data->courses->name',
                     'value'=>function($data)
                     {

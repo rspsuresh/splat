@@ -102,6 +102,10 @@
                                                             <td>Status</td>
                                                             <td><?php echo $modeluser->status; ?></td>
                                                         </tr>
+														<tr>
+                                                            <td>Role</td>
+                                                            <td><?php echo ($makemodel->role==1)?"Admin":"Staff"; ?></td>
+                                                        </tr>
                                                         <tr>
                                                             <td>University</td>
                                                             <td><?php echo $modeluser->institution0->name; ?></td>

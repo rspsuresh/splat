@@ -6,6 +6,7 @@ $this->pageTitle=Yii::app()->name;
         background-color: #00c4ff;
         padding:40px 0px;
         margin-bottom:22px;
+        opacity:0.9;
     }
     .head-bg{margin-bottom:0px;}
     .bg-text{
@@ -39,9 +40,7 @@ $this->pageTitle=Yii::app()->name;
         margin-right: 90px;
     }
     .footer-sec {
-        border-top: 1px solid #000;
-        padding: 15px 30px 20px !important;
-        position: absolute;
+        bottom: auto !important;
 
     }
     .fa
@@ -64,16 +63,67 @@ $this->pageTitle=Yii::app()->name;
         }
     }
 </style>
+<style>
+    .fullbg{
+        background-image: url(/images/Asses.jpg);
+        display:block;
+        width:100%;
+        height:500px;
+    }
+    .container-fluid.bg-color1 {
+        background-color: rgb(242, 242, 242);
+
+        margin-top: 150px;
+        width: 500px;
+    }
+    .container-fluid.bg-color2 {
+        background-color: rgb(242, 242, 242);
+
+        margin-top: 15px;
+        width: 610px;
+    }
+    .welcome
+    {
+        font-size: 30px;
+        text-align: center;
+    }
+    .welcomeforp
+    {
+        text-align: center;
+        font-size:20px
+    }
+    .containers >p
+    {
+        margin:0px !important;
+    }
+    .container-fluid.bg-color2>.containers
+    {
+        padding:5px;
+    }
+</style>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
       integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <section id="wrapper" style="height:auto;">
-    <div class="container-fluid bg-color">
+<div class="container fullbg">
+    <div class="container-fluid bg-color1">
+        <div class="containers">
+            <h4 class="welcome"> Welcome <span class="oppo-color">
+                                             <?php echo ucwords(Yii::app()->session['user']->first_name." ".Yii::app()->session['user']->last_name)?></span></h4>
+        </div>
+    </div>
+    <div class="container-fluid bg-color2">
+        <div class="containers">
+            <p class="welcomeforp">You have admin permissions. You can manage faculties, courses, projects, groups and all the users.</p>
+        </div>
+    </div>
+</div>
+    <!--<div class="container-fluid bg-color">
         <div class="container">
             <p class="text-center bg-text">Welcome  <span class="oppo-color">
                                              <?php echo ucwords(Yii::app()->session['user']->first_name." ".Yii::app()->session['user']->last_name)?></span></p>
             <p class="text-center production">You have admin permissions. You can manage faculties, courses, projects, groups and all the users. </p>
         </div>
-    </div>
+    </div>-->
     <div class="container">
         <div class="admin-home">
             <p>You are here: <a href="<?php echo Yii::app()->createUrl('site/index'); ?>">Admin Home</a></p>

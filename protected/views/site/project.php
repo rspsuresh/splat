@@ -92,9 +92,10 @@
     $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
     $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
 
-    $questions=Questions::model()->findAll('institution='.$projects->institution.'
-    and faculty='.$projects->faculty.'
-    and course='.$projects->course.' and status="active" and id NOT IN ('.$ids.') ');
+    // $questions=Questions::model()->findAll('institution='.$projects->institution.'
+    // and faculty='.$projects->faculty.'
+    // and course='.$projects->course.' and status="active" and id NOT IN ('.$ids.') ');
+    $questions=Questions::model()->findAll('course='.$_GET['c'].' and status="active" or type="default" and id NOT IN ('.$ids.')');
     ?>
     <div class="">
         <ul class="nav nav-tabs script-tab text-center">

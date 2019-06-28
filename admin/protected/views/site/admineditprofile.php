@@ -159,6 +159,10 @@
 
                                                             <td><?php echo $makemodel->status; ?></td>
                                                         </tr>
+														<tr>
+                                                            <td>Role</td>
+                                                            <td><?php echo ($makemodel->role==1)?"Admin":"Staff"; ?></td>
+                                                        </tr>
                                                         <tr>
                                                             <td>University</td>
                                                             <td><?php echo $makemodel->institution0->name; ?></td>

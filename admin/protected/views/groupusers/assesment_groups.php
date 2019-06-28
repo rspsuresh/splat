@@ -5,7 +5,7 @@ $institution = Institutions::model()->find('id='.base64_decode($_GET['i']));
 $faculty = Faculties::model()->find('id='.base64_decode($_GET['f']));
 $course = Courses::model()->find('id='.base64_decode($_GET['c']));
 ?>
-<?php $grp=Groups::model()->findAll('course_id='.base64_decode($_GET['c']));
+<?php $grp=Groups::model()->findAll('course_id='.base64_decode($_GET['c']).' order by right(name,3)');
 $project=Projects::model()->findByPk($_GET['id']);
 ?>
 <style>
@@ -73,8 +73,8 @@ $project=Projects::model()->findByPk($_GET['id']);
         z-index: 2;
         color: #fff;
         cursor: default;
-        background-color: #00B9D1 !important;
-        border-color:#00B9D1 !important;
+        background-color:#03c6e3 !important;
+        border-color:#03c6e3 !important;
     }
     /*    .page-link
         {
@@ -123,42 +123,55 @@ $project=Projects::model()->findByPk($_GET['id']);
                                    FROM `delete_custom_question` WHERE `course_id` =$courseid";
                 $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
                 $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
-                $questions=Questions::model()->findAll('institution='.base64_decode($_GET['i']).'
-                        and faculty='.base64_decode($_GET['f']).' and q_type="R"
-                         and course='.base64_decode($_GET['c']).' and status="active" and id NOT IN ('.$ids.') ');
+                $questions=Questions::model()->findAll('faculty='.base64_decode($_GET['f']).' and q_type="R"
+                         and course='.base64_decode($_GET['c']).' and status="active" or type="default" and id NOT IN ('.$ids.') ');
                 $dividedcount=count($questions);
-
                 $chunkarray=array_chunk($grp,10);
                 foreach($chunkarray as $ckey =>$cval) {
                     foreach($cval as $val) {
 
+                        Yii::app()->db->createCommand('SET group_concat_max_len = 1000000')->execute();
                         $totalusertowardsgrp=count(Userdetails::model()->findAll('course='.base64_decode($_GET['c']).' and grp_id='.$val->id));
-                        $meansql="SELECT (sum(value)/$dividedcount) as mean FROM `assess` WHERE `project` ={$_GET['p']} AND `grp_id` ={$val->id} ORDER BY `id`  DESC";
+                        $meansql="SELECT (sum(value)/$dividedcount) as mean FROM `assess` join `projects` on projects.id=assess.`project` and projects.status !='inactive' WHERE assess.`project` ={$_GET['p']} AND `grp_id` ={$val->id}  ORDER BY assess.`id`  DESC";
                         $meansocre=Yii::app()->db->Createcommand($meansql)->QueryAll();
                         $scoremean=(!empty($meansocre[0]['mean']))?$meansocre[0]['mean']/$totalusertowardsgrp:"0";
                         ?>
 
                         <div class="panel panel-default page page_<?=$ckey+1?>">
-                            <div class="panel-heading" role="tab" id="headingOne<?=$val->id?>" style="background-color:#00B9D1;color:#fff; ">
+                            <div class="panel-heading" role="tab" id="headingOne<?=$val->id?>" style="background-color:#03c6e3;color:#fff; ">
+                               <?php $grpuser=Userdetails::model()->with('user')->findAll('grp_id='.$val->id.' and user.status="active"');
+                               $finishedusermodel=Assess::model()->findAll(
+                    array(
+                        'condition'=>'grp_id='.$val->id,
+                        'group'=>'from_user'
+                    ));
+                               ?>
                                 <h4 class="panel-title">
                                     <a class="collapsed" role="button" data-toggle="collapse"
                                        data-parent="#accordion" href="#collapseOne<?=$val->id?>"
                                        aria-expanded="false" aria-controls="collapseOne<?=$val->id?>">
-                                        <?=$val->name?>  <span style="float:right;color:red"><?=$scoremean?></span>
+                                        <?=$val->name?><span style="float:right">Completed Users : <?=count($finishedusermodel).'/'.count($grpuser)?></span>   <span style="float:right;margin-right: 30px;">Group mean : <?=round($scoremean,2)?></span>
                                     </a>
                                 </h4>
                             </div>
                             <div id="collapseOne<?=$val->id?>" class="panel-collapse collapse" role="tabpanel"
                                  aria-labelledby="headingOne<?=$val->id?>">
                                 <div class="panel-body">
-                                    <?php $grpuser=Userdetails::model()->with('user')->findAll('grp_id='.$val->id.' and user.status="active"');
+                                    <?php
                                     if($grpuser) {
                                         foreach ($grpuser as $gval) {
-                                            //echo "<pre>";print_r($totalusertowardsgrp);
-                                            $meansqlind="SELECT (sum(value)/$dividedcount) as mean FROM `assess` WHERE `project` ={$_GET['p']} AND `grp_id` ={$val->id} and `to_user`={$gval->user_id} group by to_user ORDER BY `id`  DESC";
-                                            //echo $meansqlind;
+                                            $noofusersql="SELECT id FROM `assess` WHERE `to_user` ={$gval->user->id} GROUP BY from_user";
+
+                                            $noofuser=Yii::app()->db->Createcommand($noofusersql)->QueryAll();
+                                            //echo count($noofuser)."<br>";
+                                            $meansqlind="SELECT (sum(value)/$dividedcount) as mean FROM assess inner join projects on projects.id=assess.project and projects.status !='inactive' WHERE assess.project ={$_GET['p']} AND assess.grp_id ={$val->id} and assess.to_user={$gval->user->id} group by assess.to_user ORDER BY assess.id  DESC";
+                                            //echo $meansqlind."<br>";
                                             $meansocreind=Yii::app()->db->Createcommand($meansqlind)->QueryAll();
-                                            $scoremeanind=(!empty($meansocreind[0]['mean']))?$meansocreind[0]['mean']:"0";
+                                            $sqlusercountexact="SELECT count(distinct from_user) as noofuser FROM `assess`
+ WHERE `to_user` ={$gval->user->id} and `project`={$_GET['p']}";
+                                            $noofuserexact=Yii::app()->db->Createcommand($sqlusercountexact)->queryRow();
+                                            //echo "<pre>";print_r($noofuserexact);
+                                            $scoremeanind=(!empty($meansocreind[0]['mean']))?$meansocreind[0]['mean']/$noofuserexact['noofuser']:"0";
                                             ?>
                                             <?php $action=Yii::app()->CreateUrl('site/responsepage',
                                                 array('id'=>$project->id,
@@ -168,7 +181,7 @@ $project=Projects::model()->findByPk($_GET['id']);
                                                 <br/>
                                                 <span> <?=$gval->user->first_name." ".$gval->user->last_name?>
                                             </span>
-                                                <p style="color:red"><?=$scoremeanind?></p>
+                                                <p style="color:red;text-decoration:none;"><?=round($scoremeanind,2)?></p>
                                             </a>
                                         <?php }
                                     }
@@ -188,7 +201,7 @@ $project=Projects::model()->findByPk($_GET['id']);
     </div>
     <div>
         <?php $totalcount=count($chunkarray);?>
-        <script src="https://www.solodev.com/_/assets/pagination/jquery.twbsPagination.js"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/../js/jquery.twbsPagination.js"></script>
         <script>
             function goBack() {
                 window.history.back();

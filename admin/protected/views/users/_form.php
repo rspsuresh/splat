@@ -8,6 +8,9 @@
     {
         color:red;
     }
+    .footer-sec{
+        bottom:auto !important;
+    }
 </style>
 <p class="row-inactive">
     <a href="#">
@@ -60,10 +63,17 @@
         <div class="col-lg-4 padzero">
             <?php echo $form->labelEx($model,'role'); ?>
         </div>
-        <div class="col-lg-8 padzero">
+
+            <div class="col-lg-8 padzero">
+                <?php if(Yii::app()->controller->action->id =='create') { ?>
+                <?php echo $form->dropDownList($model, 'role',
+                    CHtml::listData(Userrole::model()->findAll("id !=5"), 'id', 's_name'), array('empty'=>'Select User type')); ?>
+
+        <?php } else { ?>
             <?php echo $form->dropDownList($model, 'role', CHtml::listData(Userrole::model()->findAll(), 'id', 's_name'), array('empty'=>'Select User type')); ?>
-            <?php echo $form->error($model,'role'); ?>
-        </div>
+        <?php } ?>
+        <?php echo $form->error($model,'role'); ?>
+            </div>
     </div>
     <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
         <div class="col-lg-4 padzero">

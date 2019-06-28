@@ -33,7 +33,7 @@ class GroupusersController extends Controller
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
                 'actions'=>array('create','update', 'admin','delete',
-                    'projectgroups','groupasses','viewusers','deleteasses','unlockusers','usercheck','download','pasteusers'),
+                    'projectgroups','groupasses','viewusers','deleteasses','unlockusers','usercheck','download','pasteusers','sendremainder'),
                 'users'=>array('@'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -430,7 +430,7 @@ class GroupusersController extends Controller
         $project=Projects::model()->find("id=".$_GET['p']);
         $test="";
         $html='<table id="resulttable" class="table" border = \'1\'>
-<tr><th scope="col">Username</th>';
+<tr><th scope="col">Username</th><th>Email</th><th>First Name</th><th>Last Name</th>';
         $html.='<th>'.$project->name.'</th>';
         $html.='<th>Group Name</th>';
         $html.='<th>Team Mean</th>';
@@ -443,7 +443,10 @@ class GroupusersController extends Controller
                   join users on user_courses.user_id=users.id and users.role=5 and users.status='active'
                   WHERE user_courses.`course_id` = ".base64_decode($_GET["c"]);
 
-        $usermodel=Yii::app()->db->createCommand($usermodelsql)->queryAll();
+        $usermodel=Userdetails::model()->with('user')->findAll( array(
+            'condition'=>'course='.base64_decode($_GET["c"]).' and user.status="active" and user.role=5',
+            'order'=>'t.grp_id asc'
+        ));
         $courseid=base64_decode($_GET['c']);
 
 
@@ -451,9 +454,8 @@ class GroupusersController extends Controller
                                    FROM `delete_custom_question` WHERE `course_id` =$courseid";
         $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
         $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
-        $questions=Questions::model()->findAll('institution='.base64_decode($_GET['i']).'
-                        and faculty='.base64_decode($_GET['f']).' and q_type="R"
-                         and course='.base64_decode($_GET['c']).' and status="active" and id NOT IN ('.$ids.') ');
+        $questions=Questions::model()->findAll('faculty='.base64_decode($_GET['f']).' and q_type="R"
+                         and course='.base64_decode($_GET['c']).' and status="active" or type="default" and id NOT IN ('.$ids.') ');
         $dividedcount=count($questions);
 
         foreach($usermodel as $key =>$val)
@@ -472,19 +474,18 @@ class GroupusersController extends Controller
             }
             else{
                 $scoremean="#";
-            }
-
-            $test.="<td>".$val['username']."</td>";
+            } 
+            $test.="<td>".$val->user->username."</td><td>".$val->user->email."</td><td>".$val->user->first_name."</td><td>".$val->user->last_name."</td>";
             $resultsql="SELECT sum(value) as total,submitted_at FROM `assess`
                  left join questions on assess.question=questions.id
-                  where to_user={$val['user_id']} and (value !='' and value !=0) 
+                  where to_user={$val->user->id} and (value !='' and value !=0) 
                    and questions.q_type='R' and  questions.status='active' 
                   and assess.project={$_GET["p"]} 
                  order by assess.question asc";
             $sumresult=Yii::app()->db->Createcommand($resultsql)->QueryAll();
          // echo "<pre>";print_r($sumresult);
             $rowfind="SELECT * FROM `assess` left join questions on assess.question=questions.id
-                  where to_user={$val['user_id']} and (value !='' and value !=0) 
+                  where to_user={$val->user->id} and (value !='' and value !=0) 
                   and questions.q_type='R' and  questions.status='active' 
                   and assess.project={$_GET["p"]} 
                   group by assess.from_user order by assess.question asc";
@@ -496,15 +497,12 @@ class GroupusersController extends Controller
                 $asses=($assesvaluebyquestion)/count($rowfindresult);
                 $valuecheck=(!empty($asses))?$asses:'#';
                 $test.='<td aligh="left">'.round($valuecheck, 2).'</td>';
-
             }
             else
             {
                 $test.='<td>#</td>';
                // $test.='<td>#</td>';
-
             }
-
             $test.='<td>'.$userdetails->groupname->name.'</td>';
             $test.='<td>'.$scoremean.'</td>';
             $date=!empty($sumresult[0]['submitted_at'])?$sumresult[0]['submitted_at']:date("Y-m-d H:i:s");
@@ -515,8 +513,6 @@ class GroupusersController extends Controller
             $test.='<td>#</td>';
             $html.="<tr>".$test."</tr>";
             $test="";
-
-
         }
         $html.='</table>';
        echo $html;die;
@@ -652,5 +648,41 @@ class GroupusersController extends Controller
 
             echo  $html;die;
         }
+    }
+
+    public function actionSendremainder()
+    {
+        if(isset($_POST['course']))
+        {
+            $projectmodel=Projects::model()->findByPk($_POST['p']);
+            $usermodel=Userdetails::model()->with('user')->findAll( array(
+                'condition'=>'course='.base64_decode($_GET["c"]).' and user.status="active" and user.role=5',
+                'order'=>'t.grp_id asc'
+            ));
+
+            foreach($usermodel as $val)
+            {
+                $to =trim($val->user->email);
+                $firstname=$val->user->first_name;
+                $lastname=$val->user->lastname;
+                $password=$val->user->password;
+                $url = $_SERVER['SERVER_NAME']."/site/login";
+                $subject = "Reminder Email: 
+";
+
+                $headers = "MIME-Version: 1.0" . "\r\n";
+                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
+
+                $message = 'Hi '.$firstname.'<br/><br/>You have been registered to take part in the Peer assessment review. Please login to submit your entry before the deadline: '. date('Y-m-d', strtotime($projectmodel->assess_date)).'<br/><br/>Your credentials are:<br/>
+				Link to the site:'.$url.'<br/>
+				Username: '.$to.'<br/>
+				Password: '.$password;
+
+                $message.='<br><p>Kind regards</p><br><b>Splat Team</b>';
+                //mail($to,$subject,$message,$headers);
+            }
+        }
+
     }
 }

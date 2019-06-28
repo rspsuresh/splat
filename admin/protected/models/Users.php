@@ -163,6 +163,7 @@ class Users extends CActiveRecord
         $criteria->compare('status',$this->status,true);
         //$criteria->compare('course_id',$this->course_id);
         $criteria->compare('role',$this->role);
+        $criteria->order="FIELD(role,1,3,5)";
         $criteria->addCondition('status="active"');
 
 

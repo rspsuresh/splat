@@ -66,9 +66,11 @@
                                               FROM `delete_custom_question` WHERE `course_id` =$projects->course";
             $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
             $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
-            $questions=Questions::model()->findAll('institution='.$projects->institution.'
-                                                           and faculty='.$projects->faculty.'
-                                                           and course='.$projects->course.' and status="active" and id NOT IN ('.$ids.')');
+
+            $questions=Questions::model()->findAll('course='.$projects->course.' and status="active" or type="default" and id NOT IN ('.$ids.')');
+            // $questions=Questions::model()->findAll('institution='.$projects->institution.'
+            //                                                and faculty='.$projects->faculty.'
+            //                                                and course='.$projects->course.' and status="active" and id NOT IN ('.$ids.')');
             if(count($questions)>0):
                 $i=0;
                 foreach($questions as $question):

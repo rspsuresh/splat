@@ -390,35 +390,20 @@ class UsersController extends Controller
      */
     public function actionDelete($id)
     {
+        //echo $id;die;
         $delete=$this->loadModel($id);
         $delete->status="inactive";
         $delete->update('status');
 
         $usersmodel=Users::model()->deleteByPk($id);
-        $userfaculty=UserFaculties::model()->findAllByAttributes(['user_id' => $id]);
-        if($userfaculty)
-            UserFaculties::model()->deleteAllByAttributes(['user_id' => $id]);
-
-        $usercourse=UserCourses::model()->findAllByAttributes(['user_id' => $id]);
-        if($usercourse)
-            UserCourses::model()->deleteAllByAttributes(['user_id' => $id]);
-
-        $insusemodel=InstitutionUser::model()->findAllByAttributes(['user_id'=>$id]);
-        if($insusemodel)
-            InstitutionUser::model()->deleteAllByAttributes(['user_id'=>$id]);
-
-        $grpusers=GroupUsers::model()->findAllByAttributes(['user_id'=>$id]);
-        if($grpusers)
-            GroupUsers::model()->deleteAllByAttributes(['user_id'=>$id]);
-
-        $asscomment=AssessComments::model()->findAllByAttributes('from_user=:from or to_user=:touser',[':from'=>$id,':touser'=>$id]);
-        if($asscomment)
-            AssessComments::model()->deleteAllByAttributes('from_user=:from or to_user=:touser',[':from'=>$id,':touser'=>$id]);
-
-        $ass=Assess::model()->findAllByAttributes('from_user=:from or to_user=:touser',[':from'=>$id,':touser'=>$id]);
-        if($ass)
-            Assess::model()->deleteAllByAttributes('from_user=:from or to_user=:touser',[':from'=>$id,':touser'=>$id]);
-
+        $userfaculty=UserFaculties::model()->deleteAllByAttributes(['user_id' => $id]);
+        $usercourse=UserCourses::model()->deleteAllByAttributes(['user_id' => $id]);
+        $insusemodel=InstitutionUser::model()->deleteAllByAttributes(['user_id'=>$id]);
+        $grpusers=GroupUsers::model()->deleteAllByAttributes(['user_id'=>$id]);
+        $asscomment=AssessComments::model()->deleteAllByAttributes(['from_user'=>$id]);
+        $asscomment=AssessComments::model()->deleteAllByAttributes(['to_user'=>$id]);
+        $ass=Assess::model()->deleteAllByAttributes(['from_user'=>$id]);
+        $ass=Assess::model()->deleteAllByAttributes(['to_user'=>$id]);
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
         if(!isset($_GET['ajax']))
             $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
@@ -543,7 +528,7 @@ class UsersController extends Controller
         }
 
         $this->pageTitle="SPLAT - Course items";
-        $model = Projects::model()->findAll('faculty='.base64_decode($_GET['f']).' and course='.base64_decode($_GET['c']).' and institution='.base64_decode($_GET['i']));
+        $model = Projects::model()->findAll('faculty='.base64_decode($_GET['f']).' and course='.base64_decode($_GET['c']).' and institution='.base64_decode($_GET['i']).' and status !="inactive"');
         $formModel = new Projects();
         $formModel->faculty = base64_decode($_GET['f']);
         $formModel->institution = base64_decode($_GET['i']);
@@ -570,12 +555,8 @@ class UsersController extends Controller
          FROM `delete_custom_question` WHERE `course_id` = $questions->course";
         $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
         $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
-
-        $question=Questions::model()->findAll('institution='.base64_decode($_GET['i']).'
-            and faculty='.base64_decode($_GET['f']).'
-             and course='.base64_decode($_GET['c']).' and status="active" and id NOT IN ('.$ids.')');
-
-
+        //echo base64_decode($_GET['c']);die;
+        $question=Questions::model()->findAll('course='.base64_decode($_GET['c']).' and status="active" or type="default" and id NOT IN ('.$ids.')');
 
         $existing_users = array();
         $institutionUsers = InstitutionUser::model()->findAll('institution=:i and faculty=:f and course=:c', array(':i'=>base64_decode($_GET['i']),':f'=>base64_decode($_GET['f']),':c'=>base64_decode($c)));
@@ -625,7 +606,6 @@ class UsersController extends Controller
         if(isset($_POST['Questions'])){
             if(isset($_POST['Questions']['id']) && $_POST['Questions']['id']!='')
                 $questions = Questions::model()->find('id='.$_POST['Questions']['id']);
-               // echo "<pre>";print_r($questions);die;
             $questions->attributes 	= $_POST['Questions'];
             $questions->q_type=$_POST['Questions']['q_type'];
             $questions->type=$_POST['Questions']['type'];
@@ -1021,7 +1001,7 @@ class UsersController extends Controller
                                  Website: ' . $url . '<br/>
                                  Username: ' . $to . '<br/>
                                  Password: ' . $user->password;
-                    if(mail($to, $subject, $message, $headers)) {
+                    //if(mail($to, $subject, $message, $headers)) {
                     $mailtosendmodel = new MailSend();
                     $mailtosendmodel->i_id = $_POST['inst'];
                     $mailtosendmodel->c_id = $_POST['course'];
@@ -1029,7 +1009,7 @@ class UsersController extends Controller
                     $mailtosendmodel->f_id = $_POST['fac'];
                     $mailtosendmodel->u_id = $user->id;
                     $mailtosendmodel->save(false);
-                     }
+                   //  }
 
                 }
             }

@@ -52,7 +52,7 @@
             <?php echo $form->error($model,'last_name'); ?>
         </div>
     </div>
-    <?php if(isset($_GET['c']) && $model->isNewRecord) { ?>
+    <?php if(isset($_GET['c']) && $model->isNewRecord && Yii::app()->controller->action->id !="staffusers") { ?>
         <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
             <div class="col-lg-4 padzero">
                 <?php echo $form->labelEx($model,'grp'); ?>

@@ -125,7 +125,7 @@
                                                             <?php echo $form->labelEx($models,'year'); ?>
                                                         </div>
                                                         <div class="col-lg-8 padzero">
-                                                            <?php $models->year=date('Y-m',strtotime($models->year));
+                                                            <?php $models->year=date('M-Y',strtotime($models->year));
                                                             echo $form->textField($models,'year', array('placeholder'=>'year','maxlength'=>4, 'class'=>'datepicker','id'=>'Courses_year_'.$models->id)); ?>
                                                             <?php echo $form->error($models,'year'); ?>
                                                         </div>
@@ -256,7 +256,7 @@
                                                         </div>
                                                         <div class="col-lg-8 padzero">
 
-                                                            <?php $models->year=date('d-m-Y',strtotime($models->year));
+                                                            <?php 
                                                             echo $form->textField($models,'year', array('placeholder'=>'year','maxlength'=>4, 'class'=>'datepicker','id'=>'Courses_year_'.$models->id)); ?>
                                                             <?php echo $form->error($models,'year'); ?>
                                                         </div>
@@ -437,7 +437,7 @@
     }
     $(function() {
         $('.datepicker').each(function(){
-            $(this).datepicker({ dateFormat: 'yy-mm' });
+            $(this).datepicker({ dateFormat: 'M-yy' });
         });
     });
 </script>

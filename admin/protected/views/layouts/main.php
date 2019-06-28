@@ -78,28 +78,26 @@
                 <?php  if(Yii::app()->user->getState('role')=='Superuser')
                 { ?>
                     <a href="<?php echo Yii::app()->createUrl("site/index")?>">
-                        <img  style="width:157px;height:50px;" src="<?php echo Yii::app()->request->baseUrl; ?>/images/SPLAT logo new.png"></a>
+                        <img  style="height:50px;" src="<?php echo Yii::app()->request->baseUrl; ?>/images/SPLAT-logo.gif">
+                    </a>
                 <?php   }
                 else if(Yii::app()->user->getState('role')=='Faculty')
                 { ?>
-                    <a href="<?php echo Yii::app()->createUrl("site/faculties?i=$insbs64")?>"><img  style="width:157px;height:50px;" src="<?php echo Yii::app()->request->baseUrl; ?>/images/SPLAT logo new.png"></a>
+                    <a href="<?php echo Yii::app()->createUrl("site/faculties?i=$insbs64")?>">
+                        <img  style="height:50px;" src="<?php echo Yii::app()->request->baseUrl; ?>/images/SPLAT-logo.gif">
                 <?php }
                 else if(Yii::app()->user->getState('role')=='Admin')
                 { ?>
                     <a href="<?php echo Yii::app()->createUrl("site/faculties?i=$insbs64")?>">
-                        <img  style="width:157px;height:50px;" src="<?php echo Yii::app()->request->baseUrl; ?>/images/SPLAT logo new.png"></a>
+                        <img  style="height:50px;" src="<?php echo Yii::app()->request->baseUrl; ?>/images/SPLAT-logo.gif">
                 <?php }
                 else if(Yii::app()->user->getState('role')=='Staff')
                 { ?>
                     <a href="<?php echo Yii::app()->createUrl("site/faculties?i=$insbs64&f=$facbs64")?>">
-                        <img  style="width:157px;height:50px;" src="<?php echo Yii::app()->request->baseUrl; ?>/images/SPLAT logo new.png"></a>
+                        <img  style="height:50px;" src="<?php echo Yii::app()->request->baseUrl; ?>/images/SPLAT-logo.gif">
                 <?php  } ?>
             </div>
             <div class="col-lg-6 col-xs-12 col-sm-6 padzero text-center">
-                <!--<ul class="admin-menu">
-                    <li class="active"><a href="#">Admin View</a></li><span></span>
-                    <li><a href="#">Basic View</a></li>
-                </ul>-->
             </div>
             <?php if(isset(Yii::app()->session['id']) && !empty(Yii::app()->session['id'])) { ?>
                 <div class="col-lg-3 col-xs-12 col-sm-3 text-right padzero user">
@@ -107,7 +105,7 @@
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span><?php echo ucwords(Yii::app()->session['user']->first_name." ".Yii::app()->session['user']->last_name) ?></span>
                         <?php   $modeluser=Users::model()->findByPk(Yii::app()->session['id']);
-                        $path=$modeluser->profile?"images/profile/".$modeluser->profile:"images/user.jpg";?>
+                        $path=$modeluser->profile?"/images/profile/".$modeluser->profile:"../images/default.png";?>
                         <img src="<?php echo  Yii::app()->request->baseUrl."/".$path?>" style="width:40px;height:40px;border-radius: 50%;">
                         <i class="fa fa-caret-down" aria-hidden="true" style="color:#fff"></i></a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="width:100%;padding:2px;">
