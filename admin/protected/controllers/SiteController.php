@@ -149,6 +149,7 @@ class SiteController extends Controller
         $institution = Institutions::model()->find('id='.base64_decode($_GET['i']));
         $faculty = Faculties::model()->find('id='.base64_decode($f));
         if(isset($_POST['Courses']) && !empty($_POST['Courses'])){
+            //echo "<pre>";print_r($_POST);die;
             if(isset($_POST['Courses']['id']) && $_POST['Courses']['id']!='')
                 $formModel = Courses::model()->find('id='.$_POST['Courses']['id']);
             $formModel->attributes 	= $_POST['Courses'];
@@ -160,6 +161,14 @@ class SiteController extends Controller
             $formModel->updated_date= date('Y-m-d H:i:s');
             if($formModel->validate() && $formModel->save())
             {
+                if(empty($_POST['Courses']['id']))
+                {
+                    $usr_Course=New UserCourses();
+                    $usr_Course->course_id=$formModel->id;
+                    $usr_Course->user_id=Yii::app()->session['id'];
+                    $usr_Course->save(false);
+                }
+
                 Yii::app()->user->setFlash('success','Course has been added successfully.');
                 $this->refresh();
             }
@@ -518,6 +527,7 @@ class SiteController extends Controller
         $message='';
         if(isset($_POST['id']) && $_POST['id']!=''){
             Courses::model()->findByPk($_POST['id'])->delete();
+            UserCourses::model()->deleteAll('course_id='.$_POST['id']);
             $message = "Course has been added successfully";
             $msg['status'] = 'S';
             echo json_encode($msg, true);
@@ -603,6 +613,7 @@ class SiteController extends Controller
     {
         if(Yii::app()->user->getState('role') =="Staff")
         {
+            Yii::app()->db->createCommand('SET group_concat_max_len = 50000')->execute();
             $result=Yii::app()->db->createCommand('select group_concat(faculty_id) as fac  from user_faculties where user_id="'.Yii::app()->session['id'].'"')->queryAll();
             if($result[0]['fac'])
             {
@@ -653,8 +664,6 @@ class SiteController extends Controller
                 }
             }
             else{
-
-
                 $makemodel->attributes 	= $_POST['EmailTemplate'];
                 $makemodel->ins_id	= base64_decode($i);
                 $makemodel->created_date= date('Y-m-d H:i:s');

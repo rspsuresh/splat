@@ -15,6 +15,7 @@
     #content{min-height: 700px !important;}
     .panel-body{padding:10px; }
     .panel-title{color:black !important;}
+    .footer-sec{bottom:auto !important}
 </style><div class="container">
     <div class="user-institute">
         <?php

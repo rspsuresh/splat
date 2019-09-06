@@ -427,6 +427,7 @@
                 success: function (data) {
                     $("#row_"+id).remove();
                     $.notify("Course deleted succesfully", "success");
+                    window.location.reload();
                 }
             });
         }

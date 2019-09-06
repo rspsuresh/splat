@@ -10734,3 +10734,125 @@ Stack trace:
 REQUEST_URI=/splat/admin/groupusers/groupasses/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
 HTTP_REFERER=http://127.0.0.1:8080/splat/admin/users/cadmin?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D
 ---
+2019/09/05 18:18:07 [warning] [application] Failed to set unsafe attribute "course_level" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (154)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/05 18:18:07 [warning] [application] Failed to set unsafe attribute "description" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (154)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/05 18:54:10 [warning] [application] Failed to set unsafe attribute "course_level" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (155)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/05 18:54:10 [warning] [application] Failed to set unsafe attribute "description" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (155)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/05 18:55:21 [warning] [application] Failed to set unsafe attribute "course_level" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (155)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/05 18:55:21 [warning] [application] Failed to set unsafe attribute "description" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (155)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/05 18:57:30 [warning] [application] Failed to set unsafe attribute "course_level" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (155)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/05 18:57:30 [warning] [application] Failed to set unsafe attribute "description" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (155)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/06 17:28:28 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (777)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (204)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/06 18:33:44 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'and user.status="active" and user.role=5) ORDER BY t.grp_id asc' at line 1. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`course` AS `t0_c1`, `t`.`grp_id` AS `t0_c2`, `t`.`user_id` AS `t0_c3`, `user`.`id` AS `t1_c0`, `user`.`username` AS `t1_c1`, `user`.`email` AS `t1_c2`, `user`.`password` AS `t1_c3`, `user`.`first_name` AS `t1_c4`, `user`.`last_name` AS `t1_c5`, `user`.`profile` AS `t1_c6`, `user`.`role` AS `t1_c7`, `user`.`send_email` AS `t1_c8`, `user`.`course_id` AS `t1_c9`, `user`.`institution_id` AS `t1_c10`, `user`.`fac_id` AS `t1_c11`, `user`.`status` AS `t1_c12`, `user`.`created_date` AS `t1_c13`, `user`.`updated_date` AS `t1_c14` FROM `tbl_userdetails` `t`  LEFT OUTER JOIN `users` `user` ON (`t`.`user_id`=`user`.`id`) WHERE (course= and user.status="active" and user.role=5) ORDER BY t.grp_id asc.
+in D:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php (660)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/06 18:33:45 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'and user.status="active" and user.role=5) ORDER BY t.grp_id asc' at line 1. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`course` AS `t0_c1`, `t`.`grp_id` AS `t0_c2`, `t`.`user_id` AS `t0_c3`, `user`.`id` AS `t1_c0`, `user`.`username` AS `t1_c1`, `user`.`email` AS `t1_c2`, `user`.`password` AS `t1_c3`, `user`.`first_name` AS `t1_c4`, `user`.`last_name` AS `t1_c5`, `user`.`profile` AS `t1_c6`, `user`.`role` AS `t1_c7`, `user`.`send_email` AS `t1_c8`, `user`.`course_id` AS `t1_c9`, `user`.`institution_id` AS `t1_c10`, `user`.`fac_id` AS `t1_c11`, `user`.`status` AS `t1_c12`, `user`.`created_date` AS `t1_c13`, `user`.`updated_date` AS `t1_c14` FROM `tbl_userdetails` `t`  LEFT OUTER JOIN `users` `user` ON (`t`.`user_id`=`user`.`id`) WHERE (course= and user.status="active" and user.role=5) ORDER BY t.grp_id asc in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(1615): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(879): CJoinElement->runQuery(Object(CJoinQuery))
+#3 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(135): CJoinElement->find(Object(CDbCriteria))
+#4 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2721): CActiveFinder->query(Object(CDbCriteria), true)
+#5 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2949): CActiveRecord->query(Object(CDbCriteria), true)
+#6 D:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php(660): CActiveRecord->findAll(Array)
+#7 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): GroupusersController->actionSendremainder()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#12 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('sendremainder')
+#17 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('groupusers/send...')
+#18 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#19 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/splat/admin/groupusers/sendremainder
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=MQ%3D%3D&c=NA%3D%3D
+---
+2019/09/06 18:37:10 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'and user.status="active" and user.role=5) ORDER BY t.grp_id asc' at line 1. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`course` AS `t0_c1`, `t`.`grp_id` AS `t0_c2`, `t`.`user_id` AS `t0_c3`, `user`.`id` AS `t1_c0`, `user`.`username` AS `t1_c1`, `user`.`email` AS `t1_c2`, `user`.`password` AS `t1_c3`, `user`.`first_name` AS `t1_c4`, `user`.`last_name` AS `t1_c5`, `user`.`profile` AS `t1_c6`, `user`.`role` AS `t1_c7`, `user`.`send_email` AS `t1_c8`, `user`.`course_id` AS `t1_c9`, `user`.`institution_id` AS `t1_c10`, `user`.`fac_id` AS `t1_c11`, `user`.`status` AS `t1_c12`, `user`.`created_date` AS `t1_c13`, `user`.`updated_date` AS `t1_c14` FROM `tbl_userdetails` `t`  LEFT OUTER JOIN `users` `user` ON (`t`.`user_id`=`user`.`id`) WHERE (course= and user.status="active" and user.role=5) ORDER BY t.grp_id asc.
+in D:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php (660)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/06 18:37:10 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'and user.status="active" and user.role=5) ORDER BY t.grp_id asc' at line 1. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`course` AS `t0_c1`, `t`.`grp_id` AS `t0_c2`, `t`.`user_id` AS `t0_c3`, `user`.`id` AS `t1_c0`, `user`.`username` AS `t1_c1`, `user`.`email` AS `t1_c2`, `user`.`password` AS `t1_c3`, `user`.`first_name` AS `t1_c4`, `user`.`last_name` AS `t1_c5`, `user`.`profile` AS `t1_c6`, `user`.`role` AS `t1_c7`, `user`.`send_email` AS `t1_c8`, `user`.`course_id` AS `t1_c9`, `user`.`institution_id` AS `t1_c10`, `user`.`fac_id` AS `t1_c11`, `user`.`status` AS `t1_c12`, `user`.`created_date` AS `t1_c13`, `user`.`updated_date` AS `t1_c14` FROM `tbl_userdetails` `t`  LEFT OUTER JOIN `users` `user` ON (`t`.`user_id`=`user`.`id`) WHERE (course= and user.status="active" and user.role=5) ORDER BY t.grp_id asc in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(1615): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(879): CJoinElement->runQuery(Object(CJoinQuery))
+#3 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(135): CJoinElement->find(Object(CDbCriteria))
+#4 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2721): CActiveFinder->query(Object(CDbCriteria), true)
+#5 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2949): CActiveRecord->query(Object(CDbCriteria), true)
+#6 D:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php(660): CActiveRecord->findAll(Array)
+#7 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): GroupusersController->actionSendremainder()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#12 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('sendremainder')
+#17 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('groupusers/send...')
+#18 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#19 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/splat/admin/groupusers/sendremainder
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=MQ%3D%3D&c=NA%3D%3D
+---
+2019/09/06 18:42:39 [error] [exception.ParseError] ParseError: syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ',' or ')' in D:\xampp\htdocs\splat\admin\protected\views\users\cadmin.php:820
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#2 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('cadmin', Array, true)
+#3 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(697): CController->render('cadmin', Array)
+#4 [internal function]: UsersController->actionCAdmin('MQ==')
+#5 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#11 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#12 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('cadmin')
+#16 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/cadmin')
+#17 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#18 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/splat/admin/users/cadmin?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/site/courses?i=MQ%3D%3D&f=MQ%3D%3D
+---
+2019/09/06 18:43:15 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "sendremainder&c=1". in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('sendremainder&c...')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('sendremainder&c...')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('groupusers/send...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/groupusers/sendremainder&c=1
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D
+---

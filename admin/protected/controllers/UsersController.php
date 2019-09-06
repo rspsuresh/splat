@@ -455,8 +455,9 @@ class UsersController extends Controller
                     $all_rows[] = array_combine($header, $line);
                 }
                 fclose($csvFile);
-                //echo "<pre>";print_r($all_rows);die;
+               // echo "<pre>";print_r($all_rows);die;
                 $uniquegrouparray = array_filter(array_unique(array_column($all_rows, $header[count($header) - 2])));
+                //echo "<pre>";print_r($uniquegrouparray);die;
                 $courseid = base64_decode($_GET['c']);
                 if (is_array($uniquegrouparray) && !empty($uniquegrouparray) && isset($all_rows[0]['Username']) && isset($all_rows[0]['Email']) &&
                     isset($all_rows[0]['First Name']) && isset($all_rows[0]['Last Name'])) {

@@ -383,7 +383,7 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                                         </div>
                                         <div class="col-lg-8 padzero formradio">
                                             <?php echo $form->radioButtonList($models,'status',
-                                                array('draft'=>'Draft','completed'=>'Completed','live'=>'Live'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
+                                                array('draft'=>'Draft','completed'=>'Completed','current'=>'Live'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
                                             <?php echo $form->error($models,'status'); ?>
                                         </div>
                                     </div>
@@ -532,7 +532,7 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
         <div class="modal-content col-xs-12 col-lg-12 col-sm-12">
             <div class="modal-header col-lg-12">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title text-center">Project</h4>
+                <h4 class="modal-title text-center">Assessment</h4>
             </div>
             <div class="model-form col-lg-12 col-xs-12 col-sm-12 form">
                 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -765,17 +765,14 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                 success: function (data) {
                     if(type==1)
                     {
-                        // $("#row_"+id).remove();
                         window.location.reload();
-                        $.notify("Project deleted succesfully", "success");
+                        $.notify("Assesment deleted succesfully", "success");
                     }
                     else if(type==2)
                     {
-
                         $("#qrow_"+id).remove();
                         $.notify("Question deleted succesfully", "success");
                         window.location.reload();
-
                     }
                     else if(type==3)
                     {
@@ -820,7 +817,7 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
         if(confirm('Are you sure want to send remainder mail?'))
         {
             $.ajax({
-                url: "<?php echo Yii::app()->createUrl('groupusers/sendremainder') ?>",
+                url: "<?php echo Yii::app()->createUrl('groupusers/sendremainder?c=') ?>"+c,
                 type: "post",
                 data:data,
                 success: function (result) {

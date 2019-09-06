@@ -18,6 +18,7 @@
     .panel-body{padding:10px; }
     .errorMessage{color:red !important;}
     #content{min-height:850px !important;}
+    .footer-sec{bottom:auto !important}
 </style>
 <div class="container">
     <div class="row">

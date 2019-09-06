@@ -656,10 +656,9 @@ class GroupusersController extends Controller
         {
             $projectmodel=Projects::model()->findByPk($_POST['p']);
             $usermodel=Userdetails::model()->with('user')->findAll( array(
-                'condition'=>'course='.base64_decode($_GET["c"]).' and user.status="active" and user.role=5',
+                'condition'=>'course='.$_REQUEST['c'].' and user.status="active" and user.role=5',
                 'order'=>'t.grp_id asc'
             ));
-
             foreach($usermodel as $val)
             {
                 $to =trim($val->user->email);
