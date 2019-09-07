@@ -383,7 +383,7 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                                         </div>
                                         <div class="col-lg-8 padzero formradio">
                                             <?php echo $form->radioButtonList($models,'status',
-                                                array('draft'=>'Draft','completed'=>'Completed','current'=>'Live'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
+                                                array('inactive'=>'Draft','completed'=>'Completed','current'=>'Live'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
                                             <?php echo $form->error($models,'status'); ?>
                                         </div>
                                     </div>

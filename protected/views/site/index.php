@@ -112,8 +112,9 @@
                                         <div class="panel-body" id="activecount">
                                             <?php
                                             $assesmentsql="SELECT *  FROM `projects` WHERE `institution` ={$course['institution']} 
-AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='live'";
+AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='current'";
                                             $aseesresult=Yii::app()->db->CreateCommand($assesmentsql)->QueryAll();
+
                                             if(!empty($aseesresult)) {
                                                 foreach ($aseesresult as $asees)  {
                                                     ?>

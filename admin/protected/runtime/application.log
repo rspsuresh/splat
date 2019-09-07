@@ -10856,3 +10856,6 @@ Stack trace:
 REQUEST_URI=/splat/admin/groupusers/sendremainder&c=1
 HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D
 ---
+2019/09/07 18:02:40 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (572)
+in D:\xampp\htdocs\splat\admin\index.php (13)

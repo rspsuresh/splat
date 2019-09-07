@@ -4530,3 +4530,67 @@ Stack trace:
 REQUEST_URI=/splat/jquery.twbsPagination.js
 HTTP_REFERER=http://localhost/splat/admin/groupusers/groupasses/1?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D&p=1
 ---
+2019/09/07 19:01:07 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'course1' in 'where clause'. The SQL statement executed was: SELECT *  FROM `projects` WHERE `institution` =1 
+AND `faculty` =1 AND `course1` =4 and `status`='live'.
+in D:\xampp\htdocs\splat\protected\views\site\index.php (116)
+in D:\xampp\htdocs\splat\protected\controllers\SiteController.php (58)
+in D:\xampp\htdocs\splat\index.php (25)
+2019/09/07 19:01:07 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'course1' in 'where clause'. The SQL statement executed was: SELECT *  FROM `projects` WHERE `institution` =1 
+AND `faculty` =1 AND `course1` =4 and `status`='live' in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\splat\protected\views\site\index.php(116): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#3 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#4 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#5 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('index', Array, true)
+#6 D:\xampp\htdocs\splat\protected\controllers\SiteController.php(58): CController->render('index', Array)
+#7 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): SiteController->actionIndex()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#12 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('')
+#17 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('')
+#18 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#19 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#20 {main}
+REQUEST_URI=/splat/
+HTTP_REFERER=http://localhost/splat/site/login
+---
+2019/09/07 19:09:30 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'course1' in 'where clause'. The SQL statement executed was: SELECT *  FROM `projects` WHERE `institution` =1 
+AND `faculty` =1 AND `course1` =4 and `status`='live'.
+in D:\xampp\htdocs\splat\protected\views\site\index.php (116)
+in D:\xampp\htdocs\splat\protected\controllers\SiteController.php (58)
+in D:\xampp\htdocs\splat\index.php (25)
+2019/09/07 19:09:30 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'course1' in 'where clause'. The SQL statement executed was: SELECT *  FROM `projects` WHERE `institution` =1 
+AND `faculty` =1 AND `course1` =4 and `status`='live' in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\splat\protected\views\site\index.php(116): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#3 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#4 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#5 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('index', Array, true)
+#6 D:\xampp\htdocs\splat\protected\controllers\SiteController.php(58): CController->render('index', Array)
+#7 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): SiteController->actionIndex()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#12 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('')
+#17 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('')
+#18 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#19 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#20 {main}
+REQUEST_URI=/splat/
+HTTP_REFERER=http://localhost/splat/site/login
+---

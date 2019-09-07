@@ -529,7 +529,7 @@ class UsersController extends Controller
         }
 
         $this->pageTitle="SPLAT - Course items";
-        $model = Projects::model()->findAll('faculty='.base64_decode($_GET['f']).' and course='.base64_decode($_GET['c']).' and institution='.base64_decode($_GET['i']).' and status !="inactive"');
+        $model = Projects::model()->findAll('faculty='.base64_decode($_GET['f']).' and course='.base64_decode($_GET['c']).' and institution='.base64_decode($_GET['i']));
         $formModel = new Projects();
         $formModel->faculty = base64_decode($_GET['f']);
         $formModel->institution = base64_decode($_GET['i']);

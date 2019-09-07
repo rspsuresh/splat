@@ -51,8 +51,8 @@
                                     ?>
                                     <div class="script-text" id="row_<?php echo $models->id ?>">
                                         <h1>
-                                            <a href="<?php echo Yii::app()->createUrl('users/cadmin',array('i'=>$_GET['i'],
-                                                'f'=>$_GET['f'], 'c'=>base64_encode($models->id))); ?>"
+                                            <a data-course="<?=$models->id?>" href="<?php echo Yii::app()->createUrl('users/cadmin',array('i'=>$_GET['i'],
+                                                'f'=>$_GET['f'], 'c'=>trim(base64_encode($models->id)))); ?>"
                                                class="item_link"><?php echo $i; ?>.
                                                 <?php echo ucwords ($models->course_type." ".$models->name); ?>  <span class="grey"><?=($models->course_level !='')?' | Level: '.$models->course_level:''?> <?=($models->year !='')?' | Year: '.$models->year:''?></span></a>
 
