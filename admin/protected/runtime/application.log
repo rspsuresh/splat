@@ -11532,3 +11532,79 @@ in D:\xampp\htdocs\splat\admin\index.php (13)
 2019/09/14 16:45:28 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
 in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (608)
 in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 17:11:37 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (818)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 17:11:39 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (818)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 17:12:58 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (354)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 17:15:34 [error] [exception.ParseError] ParseError: syntax error, unexpected '}' in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php:358
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(551): CWebApplication->createController('update/')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/update')
+#2 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#3 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#4 {main}
+REQUEST_URI=/splat/admin/users/update/547?c=Nw%3D%3D&i=MQ%3D%3D&f=Mg%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/update/547?c=Nw%3D%3D&i=MQ%3D%3D&f=Mg%3D%3D
+---
+2019/09/14 17:22:19 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (833)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 17:22:20 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (833)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 17:22:20 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (370)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 17:23:15 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (833)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 17:23:15 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (370)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 17:23:48 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (833)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 17:23:49 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (833)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 17:23:50 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (833)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 17:23:50 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (370)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 17:24:26 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (831)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 17:24:28 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (831)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 17:24:28 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (368)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 17:24:36 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (831)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 17:24:53 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (831)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 17:24:53 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (368)
+in D:\xampp\htdocs\splat\admin\index.php (13)

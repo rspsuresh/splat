@@ -4594,3 +4594,6 @@ Stack trace:
 REQUEST_URI=/splat/
 HTTP_REFERER=http://localhost/splat/site/login
 ---
+2019/09/14 17:57:54 [warning] [application] Failed to set unsafe attribute "profile" of "Users".
+in D:\xampp\htdocs\splat\protected\controllers\SiteController.php (285)
+in D:\xampp\htdocs\splat\index.php (25)

@@ -350,8 +350,21 @@ class UsersController extends Controller
                         $usrgrp->delete();
                     }
                 }
+                if(!empty($_POST['Users']['grp']))
+                {
+                    foreach ($_POST['Users']['grp'] as $grpid)
+                    {
+                        $grpUser=New GroupUsers();
+                        $grpUser->user_id=$model->id;
+                        $grpUser->group_id=$grpid;
+                        $grpUser->status='active';
+                        $grpUser->created_date=$grpUser->updated_date=date('Y-m-d H:i:s');
+                        $grpUser->save(false);
+                    }
+                }
+
+
             }
-            die;
             $model->attributes=$_POST['Users'];
             $model->email=$_POST['Users']['email'];
             $model->updated_date = date('Y-m-d H:i:s');
@@ -749,12 +762,12 @@ class UsersController extends Controller
             }
 
             $userfaculty=UserFaculties::model()->find("user_id=".$userid." and faculty_id=".base64_decode($_GET['f']));
-
             if(count($userfaculty)<=0)
             {
                 $ucfacmodel=new UserFaculties();
                 $ucfacmodel->user_id=$userid;
                 $ucfacmodel->faculty_id=base64_decode($_GET['f']);
+                $ucfacmodel->save(false);
             }
             $groupmainmodel=Groups::model()->find("name='{$header}' and course_id='{$courseid}'");
             if(count($groupmainmodel) >0)

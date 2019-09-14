@@ -123,6 +123,7 @@
                             foreach ($userGrps as $geachValue)
                                 $grpselectedOptions[$geachValue->group_id] = array('selected'=>'selected');
                         }
+                        //echo "<pre>";print_r($grpselectedOptions);die;
 
                     }
                 }
@@ -153,7 +154,7 @@
                     <label for="Users_grp">Group</label>
                 </div>
                 <div class="col-lg-8 padzero">
-                    <?php echo $form->dropDownList($model, 'grp', CHtml::listData(Groups::model()->findAll(), 'id', 'name'), array('empty'=>'Select Group','multiple'=>'multiple','options'=>$cselectedOptions)); ?>
+                    <?php echo $form->dropDownList($model, 'grp', CHtml::listData(Groups::model()->findAll(), 'id', 'name'), array('empty'=>'Select Group','multiple'=>'multiple','options'=>$grpselectedOptions)); ?>
                     <?php echo $form->error($model,'grp'); ?>
                 </div>
             </div>
