@@ -10859,3 +10859,676 @@ HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=MQ%3D%3D&c=M
 2019/09/07 18:02:40 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
 in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (572)
 in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/11 14:24:10 [error] [exception.CException] CException: Property "UserCourses.group_id" is not defined. in D:\xampp\htdocs\splat\yii\framework\base\CComponent.php:259
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(289): CComponent->__get('group_id')
+#1 D:\xampp\htdocs\splat\admin\protected\views\users\_form.php(124): CActiveRecord->__get('group_id')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#3 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#4 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#5 D:\xampp\htdocs\splat\admin\protected\views\users\update.php(12): CController->renderPartial('_form', Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#7 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('update', Array, true)
+#10 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(372): CController->render('update', Array)
+#11 [internal function]: UsersController->actionUpdate('512')
+#12 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#15 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#17 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#19 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#20 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#21 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('update')
+#23 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/update')
+#24 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#25 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/splat/admin/users/update/512?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D
+---
+2019/09/11 15:31:21 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (781)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (323)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/11 15:31:25 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (781)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (323)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/11 15:31:27 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (781)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (323)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/11 15:31:28 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (781)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (323)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/11 15:32:52 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (782)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (323)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/11 15:45:52 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column '512group.course_id' in 'where clause'. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`user_id` AS `t0_c1`, `t`.`group_id` AS `t0_c2`, `t`.`status` AS `t0_c3`, `t`.`created_date` AS `t0_c4`, `t`.`updated_date` AS `t0_c5`, `group`.`id` AS `t1_c0`, `group`.`name` AS `t1_c1`, `group`.`course_id` AS `t1_c2`, `group`.`status` AS `t1_c3`, `group`.`created_date` AS `t1_c4`, `group`.`updated_date` AS `t1_c5` FROM `group_users` `t`  LEFT OUTER JOIN `groups` `group` ON (`t`.`group_id`=`group`.`id`) WHERE (user_id=512group.course_id=1).
+in D:\xampp\htdocs\splat\admin\protected\views\users\_form.php (121)
+in D:\xampp\htdocs\splat\admin\protected\views\users\update.php (12)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (373)
+2019/09/11 15:45:52 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column '512group.course_id' in 'where clause'. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`user_id` AS `t0_c1`, `t`.`group_id` AS `t0_c2`, `t`.`status` AS `t0_c3`, `t`.`created_date` AS `t0_c4`, `t`.`updated_date` AS `t0_c5`, `group`.`id` AS `t1_c0`, `group`.`name` AS `t1_c1`, `group`.`course_id` AS `t1_c2`, `group`.`status` AS `t1_c3`, `group`.`created_date` AS `t1_c4`, `group`.`updated_date` AS `t1_c5` FROM `group_users` `t`  LEFT OUTER JOIN `groups` `group` ON (`t`.`group_id`=`group`.`id`) WHERE (user_id=512group.course_id=1) in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(1615): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(879): CJoinElement->runQuery(Object(CJoinQuery))
+#3 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(135): CJoinElement->find(Object(CDbCriteria))
+#4 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2721): CActiveFinder->query(Object(CDbCriteria), true)
+#5 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2949): CActiveRecord->query(Object(CDbCriteria), true)
+#6 D:\xampp\htdocs\splat\admin\protected\views\users\_form.php(121): CActiveRecord->findAll('user_id=512grou...')
+#7 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#8 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#10 D:\xampp\htdocs\splat\admin\protected\views\users\update.php(12): CController->renderPartial('_form', Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#12 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('update', Array, true)
+#15 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(373): CController->render('update', Array)
+#16 [internal function]: UsersController->actionUpdate('512')
+#17 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#18 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#21 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#22 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#23 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#24 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#25 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#26 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#27 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('update')
+#28 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/update')
+#29 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#30 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#31 {main}
+REQUEST_URI=/splat/admin/users/update/512?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D
+---
+2019/09/11 16:01:15 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (787)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (323)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/11 16:01:16 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'group.course_id=1)' at line 1. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`user_id` AS `t0_c1`, `t`.`group_id` AS `t0_c2`, `t`.`status` AS `t0_c3`, `t`.`created_date` AS `t0_c4`, `t`.`updated_date` AS `t0_c5`, `group`.`id` AS `t1_c0`, `group`.`name` AS `t1_c1`, `group`.`course_id` AS `t1_c2`, `group`.`status` AS `t1_c3`, `group`.`created_date` AS `t1_c4`, `group`.`updated_date` AS `t1_c5` FROM `group_users` `t`  LEFT OUTER JOIN `groups` `group` ON (`t`.`group_id`=`group`.`id`) WHERE (user_id=512and group.course_id=1).
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (326)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/11 16:01:16 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'group.course_id=1)' at line 1. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`user_id` AS `t0_c1`, `t`.`group_id` AS `t0_c2`, `t`.`status` AS `t0_c3`, `t`.`created_date` AS `t0_c4`, `t`.`updated_date` AS `t0_c5`, `group`.`id` AS `t1_c0`, `group`.`name` AS `t1_c1`, `group`.`course_id` AS `t1_c2`, `group`.`status` AS `t1_c3`, `group`.`created_date` AS `t1_c4`, `group`.`updated_date` AS `t1_c5` FROM `group_users` `t`  LEFT OUTER JOIN `groups` `group` ON (`t`.`group_id`=`group`.`id`) WHERE (user_id=512and group.course_id=1) in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(1615): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(879): CJoinElement->runQuery(Object(CJoinQuery))
+#3 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(135): CJoinElement->find(Object(CDbCriteria))
+#4 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2721): CActiveFinder->query(Object(CDbCriteria), true)
+#5 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2949): CActiveRecord->query(Object(CDbCriteria), true)
+#6 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(326): CActiveRecord->findAll('user_id=512and ...')
+#7 [internal function]: UsersController->actionUpdate('512')
+#8 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#9 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#12 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#15 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#17 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('update')
+#19 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/update')
+#20 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#21 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/splat/admin/users/update/512?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/update/512?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+---
+2019/09/11 16:05:00 [error] [exception.ParseError] ParseError: syntax error, unexpected 'echo' (T_ECHO) in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php:329
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(551): CWebApplication->createController('update/')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/update')
+#2 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#3 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#4 {main}
+REQUEST_URI=/splat/admin/users/update/512?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=MQ%3D%3D&c=MQ%3D%3D
+---
+2019/09/11 16:05:23 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (788)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (323)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/11 16:05:23 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'group.course_id' in 'where clause'. The SQL statement executed was: DELETE FROM `group_users` WHERE user_id=512 and group.course_id=1.
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (326)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/11 16:05:23 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'group.course_id' in 'where clause'. The SQL statement executed was: DELETE FROM `group_users` WHERE user_id=512 and group.course_id=1 in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:715
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(3645): CDbCommand->execute()
+#1 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(326): CActiveRecord->deleteAll('user_id=512 and...')
+#2 [internal function]: UsersController->actionUpdate('512')
+#3 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#4 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#5 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('update')
+#14 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/update')
+#15 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#16 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/splat/admin/users/update/512?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/update/512?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+---
+2019/09/11 16:05:47 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'group.id' in 'where clause'. The SQL statement executed was: DELETE FROM `group_users` WHERE user_id=512 and group.id=1.
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (326)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/11 16:05:47 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'group.id' in 'where clause'. The SQL statement executed was: DELETE FROM `group_users` WHERE user_id=512 and group.id=1 in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:715
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(3645): CDbCommand->execute()
+#1 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(326): CActiveRecord->deleteAll('user_id=512 and...')
+#2 [internal function]: UsersController->actionUpdate('512')
+#3 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#4 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#5 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('update')
+#14 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/update')
+#15 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#16 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/splat/admin/users/update/512?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/update/512?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+---
+2019/09/11 16:06:25 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'group.id' in 'where clause'. The SQL statement executed was: DELETE FROM `group_users` WHERE user_id=512 and group.id=1.
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (326)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/11 16:06:25 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'group.id' in 'where clause'. The SQL statement executed was: DELETE FROM `group_users` WHERE user_id=512 and group.id=1 in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:715
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(3645): CDbCommand->execute()
+#1 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(326): CActiveRecord->deleteAll('user_id=512 and...')
+#2 [internal function]: UsersController->actionUpdate('512')
+#3 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#4 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#5 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('update')
+#14 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/update')
+#15 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#16 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/splat/admin/users/update/512?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/update/512?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+---
+2019/09/11 16:08:03 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'group.course_id' in 'where clause'. The SQL statement executed was: DELETE FROM `group_users` WHERE user_id=512 and group.course_id=1.
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (326)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/11 16:08:03 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'group.course_id' in 'where clause'. The SQL statement executed was: DELETE FROM `group_users` WHERE user_id=512 and group.course_id=1 in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:715
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(3645): CDbCommand->execute()
+#1 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(326): CActiveRecord->deleteAll('user_id=512 and...')
+#2 [internal function]: UsersController->actionUpdate('512')
+#3 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#4 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#5 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('update')
+#14 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/update')
+#15 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#16 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/splat/admin/users/update/512?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/update/512?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+---
+2019/09/11 16:28:45 [error] [exception.ParseError] ParseError: syntax error, unexpected '}', expecting ',' or ';' in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php:330
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(551): CWebApplication->createController('update/')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/update')
+#2 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#3 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#4 {main}
+REQUEST_URI=/splat/admin/users/update/512?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/update/512?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+---
+2019/09/11 16:41:40 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (798)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (323)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/11 17:43:22 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`user_id` AS `t0_c1`, `t`.`group_id` AS `t0_c2`, `t`.`status` AS `t0_c3`, `t`.`created_date` AS `t0_c4`, `t`.`updated_date` AS `t0_c5`, `group`.`id` AS `t1_c0`, `group`.`name` AS `t1_c1`, `group`.`course_id` AS `t1_c2`, `group`.`status` AS `t1_c3`, `group`.`created_date` AS `t1_c4`, `group`.`updated_date` AS `t1_c5` FROM `group_users` `t`  LEFT OUTER JOIN `groups` `group` ON (`t`.`group_id`=`group`.`id`) WHERE (user_id=28 and group.course_id=).
+in D:\xampp\htdocs\splat\admin\protected\views\users\_form.php (121)
+in D:\xampp\htdocs\splat\admin\protected\views\users\update.php (12)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (388)
+2019/09/11 17:43:22 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`user_id` AS `t0_c1`, `t`.`group_id` AS `t0_c2`, `t`.`status` AS `t0_c3`, `t`.`created_date` AS `t0_c4`, `t`.`updated_date` AS `t0_c5`, `group`.`id` AS `t1_c0`, `group`.`name` AS `t1_c1`, `group`.`course_id` AS `t1_c2`, `group`.`status` AS `t1_c3`, `group`.`created_date` AS `t1_c4`, `group`.`updated_date` AS `t1_c5` FROM `group_users` `t`  LEFT OUTER JOIN `groups` `group` ON (`t`.`group_id`=`group`.`id`) WHERE (user_id=28 and group.course_id=) in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(1615): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(879): CJoinElement->runQuery(Object(CJoinQuery))
+#3 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(135): CJoinElement->find(Object(CDbCriteria))
+#4 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2721): CActiveFinder->query(Object(CDbCriteria), true)
+#5 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2949): CActiveRecord->query(Object(CDbCriteria), true)
+#6 D:\xampp\htdocs\splat\admin\protected\views\users\_form.php(121): CActiveRecord->findAll('user_id=28 and ...')
+#7 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#8 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#10 D:\xampp\htdocs\splat\admin\protected\views\users\update.php(12): CController->renderPartial('_form', Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#12 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('update', Array, true)
+#15 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(388): CController->render('update', Array)
+#16 [internal function]: UsersController->actionUpdate('28')
+#17 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#18 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#21 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#22 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#23 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#24 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#25 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#26 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#27 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('update')
+#28 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/update')
+#29 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#30 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#31 {main}
+REQUEST_URI=/splat/admin/users/update/28
+HTTP_REFERER=http://localhost/splat/admin/users/admin
+---
+2019/09/11 18:46:27 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (814)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (219)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/11 18:46:34 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (814)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (219)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/11 18:46:39 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (814)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (219)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/11 18:46:53 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (814)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (219)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/11 18:46:54 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (814)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (219)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/11 18:48:12 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (814)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (338)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/11 18:49:27 [error] [exception.CException] CException: Property "Users.firstname" is not defined. in D:\xampp\htdocs\splat\yii\framework\base\CComponent.php:259
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(289): CComponent->__get('firstname')
+#1 D:\xampp\htdocs\splat\admin\protected\views\users\update.php(9): CActiveRecord->__get('firstname')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#3 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#4 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#5 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('update', Array, true)
+#6 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(403): CController->render('update', Array)
+#7 [internal function]: UsersController->actionUpdate('538')
+#8 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#9 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#12 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#15 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#17 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('update')
+#19 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/update')
+#20 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#21 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/splat/admin/users/update/538?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+---
+2019/09/11 18:53:40 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (814)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (338)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/11 19:00:45 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (814)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (338)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 13:53:15 [warning] [application] Failed to set unsafe attribute "course_level" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (155)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 13:53:15 [warning] [application] Failed to set unsafe attribute "description" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (155)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 13:53:42 [warning] [application] Failed to set unsafe attribute "course_level" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (155)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 13:53:42 [warning] [application] Failed to set unsafe attribute "description" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (155)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 13:54:02 [warning] [application] Failed to set unsafe attribute "course_level" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (155)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 13:54:02 [warning] [application] Failed to set unsafe attribute "description" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (155)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 14:15:56 [warning] [application] Failed to set unsafe attribute "description" of "Faculties".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (645)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 14:16:34 [warning] [application] Failed to set unsafe attribute "course_level" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (155)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 14:16:34 [warning] [application] Failed to set unsafe attribute "description" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (155)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 14:17:03 [warning] [application] Failed to set unsafe attribute "course_level" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (155)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 14:17:03 [warning] [application] Failed to set unsafe attribute "description" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (155)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 14:20:52 [error] [php] Division by zero (D:\xampp\htdocs\splat\admin\protected\views\site\responsepage.php:179)
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): SiteController->renderFile()
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): SiteController->renderPartial()
+#2 D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php(944): SiteController->render()
+#3 unknown(0): SiteController->actionResponsepage()
+#4 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs()
+#5 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CInlineAction->runWithParamsInternal()
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): SiteController->runAction()
+#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): SiteController->filterAccessControl()
+#11 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): SiteController->runActionWithFilters()
+#14 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): SiteController->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#16 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#17 D:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/site/responsepage/7?u=552&c=Nw%3D%3D&i=MQ%3D%3D&f=Mg%3D%3D&g=2&p=7
+in D:\xampp\htdocs\splat\admin\protected\views\site\responsepage.php (179)
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (944)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 14:21:19 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `courses` `t` WHERE id= LIMIT 1.
+in D:\xampp\htdocs\splat\admin\protected\views\groupusers\assesment_groups.php (6)
+in D:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php (523)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 14:21:19 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `courses` `t` WHERE id= LIMIT 1 in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(829): CDbCommand->queryInternal('fetch', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryRow()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2921): CActiveRecord->query(Object(CDbCriteria))
+#3 D:\xampp\htdocs\splat\admin\protected\views\groupusers\assesment_groups.php(6): CActiveRecord->find('id=')
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', NULL, true)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', NULL, true)
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('assesment_group...', NULL, true)
+#8 D:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php(523): CController->render('assesment_group...')
+#9 [internal function]: GroupusersController->actiongroupasses('7')
+#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(GroupusersController), Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(GroupusersController), Object(ReflectionMethod), Array)
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('groupasses')
+#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('groupusers/grou...')
+#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#23 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/splat/admin/groupusers/groupasses/7?c=%3D%3D&i=MQ%3D%3D&f=Mg%3D%3D&p=7
+---
+2019/09/14 14:21:33 [error] [php] Division by zero (D:\xampp\htdocs\splat\admin\protected\views\site\responsepage.php:179)
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): SiteController->renderFile()
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): SiteController->renderPartial()
+#2 D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php(944): SiteController->render()
+#3 unknown(0): SiteController->actionResponsepage()
+#4 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs()
+#5 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CInlineAction->runWithParamsInternal()
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): SiteController->runAction()
+#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): SiteController->filterAccessControl()
+#11 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): SiteController->runActionWithFilters()
+#14 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): SiteController->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#16 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#17 D:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/site/responsepage/7?u=553&c=Nw%3D%3D&i=MQ%3D%3D&f=Mg%3D%3D&g=2&p=7
+in D:\xampp\htdocs\splat\admin\protected\views\site\responsepage.php (179)
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (944)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 14:23:49 [error] [php] Division by zero (D:\xampp\htdocs\splat\admin\protected\views\site\responsepage.php:176)
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): SiteController->renderFile()
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): SiteController->renderPartial()
+#2 D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php(944): SiteController->render()
+#3 unknown(0): SiteController->actionResponsepage()
+#4 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs()
+#5 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CInlineAction->runWithParamsInternal()
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): SiteController->runAction()
+#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): SiteController->filterAccessControl()
+#11 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): SiteController->runActionWithFilters()
+#14 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): SiteController->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#16 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#17 D:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/site/responsepage/7?u=553&c=Nw%3D%3D&i=MQ%3D%3D&f=Mg%3D%3D&g=2&p=7
+in D:\xampp\htdocs\splat\admin\protected\views\site\responsepage.php (176)
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (944)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 14:24:49 [error] [php] Division by zero (D:\xampp\htdocs\splat\admin\protected\views\site\responsepage.php:178)
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): SiteController->renderFile()
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): SiteController->renderPartial()
+#2 D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php(944): SiteController->render()
+#3 unknown(0): SiteController->actionResponsepage()
+#4 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs()
+#5 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CInlineAction->runWithParamsInternal()
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): SiteController->runAction()
+#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): SiteController->filterAccessControl()
+#11 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): SiteController->runActionWithFilters()
+#14 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): SiteController->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#16 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#17 D:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/site/responsepage/7?u=553&c=Nw%3D%3D&i=MQ%3D%3D&f=Mg%3D%3D&g=2&p=7
+in D:\xampp\htdocs\splat\admin\protected\views\site\responsepage.php (178)
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (944)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 14:24:51 [error] [php] Division by zero (D:\xampp\htdocs\splat\admin\protected\views\site\responsepage.php:178)
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): SiteController->renderFile()
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): SiteController->renderPartial()
+#2 D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php(944): SiteController->render()
+#3 unknown(0): SiteController->actionResponsepage()
+#4 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs()
+#5 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CInlineAction->runWithParamsInternal()
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): SiteController->runAction()
+#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): SiteController->filterAccessControl()
+#11 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): SiteController->runActionWithFilters()
+#14 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): SiteController->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#16 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#17 D:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/site/responsepage/7?u=553&c=Nw%3D%3D&i=MQ%3D%3D&f=Mg%3D%3D&g=2&p=7
+in D:\xampp\htdocs\splat\admin\protected\views\site\responsepage.php (178)
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (944)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 14:25:17 [error] [php] Division by zero (D:\xampp\htdocs\splat\admin\protected\views\site\responsepage.php:178)
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): SiteController->renderFile()
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): SiteController->renderPartial()
+#2 D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php(944): SiteController->render()
+#3 unknown(0): SiteController->actionResponsepage()
+#4 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs()
+#5 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CInlineAction->runWithParamsInternal()
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): SiteController->runAction()
+#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): SiteController->filterAccessControl()
+#11 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): SiteController->runActionWithFilters()
+#14 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): SiteController->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#16 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#17 D:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/site/responsepage/7?u=553&c=Nw%3D%3D&i=MQ%3D%3D&f=Mg%3D%3D&g=2&p=7
+in D:\xampp\htdocs\splat\admin\protected\views\site\responsepage.php (178)
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (944)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 14:25:20 [error] [php] Division by zero (D:\xampp\htdocs\splat\admin\protected\views\site\responsepage.php:178)
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): SiteController->renderFile()
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): SiteController->renderPartial()
+#2 D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php(944): SiteController->render()
+#3 unknown(0): SiteController->actionResponsepage()
+#4 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs()
+#5 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CInlineAction->runWithParamsInternal()
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): SiteController->runAction()
+#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): SiteController->filterAccessControl()
+#11 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): SiteController->runActionWithFilters()
+#14 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): SiteController->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#16 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#17 D:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/site/responsepage/7?u=553&c=Nw%3D%3D&i=MQ%3D%3D&f=Mg%3D%3D&g=2&p=7
+in D:\xampp\htdocs\splat\admin\protected\views\site\responsepage.php (178)
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (944)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 14:25:20 [error] [php] Division by zero (D:\xampp\htdocs\splat\admin\protected\views\site\responsepage.php:178)
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): SiteController->renderFile()
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): SiteController->renderPartial()
+#2 D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php(944): SiteController->render()
+#3 unknown(0): SiteController->actionResponsepage()
+#4 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs()
+#5 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CInlineAction->runWithParamsInternal()
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): SiteController->runAction()
+#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): SiteController->filterAccessControl()
+#11 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): SiteController->runActionWithFilters()
+#14 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): SiteController->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#16 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#17 D:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/site/responsepage/7?u=553&c=Nw%3D%3D&i=MQ%3D%3D&f=Mg%3D%3D&g=2&p=7
+in D:\xampp\htdocs\splat\admin\protected\views\site\responsepage.php (178)
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (944)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 14:25:34 [error] [php] Division by zero (D:\xampp\htdocs\splat\admin\protected\views\site\responsepage.php:178)
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): SiteController->renderFile()
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): SiteController->renderPartial()
+#2 D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php(944): SiteController->render()
+#3 unknown(0): SiteController->actionResponsepage()
+#4 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs()
+#5 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CInlineAction->runWithParamsInternal()
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): SiteController->runAction()
+#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): SiteController->filterAccessControl()
+#11 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): SiteController->runActionWithFilters()
+#14 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): SiteController->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#16 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#17 D:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/site/responsepage/7?u=553&c=Nw%3D%3D&i=MQ%3D%3D&f=Mg%3D%3D&g=2&p=7
+in D:\xampp\htdocs\splat\admin\protected\views\site\responsepage.php (178)
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (944)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 14:31:26 [warning] [application] Failed to set unsafe attribute "q_type" of "Questions".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (645)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 14:31:52 [warning] [application] Failed to set unsafe attribute "q_type" of "Questions".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (645)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 14:32:08 [warning] [application] Failed to set unsafe attribute "q_type" of "Questions".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (645)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 14:32:37 [warning] [application] Failed to set unsafe attribute "q_type" of "Questions".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (645)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 15:31:41 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (607)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 15:32:08 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (607)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 15:35:04 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (608)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 15:36:15 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (608)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 15:45:29 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (608)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/14 16:45:28 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (608)
+in D:\xampp\htdocs\splat\admin\index.php (13)

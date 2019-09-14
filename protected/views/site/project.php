@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-<script src="https://www.solodev.com/_/assets/pagination/jquery.twbsPagination.js"></script>
+<!--<script src="https://www.solodev.com/_/assets/pagination/jquery.twbsPagination.js"></script>-->
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.twbsPagination.js"></script>
 <style>
     .staff
     {
@@ -79,183 +80,181 @@
     <div class="container-fluid user-assessment">
         <p><?php echo ucfirst($projects->name); ?></p>
     </div>
-</section>
-<div class="script-section col-lg-12 col-xs-12 col-sm-12">
-    <?php
-    $prj= Userdetails::model()->find("course=".$_GET['c']." and user_id=".Yii::app()->user->id);
-    if(count($prj)>0)
-        $groupusers = Userdetails::model()->with('user')->findAll('grp_id='.$prj->grp_id.' and user.status="active" and course='.$_GET['c']);
-    //echo "<pre>";print_r($groupusers);die;
 
-    $sqldcque="SELECT GROUP_CONCAT(question_id) as question
+    <div class="script-section col-lg-12 col-xs-12 col-sm-12">
+        <?php
+        $prj= Userdetails::model()->find("course=".$_GET['c']." and user_id=".Yii::app()->user->id);
+        if(count($prj)>0)
+            $groupusers = Userdetails::model()->with('user')->findAll('grp_id='.$prj->grp_id.' and user.status="active" and course='.$_GET['c']);
+
+
+        $sqldcque="SELECT GROUP_CONCAT(question_id) as question
     FROM `delete_custom_question` WHERE `course_id` =$projects->course";
-    $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
-    $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
+        $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
+        $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
 
-    // $questions=Questions::model()->findAll('institution='.$projects->institution.'
-    // and faculty='.$projects->faculty.'
-    // and course='.$projects->course.' and status="active" and id NOT IN ('.$ids.') ');
-    $questions=Questions::model()->findAll('course='.$_GET['c'].' and status="active" or type="default" and id NOT IN ('.$ids.')');
-    ?>
-    <div class="">
-        <ul class="nav nav-tabs script-tab text-center">
-            <li class="active"><a data-toggle="tab" href="#home" aria-expanded="true">Received</a></li>
-            <li class="blue-clr"><a data-toggle="tab" href="#menu1" aria-expanded="false">Sent</a></li>
-        </ul>
-        <div class="tab-content">
-            <div id="home" class="tab-pane fade in active">
-                <div class="bs-example" id="mycontent">
-                    <div class="panel-group" id="faqAccordion">
-                        <?php
-                        //echo "<pre>";print_r($groupusers);die;
-                        if(count($groupusers)>0):
-                            $u = 0;
-                            $chunkarray=array_chunk($groupusers,5);
-                            foreach($chunkarray as $ckey =>$cval) :
-                                foreach($cval  as $key=>$groupuser):
-                                    $u++;
-                                    $myclass=($groupuser->user_id==Yii::app()->user->id)?'mine':'others';
-                                    ?>
+        $questions=Questions::model()->findAll('course='.$_GET['c'].' and status="active" or type="default" and id NOT IN ('.$ids.')');
+        ?>
+        <div class="">
+            <ul class="nav nav-tabs script-tab text-center">
+                <li class="active"><a data-toggle="tab" href="#home" aria-expanded="true">Received</a></li>
+                <li class="blue-clr"><a data-toggle="tab" href="#menu1" aria-expanded="false">Sent</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="home" class="tab-pane fade in active">
+                    <div class="bs-example" id="mycontent">
+                        <div class="panel-group" id="faqAccordion">
+                            <?php
+                            //echo "<pre>";print_r($groupusers);die;
+                            if(count($groupusers)>0):
+                                $u = 0;
+                                $chunkarray=array_chunk($groupusers,5);
+                                foreach($chunkarray as $ckey =>$cval) :
+                                    foreach($cval  as $key=>$groupuser):
+                                        $u++;
+                                        $myclass=($groupuser->user_id==Yii::app()->user->id)?'mine':'others';
+                                        ?>
 
-                                    <div class="panel panel-default <?=$myclass?> page page_<?=$ckey+1?> " style="margin-bottom:5px !important;">
-                                        <div class="panel-heading accordion-toggle question-toggle"
-                                             data-toggle="collapse" data-parent="#faqAccordion"
-                                             data-target="#question_<?php echo $groupuser->id;?>" >
-                                            <h4 class="panel-title">
-                                                <a href="#" class="ing">
-                                                    <?php
-                                                    if($groupuser->user_id==Yii::app()->user->id)
-                                                    {
-                                                        echo 'Self Assessment';
-                                                    }
-                                                    else
-                                                    {
-                                                        if($projects->course0->anonymous ==1)
+                                        <div class="panel panel-default <?=$myclass?> page page_<?=$ckey+1?> " style="margin-bottom:5px !important;">
+                                            <div class="panel-heading accordion-toggle question-toggle"
+                                                 data-toggle="collapse" data-parent="#faqAccordion"
+                                                 data-target="#question_<?php echo $groupuser->id;?>" >
+                                                <h4 class="panel-title">
+                                                    <a href="#" class="ing">
+                                                        <?php
+                                                        if($groupuser->user_id==Yii::app()->user->id)
                                                         {
-                                                            echo "From anonymous user";
+                                                            echo 'Self Assessment';
                                                         }
-                                                        else{
-                                                            echo "From ".$groupuser->user->first_name." ".$groupuser->user->last_name;
+                                                        else
+                                                        {
+                                                            if($projects->course0->anonymous ==1)
+                                                            {
+                                                                echo "From anonymous user";
+                                                            }
+                                                            else{
+                                                                echo "From ".$groupuser->user->first_name." ".$groupuser->user->last_name;
+                                                            }
                                                         }
-                                                    }
-                                                    ?>
+                                                        ?>
 
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="question_<?php echo $groupuser->id;?>" class="panel-collapse collapse"
-                                             style="height: 0px;">
-                                            <div class="panel-body">
-                                                <div class="script-texts">
-                                                    <?php
-                                                    $iquestions = Questions::model()->findAll('course='.$projects->course);
-                                                    $i=0;
-                                                    foreach($questions as $iquestion):
-                                                        $i++;
-                                                        $iassess = Assess::model()->find('project='.$projects->id.' 
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="question_<?php echo $groupuser->id;?>" class="panel-collapse collapse"
+                                                 style="height: 0px;">
+                                                <div class="panel-body">
+                                                    <div class="script-texts">
+                                                        <?php
+                                                        $iquestions = Questions::model()->findAll('course='.$projects->course);
+                                                        $i=0;
+                                                        foreach($questions as $iquestion):
+                                                            $i++;
+                                                            $iassess = Assess::model()->find('project='.$projects->id.' 
                                                 and from_user='.$groupuser->user_id.' 
                                                 and to_user='.Yii::app()->user->id.' and question='.$iquestion->id);
+                                                            ?>
+                                                            <p class="m-t-10"><?php echo $i;?>. <?php echo $iquestion->question;?> : <b><?php if(count($iassess)>0) echo $iassess->value; else echo '-'; ?></b></p>
+                                                        <?php
+                                                        endforeach;
                                                         ?>
-                                                        <p class="m-t-10"><?php echo $i;?>. <?php echo $iquestion->question;?> : <b><?php if(count($iassess)>0) echo $iassess->value; else echo '-'; ?></b></p>
-                                                    <?php
-                                                    endforeach;
-                                                    ?>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+                                    <?php endforeach;
+                                endforeach;
+                            else: ?>
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <p>No assessment yet.</p>
+                                        </h4>
                                     </div>
-                                <?php endforeach;
-                            endforeach;
-                        else: ?>
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <p>No assessment yet.</p>
-                                    </h4>
                                 </div>
-                            </div>
-                        <?php endif; ?>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="menu1" class="tab-pane fade">
-                <div class="bs-example" id="mycontentsent">
-                    <div class="panel-group" id="faqAccordionsent">
-                        <?php
-                        if(count($groupusers)>0):
-                            $u = 0;
-                            $chunkarray=array_chunk($groupusers,5);
-                            foreach($chunkarray as $ckey =>$cval) :
-                                foreach($cval  as $key=>$groupuser):
-                                    $u++;
-                                    $myclass=($groupuser->user_id==Yii::app()->user->id)?'mine1':'others1 ';
-                                    ?>
+                <div id="menu1" class="tab-pane fade">
+                    <div class="bs-example" id="mycontentsent">
+                        <div class="panel-group" id="faqAccordionsent">
+                            <?php
+                            if(count($groupusers)>0):
+                                $u = 0;
+                                $chunkarray=array_chunk($groupusers,5);
+                                foreach($chunkarray as $ckey =>$cval) :
+                                    foreach($cval  as $key=>$groupuser):
+                                        $u++;
+                                        $myclass=($groupuser->user_id==Yii::app()->user->id)?'mine1':'others1 ';
+                                        ?>
 
-                                    <div class="panel panel-default <?=$myclass?> page page_<?=$ckey+1?> " style="margin-bottom:5px !important;">
-                                        <div class="panel-heading accordion-toggle question-toggle"
-                                             data-toggle="collapse" data-parent="#faqAccordionsent"
-                                             data-target="#sentquestion_<?php echo $groupuser->id;?>" >
-                                            <h4 class="panel-title">
-                                                <a href="#" class="ing">
-                                                    <?php
-                                                    if($groupuser->user_id==Yii::app()->user->id)
-                                                    {
-                                                        echo 'Self Assessment';
-                                                    }
-
-                                                    else
-                                                    {
-                                                        if($projects->course0->anonymous ==1)
+                                        <div class="panel panel-default <?=$myclass?> page page_<?=$ckey+1?> " style="margin-bottom:5px !important;">
+                                            <div class="panel-heading accordion-toggle question-toggle"
+                                                 data-toggle="collapse" data-parent="#faqAccordionsent"
+                                                 data-target="#sentquestion_<?php echo $groupuser->id;?>" >
+                                                <h4 class="panel-title">
+                                                    <a href="#" class="ing">
+                                                        <?php
+                                                        if($groupuser->user_id==Yii::app()->user->id)
                                                         {
-                                                            echo "From anonymous user";
+                                                            echo 'Self Assessment';
                                                         }
-                                                        else{
-                                                            echo $groupuser->user->first_name;
-                                                        }
-                                                    }
-                                                    ?>
 
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="sentquestion_<?php echo $groupuser->id;?>" class="panel-collapse collapse"
-                                             style="height: 0px;">
-                                            <div class="panel-body">
-                                                <div class="script-texts">
-                                                    <?php
-                                                    $iquestions = Questions::model()->findAll('course='.$projects->course);
-                                                    $i=0;
-                                                    foreach($questions as $iquestion):
-                                                        $i++;
-                                                        $iassess = Assess::model()->find('project='.$projects->id.' 
+                                                        else
+                                                        {
+                                                            if($projects->course0->anonymous ==1)
+                                                            {
+                                                                echo "From anonymous user";
+                                                            }
+                                                            else{
+                                                                echo $groupuser->user->first_name;
+                                                            }
+                                                        }
+                                                        ?>
+
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="sentquestion_<?php echo $groupuser->id;?>" class="panel-collapse collapse"
+                                                 style="height: 0px;">
+                                                <div class="panel-body">
+                                                    <div class="script-texts">
+                                                        <?php
+                                                        $iquestions = Questions::model()->findAll('course='.$projects->course);
+                                                        $i=0;
+                                                        foreach($questions as $iquestion):
+                                                            $i++;
+                                                            $iassess = Assess::model()->find('project='.$projects->id.' 
                                                 and from_user='.Yii::app()->user->id.' 
                                                 and to_user='.$groupuser->user_id.' and question='.$iquestion->id);
+                                                            ?>
+                                                            <p class="m-t-10"><?php echo $i;?>. <?php echo $iquestion->question;?> : <b><?php if(count($iassess)>0) echo $iassess->value; else echo '-'; ?></b></p>
+                                                        <?php
+                                                        endforeach;
                                                         ?>
-                                                        <p class="m-t-10"><?php echo $i;?>. <?php echo $iquestion->question;?> : <b><?php if(count($iassess)>0) echo $iassess->value; else echo '-'; ?></b></p>
-                                                    <?php
-                                                    endforeach;
-                                                    ?>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+                                    <?php endforeach;
+                                endforeach;
+                            else: ?>
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <p>No assessment yet.</p>
+                                        </h4>
                                     </div>
-                                <?php endforeach;
-                            endforeach;
-                        else: ?>
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <p>No assessment yet.</p>
-                                    </h4>
                                 </div>
-                            </div>
-                        <?php endif; ?>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div></div>
-
+    </div>
+</section>
 <?php $totalcount=count($chunkarray);?>
 <script src="https://www.solodev.com/_/assets/pagination/jquery.twbsPagination.js"></script>
 <script type="text/javascript">

@@ -16,6 +16,15 @@
     {
         color:grey;
     }
+    .panel-group .panel
+    {
+        padding:4px;
+        border-radius: 2px solid grey;
+    }
+
+    div[class~='.script-text']:last-of-type{
+        border-bottom: none !important;
+    }
 </style>
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jqueryui/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/js/jqueryui/jquery-ui.min.css">
@@ -46,10 +55,10 @@
                             <?php
                             $i=0;
                             if(count($model)>0):
-                                foreach($model as $models):
+                                foreach($model as $key=>$models):
                                     $i++;
                                     ?>
-                                    <div class="script-text" id="row_<?php echo $models->id ?>">
+                                    <div class="script-text courseofclass" style="<?=(count($model) ==($key+1))?"border-bottom:none !important":""?>" id="row_<?php echo $models->id ?>">
                                         <h1>
                                             <a data-course="<?=$models->id?>" href="<?php echo Yii::app()->createUrl('users/cadmin',array('i'=>$_GET['i'],
                                                 'f'=>$_GET['f'], 'c'=>trim(base64_encode($models->id)))); ?>"
@@ -193,7 +202,7 @@
                                 foreach($imodel as $models):
                                     $i++;
                                     ?>
-                                    <div class="script-text" id="row_<?php echo $models->id ?>">
+                                    <div class="script-text" style="<?=(count($imodel) ==($key+1) && !empty($imodel))?"border-bottom:none !important":"border-bottom:none !important"?>" id="row_<?php echo $models->id ?>">
                                         <h1><a href="<?php echo Yii::app()->createUrl('site/courseItems',array('i'=>$_GET['i'],'f'=>$_GET['f'], 'c'=>base64_encode($models->id))); ?>" class="item_link"><?php echo $i; ?>.<?php echo ucwords ($models->course_type." ".$models->name); ?></a>
                                             <?php  //if(Yii::app()->user->getState('role')=='Superuser') { ?>
                                             <span class="pull-right">

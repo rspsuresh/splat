@@ -508,14 +508,16 @@ class GroupusersController extends Controller
             $date=!empty($sumresult[0]['submitted_at'])?$sumresult[0]['submitted_at']:date("Y-m-d H:i:s");
             $differncesql="select timediff('$project->assess_date','$date') as diff";
             $executequery=Yii::app()->db->Createcommand($differncesql)->queryRow();
+            print_r($executequery);
             $sign=(stristr($executequery['diff'],'-')==$executequery['diff'])?"Yes":"No";
             $test.='<td>'.$sign.'</td>';
             $test.='<td>#</td>';
             $html.="<tr>".$test."</tr>";
             $test="";
         }
+        die;
         $html.='</table>';
-       echo $html;die;
+     //  echo $html;die;
     }
     public function actiongroupasses($id)
     {
@@ -661,7 +663,8 @@ class GroupusersController extends Controller
             ));
             foreach($usermodel as $val)
             {
-                $to =trim($val->user->email);
+                //$to =trim($val->user->email);
+                $to ='suresh@businessgateways.com';
                 $firstname=$val->user->first_name;
                 $lastname=$val->user->lastname;
                 $password=$val->user->password;
@@ -679,7 +682,7 @@ class GroupusersController extends Controller
 				Password: '.$password;
 
                 $message.='<br><p>Kind regards</p><br><b>Splat Team</b>';
-                //mail($to,$subject,$message,$headers);
+                mail($to,$subject,$message,$headers);
             }
         }
 

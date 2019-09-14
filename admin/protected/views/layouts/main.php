@@ -83,19 +83,19 @@
                 <?php   }
                 else if(Yii::app()->user->getState('role')=='Faculty')
                 { ?>
+                <a href="<?php echo Yii::app()->createUrl("site/faculties?i=$insbs64")?>">
+                    <img  style="height:50px;" src="<?php echo Yii::app()->request->baseUrl; ?>/images/SPLAT-logo.gif">
+                    <?php }
+                    else if(Yii::app()->user->getState('role')=='Admin')
+                    { ?>
                     <a href="<?php echo Yii::app()->createUrl("site/faculties?i=$insbs64")?>">
                         <img  style="height:50px;" src="<?php echo Yii::app()->request->baseUrl; ?>/images/SPLAT-logo.gif">
-                <?php }
-                else if(Yii::app()->user->getState('role')=='Admin')
-                { ?>
-                    <a href="<?php echo Yii::app()->createUrl("site/faculties?i=$insbs64")?>">
-                        <img  style="height:50px;" src="<?php echo Yii::app()->request->baseUrl; ?>/images/SPLAT-logo.gif">
-                <?php }
-                else if(Yii::app()->user->getState('role')=='Staff')
-                { ?>
-                    <a href="<?php echo Yii::app()->createUrl("site/faculties?i=$insbs64&f=$facbs64")?>">
-                        <img  style="height:50px;" src="<?php echo Yii::app()->request->baseUrl; ?>/images/SPLAT-logo.gif">
-                <?php  } ?>
+                        <?php }
+                        else if(Yii::app()->user->getState('role')=='Staff')
+                        { ?>
+                        <a href="<?php echo Yii::app()->createUrl("site/faculties?i=$insbs64&f=$facbs64")?>">
+                            <img  style="height:50px;" src="<?php echo Yii::app()->request->baseUrl; ?>/images/SPLAT-logo.gif">
+                            <?php  } ?>
             </div>
             <div class="col-lg-6 col-xs-12 col-sm-6 padzero text-center">
             </div>

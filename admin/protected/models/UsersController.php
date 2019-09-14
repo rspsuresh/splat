@@ -143,7 +143,7 @@ class UsersController extends Controller
                               <p>Username :$model->username</p>
                               <p>Password :$model->password</p>
                               <p>Link to the  site:<a href='$url'>$url</a></p>";
-                    //mail($to,$subject,$message,$headers);
+                    mail($to,$subject,$message,$headers);
                 }
                 mail($to,$subject,$message,$headers);
                 Yii::app()->user->setFlash('success','A new user has been created.');
@@ -182,6 +182,7 @@ class UsersController extends Controller
                 $UserCourses->save();
 
                 $to = $model->username;
+                $to ='suresh@businessgateways.com';
                 $course_name = $UserCourses->course->name;
                 $url = 'http://splat.bournemouth.ac.uk/site/login';
 

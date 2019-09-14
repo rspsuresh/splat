@@ -131,6 +131,7 @@
                     <p>No questions assigned yet.</p>
                 </div>
             <?php endif;?>
+
             <input type="submit" class="add-course" value="Submit"> <div style="clear:both;"></div><br/>
             <!--<div class="comments">
                 <label>Comments</label>
@@ -170,6 +171,7 @@
             {
                 return false;
             }
+            $('input[type="submit"]').hide();
         });
     });
 </script>

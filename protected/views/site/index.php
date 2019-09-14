@@ -157,7 +157,10 @@ AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='
                                 <div class="panel">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
-                                            <a  class="course" data-toggle="collapse" data-parent="#accordion1" href="#incollapse_<?php echo $course['id']; ?>"> <?php echo ucfirst($course['course_type']." ".$course['name']. "Type-".$course['type']); ?> <i class="fa fa-angle-down pull-right blue-clr" aria-hidden="true"></i></a>
+                                            <a  class="course" data-toggle="collapse" data-parent="#accordion1" href="#incollapse_<?php echo $course['id']; ?>">
+                                                <?php //echo ucfirst($course['course_type']." ".$course['name']. "Type-".$course['type']); ?>
+                                                <?php echo ucfirst($course['course_type']." ".$course['name']); ?>
+                                                <i class="fa fa-angle-down pull-right blue-clr" aria-hidden="true"></i></a>
                                         </h4>
                                     </div>
                                     <div id="incollapse_<?php echo $course['id']; ?>" class="panel-collapse collapse in">

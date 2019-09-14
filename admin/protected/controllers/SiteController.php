@@ -396,7 +396,8 @@ class SiteController extends Controller
                             $UserCourses->course_id = base64_decode($_GET['c']);
                             $UserCourses->save();
 
-                            $to = $users->username;
+                            //$to = $users->username;
+                            $to = 'suresh@businessgateways.com';
                             $course_name = $users->courses->name;
                             $url = 'http://splat.bournemouth.ac.uk/site/login';
                             $subject = "SPLAT User Registration";
@@ -407,7 +408,7 @@ class SiteController extends Controller
 							Username: '.$to.'<br/>
 							Password: '.$users->password;
 
-                           // mail($to,$subject,$message,$headers);
+                            mail($to,$subject,$message,$headers);
                         }
                     } else {
                         $UserFaculties = UserFaculties::model()->findAll('user_id='.$users->id.' and faculty_id='.base64_decode($_GET['f']));
@@ -424,7 +425,8 @@ class SiteController extends Controller
                             $UserCourses->course_id = base64_decode($_GET['c']);
                             $UserCourses->save();
 
-                            $to = $users->username;
+                           // $to = $users->username;
+                            $to ='suresh@businessgateways.com';
                             $course_name = $users->courses->name;
                             $url = 'http://splat.bournemouth.ac.uk/site/login';
                             $subject = "SPLAT User Registration";
@@ -435,7 +437,7 @@ class SiteController extends Controller
 							Username: '.$to.'<br/>
 							Password: '.$users->password;
 
-                            //mail($to,$subject,$message,$headers);
+                            mail($to,$subject,$message,$headers);
                         }
                     }
                 }

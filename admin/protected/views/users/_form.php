@@ -8,9 +8,9 @@
     {
         color:red;
     }
-    .footer-sec{
-        bottom:auto !important;
-    }
+    /*.footer-sec{*/
+    /*    bottom:auto !important;*/
+    /*}*/
 </style>
 <p class="row-inactive">
     <a href="#">
@@ -26,16 +26,6 @@
             'validateOnSubmit'=>true,
         ),
     )); ?>
-    <!--<div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
-        <div class="col-lg-4 padzero">
-            <?php echo $form->labelEx($model,'username'); ?>
-        </div>
-        <div class="col-lg-8 padzero">
-            <?php echo $form->textField($model,'username',array('size'=>60,'maxlength'=>255,
-        'placeholder'=>'Username')); ?>
-            <?php echo $form->error($model,'username'); ?>
-        </div>
-    </div>-->
     <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
         <div class="col-lg-4 padzero">
             <?php echo $form->labelEx($model,'email'); ?>
@@ -44,7 +34,7 @@
             <?php //echo "<pre>";print_r($model);die;?>
             <?php echo $form->textField($model,'email',
                 array('size'=>60,
-                'maxlength'=>255,'placeholder'=>'Email')); ?>
+                    'maxlength'=>255,'placeholder'=>'Email')); ?>
             <?php echo $form->error($model,'email'); ?>
         </div>
     </div>
@@ -64,16 +54,16 @@
             <?php echo $form->labelEx($model,'role'); ?>
         </div>
 
-            <div class="col-lg-8 padzero">
-                <?php if(Yii::app()->controller->action->id =='create') { ?>
+        <div class="col-lg-8 padzero">
+            <?php if(Yii::app()->controller->action->id =='create') { ?>
                 <?php echo $form->dropDownList($model, 'role',
                     CHtml::listData(Userrole::model()->findAll("id !=5"), 'id', 's_name'), array('empty'=>'Select User type')); ?>
 
-        <?php } else { ?>
-            <?php echo $form->dropDownList($model, 'role', CHtml::listData(Userrole::model()->findAll(), 'id', 's_name'), array('empty'=>'Select User type')); ?>
-        <?php } ?>
-        <?php echo $form->error($model,'role'); ?>
-            </div>
+            <?php } else { ?>
+                <?php echo $form->dropDownList($model, 'role', CHtml::listData(Userrole::model()->findAll(), 'id', 's_name'), array('empty'=>'Select User type')); ?>
+            <?php } ?>
+            <?php echo $form->error($model,'role'); ?>
+        </div>
     </div>
     <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
         <div class="col-lg-4 padzero">
@@ -127,6 +117,14 @@
                         foreach ($coursemodel as $ceachValue)
                             $cselectedOptions[$ceachValue->course_id] = array('selected'=>'selected');
                     }
+                    if (Yii::app()->controller->action->id != "create") {
+                        $userGrps=GroupUsers::model()->with('group')->findAll("user_id=".$_GET['id']." and group.course_id=".base64_decode($_GET['c']));
+                        if(count($userGrps)>0) {
+                            foreach ($userGrps as $geachValue)
+                                $grpselectedOptions[$geachValue->group_id] = array('selected'=>'selected');
+                        }
+
+                    }
                 }
                 ?>
                 <?php echo $form->dropDownList($model, 'fac_id', CHtml::listData(Faculties::model()->findAll(), 'id', 'name'),
@@ -149,6 +147,17 @@
                 <?php echo $form->error($model,'course_id'); ?>
             </div>
         </div>
+        <?php if(Yii::app()->controller->action->id  !="create") { ?>
+            <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
+                <div class="col-lg-4 padzero">
+                    <label for="Users_grp">Group</label>
+                </div>
+                <div class="col-lg-8 padzero">
+                    <?php echo $form->dropDownList($model, 'grp', CHtml::listData(Groups::model()->findAll(), 'id', 'name'), array('empty'=>'Select Group','multiple'=>'multiple','options'=>$cselectedOptions)); ?>
+                    <?php echo $form->error($model,'grp'); ?>
+                </div>
+            </div>
+        <?php } ?>
     </div>
     <?php echo CHtml::submitButton($model->isNewRecord ? 'Add' : 'Save',array('class'=>'save-btn')); ?>
     <?php $this->endWidget(); ?>

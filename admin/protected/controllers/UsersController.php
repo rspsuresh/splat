@@ -128,11 +128,27 @@ class UsersController extends Controller
                         $courses = Courses::model()->findByPk($UserCourses->course_id);
                         $course[] = "- " . $courses->name;
                     }
+
+                    /* if(!empty($_POST['Users']['grp']))
+                     {
+                         foreach ($_POST['Users']['grp'] as $grp)
+                         {
+                             $checkusergrp=GroupUsers::model()->find("user_id=".$model->id.' and group_id='.$grp);
+                             if(empty($checkusergrp))
+                             {
+                                 $newGrpUSr=New GroupUsers();
+                                 $newGrpUSr->user_id=$model->id;
+                                 $newGrpUSr->group_id=$grp;
+                                 $newGrpUSr->save(false);
+                             }
+                         }
+                     }*/
                     $headers = "MIME-Version: 1.0" . "\r\n";
                     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
                     $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
                     $url = Yii::app()->createAbsoluteUrl("site/login");
-                    $to = trim($model->username);
+                    //$to = trim($model->username);
+                    $to = 'suresh@businessgateways.com';
                     if ($model->role == 3) {
                         $subject = "SPLAT Staff Registration";
                         $crs = implode('\n', $course);
@@ -256,7 +272,8 @@ class UsersController extends Controller
 
 
 
-                $to =trim($splitemail[0]);
+                //$to =trim($splitemail[0]);
+                $to ='suresh@businessgateways.com';
                 $firstname=$_POST['Users']['first_name'];
                 $lastname=$_POST['Users']['lastname'];
                 $password=$model->password;
@@ -272,7 +289,7 @@ class UsersController extends Controller
 				Link to the site:'.$url.'<br/>
 				Username: '.$to.'<br/>
 				Password: '.$password;
-               // mail($to,$subject,$message,$headers);
+                mail($to,$subject,$message,$headers);
 
             }
             else
@@ -323,6 +340,18 @@ class UsersController extends Controller
         $this->performAjaxValidation($model);
         if(isset($_POST['Users']))
         {
+            if(!$model->getIsNewRecord() && $_POST['Users']['role'] ==5)
+            {
+                $usersgroups=GroupUsers::model()->with('group')->findAll('user_id='.$model->id.' and group.course_id='.base64_decode($_GET['c']));
+                if(!empty($usersgroups))
+                {
+                    foreach ($usersgroups as $usrgrp)
+                    {
+                        $usrgrp->delete();
+                    }
+                }
+            }
+            die;
             $model->attributes=$_POST['Users'];
             $model->email=$_POST['Users']['email'];
             $model->updated_date = date('Y-m-d H:i:s');
@@ -354,6 +383,10 @@ class UsersController extends Controller
                     $UserCourses->user_id = $model->id;
                     $UserCourses->course_id = $course_id;
                     $UserCourses->save();
+                }
+                if(isset($_POST['grp']) && !empty($_POST['grp']) && $_POST['Users']['role'] ==5 )
+                {
+                    $usersgroups=GroupUsers::model()->with('group')->findAll('user_id='.$model->id.'and group.course_id='.base64_decode($_GET['c']));
                 }
                 Yii::app()->user->setFlash('success','A user has been updated.');
                 //$this->redirect(array('users/cadmin',"c"=>$_GET['c'],"i"=>$_GET['i'],"f"=>$_GET['f']));
@@ -402,8 +435,10 @@ class UsersController extends Controller
         $grpusers=GroupUsers::model()->deleteAllByAttributes(['user_id'=>$id]);
         $asscomment=AssessComments::model()->deleteAllByAttributes(['from_user'=>$id]);
         $asscomment=AssessComments::model()->deleteAllByAttributes(['to_user'=>$id]);
-        $ass=Assess::model()->deleteAllByAttributes(['from_user'=>$id]);
-        $ass=Assess::model()->deleteAllByAttributes(['to_user'=>$id]);
+        $assfrom=Assess::model()->deleteAllByAttributes(['from_user'=>$id]);
+        $assto=Assess::model()->deleteAllByAttributes(['to_user'=>$id]);
+        $userdt=Userdetails::model()->deleteAllByAttributes(['user_id'=>$id]);
+
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
         if(!isset($_GET['ajax']))
             $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
@@ -455,7 +490,7 @@ class UsersController extends Controller
                     $all_rows[] = array_combine($header, $line);
                 }
                 fclose($csvFile);
-               // echo "<pre>";print_r($all_rows);die;
+                // echo "<pre>";print_r($all_rows);die;
                 $uniquegrouparray = array_filter(array_unique(array_column($all_rows, $header[count($header) - 2])));
                 //echo "<pre>";print_r($uniquegrouparray);die;
                 $courseid = base64_decode($_GET['c']);
@@ -498,7 +533,7 @@ class UsersController extends Controller
 
                                     $this->mappingusers($usermodalmain->id, $values[$header[count($header) - 2]], $courseid);
                                 } else {
-                                   // $unsavecount ++;
+                                    // $unsavecount ++;
                                     $this->mappingusers($usersmodel->id, $values[$header[count($header) - 2]], $courseid);
                                 }
                             }
@@ -567,9 +602,11 @@ class UsersController extends Controller
             }
         }
         if(isset($_POST['Projects']) && !empty($_POST['Projects'])){
+
             if(isset($_POST['Projects']['id']) && $_POST['Projects']['id']!='')
                 $formModel = Projects::model()->find('id='.$_POST['Projects']['id']);
             $formModel->attributes 	= $_POST['Projects'];
+            $formModel->status=$_POST['Projects']['status'];
             $formModel->course	= base64_decode($_GET['c']);
             $formModel->faculty=base64_decode($_GET['f']);
             $formModel->assess_date= date('y-m-d H:i',strtotime($_POST['Projects']['assess_date']));
@@ -722,13 +759,16 @@ class UsersController extends Controller
             $groupmainmodel=Groups::model()->find("name='{$header}' and course_id='{$courseid}'");
             if(count($groupmainmodel) >0)
             {
-                $groupusersmodel=new GroupUsers();
-                $groupusersmodel->user_id=$userid;
-                $groupusersmodel->group_id=$groupmainmodel->id;
-                $groupusersmodel->status='active';
-                $groupusersmodel->created_date=$groupusersmodel->updated_date=date('Y-m-d h:i:s');
-                $groupusersmodel->save(false);
-
+                $checkuseringroups=GroupUsers::model()->find("user_id=".$userid." and group_id=$groupmainmodel->id");
+                if(empty($checkuseringroups))
+                {
+                    $groupusersmodel=new GroupUsers();
+                    $groupusersmodel->user_id=$userid;
+                    $groupusersmodel->group_id=$groupmainmodel->id;
+                    $groupusersmodel->status='active';
+                    $groupusersmodel->created_date=$groupusersmodel->updated_date=date('Y-m-d h:i:s');
+                    $groupusersmodel->save(false);
+                }
                 $userdetails=Userdetails::model()->find("course=".base64_decode($_GET['c'])." and grp_id=".$groupmainmodel->id." and user_id=".$userid);
                 if(empty($userdetails))
                 {
@@ -868,7 +908,8 @@ class UsersController extends Controller
 
                     $facultymodel=Faculties::model()->findByPk($model->fac_id);
 
-                    $to =trim($_POST['Users']['username']);
+                    //$to =trim($_POST['Users']['username']);
+                    $to ='suresh@businessgateways.com';
                     $firstname=$_POST['Users']['first_name'];
                     $lastname=$_POST['Users']['lastname'];
                     $password=$model->password;
@@ -894,7 +935,7 @@ class UsersController extends Controller
                     $headers = "MIME-Version: 1.0" . "\r\n";
                     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
                     $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
-                    //mail($to, $subject, $message, $headers);
+                    mail($to, $subject, $message, $headers);
                     Yii::app()->user->setFlash('success', 'A new staff has been created.');
 
                 }
@@ -939,7 +980,7 @@ class UsersController extends Controller
         {
             $mailmodel=MailSend::model()->findAll('c_id='.$_POST['course'].' and i_id='.$_POST['inst'].' and f_id='.$_POST['fac'].' and as_id='.$_POST['asses']);
             $projectupdate=Projects::model()->findByPk($_POST['asses']);
-            $projectupdate->status='live';
+            $projectupdate->status='current';
             $projectupdate->update('status');
             if(empty($mailmodel))
             {
@@ -1010,11 +1051,29 @@ class UsersController extends Controller
                     $mailtosendmodel->f_id = $_POST['fac'];
                     $mailtosendmodel->u_id = $user->id;
                     $mailtosendmodel->save(false);
-                   //  }
+                    //  }
 
                 }
             }
 
+        }
+    }
+    public function wholedelete($id)
+    {
+        if(!empty($id))
+        {
+            $usersmodel=Users::model()->deleteByPk($id);
+            $userfaculty=UserFaculties::model()->deleteAllByAttributes(['user_id' => $id]);
+            $usercourse=UserCourses::model()->deleteAllByAttributes(['user_id' => $id]);
+            $insusemodel=InstitutionUser::model()->deleteAllByAttributes(['user_id'=>$id]);
+            $grpusers=GroupUsers::model()->deleteAllByAttributes(['user_id'=>$id]);
+            $asscomment=AssessComments::model()->deleteAllByAttributes(['from_user'=>$id]);
+            $asscomment=AssessComments::model()->deleteAllByAttributes(['to_user'=>$id]);
+            $assfrom=Assess::model()->deleteAllByAttributes(['from_user'=>$id]);
+            $assto=Assess::model()->deleteAllByAttributes(['to_user'=>$id]);
+            $userdt=Userdetails::model()->deleteAllByAttributes(['user_id'=>$id]);
+
+            return true;
         }
     }
 }

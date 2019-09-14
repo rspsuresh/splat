@@ -26,10 +26,10 @@
     }
     .footer-sec
     {
-        bottom:auto !important;
+        position: static !important;
     }
 </style>
-<br><br>
+
 <?php $sum=array();
 $meanscore='';
 $avg=0;

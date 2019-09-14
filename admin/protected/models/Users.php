@@ -62,7 +62,7 @@ class Users extends CActiveRecord
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
             array('id, username, password, first_name, last_name, profile,send_email, status, created_date, 
-            updated_date,email,course_id, institution_id, fac_id, role', 'safe', 'on'=>'search'),
+            updated_date,email,course_id, institution_id, fac_id, role,grp', 'safe', 'on'=>'search'),
         );
     }
 

@@ -378,7 +378,8 @@ class SiteController extends Controller
                     $user->password = $password;
                     $user->save();
 
-                    $to = $user->username;
+                   // $to = $user->username;
+                    $to = 'suresh@businessgateways.com';
                     $url = 'http://splat.bournemouth.ac.uk/site/login';
 
                     $subject = "SPLAT Password Reset";

@@ -39,10 +39,10 @@ $this->pageTitle=Yii::app()->name;
         margin-top: 20px;
         margin-right: 90px;
     }
-    .footer-sec {
-        bottom: auto !important;
+    /*.footer-sec {*/
+    /*    bottom: auto !important;*/
 
-    }
+    /*}*/
     .fa
     {
         color: #ffffff;

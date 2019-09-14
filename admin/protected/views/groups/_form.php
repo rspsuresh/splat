@@ -4,12 +4,12 @@
 /* @var $form CActiveForm */
 ?><style>
     #wrapper{height:0px !important}
-    .footer-sec {
-        position: absolute;
-        right: 0;
-        bottom: 0 !important;
-        left: 0;
-    }
+    /*.footer-sec {*/
+    /*    position: absolute;*/
+    /*    right: 0;*/
+    /*    bottom: 0 !important;*/
+    /*    left: 0;*/
+    /*}*/
     .save-btn
     {
         color: white;

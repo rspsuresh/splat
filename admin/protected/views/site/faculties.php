@@ -81,9 +81,9 @@
     {
         padding:5px;
     }
-    .footer-sec{
-        bottom:auto !important;
-    }
+    /*.footer-sec{*/
+    /*    bottom:auto !important;*/
+    /*}*/
 </style>
 <section id="wrapper" >
     <?php  if(Yii::app()->user->getState('role')=='Staff') { ?>

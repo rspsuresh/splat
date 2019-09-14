@@ -7,9 +7,9 @@
     {
         font-size: 14px !important;
     }
-    .footer-sec{
-        bottom:auto !important;
-    }
+    /*.footer-sec{*/
+    /*    bottom:auto !important;*/
+    /*}*/
 </style>
 <?php
 Yii::app()->clientScript->registerScript('search', "
@@ -112,6 +112,7 @@ $('.search-form form').submit(function(){
                 ),
                 array(
                     'class'=>'CButtonColumn',
+                    'template'=>'{delete}',
                 ),
             ),
         )); ?>

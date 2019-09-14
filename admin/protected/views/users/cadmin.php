@@ -17,9 +17,9 @@ $('.search-form form').submit(function(){
 	border-bottom:2px solid #00B9CF;
 	color:#00B9CF !important;
 }
-    .footer-sec{
-        bottom:auto !important;
-    }
+    /*.footer-sec{*/
+    /*    bottom:auto !important;*/
+    /*}*/
     i.fa.fa-youtube-play {
         color: #e52d27 !important;
     }

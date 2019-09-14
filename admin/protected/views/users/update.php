@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="container-fluid user-assessment">
-        <p>Update Users #<?php echo $model->id; ?></p>
+        <p>Update User - <?php echo $model->username; ?></p>
     </div>
     <div class="container">
         <br/><?php $this->renderPartial('_form', array('model'=>$model)); ?>
