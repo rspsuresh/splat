@@ -98,9 +98,6 @@ $project=Projects::model()->findByPk($_GET['id']);
             <div class="col-lg-10">
                 <h3><?=$project->name?></h3>
             </div>
-            <!-- <div class="col-lg-1">
-                 <button class="btn btn-info align" onclick="goBack()">Download Report</button>
-             </div>-->
             <div class="col-lg-1">
                 <button class="btn btn-primary align" onclick="goBack()">Back</button>
             </div>
@@ -122,6 +119,7 @@ $project=Projects::model()->findByPk($_GET['id']);
                     $questions=Questions::model()->findAll('faculty='.base64_decode($_GET['f']).' and q_type="R"
                          and course='.base64_decode($_GET['c']).' and status="active" or type="default" and id NOT IN ('.$ids.') ');
                     $dividedcount=count($questions);
+
                     $chunkarray=array_chunk($grp,10);
                     foreach($chunkarray as $ckey =>$cval) {
                         foreach($cval as $val) {
@@ -163,8 +161,8 @@ $project=Projects::model()->findByPk($_GET['id']);
                                                 $meansqlind="SELECT (sum(value)/$dividedcount) as mean FROM assess inner join projects on projects.id=assess.project and projects.status !='inactive' WHERE assess.project ={$_GET['p']} AND assess.grp_id ={$val->id} and assess.to_user={$gval->user->id} group by assess.to_user ORDER BY assess.id  DESC";
                                                 //echo $meansqlind."<br>";
                                                 $meansocreind=Yii::app()->db->Createcommand($meansqlind)->QueryAll();
-                                                $sqlusercountexact="SELECT count(distinct from_user) as noofuser FROM `assess`
- WHERE `to_user` ={$gval->user->id} and `project`={$_GET['p']}";
+                                                $sqlusercountexact="SELECT count(distinct from_user) as noofuser
+                                                FROM `assess` WHERE `to_user` ={$gval->user->id} and `project`={$_GET['p']}";
                                                 $noofuserexact=Yii::app()->db->Createcommand($sqlusercountexact)->queryRow();
                                                 //echo "<pre>";print_r($noofuserexact);
                                                 $scoremeanind=(!empty($meansocreind[0]['mean']))?$meansocreind[0]['mean']/$noofuserexact['noofuser']:"0";

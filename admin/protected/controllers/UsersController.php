@@ -350,6 +350,18 @@ class UsersController extends Controller
                         $usrgrp->delete();
                     }
                 }
+                $userdetls=Userdetails::model()->findAll('user_id='.$model->id.' and course='.base64_decode($_GET['c']));
+                if(!empty($userdetls))
+                {
+                    foreach ($userdetls as $usrdt)
+                    {
+                        //$assesremovefrom=Assess::model()->deleteAllByAttributes('project='.$_GET['p'].' and from_user='.$model->id.' and grp_id='.$usrdt->grp_id);
+                        //$assesremoveto=Assess::model()->deleteAllByAttributes('project='.$_GET['p'].' and to_user='.$model->id.' and grp_id='.$usrdt->grp_id);
+                        $usrdt->delete();
+                    }
+                }
+
+                //new insertion
                 if(!empty($_POST['Users']['grp']))
                 {
                     foreach ($_POST['Users']['grp'] as $grpid)
@@ -360,7 +372,14 @@ class UsersController extends Controller
                         $grpUser->status='active';
                         $grpUser->created_date=$grpUser->updated_date=date('Y-m-d H:i:s');
                         $grpUser->save(false);
+
+                        $usrDt=new Userdetails();
+                        $usrDt->course=base64_decode($_GET['c']);
+                        $usrDt->user_id=$model->id;
+                        $usrDt->grp_id=$grpid;
+                        $usrDt->save(false);
                     }
+
                 }
 
 
