@@ -515,9 +515,9 @@ class GroupusersController extends Controller
             $html.="<tr>".$test."</tr>";
             $test="";
         }
-        die;
+
         $html.='</table>';
-     //  echo $html;die;
+       echo $html;die;
     }
     public function actiongroupasses($id)
     {
@@ -657,6 +657,7 @@ class GroupusersController extends Controller
         if(isset($_POST['course']))
         {
             $projectmodel=Projects::model()->findByPk($_POST['p']);
+
             $usermodel=Userdetails::model()->with('user')->findAll( array(
                 'condition'=>'course='.$_REQUEST['c'].' and user.status="active" and user.role=5',
                 'order'=>'t.grp_id asc'

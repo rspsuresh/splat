@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-<!--<script src="https://www.solodev.com/_/assets/pagination/jquery.twbsPagination.js"></script>-->
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.twbsPagination.js"></script>
 <style>
     .staff
@@ -255,9 +254,10 @@
         </div>
     </div>
 </section>
-<?php $totalcount=count($chunkarray);?>
-<script src="https://www.solodev.com/_/assets/pagination/jquery.twbsPagination.js"></script>
+<?php
+$totalcount=count($chunkarray);?>
 <script type="text/javascript">
+
     function assesment(id)
     {
         alert("Assessment not started yet.please try after some time");

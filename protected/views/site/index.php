@@ -168,9 +168,9 @@ AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='
                                             <?php
                                             $assesmentsql="SELECT *  FROM `projects` WHERE `institution` ={$course['institution']} 
 AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='completed'";
-                                            $aseesresult=Yii::app()->db->CreateCommand($assesmentsql)->QueryAll();
-                                            if(!empty($aseesresult)) {
-                                                foreach ($aseesresult as $asees)  {
+                                            $aseesresultcom=Yii::app()->db->CreateCommand($assesmentsql)->QueryAll();
+                                            if(!empty($aseesresultcom)) {
+                                                foreach ($aseesresultcom as $asees)  {
                                                     ?>
                                                     <div class="script-texts actclass" style="margin-left:30px;"
                                                          id="ssd"

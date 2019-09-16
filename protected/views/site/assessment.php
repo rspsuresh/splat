@@ -163,7 +163,7 @@
     $( document ).ready(function() {
         $("#assesmentsubmit").submit(function(e){
             //e.preventDefault();
-            if(confirm("The responses submitted are permanent are cannot be edited and submitted again.Are you sure want to submit your response ?"))
+            if(confirm("The responses submitted are permanent are cannot be edited and submitted again. Are you sure want to submit your response ?"))
             {
                 return true;
             }

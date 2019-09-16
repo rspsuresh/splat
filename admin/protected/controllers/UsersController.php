@@ -455,11 +455,8 @@ class UsersController extends Controller
      */
     public function actionDelete($id)
     {
-        //echo $id;die;
-        $delete=$this->loadModel($id);
-        $delete->status="inactive";
-        $delete->update('status');
 
+        $delete=$this->loadModel($id)->delete();
         $usersmodel=Users::model()->deleteByPk($id);
         $userfaculty=UserFaculties::model()->deleteAllByAttributes(['user_id' => $id]);
         $usercourse=UserCourses::model()->deleteAllByAttributes(['user_id' => $id]);
@@ -1012,7 +1009,7 @@ class UsersController extends Controller
         {
             $mailmodel=MailSend::model()->findAll('c_id='.$_POST['course'].' and i_id='.$_POST['inst'].' and f_id='.$_POST['fac'].' and as_id='.$_POST['asses']);
             $projectupdate=Projects::model()->findByPk($_POST['asses']);
-            $projectupdate->status='current';
+            $projectupdate->status='live';
             $projectupdate->update('status');
             if(empty($mailmodel))
             {

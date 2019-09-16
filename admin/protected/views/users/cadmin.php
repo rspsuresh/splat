@@ -22,6 +22,7 @@ $('.search-form form').submit(function(){
     /*}*/
     i.fa.fa-youtube-play {
         color: #e52d27 !important;
+        font-size:16px !important;
     }
     .view
     {
@@ -383,13 +384,13 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                                         </div>
                                         <div class="col-lg-8 padzero formradio">
                                             <?php echo $form->radioButtonList($models,'status',
-                                                array('inactive'=>'Draft','completed'=>'Completed','current'=>'Live'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
+                                                array('inactive'=>'Draft','completed'=>'Completed','live'=>'Live'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
                                             <?php echo $form->error($models,'status'); ?>
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
                                         <div class="col-lg-4 padzero">
-                                            <?php echo $form->labelEx($models,'assess_date'); ?>
+                                            <label for="Projects_assess_date" class="required">Assessment Due date <span class="required">*</span></label>
                                         </div>
                                         <div class="col-lg-8 padzero">
                                             <?php
@@ -563,7 +564,7 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                 </div>
                 <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
                     <div class="col-lg-4 padzero">
-                        <?php echo $form->labelEx($formModel,'assess_date'); ?>
+                        <label for="Projects_assess_date" class="required">Assessment Due date <span class="required">*</span></label>
                     </div>
                     <div class="col-lg-8 padzero">
                         <?php
@@ -642,21 +643,21 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                         <?php echo $form->error($questions,'question'); ?>
                     </div>
                 </div>
-                <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero" style="display:none;">
-                    <div class="col-lg-4 padzero">
-                        <?php echo $form->labelEx($questions,'type'); ?>
-                    </div>
-                    <div class="col-lg-8 padzero formradio">
-                        <?php echo $form->radioButtonList($questions,'type', array('default'=>'Default','custom'=>'Custom'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
-                        <?php echo $form->error($questions,'type'); ?>
-                    </div>
-                </div>
+<!--                <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero" style="display:none;">-->
+<!--                    <div class="col-lg-4 padzero">-->
+<!--                        --><?php //echo $form->labelEx($questions,'type'); ?>
+<!--                    </div>-->
+<!--                    <div class="col-lg-8 padzero formradio">-->
+<!--                        --><?php //echo $form->radioButtonList($questions,'type', array('default'=>'Default','custom'=>'Custom'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
+<!--                        --><?php //echo $form->error($questions,'type'); ?>
+<!--                    </div>-->
+<!--                </div>-->
                 <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
                     <div class="col-lg-4 padzero">
                         <?php echo $form->labelEx($questions,'q_type'); ?>
                     </div>
                     <div class="col-lg-8 padzero formradio">
-                        <?php echo $form->radioButtonList($questions,'q_type', array('R'=>'Rating Scale','S'=>'Text'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
+                        <?php echo $form->radioButtonList($questions,'q_type', array('R'=>'Rating Scale','S'=>'Text'), array('labelOptions'=>array('style'=>'display:inline','class'=>'typeques'),'separator'=>'  ')); ?>
                         <?php echo $form->error($questions,'q_type'); ?>
                     </div>
                 </div>
@@ -830,6 +831,11 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
             });
         }
     }
+    var labelID;
+    $('.test').click(function() {
+        labelID = $(this).attr('for');
+        $('#'+labelID).trigger('click');
+    });
 </script>
 </section>
 <div id="htmltable" style="display:none;">
