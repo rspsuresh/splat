@@ -207,7 +207,7 @@
                                                                 echo "From anonymous user";
                                                             }
                                                             else{
-                                                                echo $groupuser->user->first_name;
+                                                                echo $groupuser->user->first_name." ".$groupuser->user->first_name;
                                                             }
                                                         }
                                                         ?>

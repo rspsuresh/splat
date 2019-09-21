@@ -1,10 +1,8 @@
-
 <style>
     body {background: #EAEAEA;}
     .user-details {position: relative; padding: 0;}
     .user-details .user-image {position: relative;  z-index: 1; width: 100%; text-align: center;}
     .user-image img { clear: both; margin: auto; position: relative;}
-
     .user-details .user-info-block {width: 100%; position: absolute; top: 55px; background: rgb(255, 255, 255); z-index: 0; padding-top: 35px;}
     .user-info-block .user-heading {width: 100%; text-align: center; margin: 10px 0 0;}
     .user-info-block .navigation {float: left; width: 100%; margin: 0; padding: 0; list-style: none; border-bottom: 1px solid #428BCA; border-top: 1px solid #428BCA;}
@@ -17,6 +15,7 @@
     #content{min-height: 700px !important;margin-bottom:5pc !important; }
     .panel-body{padding:10px; }
     .errorMessage{color:red !important;}
+    #Users_first_name,#Users_last_name{cursor:no-drop}
 </style>
 <div class="container">
     <div class="row">
@@ -62,7 +61,7 @@
                                                     'id'=>'users-form','enableClientValidation'=>true,'htmlOptions' => array('enctype' => 'multipart/form-data'),
                                                     'clientOptions'=>array('validateOnSubmit'=>true),
                                                 )); ?>
-                                              <!--  <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
+                                                <!--  <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
                                                     <div class="col-lg-4 padzero">
                                                         <?php /*echo $form->labelEx($usermodel,'username'); */?>
                                                     </div><div class="col-lg-8 padzero">

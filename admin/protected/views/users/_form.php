@@ -17,7 +17,9 @@
         <span class="glyphicon glyphicon-info-sign"></span>
     </a> Select a faculty and course for staff & student users. Admin users will see all the faculties and courses by default.</p>
 <div class="form">
-    <?php $form=$this->beginWidget('CActiveForm', array(
+    <?php
+
+    $form=$this->beginWidget('CActiveForm', array(
         'id'=>'users-form',
         'enableClientValidation'=>true,
         'enableAjaxValidation'=>true,
@@ -55,7 +57,8 @@
         </div>
 
         <div class="col-lg-8 padzero">
-            <?php if(Yii::app()->controller->action->id =='create') { ?>
+            <?php
+            if(Yii::app()->controller->action->id =='create') {  ?>
                 <?php echo $form->dropDownList($model, 'role',
                     CHtml::listData(Userrole::model()->findAll("id !=5"), 'id', 's_name'), array('empty'=>'Select User type')); ?>
 
@@ -111,8 +114,8 @@
                         foreach ($facultymodel as $feachValue)
                             $fselectedOptions[$feachValue->faculty_id] = array('selected'=>'selected');
                     }
-
-                    $coursemodel = UserCourses::model()->findAll('user_id='.$_GET['id']);
+                    $coursedecode=base64_decode($_GET['c']);
+                    $coursemodel = UserCourses::model()->findAll('user_id='.$_GET['id']." and course_id=".$coursedecode);
                     if(count($coursemodel)>0) {
                         foreach ($coursemodel as $ceachValue)
                             $cselectedOptions[$ceachValue->course_id] = array('selected'=>'selected');
@@ -123,8 +126,6 @@
                             foreach ($userGrps as $geachValue)
                                 $grpselectedOptions[$geachValue->group_id] = array('selected'=>'selected');
                         }
-                        //echo "<pre>";print_r($grpselectedOptions);die;
-
                     }
                 }
                 ?>
@@ -154,7 +155,9 @@
                     <label for="Users_grp">Group</label>
                 </div>
                 <div class="col-lg-8 padzero">
-                    <?php echo $form->dropDownList($model, 'grp', CHtml::listData(Groups::model()->findAll(), 'id', 'name'), array('empty'=>'Select Group','multiple'=>'multiple','options'=>$grpselectedOptions)); ?>
+                    <?php echo $form->dropDownList($model, 'grp', CHtml::listData(Groups::model()->findAll(), 'id', 'name'),
+                        array('empty'=>'Select Group','multiple'=>'multiple',
+                            'options'=>$grpselectedOptions)); ?>
                     <?php echo $form->error($model,'grp'); ?>
                 </div>
             </div>
@@ -165,8 +168,10 @@
 </div><!-- form -->
 <script>
     $(function() {
+        <?php if(Yii::app()->user->getState('role')=="Superuser") { ?>
+         $("#Users_grp,#Users_course_id,#Users_fac_id").prop('disabled',true);
+        <?php } ?>
         $('.faccourse').show();
-        //$('#Users_email').attr('disabled',true)
         $("#Users_role").change(function() {
             if($('option:selected', this).val() ==1)
             {
@@ -182,8 +187,5 @@
             if (e.which == 32)
                 return false;
         });
-        /*$('#Users_username,#Users_password').bind("cut copy paste",function(e) {
-            e.preventDefault();
-        });*/
     });
 </script>
