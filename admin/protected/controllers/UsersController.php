@@ -562,7 +562,6 @@ class UsersController extends Controller
                                     $usermodalmain->profile = ' ';
                                     $usermodalmain->save();
                                     //$savecount ++;
-
                                     $this->mappingusers($usermodalmain->id, $values[$header[count($header) - 2]], $courseid);
                                 } else {
                                     // $unsavecount ++;
@@ -771,21 +770,23 @@ class UsersController extends Controller
     {
         if(!empty($userid))
         {
-            $usercourses=UserCourses::model()->find("user_id=".$userid." and course_id=".base64_decode($_GET['c']));
+            $course_idsplat=base64_decode($_GET['c']);
+            $faculty_idsplat=base64_decode($_GET['c']);
+            $usercourses=UserCourses::model()->find("user_id=".$userid." and course_id=".$course_idsplat);
             if(count($usercourses)<=0)
             {
                 $ucmodal=new UserCourses();
-                $ucmodal->course_id=base64_decode($_GET['c']);
+                $ucmodal->course_id=$course_idsplat;
                 $ucmodal->user_id=$userid;
                 $ucmodal->save(false);
             }
 
-            $userfaculty=UserFaculties::model()->find("user_id=".$userid." and faculty_id=".base64_decode($_GET['f']));
+            $userfaculty=UserFaculties::model()->find("user_id=".$userid." and faculty_id=".$faculty_idsplat);
             if(count($userfaculty)<=0)
             {
                 $ucfacmodel=new UserFaculties();
                 $ucfacmodel->user_id=$userid;
-                $ucfacmodel->faculty_id=base64_decode($_GET['f']);
+                $ucfacmodel->faculty_id=$faculty_idsplat;
                 $ucfacmodel->save(false);
             }
             $groupmainmodel=Groups::model()->find("name='{$header}' and course_id='{$courseid}'");

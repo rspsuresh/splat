@@ -4,11 +4,11 @@
     <list default="true" id="569f891a-5c37-4652-9e91-bcf773c3ff1f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/controllers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/UsersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/models/Courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Courses.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/models/Groups.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Groups.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/runtime/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/runtime/application.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/views/users/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/site/editprofile.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/editprofile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/site/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/site/project.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/project.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +107,8 @@
       <workItem from="1568557757857" duration="1286000" />
       <workItem from="1568650524219" duration="6997000" />
       <workItem from="1568736344650" duration="1719000" />
-      <workItem from="1569071718512" duration="4828000" />
+      <workItem from="1569071718512" duration="5416000" />
+      <workItem from="1569249753030" duration="3244000" />
     </task>
     <servers />
   </component>

@@ -65,6 +65,7 @@ class Courses extends CActiveRecord
             'institution0' => array(self::BELONGS_TO, 'Institutions', 'institution'),
             'type0' => array(self::BELONGS_TO, 'CourseTypes', 'type'),
             'projects' => array(self::HAS_MANY, 'Projects', 'course'),
+            'userscourse'=>array(self::HAS_MANY, UserCourses::class, 'course_id'),
         );
     }
 

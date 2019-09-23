@@ -116,6 +116,7 @@
                     }
                     $coursedecode=base64_decode($_GET['c']);
                     $coursemodel = UserCourses::model()->findAll('user_id='.$_GET['id']." and course_id=".$coursedecode);
+
                     if(count($coursemodel)>0) {
                         foreach ($coursemodel as $ceachValue)
                             $cselectedOptions[$ceachValue->course_id] = array('selected'=>'selected');
@@ -126,6 +127,7 @@
                             foreach ($userGrps as $geachValue)
                                 $grpselectedOptions[$geachValue->group_id] = array('selected'=>'selected');
                         }
+
                     }
                 }
                 ?>
@@ -145,7 +147,9 @@
                 <?php echo $form->labelEx($model,'course_id'); ?>
             </div>
             <div class="col-lg-8 padzero">
-                <?php echo $form->dropDownList($model, 'course_id', CHtml::listData(Courses::model()->findAll(), 'id', 'name'), array('empty'=>'Select Course','multiple'=>'multiple','options'=>$cselectedOptions)); ?>
+                <?php
+                $coursedec=base64_decode($_GET['c']);
+                echo $form->dropDownList($model, 'course_id', CHtml::listData(Courses::model()->with('userscourse')->findAll("userscourse.user_id={$_GET['id']} and userscourse.course_id={$coursedec}"), 'id', 'name'), array('empty'=>'Select Course','multiple'=>'multiple','options'=>$cselectedOptions)); ?>
                 <?php echo $form->error($model,'course_id'); ?>
             </div>
         </div>
@@ -155,7 +159,9 @@
                     <label for="Users_grp">Group</label>
                 </div>
                 <div class="col-lg-8 padzero">
-                    <?php echo $form->dropDownList($model, 'grp', CHtml::listData(Groups::model()->findAll(), 'id', 'name'),
+                    <?php
+                    //echo "<pre>";print_r(Groups::model()->with('usersgrps')->findAll("usersgrps.user_id={$_GET['id']}  and usersgrps.status='active'"));die;
+                    echo $form->dropDownList($model, 'grp', CHtml::listData(Groups::model()->with('usersgrps')->findAll("usersgrps.status='active' and t.course_id={$coursedec}"), 'id', 'name'),
                         array('empty'=>'Select Group','multiple'=>'multiple',
                             'options'=>$grpselectedOptions)); ?>
                     <?php echo $form->error($model,'grp'); ?>
