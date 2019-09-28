@@ -41,8 +41,6 @@ $('.search-form form').submit(function(){
         <p>Manage All Users</p>
     </div>
     <div class="container">
-        <?php //echo CHtml::link('Advanced Search','#',array('class'=>'search-button btn btn-success admin-btn')); ?>
-        <?php echo CHtml::link('Add a User', Yii::app()->createUrl('users/create'),array('class'=>'admin-btn btn btn-info')); ?>
         <a class="admin-btn btn btn-success"  onclick="searchdiv()" id="searchbutton" href="#">Advanced Search</a>
         <a class="admin-btn btn btn-danger" style="visibility: hidden" onclick="deleteuser()" id="deletebutton" href="#">Delete users</a>
         <?php //echo CHtml::link('Bulk Import Users',Yii::app()->createUrl('users/create'),array('class'=>'admin-btn btn btn-warning')); ?>
@@ -88,11 +86,11 @@ $('.search-form form').submit(function(){
                 ),
                 array(
                     'header' => 'Email',
-                    'filter' => CHtml::textField('Users[username]', $model->username,array('placeholder'=>'Enter  email','class'=>'form-control')),
+                    'filter' => CHtml::textField('Users[email]', $model->username,array('placeholder'=>'Enter  email','class'=>'form-control')),
                     //'value'=>'$data->courses->name',
                     'value'=>function($data)
                     {
-                        return $data->username;
+                        return $data->email;
                     },
                 ),
                 array(

@@ -82,6 +82,13 @@
 
     <div class="script-section col-lg-12 col-xs-12 col-sm-12">
         <?php
+
+        $coursest_id=$_GET['c'];
+        $sqldcque="SELECT GROUP_CONCAT(question_id) as question 
+         FROM `delete_custom_question` WHERE `course_id` =$coursest_id";
+        $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
+        $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
+
         $prj= Userdetails::model()->find("course=".$_GET['c']." and user_id=".Yii::app()->user->id);
         if(count($prj)>0)
             $groupusers = Userdetails::model()->with('user')->findAll('grp_id='.$prj->grp_id.' and user.status="active" and course='.$_GET['c']);
@@ -92,7 +99,7 @@
         $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
         $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
 
-        $questions=Questions::model()->findAll('course='.$_GET['c'].' and status="active" or type="default" and id NOT IN ('.$ids.')');
+        $questions=Questions::model()->findAll('course='.$_GET['c'].' and status="active" and id NOT IN ('.$ids.')');
         ?>
         <div class="">
             <ul class="nav nav-tabs script-tab text-center">
@@ -145,13 +152,12 @@
                                                 <div class="panel-body">
                                                     <div class="script-texts">
                                                         <?php
-                                                        $iquestions = Questions::model()->findAll('course='.$projects->course);
                                                         $i=0;
                                                         foreach($questions as $iquestion):
                                                             $i++;
                                                             $iassess = Assess::model()->find('project='.$projects->id.' 
                                                 and from_user='.$groupuser->user_id.' 
-                                                and to_user='.Yii::app()->user->id.' and question='.$iquestion->id);
+                                                and to_user='.Yii::app()->user->id.' and question='.$iquestion->id.' and grp_id='.$prj->grp_id);
                                                             ?>
                                                             <p class="m-t-10"><?php echo $i;?>. <?php echo $iquestion->question;?> : <b><?php if(count($iassess)>0) echo $iassess->value; else echo '-'; ?></b></p>
                                                         <?php
@@ -220,13 +226,15 @@
                                                 <div class="panel-body">
                                                     <div class="script-texts">
                                                         <?php
-                                                        $iquestions = Questions::model()->findAll('course='.$projects->course);
+                                                        //$questions=Questions::model()->findAll('faculty='.base64_decode($_GET['f']).' and course='.base64_decode($_GET['c']).' and status="active" or type="default" and id NOT IN ('.$ids.')');
+                                                        $iquestions=Questions::model()->findAll('course='.$projects->course.' and status="active"     and id NOT IN ('.$ids.')');
+                                                        // $iquestions = Questions::model()->findAll('course='.$projects->course);
                                                         $i=0;
                                                         foreach($questions as $iquestion):
                                                             $i++;
                                                             $iassess = Assess::model()->find('project='.$projects->id.' 
                                                 and from_user='.Yii::app()->user->id.' 
-                                                and to_user='.$groupuser->user_id.' and question='.$iquestion->id);
+                                                and to_user='.$groupuser->user_id.' and question='.$iquestion->id.' and grp_id='.$prj->grp_id);
                                                             ?>
                                                             <p class="m-t-10"><?php echo $i;?>. <?php echo $iquestion->question;?> : <b><?php if(count($iassess)>0) echo $iassess->value; else echo '-'; ?></b></p>
                                                         <?php

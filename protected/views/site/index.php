@@ -159,7 +159,7 @@ AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='
                                 <h4 class="panel-title">
                                     <a  class="course" data-toggle="collapse" data-parent="#accordion1" href="#incollapse_<?php echo $course['id']; ?>">
                                         <?php //echo ucfirst($course['course_type']." ".$course['name']. "Type-".$course['type']); ?>
-                                        <?php echo ucfirst($course['course_type']." ".$course['name']); ?>
+                                        <?php echo ucfirst($course['course_type']." ".$course['name'])." (".$groupfindresult['name'].")"; ?>
                                         <i class="fa fa-angle-down pull-right blue-clr" aria-hidden="true"></i></a>
                                 </h4>
                             </div>
@@ -184,8 +184,7 @@ AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='
                                             <p>Due By : <?=date('d-m-Y',strtotime($asees['assess_date']))?></p>
                                         </a>
                                     </div>
-                                    }
-                                    } else {
+                                    <?php }} else { ?>
                                     echo '<div class="script-texts">
                                         <h3 class="black-clr">No Assesments Created Yet</h3>
                                     </div>';

@@ -340,7 +340,7 @@ class UsersController extends Controller
         $this->performAjaxValidation($model);
         if(isset($_POST['Users']))
         {
-            if(!$model->getIsNewRecord() && $_POST['Users']['role'] ==5 && Yii::app()->user->getState =='Superuser')
+            if(!$model->getIsNewRecord() && $_POST['Users']['role'] ==5 && Yii::app()->user->getState('role') !='Superuser')
             {
                 $usersgroups=GroupUsers::model()->with('group')->findAll('user_id='.$model->id.' and group.course_id='.base64_decode($_GET['c']));
                 if(!empty($usersgroups))
@@ -350,14 +350,13 @@ class UsersController extends Controller
                         $usrgrp->delete();
                     }
                 }
-                $userdetls=Userdetails::model()->findAll('user_id='.$model->id.' and course='.base64_decode($_GET['c']));
+               $userdetls=Userdetails::model()->findAll('user_id='.$model->id.' and course='.base64_decode($_GET['c']));
                 if(!empty($userdetls))
                 {
                     foreach ($userdetls as $usrdt)
                     {
-                        //$assesremovefrom=Assess::model()->deleteAllByAttributes('project='.$_GET['p'].' and from_user='.$model->id.' and grp_id='.$usrdt->grp_id);
-                        //$assesremoveto=Assess::model()->deleteAllByAttributes('project='.$_GET['p'].' and to_user='.$model->id.' and grp_id='.$usrdt->grp_id);
                         $usrdt->delete();
+
                     }
                 }
 
@@ -381,43 +380,41 @@ class UsersController extends Controller
                     }
 
                 }
-
-
             }
+
             $model->attributes=$_POST['Users'];
             $model->email=$_POST['Users']['email'];
             $model->updated_date = date('Y-m-d H:i:s');
-            if(($_POST['Users']['role'] ==5 ||  $_POST['Users']['role'] ==3) && Yii::app()->user->getState =='superuser')
+            if(($_POST['Users']['role'] ==5 ||  $_POST['Users']['role'] ==3) && Yii::app()->user->getState('role') !='Superuser')
             {
                 $facexpl=implode(",",$_POST['Users']['fac_id']);
                 $couexpl=implode(",",$_POST['Users']['course_id'])    ;
                 $model->course_id=$couexpl;
                 $model->fac_id=$facexpl;
             }
-
-            if($model->save()) {
-                if(Yii::app()->user->getState('role') =='Superuser') {
+            if($model->save(false)) {
+                if(Yii::app()->user->getState('role') !='Superuser') {
                     $course_decode=base64_decode($_GET['c']);
                     $UserFaculties = UserFaculties::model()->findAll('user_id='.$model->id);
                     $UserCourses = UserCourses::model()->findAll('user_id='.$model->id." and course_id=".$course_decode);
-                    foreach($UserFaculties as $faculties){
+                   /* foreach($UserFaculties as $faculties){
                         $faculties->delete();
-                    }
-                    foreach($UserCourses as $courses){
+                    }*/
+                    /*foreach($UserCourses as $courses){
                         $courses->delete();
-                    }
-                    foreach($_POST['Users']['fac_id'] as $fac_id){
+                    }*/
+                   /* foreach($_POST['Users']['fac_id'] as $fac_id){
                         $UserFaculties = new UserFaculties();
                         $UserFaculties->user_id = $model->id;
                         $UserFaculties->faculty_id = $fac_id;
                         $UserFaculties->save();
-                    }
-                    foreach($_POST['Users']['course_id'] as $course_id){
+                    }*/
+                  /*  foreach($_POST['Users']['course_id'] as $course_id){
                         $UserCourses = new UserCourses();
                         $UserCourses->user_id = $model->id;
                         $UserCourses->course_id = $course_id;
                         $UserCourses->save();
-                    }
+                    }*/
                     if(isset($_POST['grp']) && !empty($_POST['grp']) && $_POST['Users']['role'] ==5 )
                     {
                         $usersgroups=GroupUsers::model()->with('group')->findAll('user_id='.$model->id.'and group.course_id='.base64_decode($_GET['c']));
@@ -623,8 +620,8 @@ class UsersController extends Controller
         $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
         $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
         //echo base64_decode($_GET['c']);die;
-        $question=Questions::model()->findAll('course='.base64_decode($_GET['c']).' and status="active" or type="default" and id NOT IN ('.$ids.')');
-
+        //$question=Questions::model()->findAll('course='.base64_decode($_GET['c']).' and status="active" or type="default" and id NOT IN ('.$ids.')');
+        $question=Questions::model()->findAll('course='.base64_decode($_GET['c']).' and status="active"  and id NOT IN ('.$ids.')');
         $existing_users = array();
         $institutionUsers = InstitutionUser::model()->findAll('institution=:i and faculty=:f and course=:c', array(':i'=>base64_decode($_GET['i']),':f'=>base64_decode($_GET['f']),':c'=>base64_decode($c)));
         if(count($institutionUsers)>0){
@@ -928,7 +925,6 @@ class UsersController extends Controller
                         $UserFaculties = new UserFaculties();
                         $UserFaculties->user_id = $model->id;
                         $UserFaculties->faculty_id = base64_decode($_GET['f']);
-
                         $UserFaculties->save();
 
                         $UserCourses = new UserCourses();
@@ -940,7 +936,6 @@ class UsersController extends Controller
                     }
 
                     $facultymodel=Faculties::model()->findByPk($model->fac_id);
-
                     //$to =trim($_POST['Users']['username']);
                     $to ='suresh@businessgateways.com';
                     $firstname=$_POST['Users']['first_name'];
@@ -990,7 +985,7 @@ class UsersController extends Controller
                         $UserCourses->save(false);
                     }
                     else{
-                        $fMsg="A student already exists with the email";
+                        $fMsg="A staff already exists with the email";
                         $fstatus="error";
                         Yii::app()->user->setFlash($fstatus,$fMsg);
                         $this->redirect(Yii::app()->createUrl('users/cadmin',array('c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'])));

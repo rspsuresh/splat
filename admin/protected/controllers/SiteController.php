@@ -107,6 +107,7 @@ class SiteController extends Controller
     }
     public function actionIndex()
     {
+
         $this->pageTitle="Index";
         if(isset(Yii::app()->user->id))
         {
@@ -933,8 +934,8 @@ class SiteController extends Controller
          FROM `delete_custom_question` WHERE `course_id` =$courseid";
         $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
         $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
-        $questions=Questions::model()->findAll('faculty='.base64_decode($_GET['f']).'
-             and course='.base64_decode($_GET['c']).' and status="active" or type="default" and id NOT IN ('.$ids.')');
+        //$questions=Questions::model()->findAll('faculty='.base64_decode($_GET['f']).' and course='.base64_decode($_GET['c']).' and status="active" or type="default" and id NOT IN ('.$ids.')');
+        $questions=Questions::model()->findAll('faculty='.base64_decode($_GET['f']).' and course='.base64_decode($_GET['c']).' and status="active"     and id NOT IN ('.$ids.')');
         //echo "<pre>";print_r($question);die;
         $groupUsers = GroupUsers::model()->findAll('group_id='.$_GET['g']);
         $this->render('responsepage',

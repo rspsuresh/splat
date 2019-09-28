@@ -1,68 +1,355 @@
-2019/09/23 16:21:20 [error] [php] include(user_courses.php): failed to open stream: No such file or directory (D:\xampp\htdocs\splat\yii\framework\YiiBase.php:863)
+2019/09/27 19:06:55 [error] [php] mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php:965)
 Stack trace:
-#0 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(789): spl_autoload_call()
-#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(363): model()
-#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(459): CActiveFinder->getModel()
-#3 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(597): CActiveFinder->buildJoinTree()
-#4 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(95): CActiveFinder->buildJoinTree()
-#5 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(1823): CActiveFinder->__construct()
-#6 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2719): Courses->getActiveFinder()
-#7 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2949): Courses->query()
-#8 D:\xampp\htdocs\splat\admin\protected\views\users\_form.php(151): Courses->findAll()
-#9 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require()
-#10 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): UsersController->renderInternal()
-#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): UsersController->renderFile()
-#12 D:\xampp\htdocs\splat\admin\protected\views\users\update.php(12): UsersController->renderPartial()
-#13 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require()
-#14 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): UsersController->renderInternal()
-#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): UsersController->renderFile()
-#16 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): UsersController->renderPartial()
-#17 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(440): UsersController->render()
-#18 unknown(0): UsersController->actionUpdate()
-#19 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs()
-#20 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CInlineAction->runWithParamsInternal()
-#21 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
-#22 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): UsersController->runAction()
-#23 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
-#24 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
-#25 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): UsersController->filterAccessControl()
-#26 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
-#27 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
-#28 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): UsersController->runActionWithFilters()
-#29 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): UsersController->run()
-#30 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
-#31 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
-#32 D:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
-REQUEST_URI=/splat/admin/users/update/548?c=Nw%3D%3D&i=MQ%3D%3D&f=Mg%3D%3D
-in D:\xampp\htdocs\splat\admin\protected\views\users\_form.php (151)
-in D:\xampp\htdocs\splat\admin\protected\views\users\update.php (12)
-in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (440)
-2019/09/23 16:27:56 [error] [exception.ParseError] ParseError: syntax error, unexpected 'id' (T_STRING), expecting ']' in D:\xampp\htdocs\splat\admin\protected\views\users\_form.php:161
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#1 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): UsersController->runAction()
+#2 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#3 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#4 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): UsersController->filterAccessControl()
+#5 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): UsersController->runActionWithFilters()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): UsersController->run()
+#9 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#10 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#11 D:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/users/staffusers?c=Nw%3D%3D&i=MQ%3D%3D&f=Mg%3D%3D
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (965)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 07:31:51 [error] [exception.ParseError] ParseError: syntax error, unexpected ')', expecting variable (T_VARIABLE) or '{' or '$' in D:\xampp\htdocs\splat\admin\protected\views\groupusers\assesment_groups.php:9
 Stack trace:
-#0 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
-#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
-#2 D:\xampp\htdocs\splat\admin\protected\views\users\update.php(12): CController->renderPartial('_form', Array)
-#3 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
-#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
-#5 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
-#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('update', Array, true)
-#7 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(440): CController->render('update', Array)
-#8 [internal function]: UsersController->actionUpdate('548')
-#9 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
-#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
-#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
-#12 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
-#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
-#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
-#15 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
-#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
-#17 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
-#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
-#19 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('update')
-#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/update')
-#21 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
-#22 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
-#23 {main}
-REQUEST_URI=/splat/admin/users/update/548?c=Nw%3D%3D&i=MQ%3D%3D&f=Mg%3D%3D
+#0 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', NULL, true)
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', NULL, true)
+#2 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('assesment_group...', NULL, true)
+#3 D:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php(525): CController->render('assesment_group...')
+#4 [internal function]: GroupusersController->actiongroupasses('7')
+#5 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(GroupusersController), Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(GroupusersController), Object(ReflectionMethod), Array)
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#11 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#12 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('groupasses')
+#16 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('groupusers/grou...')
+#17 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#18 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/splat/admin/groupusers/groupasses/7?c=Nw%3D%3D&i=MQ%3D%3D&f=Mg%3D%3D&p=7
+---
+2019/09/28 08:51:02 [error] [exception.ParseError] ParseError: syntax error, unexpected ')', expecting variable (T_VARIABLE) or '{' or '$' in D:\xampp\htdocs\splat\admin\protected\views\groupusers\assesment_groups.php:9
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', NULL, true)
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', NULL, true)
+#2 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('assesment_group...', NULL, true)
+#3 D:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php(525): CController->render('assesment_group...')
+#4 [internal function]: GroupusersController->actiongroupasses('7')
+#5 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(GroupusersController), Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(GroupusersController), Object(ReflectionMethod), Array)
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#11 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#12 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('groupasses')
+#16 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('groupusers/grou...')
+#17 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#18 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/splat/admin/groupusers/groupasses/7?c=Nw%3D%3D&i=MQ%3D%3D&f=Mg%3D%3D&p=7
+---
+2019/09/28 09:01:23 [error] [exception.CHttpException.404] CHttpException: The requested page does not exist. in D:\xampp\htdocs\splat\admin\protected\controllers\GroupsController.php:191
+Stack trace:
+#0 D:\xampp\htdocs\splat\admin\protected\controllers\GroupsController.php(108): GroupsController->loadModel('8')
+#1 [internal function]: GroupsController->actionUpdate('8')
+#2 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(GroupsController), Array)
+#3 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(GroupsController), Object(ReflectionMethod), Array)
+#4 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#5 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#6 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('update')
+#13 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('groups/update')
+#14 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/splat/admin/groups/update/8?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
+---
+2019/09/28 09:03:34 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:03:35 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:03:35 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (384)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:03:42 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:03:43 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:03:43 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (384)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:03:48 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:03:48 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:03:48 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (384)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:03:56 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:03:56 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:03:56 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (384)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:04:03 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:04:04 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:04:04 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (384)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:05:14 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:05:15 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:05:15 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (384)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:06:16 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:06:17 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:06:17 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (384)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:06:31 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:06:33 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:06:33 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (384)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:06:50 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:06:52 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:06:52 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (384)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:08:44 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:08:45 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:08:45 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (384)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:09:00 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:09:01 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:09:01 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (384)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:09:09 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:09:10 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:09:10 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (384)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:23:10 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'course1' in 'where clause'. The SQL statement executed was: SELECT * FROM `tbl_userdetails` `t` WHERE course1=7 and grp_id=2.
+in D:\xampp\htdocs\splat\admin\protected\views\groupusers\assesment_groups.php (127)
+in D:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php (525)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:23:10 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'course1' in 'where clause'. The SQL statement executed was: SELECT * FROM `tbl_userdetails` `t` WHERE course1=7 and grp_id=2 in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2949): CActiveRecord->query(Object(CDbCriteria), true)
+#3 D:\xampp\htdocs\splat\admin\protected\views\groupusers\assesment_groups.php(127): CActiveRecord->findAll('course1=7 and g...')
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', NULL, true)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', NULL, true)
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('assesment_group...', NULL, true)
+#8 D:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php(525): CController->render('assesment_group...')
+#9 [internal function]: GroupusersController->actiongroupasses('7')
+#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(GroupusersController), Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(GroupusersController), Object(ReflectionMethod), Array)
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('groupasses')
+#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('groupusers/grou...')
+#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#23 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/splat/admin/groupusers/groupasses/7?c=Nw%3D%3D&i=MQ%3D%3D&f=Mg%3D%3D&p=7
 HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=Mg%3D%3D&c=Nw%3D%3D
 ---
+2019/09/28 09:35:21 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:35:21 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:35:22 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (384)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:35:40 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:35:41 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (847)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:35:41 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (384)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:42:59 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (851)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:43:01 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (851)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:43:01 [error] [exception.CDbException] CDbException: Table "assess" does not have a column named "0". in D:\xampp\htdocs\splat\yii\framework\db\schema\CDbCommandBuilder.php:1393
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(3679): CDbCommandBuilder->createColumnCriteria(Object(CMysqlTableSchema), Array, '', Array)
+#1 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(352): CActiveRecord->deleteAllByAttributes(Array)
+#2 [internal function]: UsersController->actionUpdate('547')
+#3 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#4 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#5 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('update')
+#14 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/update')
+#15 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#16 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/splat/admin/users/update/547?c=Nw%3D%3D&i=MQ%3D%3D&f=Mg%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/update/547?c=Nw%3D%3D&i=MQ%3D%3D&f=Mg%3D%3D
+---
+2019/09/28 09:43:21 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (388)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:43:42 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (851)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:43:43 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (851)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:43:43 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (388)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:44:27 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (851)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:44:28 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (851)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 09:44:29 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (388)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 16:21:28 [warning] [application] Failed to set unsafe attribute "q_type" of "Questionsadmin".
+in D:\xampp\htdocs\splat\admin\protected\controllers\QuestionsadminController.php (73)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 17:14:23 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (848)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 17:14:24 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (848)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 17:14:25 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (385)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 17:24:01 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (848)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 17:24:01 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (848)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/28 17:24:02 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (385)
+in D:\xampp\htdocs\splat\admin\index.php (13)

@@ -4597,3 +4597,197 @@ HTTP_REFERER=http://localhost/splat/site/login
 2019/09/14 17:57:54 [warning] [application] Failed to set unsafe attribute "profile" of "Users".
 in D:\xampp\htdocs\splat\protected\controllers\SiteController.php (285)
 in D:\xampp\htdocs\splat\index.php (25)
+2019/09/28 17:50:37 [error] [exception.ParseError] ParseError: syntax error, unexpected end of file in D:\xampp\htdocs\splat\protected\views\site\index.php:227
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#2 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('index', Array, true)
+#3 D:\xampp\htdocs\splat\protected\controllers\SiteController.php(58): CController->render('index', Array)
+#4 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): SiteController->actionIndex()
+#5 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('')
+#14 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('')
+#15 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#16 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#17 {main}
+REQUEST_URI=/splat/
+HTTP_REFERER=http://localhost/splat/site/login
+---
+2019/09/28 17:54:37 [error] [exception.ParseError] ParseError: syntax error, unexpected end of file in D:\xampp\htdocs\splat\protected\views\site\index.php:224
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#2 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('index', Array, true)
+#3 D:\xampp\htdocs\splat\protected\controllers\SiteController.php(58): CController->render('index', Array)
+#4 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): SiteController->actionIndex()
+#5 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('')
+#14 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('')
+#15 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#16 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#17 {main}
+REQUEST_URI=/splat/
+HTTP_REFERER=http://localhost/splat/site/login
+---
+2019/09/28 17:56:06 [error] [exception.ParseError] ParseError: syntax error, unexpected end of file in D:\xampp\htdocs\splat\protected\views\site\index.php:224
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#2 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('index', Array, true)
+#3 D:\xampp\htdocs\splat\protected\controllers\SiteController.php(58): CController->render('index', Array)
+#4 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): SiteController->actionIndex()
+#5 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('')
+#14 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('')
+#15 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#16 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#17 {main}
+REQUEST_URI=/splat/
+HTTP_REFERER=http://localhost/splat/site/login
+---
+2019/09/28 17:56:30 [error] [exception.ParseError] ParseError: syntax error, unexpected end of file in D:\xampp\htdocs\splat\protected\views\site\index.php:204
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#2 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('index', Array, true)
+#3 D:\xampp\htdocs\splat\protected\controllers\SiteController.php(58): CController->render('index', Array)
+#4 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): SiteController->actionIndex()
+#5 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('')
+#14 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('')
+#15 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#16 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#17 {main}
+REQUEST_URI=/splat/
+HTTP_REFERER=http://localhost/splat/site/login
+---
+2019/09/28 17:57:51 [error] [exception.ParseError] ParseError: syntax error, unexpected end of file in D:\xampp\htdocs\splat\protected\views\site\index.php:227
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#2 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('index', Array, true)
+#3 D:\xampp\htdocs\splat\protected\controllers\SiteController.php(58): CController->render('index', Array)
+#4 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): SiteController->actionIndex()
+#5 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('')
+#14 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('')
+#15 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#16 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#17 {main}
+REQUEST_URI=/splat/
+HTTP_REFERER=http://localhost/splat/site/login
+---
+2019/09/28 18:11:57 [error] [exception.Error] Error: Call to undefined function MA Form Valdation() in D:\xampp\htdocs\splat\protected\views\site\index.php:162
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require()
+#1 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#2 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#3 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('index', Array, true)
+#4 D:\xampp\htdocs\splat\protected\controllers\SiteController.php(58): CController->render('index', Array)
+#5 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): SiteController->actionIndex()
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#11 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('index')
+#15 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/index')
+#16 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#17 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#18 {main}
+REQUEST_URI=/splat/site/index
+HTTP_REFERER=http://localhost/splat/site/projects/7?c=7
+---
+2019/09/28 18:18:53 [error] [exception.CException] CException: Property "Userdetails.name" is not defined. in D:\xampp\htdocs\splat\yii\framework\base\CComponent.php:259
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(289): CComponent->__get('name')
+#1 D:\xampp\htdocs\splat\protected\views\site\project.php(150): CActiveRecord->__get('name')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#3 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#4 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#5 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('project', Array, true)
+#6 D:\xampp\htdocs\splat\protected\controllers\SiteController.php(94): CController->render('project', Array)
+#7 [internal function]: SiteController->actionProjects('7')
+#8 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#9 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#12 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#15 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#17 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('projects')
+#19 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/projects')
+#20 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#21 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#22 {main}
+REQUEST_URI=/splat/site/projects/7?c=7
+---
+2019/09/28 18:18:59 [error] [exception.CException] CException: Property "Userdetails.name" is not defined. in D:\xampp\htdocs\splat\yii\framework\base\CComponent.php:259
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(289): CComponent->__get('name')
+#1 D:\xampp\htdocs\splat\protected\views\site\project.php(150): CActiveRecord->__get('name')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#3 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#4 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#5 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('project', Array, true)
+#6 D:\xampp\htdocs\splat\protected\controllers\SiteController.php(94): CController->render('project', Array)
+#7 [internal function]: SiteController->actionProjects('7')
+#8 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#9 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#12 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#15 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#17 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('projects')
+#19 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/projects')
+#20 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#21 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#22 {main}
+REQUEST_URI=/splat/site/projects/7?c=7
+HTTP_REFERER=http://localhost/splat/site/index
+---

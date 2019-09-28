@@ -119,7 +119,6 @@ $project=Projects::model()->findByPk($_GET['id']);
                     $questions=Questions::model()->findAll('faculty='.base64_decode($_GET['f']).' and q_type="R"
                          and course='.base64_decode($_GET['c']).' and status="active" or type="default" and id NOT IN ('.$ids.') ');
                     $dividedcount=count($questions);
-
                     $chunkarray=array_chunk($grp,10);
                     foreach($chunkarray as $ckey =>$cval) {
                         foreach($cval as $val) {
@@ -133,7 +132,9 @@ $project=Projects::model()->findByPk($_GET['id']);
 
                             <div class="panel panel-default page page_<?=$ckey+1?>">
                                 <div class="panel-heading" role="tab" id="headingOne<?=$val->id?>" style="background-color:#03c6e3;color:#fff; ">
-                                    <?php $grpuser=Userdetails::model()->with('user')->findAll('grp_id='.$val->id.' and user.status="active"');
+                                    <?php
+                                    $courseid=base64_decode($_GET['c']);
+                                    $grpuser=Userdetails::model()->with('user')->findAll('grp_id='.$val->id.' and user.status="active" and t.course='.$courseid);
                                     $finishedusermodel=Assess::model()->findAll(
                                         array(
                                             'condition'=>'grp_id='.$val->id,
