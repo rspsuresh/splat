@@ -683,7 +683,7 @@ class GroupusersController extends Controller
 				Password: '.$password;
 
                 $message.='<br><p>Kind regards</p><br><b>Splat Team</b>';
-                mail($to,$subject,$message,$headers);
+               // mail($to,$subject,$message,$headers);
             }
         }
 

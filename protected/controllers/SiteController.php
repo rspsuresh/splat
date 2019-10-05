@@ -109,36 +109,32 @@ class SiteController extends Controller
         $projects = Projects::model()->find('id='.$id);
         $institutionUsers = InstitutionUser::model()->findAll('course='.$projects->course);
 
-        //$questions	= Questions::model()->findAll('course='.$projects->course);
-        $sqldcque="SELECT GROUP_CONCAT(question_id) as question 
-                                              FROM `delete_custom_question` WHERE `course_id` =$projects->course";
+
+
+        $sqldcque="SELECT GROUP_CONCAT(question_id) as question FROM `delete_custom_question` WHERE `course_id` =$projects->course";
         $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
         $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
-        $questions=Questions::model()->findAll('institution='.$projects->institution.'
-                                                           and faculty='.$projects->faculty.'
-                                                           and course='.$projects->course.' and status="active" and id NOT IN ('.$ids.') 
-                                                        or ( type="default" and id NOT IN ('.$ids.'))');
+
+        $questions=Questions::model()->findAll('course='.$projects->course.' and status="active" and id NOT IN ('.$ids.')');
         if(isset($_POST['assess'])){
-            $grpid=GroupUsers::model()->find("user_id=".Yii::app()->session['id']);
             foreach($_POST['assess'] as $key=>$users){
                 foreach($users as $ukey=>$value){
-                    $assess = Assess::model()->find('question=:q and project=:p and from_user=:f and to_user=:t',
-                        array(':q'=>$key,':p'=>$id,':f'=>Yii::app()->user->id,':t'=>$ukey));
+                    $assess = Assess::model()->find('question=:q and project=:p and from_user=:f and to_user=:t and grp_id=:grp',
+                        array(':q'=>$key,':p'=>$id,':f'=>Yii::app()->user->id,':t'=>$ukey,':grp'=>$_GET['g']));
                     if(count($assess)>0){
-                       // $assess->asses_id=$_POST['assesmentid'];
                         $assess->grp_id=$_GET['g'];
                         $assess->value = $value;
                         $assess->save();
 
                     } else{
                         $assess = new Assess();
-                       // $assess->asses_id=$_POST['assesmentid'];
                         $assess->grp_id=$_GET['g'];
                         $assess->question = $key;
                         $assess->project = $id;
                         $assess->from_user = Yii::app()->user->id;
                         $assess->to_user = $ukey;
                         $assess->value = $value;
+                        $assess->submitted_at=date('Y-m-d H:i:s');
                         $assess->save();
                     }
                 }

@@ -4791,3 +4791,270 @@ Stack trace:
 REQUEST_URI=/splat/site/projects/7?c=7
 HTTP_REFERER=http://localhost/splat/site/index
 ---
+2019/09/29 17:31:44 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'faculty1' in 'where clause'. The SQL statement executed was: SELECT *  FROM `projects` WHERE `institution` =1 
+                                                                AND `faculty1` =3 AND `course` =9 and `status`='current'.
+in D:\xampp\htdocs\splat\protected\views\site\index.php (116)
+in D:\xampp\htdocs\splat\protected\controllers\SiteController.php (58)
+in D:\xampp\htdocs\splat\index.php (25)
+2019/09/29 17:31:44 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'faculty1' in 'where clause'. The SQL statement executed was: SELECT *  FROM `projects` WHERE `institution` =1 
+                                                                AND `faculty1` =3 AND `course` =9 and `status`='current' in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\splat\protected\views\site\index.php(116): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#3 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#4 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#5 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('index', Array, true)
+#6 D:\xampp\htdocs\splat\protected\controllers\SiteController.php(58): CController->render('index', Array)
+#7 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): SiteController->actionIndex()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#12 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('')
+#17 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('')
+#18 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#19 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#20 {main}
+REQUEST_URI=/splat/
+HTTP_REFERER=http://localhost/splat/site/login
+---
+2019/09/29 17:40:53 [error] [exception.ParseError] ParseError: syntax error, unexpected end of file in D:\xampp\htdocs\splat\protected\views\site\index.php:225
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#2 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('index', Array, true)
+#3 D:\xampp\htdocs\splat\protected\controllers\SiteController.php(58): CController->render('index', Array)
+#4 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): SiteController->actionIndex()
+#5 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('')
+#14 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('')
+#15 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#16 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#17 {main}
+REQUEST_URI=/splat/
+HTTP_REFERER=http://localhost/splat/site/login
+---
+2019/09/29 17:46:47 [error] [exception.ParseError] ParseError: syntax error, unexpected end of file in D:\xampp\htdocs\splat\protected\views\site\index.php:224
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#2 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('index', Array, true)
+#3 D:\xampp\htdocs\splat\protected\controllers\SiteController.php(58): CController->render('index', Array)
+#4 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): SiteController->actionIndex()
+#5 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('')
+#14 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('')
+#15 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#16 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#17 {main}
+REQUEST_URI=/splat/
+HTTP_REFERER=http://localhost/splat/site/login
+---
+2019/09/29 18:35:31 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'project1' in 'where clause'. The SQL statement executed was: SELECT * FROM `assess` `t` WHERE project1=8 
+                                                and from_user=560 
+                                                and to_user=561 and question=10 and grp_id=5 LIMIT 1.
+in D:\xampp\htdocs\splat\protected\views\site\project.php (236)
+in D:\xampp\htdocs\splat\protected\controllers\SiteController.php (94)
+in D:\xampp\htdocs\splat\index.php (25)
+2019/09/29 18:35:31 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'project1' in 'where clause'. The SQL statement executed was: SELECT * FROM `assess` `t` WHERE project1=8 
+                                                and from_user=560 
+                                                and to_user=561 and question=10 and grp_id=5 LIMIT 1 in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(829): CDbCommand->queryInternal('fetch', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryRow()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2921): CActiveRecord->query(Object(CDbCriteria))
+#3 D:\xampp\htdocs\splat\protected\views\site\project.php(236): CActiveRecord->find('project1=8 \r\n  ...')
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('project', Array, true)
+#8 D:\xampp\htdocs\splat\protected\controllers\SiteController.php(94): CController->render('project', Array)
+#9 [internal function]: SiteController->actionProjects('8')
+#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('projects')
+#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/projects')
+#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#23 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#24 {main}
+REQUEST_URI=/splat/site/projects/8?c=9&g=5
+---
+2019/09/29 19:17:49 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'grp_id1' in 'where clause'. The SQL statement executed was: SELECT * FROM `assess` `t` WHERE project=8 
+                                                and from_user=562 
+                                                and to_user=560 and question=10 and grp_id1=6 LIMIT 1.
+in D:\xampp\htdocs\splat\protected\views\site\project.php (158)
+in D:\xampp\htdocs\splat\protected\controllers\SiteController.php (94)
+in D:\xampp\htdocs\splat\index.php (25)
+2019/09/29 19:17:49 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'grp_id1' in 'where clause'. The SQL statement executed was: SELECT * FROM `assess` `t` WHERE project=8 
+                                                and from_user=562 
+                                                and to_user=560 and question=10 and grp_id1=6 LIMIT 1 in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(829): CDbCommand->queryInternal('fetch', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryRow()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2921): CActiveRecord->query(Object(CDbCriteria))
+#3 D:\xampp\htdocs\splat\protected\views\site\project.php(158): CActiveRecord->find('project=8 \r\n   ...')
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('project', Array, true)
+#8 D:\xampp\htdocs\splat\protected\controllers\SiteController.php(94): CController->render('project', Array)
+#9 [internal function]: SiteController->actionProjects('8')
+#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('projects')
+#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/projects')
+#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#23 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#24 {main}
+REQUEST_URI=/splat/site/projects/8?c=9&g=6
+HTTP_REFERER=http://localhost/splat/site/index
+---
+2019/10/05 15:20:39 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'grp_id1' in 'where clause'. The SQL statement executed was: SELECT * FROM `assess` `t` WHERE project=8 
+                                                and from_user=562 
+                                                and to_user=560 and question=10 and grp_id1=6 LIMIT 1.
+in D:\xampp\htdocs\splat\protected\views\site\project.php (158)
+in D:\xampp\htdocs\splat\protected\controllers\SiteController.php (94)
+in D:\xampp\htdocs\splat\index.php (25)
+2019/10/05 15:20:40 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'grp_id1' in 'where clause'. The SQL statement executed was: SELECT * FROM `assess` `t` WHERE project=8 
+                                                and from_user=562 
+                                                and to_user=560 and question=10 and grp_id1=6 LIMIT 1 in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(829): CDbCommand->queryInternal('fetch', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryRow()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2921): CActiveRecord->query(Object(CDbCriteria))
+#3 D:\xampp\htdocs\splat\protected\views\site\project.php(158): CActiveRecord->find('project=8 \r\n   ...')
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('project', Array, true)
+#8 D:\xampp\htdocs\splat\protected\controllers\SiteController.php(94): CController->render('project', Array)
+#9 [internal function]: SiteController->actionProjects('8')
+#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('projects')
+#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/projects')
+#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#23 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#24 {main}
+REQUEST_URI=/splat/site/projects/8?c=9&g=6
+HTTP_REFERER=http://localhost/splat/site/index
+---
+2019/10/05 15:35:36 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'question1' in 'where clause'. The SQL statement executed was: SELECT * FROM `assess` `t` WHERE project=8 
+                                                and from_user=560 
+                                                and to_user=562 and question1=10 and grp_id=6 LIMIT 1.
+in D:\xampp\htdocs\splat\protected\views\site\project.php (232)
+in D:\xampp\htdocs\splat\protected\controllers\SiteController.php (94)
+in D:\xampp\htdocs\splat\index.php (25)
+2019/10/05 15:35:37 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'question1' in 'where clause'. The SQL statement executed was: SELECT * FROM `assess` `t` WHERE project=8 
+                                                and from_user=560 
+                                                and to_user=562 and question1=10 and grp_id=6 LIMIT 1 in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(829): CDbCommand->queryInternal('fetch', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryRow()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2921): CActiveRecord->query(Object(CDbCriteria))
+#3 D:\xampp\htdocs\splat\protected\views\site\project.php(232): CActiveRecord->find('project=8 \r\n   ...')
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('project', Array, true)
+#8 D:\xampp\htdocs\splat\protected\controllers\SiteController.php(94): CController->render('project', Array)
+#9 [internal function]: SiteController->actionProjects('8')
+#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('projects')
+#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/projects')
+#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#23 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#24 {main}
+REQUEST_URI=/splat/site/projects/8?c=9&g=6
+HTTP_REFERER=http://localhost/splat/site/index
+---
+2019/10/05 15:50:55 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'question1' in 'where clause'. The SQL statement executed was: SELECT * FROM `assess` `t` WHERE project=8
+                                                and from_user=560 
+                                                and to_user=562 and question1=10 and grp_id=6 LIMIT 1.
+in D:\xampp\htdocs\splat\protected\views\site\project.php (232)
+in D:\xampp\htdocs\splat\protected\controllers\SiteController.php (94)
+in D:\xampp\htdocs\splat\index.php (25)
+2019/10/05 15:50:55 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'question1' in 'where clause'. The SQL statement executed was: SELECT * FROM `assess` `t` WHERE project=8
+                                                and from_user=560 
+                                                and to_user=562 and question1=10 and grp_id=6 LIMIT 1 in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(829): CDbCommand->queryInternal('fetch', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryRow()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2921): CActiveRecord->query(Object(CDbCriteria))
+#3 D:\xampp\htdocs\splat\protected\views\site\project.php(232): CActiveRecord->find('project=8\r\n    ...')
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('project', Array, true)
+#8 D:\xampp\htdocs\splat\protected\controllers\SiteController.php(94): CController->render('project', Array)
+#9 [internal function]: SiteController->actionProjects('8')
+#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('projects')
+#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/projects')
+#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#23 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#24 {main}
+REQUEST_URI=/splat/site/projects/8?c=9&g=6
+HTTP_REFERER=http://localhost/splat/site/index
+---

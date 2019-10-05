@@ -61,7 +61,7 @@
             <h3>Please provide feedback for the below questions.</h3>
             <?php
             $groupusers = Userdetails::model()->with('user')->findAll('grp_id='.$_GET['g'].' and user.status="active"');
-           // echo "<pre>";print_r(array_column($groupusers,'user_id'));die;
+            // echo "<pre>";print_r(array_column($groupusers,'user_id'));die;
             $sqldcque="SELECT GROUP_CONCAT(question_id) as question 
                                               FROM `delete_custom_question` WHERE `course_id` =$projects->course";
             $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
@@ -84,10 +84,10 @@
                         if(count($groupusers)>0):
                             foreach($groupusers as $groupuser):
                                 $assess = Assess::model()->find('question=:q and project=:p and from_user=:f
-                                 and to_user=:t',array(':q'=>$question->id,
+                                 and to_user=:t and  grp_id=:grp',array(':q'=>$question->id,
                                     ':p'=>$projects->id,
                                     ':f'=>Yii::app()->user->id,
-                                    ':t'=>$groupuser->user_id));
+                                    ':t'=>$groupuser->user_id,':grp'=>$_GET['g']));
                                 ?>
                                 <?php if($groupuser->user->status =="active") { ?>
                                 <p class="selp-pad">
@@ -95,7 +95,7 @@
                                         <?php if(Yii::app()->user->id == $groupuser->user_id)
                                             echo 'Self';
                                         else
-                                            echo ucfirst($groupuser->user->first_name);
+                                            echo ucfirst($groupuser->user->first_name." ".$groupuser->user->last_name);
                                         ?>
                                     </label>
                                     <?php  if($question->q_type =="R") { ?>
@@ -131,38 +131,19 @@
                     <p>No questions assigned yet.</p>
                 </div>
             <?php endif;?>
-
-            <input type="submit" class="add-course" value="Submit"> <div style="clear:both;"></div><br/>
-            <!--<div class="comments">
-                <label>Comments</label>
-                <br/>
-                <?php
-            if(count($groupusers)>0):
-                foreach($groupusers as $groupuser):
-                    $comments = AssessComments::model()->find('project=:p and from_user=:f and to_user=:t',array(':p'=>$projects->id,':f'=>Yii::app()->user->id,':t'=>$groupuser->user_id));
-                    ?>
-                        <label class="text-label">About
-                            <?php if(Yii::app()->user->id == $groupuser->user_id)
-                    echo 'me';
-                else
-                    echo ucfirst($groupuser->user->first_name);
-                    ?>
-                        </label>
-                        <textarea class="text-field" name="comments[<?php echo $groupuser->user_id; ?>]"><?php if(count($comments)>0) echo trim($comments->comments);?></textarea>
-                    <?php endforeach;
-            else:
-                ?>
-                    <label class="text-label">No users assigned to project.</label>
-                <?php endif;?>
-                <input type="submit" class="add-course" value="Save"> <div style="clear:both;"></div><br/>
-            </div>-->
+            <?php
+            $prjid=$_GET['id'];
+            $assess = Assess::model()->find('project=:p and from_user=:f and to_user=:t and grp_id=:grp',
+                array(':p'=>$prjid,':f'=>Yii::app()->user->id,':t'=>Yii::app()->user->id,':grp'=>$_GET['g']));?>
+            <?php if(count($assess) ==0) { ?>
+                <input type="submit" class="add-course" value="Submit"> <div style="clear:both;"></div><br/>
+            <?php } ?>
         </form>
     </div>
 </section>
 <script>
-    $( document ).ready(function() {
+    $(document).ready(function() {
         $("#assesmentsubmit").submit(function(e){
-            //e.preventDefault();
             if(confirm("The responses submitted are permanent are cannot be edited and submitted again. Are you sure want to submit your response ?"))
             {
                 return true;

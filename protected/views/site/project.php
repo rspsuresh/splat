@@ -79,23 +79,20 @@
     <div class="container-fluid user-assessment">
         <p><?php echo ucfirst($projects->name); ?></p>
     </div>
-
     <div class="script-section col-lg-12 col-xs-12 col-sm-12">
         <?php
-
         $coursest_id=$_GET['c'];
         $sqldcque="SELECT GROUP_CONCAT(question_id) as question 
          FROM `delete_custom_question` WHERE `course_id` =$coursest_id";
         $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
         $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
 
-        $prj= Userdetails::model()->find("course=".$_GET['c']." and user_id=".Yii::app()->user->id);
-        if(count($prj)>0)
-            $groupusers = Userdetails::model()->with('user')->findAll('grp_id='.$prj->grp_id.' and user.status="active" and course='.$_GET['c']);
+        //$prj= Userdetails::model()->find("course=".$_GET['c']." and user_id=".Yii::app()->user->id);
+        // if(count($prj)>0)
+        $groupusers = Userdetails::model()->with('user')->findAll('grp_id='.$_GET['g'].' and user.status="active" and course='.$_GET['c']);
 
 
-        $sqldcque="SELECT GROUP_CONCAT(question_id) as question
-    FROM `delete_custom_question` WHERE `course_id` =$projects->course";
+        $sqldcque="SELECT GROUP_CONCAT(question_id) as question FROM `delete_custom_question` WHERE `course_id` =$projects->course";
         $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
         $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
 
@@ -111,7 +108,6 @@
                     <div class="bs-example" id="mycontent">
                         <div class="panel-group" id="faqAccordion">
                             <?php
-                            //echo "<pre>";print_r($groupusers);die;
                             if(count($groupusers)>0):
                                 $u = 0;
                                 $chunkarray=array_chunk($groupusers,5);
@@ -157,7 +153,7 @@
                                                             $i++;
                                                             $iassess = Assess::model()->find('project='.$projects->id.' 
                                                 and from_user='.$groupuser->user_id.' 
-                                                and to_user='.Yii::app()->user->id.' and question='.$iquestion->id.' and grp_id='.$prj->grp_id);
+                                                and to_user='.Yii::app()->user->id.' and question='.$iquestion->id.' and grp_id='.$_GET['g']);
                                                             ?>
                                                             <p class="m-t-10"><?php echo $i;?>. <?php echo $iquestion->question;?> : <b><?php if(count($iassess)>0) echo $iassess->value; else echo '-'; ?></b></p>
                                                         <?php
@@ -213,7 +209,7 @@
                                                                 echo "From anonymous user";
                                                             }
                                                             else{
-                                                                echo $groupuser->user->first_name." ".$groupuser->user->first_name;
+                                                                echo $groupuser->user->first_name." ".$groupuser->user->last_name;
                                                             }
                                                         }
                                                         ?>
@@ -227,16 +223,19 @@
                                                     <div class="script-texts">
                                                         <?php
                                                         //$questions=Questions::model()->findAll('faculty='.base64_decode($_GET['f']).' and course='.base64_decode($_GET['c']).' and status="active" or type="default" and id NOT IN ('.$ids.')');
-                                                        $iquestions=Questions::model()->findAll('course='.$projects->course.' and status="active"     and id NOT IN ('.$ids.')');
-                                                        // $iquestions = Questions::model()->findAll('course='.$projects->course);
+                                                        $iquestions=Questions::model()->findAll('course='.$projects->course.' and status="active" and id NOT IN ('.$ids.')');
                                                         $i=0;
                                                         foreach($questions as $iquestion):
                                                             $i++;
-                                                            $iassess = Assess::model()->find('project='.$projects->id.' 
+                                                            $iassess = Assess::model()->find('project='.$projects->id.'
                                                 and from_user='.Yii::app()->user->id.' 
-                                                and to_user='.$groupuser->user_id.' and question='.$iquestion->id.' and grp_id='.$prj->grp_id);
+                                                and to_user='.$groupuser->user_id.' and question='.$iquestion->id.' and grp_id='.$_GET['g']);
                                                             ?>
-                                                            <p class="m-t-10"><?php echo $i;?>. <?php echo $iquestion->question;?> : <b><?php if(count($iassess)>0) echo $iassess->value; else echo '-'; ?></b></p>
+                                                            <p class="m-t-10">
+                                                                <?php echo $i;?>.<?php echo $iquestion->question;?>
+                                                                :
+                                                                <b><?php if(count($iassess)>0) echo $iassess->value; else echo '-'; ?></b>
+                                                            </p>
                                                         <?php
                                                         endforeach;
                                                         ?>

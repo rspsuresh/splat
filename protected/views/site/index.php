@@ -100,7 +100,7 @@
                             foreach($courseresult as $course)    {
                                 $groupfind="SELECT *  FROM `group_users` as A left join groups as B  on A.`group_id`=B.`id`  WHERE A.`user_id` ={$userid}
   and B.`course_id`={$course['id']}";
-                                $groupfindresult=Yii::app()->db->CreateCommand($groupfind)->QueryRow();
+                                $groupfindresult=Yii::app()->db->CreateCommand($groupfind)->queryAll();
                                 ?>
                                 <div class="panel">
                                     <div class="panel-heading">
@@ -112,28 +112,25 @@
                                         <div class="panel-body" id="activecount">
                                             <?php
                                             $assesmentsql="SELECT *  FROM `projects` WHERE `institution` ={$course['institution']} 
-AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='current'";
+                                                                AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='live'";
                                             $aseesresult=Yii::app()->db->CreateCommand($assesmentsql)->QueryAll();
-
                                             if(!empty($aseesresult)) {
                                                 foreach ($aseesresult as $asees)  {
-                                                    ?>
-                                                    <div class="script-texts actclass" style="margin-left:30px;border-bottom:1px solid rgb(242, 242, 242)"
-                                                         id="ssd"
-                                                         data-count="dsd">
-                                                        <?php //$asmodel=Assess::model()->findAll()?>
-                                                        <a href="<?php echo Yii::app()->createUrl('site/assessment', array('id' => $asees['id'],'course'=>$course['id'],'g'=>$groupfindresult['id'])); ?>">
+                                                    foreach ($groupfindresult as $grpresult): ?>
+                                                    <div class="script-texts actclass" style="margin-left:30px;border-bottom:1px solid rgb(242, 242, 242)">
+                                                        <a href="<?php echo Yii::app()->createUrl('site/assessment', array('id' => $asees['id'],'course'=>$course['id'],'g'=>$grpresult['id'])); ?>">
                                                             <h1 class="blue-clr">
-                                                                <i class="fa fa-pencil-square-o" aria-hidden="true" style="color:#333 !important;"></i> <?=$asees['name']?>
+                                                                <i class="fa fa-pencil-square-o" aria-hidden="true" style="color:#333 !important;"></i>
+                                                                <?=$asees['name']."( ".$grpresult['name'].")"?>
                                                             </h1>
                                                             <p>Due By : <?=date('d-m-Y',strtotime($asees['assess_date']))?></p>
                                                         </a>
                                                     </div>
-                                                <?php } } else {
+
+                                                <?php endforeach;} } else { ?>
                                                 echo '<div class="script-texts">
                                             <h3 class="black-clr">No Assesments Created Yet</h3>
                                         </div>';
-                                                ?>
                                             <?php } ?>
 
                                         </div>
@@ -149,50 +146,51 @@ AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='
                     <div class="panel-group" id="accordion1">
                         <?php
                         if(count($courseresult)>0) {
-                        foreach($courseresult as $course)    {
-                            $groupfind="SELECT *  FROM `group_users` as A left join groups as B  on A.`group_id`=B.`id`  WHERE A.`user_id` ={$userid}  and B.course_id={$course['id']}";
-                            $groupfindresult=Yii::app()->db->CreateCommand($groupfind)->QueryRow();
-                            //echo "<pre>";print_r($groupfindresult);
-                            ?>
-                            <div class="panel">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a  class="course" data-toggle="collapse" data-parent="#accordion1" href="#incollapse_<?php echo $course['id']; ?>">
-                                        <?php //echo ucfirst($course['course_type']." ".$course['name']. "Type-".$course['type']); ?>
-                                        <?php echo ucfirst($course['course_type']." ".$course['name'])." (".$groupfindresult['name'].")"; ?>
-                                        <i class="fa fa-angle-down pull-right blue-clr" aria-hidden="true"></i></a>
-                                </h4>
-                            </div>
-                        <div id="incollapse_<?php echo $course['id']; ?>" class="panel-collapse collapse in">
-                            <div class="panel-body" id="inactivecount">
-                            <?php
-                            $assesmentsql="SELECT *  FROM `projects` WHERE `institution` ={$course['institution']} 
-                                                  AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='completed'";
-                            $aseesresultcom=Yii::app()->db->CreateCommand($assesmentsql)->QueryAll();
-                            if(!empty($aseesresultcom)) {
-                                foreach ($aseesresultcom as $asees)  {
-                                    ?>
-                                    <div class="script-texts actclass" style="margin-left:30px;"
-                                         id="ssd"
-                                         data-count="dsd">
-                                        <a href="<?php echo Yii::app()->createUrl('site/projects', array('id' => $asees['id'],'c'=>$course['id'])); ?>">
-                                            <h1 class="blue-clr"><i
-                                                        class="fa fa-pencil-square-o"
-                                                        aria-hidden="true"
-                                                        style="color:#333 !important;"></i> <?=$asees['name']?>
-                                            </h1>
-                                            <p>Due By : <?=date('d-m-Y',strtotime($asees['assess_date']))?></p>
-                                        </a>
+                            foreach($courseresult as $course)    {
+                                $groupfind="SELECT *  FROM `group_users` as A left join groups as B  on A.`group_id`=B.`id`  WHERE A.`user_id` ={$userid}  and B.course_id={$course['id']}";
+                                $groupfindresult=Yii::app()->db->CreateCommand($groupfind)->queryAll();
+                                ?>
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a  class="course" data-toggle="collapse" data-parent="#accordion1" href="#incollapse_<?php echo $course['id']; ?>">
+                                                <?php //echo ucfirst($course['course_type']." ".$course['name']. "Type-".$course['type']); ?>
+                                                <?php echo ucfirst($course['course_type']." ".$course['name']); ?>
+                                                <i class="fa fa-angle-down pull-right blue-clr" aria-hidden="true"></i></a>
+                                        </h4>
                                     </div>
-                                    <?php }} else { ?>
-                                    echo '<div class="script-texts">
-                                        <h3 class="black-clr">No Assesments Created Yet</h3>
-                                    </div>';
-                                    ?>
-                                <?php } ?>
+                                    <div id="incollapse_<?php echo $course['id']; ?>" class="panel-collapse collapse in">
+                                        <div class="panel-body" id="inactivecount">
+                                            <?php
+                                            $assesmentsql="SELECT *  FROM `projects` WHERE `institution` ={$course['institution']} 
+                                                  AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='completed'";
+                                            $aseesresultcom=Yii::app()->db->CreateCommand($assesmentsql)->QueryAll();
+                                            if(!empty($aseesresultcom)) {
+                                                foreach ($aseesresultcom as $asees)  {
+                                                    foreach($groupfindresult as $grpresult):
+                                                    ?>
+                                                    <div class="script-texts actclass" style="margin-left:30px;"
+                                                         id="ssd"
+                                                         data-count="dsd">
+                                                        <a href="<?php echo Yii::app()->createUrl('site/projects', array('id' => $asees['id'],
+                                                            'c'=>$course['id'],'g'=>$grpresult['id'])); ?>">
+                                                            <h1 class="blue-clr"><i
+                                                                        class="fa fa-pencil-square-o"
+                                                                        aria-hidden="true"
+                                                                        style="color:#333 !important;"></i> <?=$asees['name']."( ".$grpresult['name'].")"?>
+                                                            </h1>
+                                                            <p>Due By : <?=date('d-m-Y',strtotime($asees['assess_date']))?></p>
+                                                        </a>
+                                                    </div>
+                                                <?php endforeach; }} else { ?>
+                                                echo '<div class="script-texts">
+                                                    <h3 class="black-clr">No Assesments Created Yet</h3>
+                                                </div>';
+                                                ?>
+                                            <?php } ?>
 
-                                </div>
-                                </div>
+                                        </div>
+                                    </div>
                                 </div>
                             <?php } }  ?>
 

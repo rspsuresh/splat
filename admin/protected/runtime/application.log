@@ -353,3 +353,107 @@ in D:\xampp\htdocs\splat\admin\index.php (13)
 2019/09/28 17:24:02 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
 in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (385)
 in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/29 16:04:36 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (848)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/29 16:04:38 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (848)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/29 16:04:39 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (385)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/29 16:11:23 [warning] [application] Failed to set unsafe attribute "description" of "Faculties".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (646)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/29 16:11:54 [warning] [application] Failed to set unsafe attribute "course_level" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (156)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/29 16:11:54 [warning] [application] Failed to set unsafe attribute "description" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (156)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/29 16:12:23 [warning] [application] Failed to set unsafe attribute "course_level" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (156)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/29 16:12:23 [warning] [application] Failed to set unsafe attribute "description" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (156)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/29 16:13:34 [warning] [application] Failed to set unsafe attribute "q_type" of "Questions".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (675)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/29 16:13:45 [warning] [application] Failed to set unsafe attribute "q_type" of "Questions".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (675)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/29 16:13:56 [warning] [application] Failed to set unsafe attribute "q_type" of "Questions".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (675)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/29 16:14:32 [warning] [application] Failed to set unsafe attribute "q_type" of "Questions".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (675)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/29 16:17:53 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'f and id NOT IN (0)' at line 1. The SQL statement executed was: SELECT * FROM `questions` `t` WHERE course=9 and status="active" f and id NOT IN (0).
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (624)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/29 16:17:53 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'f and id NOT IN (0)' at line 1. The SQL statement executed was: SELECT * FROM `questions` `t` WHERE course=9 and status="active" f and id NOT IN (0) in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2949): CActiveRecord->query(Object(CDbCriteria), true)
+#3 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(624): CActiveRecord->findAll('course=9 and st...')
+#4 [internal function]: UsersController->actionCAdmin('OQ==')
+#5 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#11 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#12 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('cadmin')
+#16 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/cadmin')
+#17 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#18 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/splat/admin/users/cadmin?c=OQ%3D%3D&i=MQ%3D%3D&f=Mw%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=OQ%3D%3D&i=MQ%3D%3D&f=Mw%3D%3D
+---
+2019/09/29 16:21:12 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (848)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/29 16:21:13 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (848)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/29 16:21:14 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (385)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/29 16:56:07 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (636)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/29 17:41:19 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (636)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/09/29 17:51:41 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (636)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/05 14:16:20 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (636)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/05 14:20:04 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (636)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/05 14:54:40 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (636)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/05 15:06:19 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (636)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/05 15:12:58 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (636)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/05 15:15:16 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (636)
+in D:\xampp\htdocs\splat\admin\index.php (13)
