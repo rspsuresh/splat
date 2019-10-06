@@ -41,7 +41,7 @@
             </a>
         </div>
         <div class="col-lg-4">
-            <p><?=$course->name?></p>
+            <p>Course - <?=$course->name?></p>
         </div>
     </div>
     <div class="container">
@@ -54,7 +54,7 @@
             </div>
         </div>
         <div class="row">
-            <h2 style="color:#00BACF;text-align: center;">Assessment</h2>
+            <h2 style="color:#00BACF;text-align: center;">Assessment - <?=$assesmentdetails->name?></h2>
         </div>
         <form method="POST" id="assesmentsubmit">
             <input type="hidden" value="<?=$_GET['id']?>" name="assesmentid">

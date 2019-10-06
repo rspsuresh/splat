@@ -105,7 +105,7 @@
                                 <div class="panel">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
-                                            <a  class="course" data-toggle="collapse" data-parent="#accordion" href="#collapse_<?php echo $course['id']; ?>"> <?php echo ucfirst($course['course_type']." ".$course['name']. " | Level : ".$course['type']." | Year : ".date('Y-m',strtotime($course['year']))); ?> <i class="fa fa-angle-down pull-right blue-clr" aria-hidden="true"></i></a>
+                                            <a  class="course" data-toggle="collapse" data-parent="#accordion" href="#collapse_<?php echo $course['id']; ?>"> <?php echo ucfirst($course['course_type']." ".$course['name']. " | Level : ".$course['course_level']." | Year : ".date('Y-m',strtotime($course['year']))); ?> <i class="fa fa-angle-down pull-right blue-clr" aria-hidden="true"></i></a>
                                         </h4>
                                     </div>
                                     <div id="collapse_<?php echo $course['id']; ?>" class="panel-collapse collapse in">

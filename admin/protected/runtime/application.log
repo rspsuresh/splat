@@ -457,3 +457,34 @@ in D:\xampp\htdocs\splat\admin\index.php (13)
 2019/10/05 15:15:16 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
 in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (636)
 in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 16:39:54 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (848)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 16:39:54 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (848)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 16:40:16 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (848)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 16:40:18 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (848)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 16:40:18 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (385)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 16:40:45 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (636)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 16:53:23 [warning] [application] Failed to set unsafe attribute "id" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (156)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 16:53:23 [warning] [application] Failed to set unsafe attribute "course_level" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (156)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 16:53:23 [warning] [application] Failed to set unsafe attribute "description" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (156)
+in D:\xampp\htdocs\splat\admin\index.php (13)

@@ -701,12 +701,12 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                                 CHtml::listData($defaultQue,'id','question'));
                             ?>
                         </div>
+                        <?php echo CHtml::submitButton('Add',array('class'=>'save-btn')); ?>
                     <?php }
                     else { ?>
                         <h1>No Default Question found</h1>
                     <?php } ?>
                 </div>
-                <?php echo CHtml::submitButton('Add',array('class'=>'save-btn')); ?>
                 <?php $this->endWidget(); ?>
             </div>
         </div>
