@@ -488,3 +488,67 @@ in D:\xampp\htdocs\splat\admin\index.php (13)
 2019/10/06 16:53:23 [warning] [application] Failed to set unsafe attribute "description" of "Courses".
 in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (156)
 in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 17:04:11 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (636)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 17:07:02 [warning] [application] Failed to set unsafe attribute "description" of "Faculties".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (646)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 17:07:38 [warning] [application] Failed to set unsafe attribute "course_level" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (156)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 17:07:38 [warning] [application] Failed to set unsafe attribute "description" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (156)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 17:10:24 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (848)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 17:10:26 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (848)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 17:10:26 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (385)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 17:10:38 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (848)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 17:11:50 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (848)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 17:11:53 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (848)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 17:11:53 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (385)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 17:12:14 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (848)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 17:12:15 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (848)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (340)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 17:12:16 [warning] [application] Failed to set unsafe attribute "grp" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (385)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 17:15:30 [warning] [application] Failed to set unsafe attribute "q_type" of "Questions".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (675)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 17:15:46 [warning] [application] Failed to set unsafe attribute "q_type" of "Questions".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (675)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 17:16:03 [warning] [application] Failed to set unsafe attribute "q_type" of "Questions".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (675)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 17:16:25 [warning] [application] Failed to set unsafe attribute "q_type" of "Questions".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (675)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/06 17:18:58 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (636)
+in D:\xampp\htdocs\splat\admin\index.php (13)

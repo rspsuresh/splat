@@ -443,12 +443,10 @@ class GroupusersController extends Controller
                   join users on user_courses.user_id=users.id and users.role=5 and users.status='active'
                   WHERE user_courses.`course_id` = ".base64_decode($_GET["c"]);
 
-        $usermodel=Userdetails::model()->with('user')->findAll( array(
-            'condition'=>'course='.base64_decode($_GET["c"]).' and user.status="active" and user.role=5',
+        $usermodel=Userdetails::model()->with('user')->findAll( array('condition'=>'course='.base64_decode($_GET["c"]).' and user.status="active" and user.role=5',
             'order'=>'t.grp_id asc'
         ));
         $courseid=base64_decode($_GET['c']);
-
 
         $sqldcque="SELECT GROUP_CONCAT(question_id) as question 
                                    FROM `delete_custom_question` WHERE `course_id` =$courseid";
@@ -466,9 +464,9 @@ class GroupusersController extends Controller
 
             if($userdetails)
             {
-                $meansql="SELECT (sum(value)/$dividedcount) as mean FROM `assess` WHERE `project` ={$_GET['p']} AND `grp_id` ={$userdetails->grp_id}  ORDER BY `id`  DESC";
+                $meansql="SELECT (sum(value)/$dividedcount) as mean FROM `assess` WHERE `project` ={$_GET['p']} AND `grp_id` ={$val->groupname->id}  ORDER BY `id`  DESC";
                 //echo $userdetails->grp_id."<br>";
-                $grpuserscount=count(Userdetails::model()->findAll("grp_id=".$userdetails->grp_id));
+                $grpuserscount=count(Userdetails::model()->findAll("grp_id=".$val->groupname->id));
                 $meansocre=Yii::app()->db->Createcommand($meansql)->QueryAll();
                 $scoremean=(!empty($meansocre[0]['mean']))?$meansocre[0]['mean']/$grpuserscount:"#";
             }
@@ -478,15 +476,15 @@ class GroupusersController extends Controller
             $test.="<td>".$val->user->username."</td><td>".$val->user->email."</td><td>".$val->user->first_name."</td><td>".$val->user->last_name."</td>";
             $resultsql="SELECT sum(value) as total,submitted_at FROM `assess`
                  left join questions on assess.question=questions.id
-                  where to_user={$val->user->id} and (value !='' and value !=0) 
+                  where to_user={$val->user->id} and (value !='' and value !=0) and assess.grp_id={$val->groupname->id}
                    and questions.q_type='R' and  questions.status='active' 
                   and assess.project={$_GET["p"]} 
                  order by assess.question asc";
             $sumresult=Yii::app()->db->Createcommand($resultsql)->QueryAll();
-         // echo "<pre>";print_r($sumresult);
+
             $rowfind="SELECT * FROM `assess` left join questions on assess.question=questions.id
                   where to_user={$val->user->id} and (value !='' and value !=0) 
-                  and questions.q_type='R' and  questions.status='active' 
+                  and questions.q_type='R' and  questions.status='active' and  assess.grp_id={$val->groupname->id}
                   and assess.project={$_GET["p"]} 
                   group by assess.from_user order by assess.question asc";
             $rowfindresult=Yii::app()->db->Createcommand($rowfind)->QueryAll();
@@ -503,12 +501,11 @@ class GroupusersController extends Controller
                 $test.='<td>#</td>';
                // $test.='<td>#</td>';
             }
-            $test.='<td>'.$userdetails->groupname->name.'</td>';
+            $test.='<td>'.$val->groupname->name.'</td>';
             $test.='<td>'.$scoremean.'</td>';
             $date=!empty($sumresult[0]['submitted_at'])?$sumresult[0]['submitted_at']:date("Y-m-d H:i:s");
             $differncesql="select timediff('$project->assess_date','$date') as diff";
             $executequery=Yii::app()->db->Createcommand($differncesql)->queryRow();
-            print_r($executequery);
             $sign=(stristr($executequery['diff'],'-')==$executequery['diff'])?"Yes":"No";
             $test.='<td>'.$sign.'</td>';
             $test.='<td>#</td>';
