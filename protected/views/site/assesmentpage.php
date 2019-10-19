@@ -31,7 +31,7 @@
 </style>
 
 <?php
-echo "<pre>";print_r($_REQUEST);die;
+//echo "<pre>";print_r($_REQUEST);die;
 $usergroup = GroupUsers::model()->find('user_id='.Yii::app()->user->id .' and group_id='.$_GET['g']);
 $groupusers = array();
 if(count($usergroup)>0)

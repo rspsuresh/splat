@@ -47,10 +47,10 @@ class Users extends CActiveRecord
         // will receive user inputs.
         return array(
             array('first_name, last_name,email,course_id, institution_id, fac_id, role', 'required','on'=>'normal'),
-            array('first_name,password,last_name, course_id, institution_id, fac_id, role', 'required','on'=>'update'),
+            array('first_name,last_name, course_id,fac_id,email', 'required','on'=>'update'),
             array('institution_id', 'numerical', 'integerOnly'=>true),
             array('first_name,last_name','required','on'=>'edit'),
-            array('email', 'unique'),
+            array('email','ownvalidation'),
             array('email', 'email','message'=>"The email isn't correct"),
             array('username, password, first_name, last_name,role', 'required','on'=>'negelect'),
             array('username, password, first_name, last_name, profile', 'length', 'max'=>255),
@@ -86,9 +86,25 @@ class Users extends CActiveRecord
             'course0' => array(self::BELONGS_TO, 'Courses', 'course_id'),
             'faculty0' => array(self::BELONGS_TO, 'Faculties', 'fac_id'),
             'institution0' => array(self::BELONGS_TO, 'Institutions', 'institution_id'),
+
         );
     }
-
+    public function ownvalidation($attribute_name,$params)
+    {
+        if(empty($this->email) && empty($this->email))
+        {
+            $this->addError('email',
+                'Email Cannot be blank');
+        }else if(!empty($this->email))
+        {
+            $courseid=base64_decode($_GET['c']);
+            $UserCour=UserCourses::model()->with('user')->find("user.email='{$this->email}' and t.course_id={$courseid}");
+            if($UserCour && Yii::app()->controller->action->id =="staffusers")
+            {
+                $this->addError('email','this staff already present in this course');
+            }
+        }
+    }
     /**
      * @return array customized attribute labels (name=>label)
      */
@@ -149,13 +165,18 @@ class Users extends CActiveRecord
            
             $users=($result[0]['user_id'])?$result[0]['user_id']:0;
             $criteria->addcondition(' id in(' . $uniquesdata .') and role =5');          // for exact match
-        }
-        if(isset($_REQUEST['Users']['course_id']))
+			 if(isset($_REQUEST['Users']['course_id']))
         {
             //$criteria->addCondition('course_id LIKE "%'.$this->course_id.'" or "%'.$this->course_id.'%"');
             $criteria->addCondition("`course_id` LIKE '%$this->course_id%'" );
 
         }
+        }
+		else
+		{
+		 $criteria->addCondition('role=3');	
+		}
+       
         $criteria->compare('id',$this->id);
         $criteria->compare('username',$this->username,true);
         $criteria->compare('first_name',$this->first_name,true);

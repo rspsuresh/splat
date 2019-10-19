@@ -13,7 +13,7 @@
 $institution = Institutions::model()->find('id='.base64_decode($_GET['i']));
 $faculty = Faculties::model()->find('id='.base64_decode($_GET['f']));
 $course = Courses::model()->find('id='.base64_decode($_GET['c']));
-  $stafforuser=(Yii::app()->controller->action->id =='staffusers')?'Staff':'User';
+$stafforuser=(Yii::app()->controller->action->id =='staffusers')?'Staff':'User';
 ?>
 <section id="wrapper" >
 	<div class="container">

@@ -349,7 +349,7 @@ class SiteController extends Controller
                         }
                         else
                         {
-                            echo "<pre>";print_r($questions);die;
+                            echo "<pre>";print_r($questions->getErrors());die;
                         }
                     }
                     else

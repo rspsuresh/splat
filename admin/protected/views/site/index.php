@@ -140,7 +140,7 @@ $this->pageTitle=Yii::app()->name;
             <div class="col-lg-3 col-sm-3 col-md-3 col-xs-4 padzero home-menu text-center ">
                 <a href="<?php echo Yii::app()->createUrl('users/admin'); ?>" style="padding: 16% 8% !important;">
                     <p class="mo"><i class="fas fa-users-cog"></i></p>
-                    Manage all Users</a>
+                    Manage all Staffs</a>
             </div>
             <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4 padzero home-menu text-center">
                 <a href="<?php echo Yii::app()->createUrl('questionsadmin/admin'); ?>">

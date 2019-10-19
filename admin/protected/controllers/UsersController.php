@@ -28,7 +28,7 @@ class UsersController extends Controller
         return array(
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
                 'actions'=>array('index','view', 'create', 'ccreate','update', 'admin','delete',
-                    'unauthorized','dynamiccourses','cadmin','download','deletemultiple','staffusers','mailprocess'),
+                    'unauthorized','dynamiccourses','cadmin','download','deletemultiple','staffusers','mailprocess','updatestaff'),
                 'users'=>array('@'),
             ),
             array('deny',  // deny all users
@@ -725,7 +725,7 @@ class UsersController extends Controller
                         }
                         else
                         {
-                            echo "<pre>";print_r($questions);die;
+                            echo "<pre>";print_r($questions->getErrors());die;
                         }
                     }
                     else
@@ -1103,5 +1103,54 @@ class UsersController extends Controller
 
             return true;
         }
+    }
+
+    public function actionUpdatestaff($id)
+    {
+
+      /*  ALTER TABLE `users` CHANGE `course_id` `course_id` INT(11) NULL DEFAULT NULL;
+ALTER TABLE `users` CHANGE `institution_id` `institution_id` INT(11) NULL DEFAULT NULL;
+ALTER TABLE `users` CHANGE `created_date` `created_date` DATETIME NULL DEFAULT NULL;
+ALTER TABLE `users` CHANGE `updated_date` updated_date` DATETIME NULL DEFAULT NULL;
+ALTER TABLE `users` CHANGE `fac_id` `fac_id` INT(11) NULL DEFAULT NULL;*/
+      if(!empty($id))
+      {
+          $model=Users::model()->findByPk($_GET['id']);
+          $model->scenario="staffupdate";
+          if(!empty($_POST))
+          {
+              $model->first_name=$_POST['Users']['first_name'];
+              $model->last_name=$_POST['Users']['last_name'];
+              $model->email=$_POST['Users']['email'];
+              if($model->save(false))
+              {
+                  $userfaculty=UserFaculties::model()->deleteAllByAttributes(['user_id' => $model->id]);
+                  $usercourse=UserCourses::model()->deleteAllByAttributes(['user_id' => $model->id]);
+
+                  foreach ($_POST['Users']['fac_id'] as $val)
+                  {
+                      $USerfac=New UserFaculties();
+                      $USerfac->user_id=$model->id;
+                      $USerfac->faculty_id=$val;
+                      $USerfac->save();
+                  }
+
+                  foreach ($_POST['Users']['course_id'] as $crsval)
+                  {
+                      $USercrs=New UserCourses();
+                      $USercrs->user_id=$model->id;
+                      $USercrs->course_id=$crsval;
+                      $USercrs->save();
+                  }
+
+                  Yii::app()->user->setFlash('success', 'A Staff user has been Updated.');
+                  $this->redirect(Yii::app()->createUrl('users/admin'));
+              }
+          }
+
+          $this->render('_formstaff',array(
+              'model'=>$model,
+          ));
+      }
     }
 }

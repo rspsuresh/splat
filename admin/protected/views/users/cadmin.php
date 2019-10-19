@@ -893,12 +893,6 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                 }
             });
         }
-        /*  }
-          else
-          {
-              alert('Current assessment not yet completed');
-          }*/
-
     });
 </script>
 <script>

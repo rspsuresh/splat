@@ -160,7 +160,6 @@
                 </div>
                 <div class="col-lg-8 padzero">
                     <?php
-                    //echo "<pre>";print_r(Groups::model()->with('usersgrps')->findAll("usersgrps.user_id={$_GET['id']}  and usersgrps.status='active'"));die;
                     echo $form->dropDownList($model, 'grp', CHtml::listData(Groups::model()->with('usersgrps')->findAll("usersgrps.status='active' and t.course_id={$coursedec}"), 'id', 'name'),
                         array('empty'=>'Select Group','multiple'=>'multiple',
                             'options'=>$grpselectedOptions)); ?>

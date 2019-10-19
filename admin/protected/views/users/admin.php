@@ -30,7 +30,7 @@ $('.search-form form').submit(function(){
         <div class="user-institute">
             <?php  if(Yii::app()->user->getState('role')=='Superuser')
             { ?>
-                <p>You are here: <a href="<?php echo Yii::app()->createUrl('site/index'); ?>">Home</a> / <b>Manage All Users</b></p>
+                <p>You are here: <a href="<?php echo Yii::app()->createUrl('site/index'); ?>">Home</a> / <b>Manage All Staffs</b></p>
             <?php }
             else { ?>
                 <p>You are here: <a href="<?php echo Yii::app()->createUrl('site/index'); ?>">Home</a> / <b>Manage All Users</b></p>
@@ -38,7 +38,7 @@ $('.search-form form').submit(function(){
         </div>
     </div>
     <div class="container-fluid user-assessment">
-        <p>Manage All Users</p>
+        <p>Manage All Staffs</p>
     </div>
     <div class="container">
         <a class="admin-btn btn btn-success"  onclick="searchdiv()" id="searchbutton" href="#">Advanced Search</a>
@@ -108,9 +108,19 @@ $('.search-form form').submit(function(){
                     'filter' => CHtml::dropDownlist('Users[role]', $model->role, CHtml::listData(Userrole::model()->findAll(), "id", "s_name"), array('empty'=>'select','class'=>'form-control')),
                     'value'=>'$data->roles->s_name'
                 ),
-                array(
+                array
+                (
                     'class'=>'CButtonColumn',
-                    'template'=>'{delete}',
+                    'template'=>'{view}{update}{delete}',
+                    'buttons'=>array
+                    (
+
+                        'update' => array
+                        (
+                               // $inst=base64_encode($data->institution_id),
+                            'url'=>'$this->grid->controller->createUrl("/users/updatestaff", array("type"=>"staff","id"=>$data->id,"i"=>base64_encode($data->institution_id)))',
+                        ),
+                    ),
                 ),
             ),
         )); ?>

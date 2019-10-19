@@ -199,7 +199,7 @@ class GroupusersController extends Controller
 
                 //skip first line
                 $header = fgetcsv($csvFile);
-                echo "<pre>";print_r($header);die;
+               // echo "<pre>";print_r($header);die;
                 while (($line = fgetcsv($csvFile)) !== FALSE) {
                     $all_rows[] = array_combine($header, $line);
                 }

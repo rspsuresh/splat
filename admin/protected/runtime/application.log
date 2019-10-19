@@ -552,3 +552,1289 @@ in D:\xampp\htdocs\splat\admin\index.php (13)
 2019/10/06 17:18:58 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
 in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (636)
 in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/15 15:02:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE user_courses.`course_id` = 11' at line 3. The SQL statement executed was: SELECT user_id as user_id FROM `user_courses` 
+                  join users on user_courses.user_id=users.id and users.role=
+                  WHERE user_courses.`course_id` = 11.
+in D:\xampp\htdocs\splat\admin\protected\models\Users.php (141)
+in D:\xampp\htdocs\splat\admin\protected\views\users\cadmin.php (204)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (762)
+2019/10/15 15:02:29 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE user_courses.`course_id` = 11' at line 3. The SQL statement executed was: SELECT user_id as user_id FROM `user_courses` 
+                  join users on user_courses.user_id=users.id and users.role=
+                  WHERE user_courses.`course_id` = 11 in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\splat\admin\protected\models\Users.php(141): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\splat\admin\protected\views\users\cadmin.php(204): Users->search()
+#3 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#5 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('cadmin', Array, true)
+#7 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(762): CController->render('cadmin', Array)
+#8 [internal function]: UsersController->actionCAdmin('MTE=')
+#9 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#12 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#15 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('cadmin')
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/cadmin')
+#21 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#22 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/splat/admin/users/cadmin?i=MQ%3D%3D&f=NA%3D%3D&c=MTE%3D
+HTTP_REFERER=http://localhost/splat/admin/site/courses?i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/15 15:02:48 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE user_courses.`course_id` = 11' at line 3. The SQL statement executed was: SELECT user_id as user_id FROM `user_courses` 
+                  join users on user_courses.user_id=users.id and users.role=
+                  WHERE user_courses.`course_id` = 11.
+in D:\xampp\htdocs\splat\admin\protected\models\Users.php (141)
+in D:\xampp\htdocs\splat\admin\protected\views\users\cadmin.php (204)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (762)
+2019/10/15 15:02:48 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE user_courses.`course_id` = 11' at line 3. The SQL statement executed was: SELECT user_id as user_id FROM `user_courses` 
+                  join users on user_courses.user_id=users.id and users.role=
+                  WHERE user_courses.`course_id` = 11 in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\splat\admin\protected\models\Users.php(141): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\splat\admin\protected\views\users\cadmin.php(204): Users->search()
+#3 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#5 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('cadmin', Array, true)
+#7 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(762): CController->render('cadmin', Array)
+#8 [internal function]: UsersController->actionCAdmin('MTE=')
+#9 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#12 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#15 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('cadmin')
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/cadmin')
+#21 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#22 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/splat/admin/users/cadmin?i=MQ%3D%3D&f=NA%3D%3D&c=MTE%3D
+HTTP_REFERER=http://localhost/splat/admin/site/courses?i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/15 15:03:08 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE user_courses.`course_id` = 11' at line 3. The SQL statement executed was: SELECT user_id as user_id FROM `user_courses` 
+                  join users on user_courses.user_id=users.id and users.role=
+                  WHERE user_courses.`course_id` = 11.
+in D:\xampp\htdocs\splat\admin\protected\models\Users.php (141)
+in D:\xampp\htdocs\splat\admin\protected\views\users\cadmin.php (204)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (762)
+2019/10/15 15:03:08 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE user_courses.`course_id` = 11' at line 3. The SQL statement executed was: SELECT user_id as user_id FROM `user_courses` 
+                  join users on user_courses.user_id=users.id and users.role=
+                  WHERE user_courses.`course_id` = 11 in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\splat\admin\protected\models\Users.php(141): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\splat\admin\protected\views\users\cadmin.php(204): Users->search()
+#3 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#5 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('cadmin', Array, true)
+#7 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(762): CController->render('cadmin', Array)
+#8 [internal function]: UsersController->actionCAdmin('MTE=')
+#9 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#12 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#15 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('cadmin')
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/cadmin')
+#21 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#22 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/splat/admin/users/cadmin?i=MQ%3D%3D&f=NA%3D%3D&c=MTE%3D
+HTTP_REFERER=http://localhost/splat/admin/site/courses?i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/15 15:07:48 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT * FROM `user_courses` `t` WHERE user_id=570 and course_id=.
+in D:\xampp\htdocs\splat\admin\protected\views\users\_form.php (118)
+in D:\xampp\htdocs\splat\admin\protected\views\users\update.php (12)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (437)
+2019/10/15 15:07:48 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT * FROM `user_courses` `t` WHERE user_id=570 and course_id= in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2949): CActiveRecord->query(Object(CDbCriteria), true)
+#3 D:\xampp\htdocs\splat\admin\protected\views\users\_form.php(118): CActiveRecord->findAll('user_id=570 and...')
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#7 D:\xampp\htdocs\splat\admin\protected\views\users\update.php(12): CController->renderPartial('_form', Array)
+#8 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#9 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('update', Array, true)
+#12 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(437): CController->render('update', Array)
+#13 [internal function]: UsersController->actionUpdate('570')
+#14 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#15 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#16 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#18 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#20 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#21 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#22 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#23 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('update')
+#25 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/update')
+#26 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#27 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/splat/admin/users/update/570
+HTTP_REFERER=http://localhost/splat/admin/users/admin
+---
+2019/10/15 15:12:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT * FROM `user_courses` `t` WHERE user_id=570 and course_id=.
+in D:\xampp\htdocs\splat\admin\protected\views\users\_form.php (118)
+in D:\xampp\htdocs\splat\admin\protected\views\users\update.php (12)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (437)
+2019/10/15 15:12:29 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT * FROM `user_courses` `t` WHERE user_id=570 and course_id= in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2949): CActiveRecord->query(Object(CDbCriteria), true)
+#3 D:\xampp\htdocs\splat\admin\protected\views\users\_form.php(118): CActiveRecord->findAll('user_id=570 and...')
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#7 D:\xampp\htdocs\splat\admin\protected\views\users\update.php(12): CController->renderPartial('_form', Array)
+#8 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#9 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('update', Array, true)
+#12 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(437): CController->render('update', Array)
+#13 [internal function]: UsersController->actionUpdate('570')
+#14 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#15 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#16 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#18 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#20 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#21 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#22 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#23 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('update')
+#25 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/update')
+#26 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#27 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/splat/admin/users/update/570
+HTTP_REFERER=http://localhost/splat/admin/users/admin
+---
+2019/10/15 15:18:16 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT * FROM `user_courses` `t` WHERE user_id=570 and course_id=.
+in D:\xampp\htdocs\splat\admin\protected\views\users\_form.php (118)
+in D:\xampp\htdocs\splat\admin\protected\views\users\update.php (12)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (437)
+2019/10/15 15:18:16 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT * FROM `user_courses` `t` WHERE user_id=570 and course_id= in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2949): CActiveRecord->query(Object(CDbCriteria), true)
+#3 D:\xampp\htdocs\splat\admin\protected\views\users\_form.php(118): CActiveRecord->findAll('user_id=570 and...')
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#7 D:\xampp\htdocs\splat\admin\protected\views\users\update.php(12): CController->renderPartial('_form', Array)
+#8 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#9 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('update', Array, true)
+#12 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(437): CController->render('update', Array)
+#13 [internal function]: UsersController->actionUpdate('570')
+#14 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#15 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#16 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#18 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#20 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#21 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#22 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#23 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('update')
+#25 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/update')
+#26 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#27 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/splat/admin/users/update/570
+HTTP_REFERER=http://localhost/splat/admin/users/admin
+---
+2019/10/15 15:18:18 [error] [exception.CException] CException: Property "CButtonColumn.update" is not defined. in D:\xampp\htdocs\splat\yii\framework\base\CComponent.php:345
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\YiiBase.php(439): CComponent->__set('update', Array)
+#1 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(775): YiiBase::createComponent(Array, Object(CGridView))
+#2 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(717): CGridView->initColumns()
+#3 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(293): CGridView->init()
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(359): CBaseController->createWidget('zii.widgets.gri...', Array)
+#5 D:\xampp\htdocs\splat\admin\protected\views\users\admin.php(54): CBaseController->widget('zii.widgets.gri...', Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#7 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('admin', Array, true)
+#10 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(497): CController->render('admin', Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): UsersController->actionAdmin()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('admin')
+#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/admin')
+#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#23 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/splat/admin/users/admin
+HTTP_REFERER=http://localhost/splat/admin/site/index
+---
+2019/10/15 15:18:40 [error] [exception.CException] CException: Property "CButtonColumn.update" is not defined. in D:\xampp\htdocs\splat\yii\framework\base\CComponent.php:345
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\YiiBase.php(439): CComponent->__set('update', Array)
+#1 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(775): YiiBase::createComponent(Array, Object(CGridView))
+#2 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(717): CGridView->initColumns()
+#3 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(293): CGridView->init()
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(359): CBaseController->createWidget('zii.widgets.gri...', Array)
+#5 D:\xampp\htdocs\splat\admin\protected\views\users\admin.php(54): CBaseController->widget('zii.widgets.gri...', Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#7 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('admin', Array, true)
+#10 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(497): CController->render('admin', Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): UsersController->actionAdmin()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('admin')
+#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/admin')
+#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#23 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/splat/admin/users/admin
+HTTP_REFERER=http://localhost/splat/admin/site/index
+---
+2019/10/15 15:19:34 [error] [exception.CException] CException: Property "CButtonColumn.update" is not defined. in D:\xampp\htdocs\splat\yii\framework\base\CComponent.php:345
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\YiiBase.php(439): CComponent->__set('update', Array)
+#1 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(775): YiiBase::createComponent(Array, Object(CGridView))
+#2 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(717): CGridView->initColumns()
+#3 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(293): CGridView->init()
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(359): CBaseController->createWidget('zii.widgets.gri...', Array)
+#5 D:\xampp\htdocs\splat\admin\protected\views\users\admin.php(54): CBaseController->widget('zii.widgets.gri...', Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#7 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('admin', Array, true)
+#10 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(497): CController->render('admin', Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): UsersController->actionAdmin()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('admin')
+#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/admin')
+#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#23 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/splat/admin/users/admin
+HTTP_REFERER=http://localhost/splat/admin/site/index
+---
+2019/10/15 15:19:52 [error] [exception.CException] CException: Property "CButtonColumn.button" is not defined. in D:\xampp\htdocs\splat\yii\framework\base\CComponent.php:345
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\YiiBase.php(439): CComponent->__set('button', Array)
+#1 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(775): YiiBase::createComponent(Array, Object(CGridView))
+#2 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(717): CGridView->initColumns()
+#3 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(293): CGridView->init()
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(359): CBaseController->createWidget('zii.widgets.gri...', Array)
+#5 D:\xampp\htdocs\splat\admin\protected\views\users\admin.php(54): CBaseController->widget('zii.widgets.gri...', Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#7 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('admin', Array, true)
+#10 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(497): CController->render('admin', Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): UsersController->actionAdmin()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('admin')
+#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/admin')
+#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#23 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/splat/admin/users/admin
+HTTP_REFERER=http://localhost/splat/admin/site/index
+---
+2019/10/15 15:20:56 [error] [exception.CException] CException: Property "CButtonColumn.button" is not defined. in D:\xampp\htdocs\splat\yii\framework\base\CComponent.php:345
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\YiiBase.php(439): CComponent->__set('button', Array)
+#1 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(775): YiiBase::createComponent(Array, Object(CGridView))
+#2 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(717): CGridView->initColumns()
+#3 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(293): CGridView->init()
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(359): CBaseController->createWidget('zii.widgets.gri...', Array)
+#5 D:\xampp\htdocs\splat\admin\protected\views\users\admin.php(54): CBaseController->widget('zii.widgets.gri...', Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#7 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('admin', Array, true)
+#10 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(497): CController->render('admin', Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): UsersController->actionAdmin()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('admin')
+#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/admin')
+#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#23 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/splat/admin/users/admin
+HTTP_REFERER=http://localhost/splat/admin/site/index
+---
+2019/10/15 15:21:52 [error] [exception.CException] CException: Property "CButtonColumn.button" is not defined. in D:\xampp\htdocs\splat\yii\framework\base\CComponent.php:345
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\YiiBase.php(439): CComponent->__set('button', Array)
+#1 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(775): YiiBase::createComponent(Array, Object(CGridView))
+#2 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(717): CGridView->initColumns()
+#3 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(293): CGridView->init()
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(359): CBaseController->createWidget('zii.widgets.gri...', Array)
+#5 D:\xampp\htdocs\splat\admin\protected\views\users\admin.php(54): CBaseController->widget('zii.widgets.gri...', Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#7 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('admin', Array, true)
+#10 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(497): CController->render('admin', Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): UsersController->actionAdmin()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('admin')
+#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/admin')
+#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#23 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/splat/admin/users/admin
+HTTP_REFERER=http://localhost/splat/admin/site/index
+---
+2019/10/15 15:23:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT * FROM `user_courses` `t` WHERE user_id=570 and course_id=.
+in D:\xampp\htdocs\splat\admin\protected\views\users\_form.php (118)
+in D:\xampp\htdocs\splat\admin\protected\views\users\update.php (12)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (437)
+2019/10/15 15:23:47 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT * FROM `user_courses` `t` WHERE user_id=570 and course_id= in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2949): CActiveRecord->query(Object(CDbCriteria), true)
+#3 D:\xampp\htdocs\splat\admin\protected\views\users\_form.php(118): CActiveRecord->findAll('user_id=570 and...')
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#7 D:\xampp\htdocs\splat\admin\protected\views\users\update.php(12): CController->renderPartial('_form', Array)
+#8 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#9 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('update', Array, true)
+#12 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(437): CController->render('update', Array)
+#13 [internal function]: UsersController->actionUpdate('570')
+#14 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#15 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#16 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#18 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#20 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#21 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#22 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#23 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('update')
+#25 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/update')
+#26 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#27 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/splat/admin/users/update/570?type=staff
+HTTP_REFERER=http://localhost/splat/admin/users/admin
+---
+2019/10/15 15:32:58 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "updatestaff". in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('updatestaff')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('updatestaff')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/updatesta...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/users/updatestaff/570?type=staff
+HTTP_REFERER=http://localhost/splat/admin/users/admin
+---
+2019/10/15 15:38:39 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `institutions` `t` WHERE id= LIMIT 1.
+in D:\xampp\htdocs\splat\admin\protected\views\users\ccreate.php (13)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (1116)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/15 15:38:39 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `institutions` `t` WHERE id= LIMIT 1 in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(829): CDbCommand->queryInternal('fetch', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryRow()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2921): CActiveRecord->query(Object(CDbCriteria))
+#3 D:\xampp\htdocs\splat\admin\protected\views\users\ccreate.php(13): CActiveRecord->find('id=')
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('ccreate', Array, true)
+#8 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(1116): CController->render('ccreate', Array)
+#9 [internal function]: UsersController->actionUpdatestaff('570')
+#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('updatestaff')
+#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/updatesta...')
+#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#23 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/splat/admin/users/updatestaff/570?type=staff
+HTTP_REFERER=http://localhost/splat/admin/users/admin
+---
+2019/10/15 15:39:37 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `institutions` `t` WHERE id= LIMIT 1.
+in D:\xampp\htdocs\splat\admin\protected\views\users\ccreate.php (13)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (1116)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/15 15:39:37 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `institutions` `t` WHERE id= LIMIT 1 in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(829): CDbCommand->queryInternal('fetch', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryRow()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2921): CActiveRecord->query(Object(CDbCriteria))
+#3 D:\xampp\htdocs\splat\admin\protected\views\users\ccreate.php(13): CActiveRecord->find('id=')
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('ccreate', Array, true)
+#8 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(1116): CController->render('ccreate', Array)
+#9 [internal function]: UsersController->actionUpdatestaff('570')
+#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('updatestaff')
+#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/updatesta...')
+#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#23 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/splat/admin/users/updatestaff/570?type=staff
+HTTP_REFERER=http://localhost/splat/admin/users/admin
+---
+2019/10/15 15:42:32 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `institutions` `t` WHERE id= LIMIT 1.
+in D:\xampp\htdocs\splat\admin\protected\views\users\ccreate.php (13)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (1116)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/15 15:42:32 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `institutions` `t` WHERE id= LIMIT 1 in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(829): CDbCommand->queryInternal('fetch', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryRow()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2921): CActiveRecord->query(Object(CDbCriteria))
+#3 D:\xampp\htdocs\splat\admin\protected\views\users\ccreate.php(13): CActiveRecord->find('id=')
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('ccreate', Array, true)
+#8 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(1116): CController->render('ccreate', Array)
+#9 [internal function]: UsersController->actionUpdatestaff('570')
+#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('updatestaff')
+#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/updatesta...')
+#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#23 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/splat/admin/users/updatestaff/570?type=staff
+HTTP_REFERER=http://localhost/splat/admin/users/admin
+---
+2019/10/15 15:42:36 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `institutions` `t` WHERE id= LIMIT 1.
+in D:\xampp\htdocs\splat\admin\protected\views\users\ccreate.php (13)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (1116)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/15 15:42:36 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `institutions` `t` WHERE id= LIMIT 1 in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(829): CDbCommand->queryInternal('fetch', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryRow()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2921): CActiveRecord->query(Object(CDbCriteria))
+#3 D:\xampp\htdocs\splat\admin\protected\views\users\ccreate.php(13): CActiveRecord->find('id=')
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('ccreate', Array, true)
+#8 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(1116): CController->render('ccreate', Array)
+#9 [internal function]: UsersController->actionUpdatestaff('570')
+#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('updatestaff')
+#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/updatesta...')
+#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#23 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/splat/admin/users/updatestaff/570?type=staff&i=1
+HTTP_REFERER=http://localhost/splat/admin/users/admin
+---
+2019/10/15 15:43:08 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `institutions` `t` WHERE id= LIMIT 1.
+in D:\xampp\htdocs\splat\admin\protected\views\users\ccreate.php (13)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (1116)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/15 15:43:08 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `institutions` `t` WHERE id= LIMIT 1 in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(829): CDbCommand->queryInternal('fetch', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryRow()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2921): CActiveRecord->query(Object(CDbCriteria))
+#3 D:\xampp\htdocs\splat\admin\protected\views\users\ccreate.php(13): CActiveRecord->find('id=')
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('ccreate', Array, true)
+#8 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(1116): CController->render('ccreate', Array)
+#9 [internal function]: UsersController->actionUpdatestaff('570')
+#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('updatestaff')
+#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/updatesta...')
+#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#23 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/splat/admin/users/updatestaff/570?type=staff&i=1
+HTTP_REFERER=http://localhost/splat/admin/users/admin
+---
+2019/10/15 15:43:11 [error] [exception.Error] Error: Call to undefined function base_encode() in D:\xampp\htdocs\splat\yii\framework\base\CComponent.php(1223) : eval()'d code:1
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\base\CComponent.php(1223): eval()
+#1 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CButtonColumn.php(683): CComponent->evaluateExpression('$this->grid->co...', Array)
+#2 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CButtonColumn.php(641): CButtonColumn->renderButton('update', Array, 0, Object(Users))
+#3 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridColumn.php(461): CButtonColumn->getDataCellContent(0)
+#4 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridColumn.php(307): CGridColumn->renderDataCellContent(0, Object(Users))
+#5 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(1275): CGridColumn->renderDataCell(0)
+#6 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(1243): CGridView->renderDataCell(Object(CButtonColumn), 0)
+#7 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(1155): CGridView->renderTableRow(0)
+#8 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(975): CGridView->renderTableBody()
+#9 D:\xampp\htdocs\splat\yii\framework\zii\widgets\CBaseListView.php(361): CGridView->renderItems()
+#10 [internal function]: CBaseListView->renderSection(Array)
+#11 D:\xampp\htdocs\splat\yii\framework\zii\widgets\CBaseListView.php(327): preg_replace_callback('/{(\\w+)}/', Array, '{summary}\n{item...')
+#12 D:\xampp\htdocs\splat\yii\framework\zii\widgets\CBaseListView.php(297): CBaseListView->renderContent()
+#13 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(361): CBaseListView->run()
+#14 D:\xampp\htdocs\splat\admin\protected\views\users\admin.php(54): CBaseController->widget('zii.widgets.gri...', Array)
+#15 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#16 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#17 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('admin', Array, true)
+#19 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(497): CController->render('admin', Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): UsersController->actionAdmin()
+#21 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#22 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#23 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#24 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#25 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#26 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#27 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#28 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#29 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('admin')
+#30 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/admin')
+#31 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#32 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#33 {main}
+REQUEST_URI=/splat/admin/users/admin
+HTTP_REFERER=http://localhost/splat/admin/site/index
+---
+2019/10/15 15:44:58 [error] [exception.ParseError] ParseError: syntax error, unexpected '{' in D:\xampp\htdocs\splat\yii\framework\base\CComponent.php(1223) : eval()'d code:1
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CButtonColumn.php(683): CComponent->evaluateExpression('$this->grid->co...', Array)
+#1 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CButtonColumn.php(641): CButtonColumn->renderButton('update', Array, 0, Object(Users))
+#2 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridColumn.php(461): CButtonColumn->getDataCellContent(0)
+#3 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridColumn.php(307): CGridColumn->renderDataCellContent(0, Object(Users))
+#4 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(1275): CGridColumn->renderDataCell(0)
+#5 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(1243): CGridView->renderDataCell(Object(CButtonColumn), 0)
+#6 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(1155): CGridView->renderTableRow(0)
+#7 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(975): CGridView->renderTableBody()
+#8 D:\xampp\htdocs\splat\yii\framework\zii\widgets\CBaseListView.php(361): CGridView->renderItems()
+#9 [internal function]: CBaseListView->renderSection(Array)
+#10 D:\xampp\htdocs\splat\yii\framework\zii\widgets\CBaseListView.php(327): preg_replace_callback('/{(\\w+)}/', Array, '{summary}\n{item...')
+#11 D:\xampp\htdocs\splat\yii\framework\zii\widgets\CBaseListView.php(297): CBaseListView->renderContent()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(361): CBaseListView->run()
+#13 D:\xampp\htdocs\splat\admin\protected\views\users\admin.php(121): CBaseController->widget('zii.widgets.gri...', Array)
+#14 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#15 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#16 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#17 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('admin', Array, true)
+#18 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(497): CController->render('admin', Array)
+#19 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): UsersController->actionAdmin()
+#20 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#21 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#22 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#23 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#24 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#25 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#26 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#27 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('admin')
+#29 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/admin')
+#30 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#31 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#32 {main}
+REQUEST_URI=/splat/admin/users/admin
+HTTP_REFERER=http://localhost/splat/admin/site/index
+---
+2019/10/15 15:45:31 [error] [exception.ParseError] ParseError: syntax error, unexpected ')' in D:\xampp\htdocs\splat\yii\framework\base\CComponent.php(1223) : eval()'d code:1
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CButtonColumn.php(683): CComponent->evaluateExpression('$this->grid->co...', Array)
+#1 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CButtonColumn.php(641): CButtonColumn->renderButton('update', Array, 0, Object(Users))
+#2 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridColumn.php(461): CButtonColumn->getDataCellContent(0)
+#3 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridColumn.php(307): CGridColumn->renderDataCellContent(0, Object(Users))
+#4 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(1275): CGridColumn->renderDataCell(0)
+#5 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(1243): CGridView->renderDataCell(Object(CButtonColumn), 0)
+#6 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(1155): CGridView->renderTableRow(0)
+#7 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(975): CGridView->renderTableBody()
+#8 D:\xampp\htdocs\splat\yii\framework\zii\widgets\CBaseListView.php(361): CGridView->renderItems()
+#9 [internal function]: CBaseListView->renderSection(Array)
+#10 D:\xampp\htdocs\splat\yii\framework\zii\widgets\CBaseListView.php(327): preg_replace_callback('/{(\\w+)}/', Array, '{summary}\n{item...')
+#11 D:\xampp\htdocs\splat\yii\framework\zii\widgets\CBaseListView.php(297): CBaseListView->renderContent()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(361): CBaseListView->run()
+#13 D:\xampp\htdocs\splat\admin\protected\views\users\admin.php(121): CBaseController->widget('zii.widgets.gri...', Array)
+#14 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#15 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#16 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#17 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('admin', Array, true)
+#18 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(497): CController->render('admin', Array)
+#19 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): UsersController->actionAdmin()
+#20 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#21 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#22 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#23 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#24 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#25 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#26 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#27 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('admin')
+#29 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/admin')
+#30 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#31 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#32 {main}
+REQUEST_URI=/splat/admin/users/admin
+HTTP_REFERER=http://localhost/splat/admin/site/index
+---
+2019/10/15 15:46:06 [error] [exception.ParseError] ParseError: syntax error, unexpected '=', expecting ')' in D:\xampp\htdocs\splat\yii\framework\base\CComponent.php(1223) : eval()'d code:1
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CButtonColumn.php(683): CComponent->evaluateExpression('$this->grid->co...', Array)
+#1 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CButtonColumn.php(641): CButtonColumn->renderButton('update', Array, 0, Object(Users))
+#2 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridColumn.php(461): CButtonColumn->getDataCellContent(0)
+#3 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridColumn.php(307): CGridColumn->renderDataCellContent(0, Object(Users))
+#4 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(1275): CGridColumn->renderDataCell(0)
+#5 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(1243): CGridView->renderDataCell(Object(CButtonColumn), 0)
+#6 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(1155): CGridView->renderTableRow(0)
+#7 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(975): CGridView->renderTableBody()
+#8 D:\xampp\htdocs\splat\yii\framework\zii\widgets\CBaseListView.php(361): CGridView->renderItems()
+#9 [internal function]: CBaseListView->renderSection(Array)
+#10 D:\xampp\htdocs\splat\yii\framework\zii\widgets\CBaseListView.php(327): preg_replace_callback('/{(\\w+)}/', Array, '{summary}\n{item...')
+#11 D:\xampp\htdocs\splat\yii\framework\zii\widgets\CBaseListView.php(297): CBaseListView->renderContent()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(361): CBaseListView->run()
+#13 D:\xampp\htdocs\splat\admin\protected\views\users\admin.php(121): CBaseController->widget('zii.widgets.gri...', Array)
+#14 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#15 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#16 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#17 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('admin', Array, true)
+#18 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(497): CController->render('admin', Array)
+#19 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): UsersController->actionAdmin()
+#20 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#21 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#22 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#23 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#24 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#25 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#26 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#27 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('admin')
+#29 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/admin')
+#30 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#31 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#32 {main}
+REQUEST_URI=/splat/admin/users/admin
+HTTP_REFERER=http://localhost/splat/admin/site/index
+---
+2019/10/15 15:46:57 [error] [exception.ParseError] ParseError: syntax error, unexpected '=', expecting ')' in D:\xampp\htdocs\splat\yii\framework\base\CComponent.php(1223) : eval()'d code:1
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CButtonColumn.php(683): CComponent->evaluateExpression('$this->grid->co...', Array)
+#1 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CButtonColumn.php(641): CButtonColumn->renderButton('update', Array, 0, Object(Users))
+#2 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridColumn.php(461): CButtonColumn->getDataCellContent(0)
+#3 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridColumn.php(307): CGridColumn->renderDataCellContent(0, Object(Users))
+#4 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(1275): CGridColumn->renderDataCell(0)
+#5 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(1243): CGridView->renderDataCell(Object(CButtonColumn), 0)
+#6 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(1155): CGridView->renderTableRow(0)
+#7 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(975): CGridView->renderTableBody()
+#8 D:\xampp\htdocs\splat\yii\framework\zii\widgets\CBaseListView.php(361): CGridView->renderItems()
+#9 [internal function]: CBaseListView->renderSection(Array)
+#10 D:\xampp\htdocs\splat\yii\framework\zii\widgets\CBaseListView.php(327): preg_replace_callback('/{(\\w+)}/', Array, '{summary}\n{item...')
+#11 D:\xampp\htdocs\splat\yii\framework\zii\widgets\CBaseListView.php(297): CBaseListView->renderContent()
+#12 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(361): CBaseListView->run()
+#13 D:\xampp\htdocs\splat\admin\protected\views\users\admin.php(121): CBaseController->widget('zii.widgets.gri...', Array)
+#14 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#15 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#16 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#17 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('admin', Array, true)
+#18 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(497): CController->render('admin', Array)
+#19 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): UsersController->actionAdmin()
+#20 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#21 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#22 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#23 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#24 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#25 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#26 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#27 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('admin')
+#29 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/admin')
+#30 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#31 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#32 {main}
+REQUEST_URI=/splat/admin/users/admin
+HTTP_REFERER=http://localhost/splat/admin/site/index
+---
+2019/10/15 15:47:35 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `faculties` `t` WHERE id= LIMIT 1.
+in D:\xampp\htdocs\splat\admin\protected\views\users\ccreate.php (14)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (1116)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/15 15:47:35 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `faculties` `t` WHERE id= LIMIT 1 in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(829): CDbCommand->queryInternal('fetch', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryRow()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2921): CActiveRecord->query(Object(CDbCriteria))
+#3 D:\xampp\htdocs\splat\admin\protected\views\users\ccreate.php(14): CActiveRecord->find('id=')
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('ccreate', Array, true)
+#8 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(1116): CController->render('ccreate', Array)
+#9 [internal function]: UsersController->actionUpdatestaff('570')
+#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('updatestaff')
+#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/updatesta...')
+#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#23 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/splat/admin/users/updatestaff/570?type=staff&i=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/admin
+---
+2019/10/15 15:50:31 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `faculties` `t` WHERE id= LIMIT 1.
+in D:\xampp\htdocs\splat\admin\protected\views\users\ccreate.php (14)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (1116)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/15 15:50:31 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `faculties` `t` WHERE id= LIMIT 1 in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(829): CDbCommand->queryInternal('fetch', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryRow()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2921): CActiveRecord->query(Object(CDbCriteria))
+#3 D:\xampp\htdocs\splat\admin\protected\views\users\ccreate.php(14): CActiveRecord->find('id=')
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('ccreate', Array, true)
+#8 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(1116): CController->render('ccreate', Array)
+#9 [internal function]: UsersController->actionUpdatestaff('570')
+#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('updatestaff')
+#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/updatesta...')
+#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#23 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/splat/admin/users/updatestaff/570?type=staff&i=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/admin
+---
+2019/10/16 16:36:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT * FROM `user_courses` `t` WHERE user_id=570 and course_id=.
+in D:\xampp\htdocs\splat\admin\protected\views\users\_formstaff.php (83)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (1116)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/16 16:36:29 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT * FROM `user_courses` `t` WHERE user_id=570 and course_id= in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2949): CActiveRecord->query(Object(CDbCriteria), true)
+#3 D:\xampp\htdocs\splat\admin\protected\views\users\_formstaff.php(83): CActiveRecord->findAll('user_id=570 and...')
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('_formstaff', Array, true)
+#8 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(1116): CController->render('_formstaff', Array)
+#9 [internal function]: UsersController->actionUpdatestaff('570')
+#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('updatestaff')
+#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/updatesta...')
+#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#23 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/splat/admin/users/updatestaff/570?type=staff&i=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/admin
+---
+2019/10/16 17:15:17 [error] [exception.ParseError] ParseError: syntax error, unexpected 'if' (T_IF) in D:\xampp\htdocs\splat\admin\protected\models\Users.php:102
+Stack trace:
+#0 [internal function]: YiiBase::autoload('Users')
+#1 [internal function]: spl_autoload_call('Users')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CHttpSession.php(227): session_start()
+#3 D:\xampp\htdocs\splat\yii\framework\web\CHttpSession.php(175): CHttpSession->open()
+#4 D:\xampp\htdocs\splat\yii\framework\base\CModule.php(787): CHttpSession->init()
+#5 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(401): CModule->getComponent('session')
+#6 D:\xampp\htdocs\splat\yii\framework\web\auth\CWebUser.php(397): CWebApplication->getSession()
+#7 D:\xampp\htdocs\splat\yii\framework\base\CModule.php(787): CWebUser->init()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(417): CModule->getComponent('user')
+#9 D:\xampp\htdocs\splat\yii\framework\web\auth\CAccessControlFilter.php(263): CWebApplication->getUser()
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(75): CAccessControlFilter->preFilter(Object(CFilterChain))
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#12 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('updatestaff')
+#17 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/updatesta...')
+#18 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#19 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/splat/admin/users/updatestaff/570?type=staff&i=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/updatestaff/570?type=staff&i=MQ%3D%3D
+---
+2019/10/16 17:15:25 [error] [exception.ParseError] ParseError: syntax error, unexpected 'if' (T_IF) in D:\xampp\htdocs\splat\admin\protected\models\Users.php:102
+Stack trace:
+#0 [internal function]: YiiBase::autoload('Users')
+#1 D:\xampp\htdocs\splat\admin\protected\components\UserIdentity.php(20): spl_autoload_call('Users')
+#2 D:\xampp\htdocs\splat\admin\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#3 D:\xampp\htdocs\splat\yii\framework\validators\CInlineValidator.php(83): LoginForm->authenticate('password', Array)
+#4 D:\xampp\htdocs\splat\yii\framework\validators\CValidator.php(401): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#5 D:\xampp\htdocs\splat\yii\framework\base\CModel.php(317): CValidator->validate(Object(LoginForm), Array)
+#6 D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php(777): CModel->validate()
+#7 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): SiteController->actionLogin()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#12 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('login')
+#17 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/login')
+#18 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#19 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/splat/admin/site/login
+HTTP_REFERER=http://localhost/splat/admin/site/login
+---
+2019/10/16 17:15:48 [error] [exception.CException] CException: Property "CUniqueValidator.0" is not defined. in D:\xampp\htdocs\splat\yii\framework\base\CComponent.php:345
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\validators\CValidator.php(353): CComponent->__set('0', 'ownvalidation')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CModel.php(573): CValidator::createValidator(0, Object(Users), Array, Array)
+#2 D:\xampp\htdocs\splat\yii\framework\base\CModel.php(519): CModel->createValidators()
+#3 D:\xampp\htdocs\splat\yii\framework\web\helpers\CHtml.php(4871): CModel->getValidators('email')
+#4 D:\xampp\htdocs\splat\yii\framework\web\helpers\CHtml.php(3067): CHtml::activeInputField('text', Object(Users), 'email', Array)
+#5 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CDataColumn.php(207): CHtml::activeTextField(Object(Users), 'email', Array)
+#6 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridColumn.php(505): CDataColumn->getFilterCellContent()
+#7 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridColumn.php(237): CGridColumn->renderFilterCellContent()
+#8 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(1075): CGridColumn->renderFilterCell()
+#9 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(1031): CGridView->renderFilter()
+#10 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(971): CGridView->renderTableHeader()
+#11 D:\xampp\htdocs\splat\yii\framework\zii\widgets\CBaseListView.php(361): CGridView->renderItems()
+#12 [internal function]: CBaseListView->renderSection(Array)
+#13 D:\xampp\htdocs\splat\yii\framework\zii\widgets\CBaseListView.php(327): preg_replace_callback('/{(\\w+)}/', Array, '{summary}\n{item...')
+#14 D:\xampp\htdocs\splat\yii\framework\zii\widgets\CBaseListView.php(297): CBaseListView->renderContent()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(361): CBaseListView->run()
+#16 D:\xampp\htdocs\splat\admin\protected\views\users\cadmin.php(203): CBaseController->widget('zii.widgets.gri...', Array)
+#17 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#18 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#20 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('cadmin', Array, true)
+#21 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(762): CController->render('cadmin', Array)
+#22 [internal function]: UsersController->actionCAdmin('MTE=')
+#23 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#24 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#25 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#26 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#27 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#28 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#29 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#30 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#31 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#32 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#33 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('cadmin')
+#34 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/cadmin')
+#35 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#36 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#37 {main}
+REQUEST_URI=/splat/admin/users/cadmin?i=MQ%3D%3D&f=NA%3D%3D&c=MTE%3D
+HTTP_REFERER=http://localhost/splat/admin/site/courses?i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/16 17:16:35 [error] [exception.CException] CException: Property "CUniqueValidator.0" is not defined. in D:\xampp\htdocs\splat\yii\framework\base\CComponent.php:345
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\validators\CValidator.php(353): CComponent->__set('0', 'ownvalidation')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CModel.php(573): CValidator::createValidator(0, Object(Users), Array, Array)
+#2 D:\xampp\htdocs\splat\yii\framework\base\CModel.php(519): CModel->createValidators()
+#3 D:\xampp\htdocs\splat\yii\framework\base\CModel.php(607): CModel->getValidators('email')
+#4 D:\xampp\htdocs\splat\yii\framework\web\helpers\CHtml.php(3027): CModel->isAttributeRequired('email')
+#5 D:\xampp\htdocs\splat\yii\framework\web\widgets\CActiveForm.php(1199): CHtml::activeLabelEx(Object(Users), 'email', Array)
+#6 D:\xampp\htdocs\splat\admin\protected\views\users\_cform.php(20): CActiveForm->labelEx(Object(Users), 'email')
+#7 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#8 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#10 D:\xampp\htdocs\splat\admin\protected\views\users\ccreate.php(48): CController->renderPartial('_cform', Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#12 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('ccreate', Array, true)
+#15 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(1001): CController->render('ccreate', Array)
+#16 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): UsersController->actionStaffusers()
+#17 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#18 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#19 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#20 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#21 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#22 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#23 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#24 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('staffusers')
+#26 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/staffuser...')
+#27 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#28 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/splat/admin/users/staffusers?c=MTE%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/19 16:09:42 [warning] [application] Failed to set unsafe attribute "course_level" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (156)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/19 16:09:42 [warning] [application] Failed to set unsafe attribute "description" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (156)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/19 16:21:39 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@gmail.com and course_id=12)' at line 1. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`user_id` AS `t0_c1`, `t`.`course_id` AS `t0_c2`, `user`.`id` AS `t1_c0`, `user`.`username` AS `t1_c1`, `user`.`email` AS `t1_c2`, `user`.`password` AS `t1_c3`, `user`.`first_name` AS `t1_c4`, `user`.`last_name` AS `t1_c5`, `user`.`profile` AS `t1_c6`, `user`.`role` AS `t1_c7`, `user`.`send_email` AS `t1_c8`, `user`.`course_id` AS `t1_c9`, `user`.`institution_id` AS `t1_c10`, `user`.`fac_id` AS `t1_c11`, `user`.`status` AS `t1_c12`, `user`.`created_date` AS `t1_c13`, `user`.`updated_date` AS `t1_c14` FROM `user_courses` `t`  LEFT OUTER JOIN `users` `user` ON (`t`.`user_id`=`user`.`id`) WHERE (user.email=vinayaga@gmail.com and course_id=12).
+in D:\xampp\htdocs\splat\admin\protected\models\Users.php (101)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (848)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (901)
+2019/10/19 16:21:39 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@gmail.com and course_id=12)' at line 1. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`user_id` AS `t0_c1`, `t`.`course_id` AS `t0_c2`, `user`.`id` AS `t1_c0`, `user`.`username` AS `t1_c1`, `user`.`email` AS `t1_c2`, `user`.`password` AS `t1_c3`, `user`.`first_name` AS `t1_c4`, `user`.`last_name` AS `t1_c5`, `user`.`profile` AS `t1_c6`, `user`.`role` AS `t1_c7`, `user`.`send_email` AS `t1_c8`, `user`.`course_id` AS `t1_c9`, `user`.`institution_id` AS `t1_c10`, `user`.`fac_id` AS `t1_c11`, `user`.`status` AS `t1_c12`, `user`.`created_date` AS `t1_c13`, `user`.`updated_date` AS `t1_c14` FROM `user_courses` `t`  LEFT OUTER JOIN `users` `user` ON (`t`.`user_id`=`user`.`id`) WHERE (user.email=vinayaga@gmail.com and course_id=12) in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(1615): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(879): CJoinElement->runQuery(Object(CJoinQuery))
+#3 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(135): CJoinElement->find(Object(CDbCriteria))
+#4 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2721): CActiveFinder->query(Object(CDbCriteria), false)
+#5 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2921): CActiveRecord->query(Object(CDbCriteria))
+#6 D:\xampp\htdocs\splat\admin\protected\models\Users.php(101): CActiveRecord->find('user.email=vina...')
+#7 D:\xampp\htdocs\splat\yii\framework\validators\CInlineValidator.php(83): Users->ownvalidation('email', Array)
+#8 D:\xampp\htdocs\splat\yii\framework\validators\CValidator.php(401): CInlineValidator->validateAttribute(Object(Users), 'email')
+#9 D:\xampp\htdocs\splat\yii\framework\base\CModel.php(317): CValidator->validate(Object(Users), Array)
+#10 D:\xampp\htdocs\splat\yii\framework\web\widgets\CActiveForm.php(1973): CModel->validate(NULL)
+#11 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(848): CActiveForm::validate(Array)
+#12 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(901): UsersController->performAjaxValidation(Object(Users))
+#13 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): UsersController->actionStaffusers()
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#15 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#17 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#19 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#20 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#21 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('staffusers')
+#23 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/staffuser...')
+#24 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#25 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/splat/admin/users/staffusers?c=MTI%3D&i=MQ%3D%3D&f=NA%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=MTI%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/19 16:22:40 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@gmail.com and t.course_id=12)' at line 1. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`user_id` AS `t0_c1`, `t`.`course_id` AS `t0_c2`, `user`.`id` AS `t1_c0`, `user`.`username` AS `t1_c1`, `user`.`email` AS `t1_c2`, `user`.`password` AS `t1_c3`, `user`.`first_name` AS `t1_c4`, `user`.`last_name` AS `t1_c5`, `user`.`profile` AS `t1_c6`, `user`.`role` AS `t1_c7`, `user`.`send_email` AS `t1_c8`, `user`.`course_id` AS `t1_c9`, `user`.`institution_id` AS `t1_c10`, `user`.`fac_id` AS `t1_c11`, `user`.`status` AS `t1_c12`, `user`.`created_date` AS `t1_c13`, `user`.`updated_date` AS `t1_c14` FROM `user_courses` `t`  LEFT OUTER JOIN `users` `user` ON (`t`.`user_id`=`user`.`id`) WHERE (user.email=vinayaga@gmail.com and t.course_id=12).
+in D:\xampp\htdocs\splat\admin\protected\models\Users.php (101)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (848)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (901)
+2019/10/19 16:22:40 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@gmail.com and t.course_id=12)' at line 1. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`user_id` AS `t0_c1`, `t`.`course_id` AS `t0_c2`, `user`.`id` AS `t1_c0`, `user`.`username` AS `t1_c1`, `user`.`email` AS `t1_c2`, `user`.`password` AS `t1_c3`, `user`.`first_name` AS `t1_c4`, `user`.`last_name` AS `t1_c5`, `user`.`profile` AS `t1_c6`, `user`.`role` AS `t1_c7`, `user`.`send_email` AS `t1_c8`, `user`.`course_id` AS `t1_c9`, `user`.`institution_id` AS `t1_c10`, `user`.`fac_id` AS `t1_c11`, `user`.`status` AS `t1_c12`, `user`.`created_date` AS `t1_c13`, `user`.`updated_date` AS `t1_c14` FROM `user_courses` `t`  LEFT OUTER JOIN `users` `user` ON (`t`.`user_id`=`user`.`id`) WHERE (user.email=vinayaga@gmail.com and t.course_id=12) in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(1615): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(879): CJoinElement->runQuery(Object(CJoinQuery))
+#3 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(135): CJoinElement->find(Object(CDbCriteria))
+#4 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2721): CActiveFinder->query(Object(CDbCriteria), false)
+#5 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2921): CActiveRecord->query(Object(CDbCriteria))
+#6 D:\xampp\htdocs\splat\admin\protected\models\Users.php(101): CActiveRecord->find('user.email=vina...')
+#7 D:\xampp\htdocs\splat\yii\framework\validators\CInlineValidator.php(83): Users->ownvalidation('email', Array)
+#8 D:\xampp\htdocs\splat\yii\framework\validators\CValidator.php(401): CInlineValidator->validateAttribute(Object(Users), 'email')
+#9 D:\xampp\htdocs\splat\yii\framework\base\CModel.php(317): CValidator->validate(Object(Users), Array)
+#10 D:\xampp\htdocs\splat\yii\framework\web\widgets\CActiveForm.php(1973): CModel->validate(NULL)
+#11 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(848): CActiveForm::validate(Array)
+#12 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(901): UsersController->performAjaxValidation(Object(Users))
+#13 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): UsersController->actionStaffusers()
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#15 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#17 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#19 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#20 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#21 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('staffusers')
+#23 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/staffuser...')
+#24 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#25 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/splat/admin/users/staffusers?c=MTI%3D&i=MQ%3D%3D&f=NA%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=MTI%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/19 16:41:58 [error] [exception.ParseError] ParseError: syntax error, unexpected ')' in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php:1123
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(551): CWebApplication->createController('updatestaff/')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/updatesta...')
+#2 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#3 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#4 {main}
+REQUEST_URI=/splat/admin/users/updatestaff/570?type=staff&i=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/updatestaff/570?type=staff&i=MQ%3D%3D
+---
+2019/10/19 17:20:31 [error] [exception.ParseError] ParseError: syntax error, unexpected ';', expecting ',' or ')' in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php:1147
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(551): CWebApplication->createController('updatestaff/')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/updatesta...')
+#2 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#3 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#4 {main}
+REQUEST_URI=/splat/admin/users/updatestaff/570?type=staff&i=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/updatestaff/570?type=staff&i=MQ%3D%3D
+---
+2019/10/19 17:25:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'userscourse1.user_id' in 'where clause'. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`name` AS `t0_c1`, `t`.`type` AS `t0_c2`, `t`.`course_type` AS `t0_c3`, `t`.`course_level` AS `t0_c4`, `t`.`institution` AS `t0_c5`, `t`.`faculty` AS `t0_c6`, `t`.`department` AS `t0_c7`, `t`.`year` AS `t0_c8`, `t`.`description` AS `t0_c9`, `t`.`status` AS `t0_c10`, `t`.`anonymous` AS `t0_c11`, `t`.`created_by` AS `t0_c12`, `t`.`created_date` AS `t0_c13`, `t`.`updated_date` AS `t0_c14`, `userscourse`.`id` AS `t1_c0`, `userscourse`.`user_id` AS `t1_c1`, `userscourse`.`course_id` AS `t1_c2` FROM `courses` `t`  LEFT OUTER JOIN `user_courses` `userscourse` ON (`userscourse`.`course_id`=`t`.`id`) WHERE (userscourse1.user_id=570).
+in D:\xampp\htdocs\splat\admin\protected\views\users\_formstaff.php (106)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (1152)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/19 17:25:06 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'userscourse1.user_id' in 'where clause'. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`name` AS `t0_c1`, `t`.`type` AS `t0_c2`, `t`.`course_type` AS `t0_c3`, `t`.`course_level` AS `t0_c4`, `t`.`institution` AS `t0_c5`, `t`.`faculty` AS `t0_c6`, `t`.`department` AS `t0_c7`, `t`.`year` AS `t0_c8`, `t`.`description` AS `t0_c9`, `t`.`status` AS `t0_c10`, `t`.`anonymous` AS `t0_c11`, `t`.`created_by` AS `t0_c12`, `t`.`created_date` AS `t0_c13`, `t`.`updated_date` AS `t0_c14`, `userscourse`.`id` AS `t1_c0`, `userscourse`.`user_id` AS `t1_c1`, `userscourse`.`course_id` AS `t1_c2` FROM `courses` `t`  LEFT OUTER JOIN `user_courses` `userscourse` ON (`userscourse`.`course_id`=`t`.`id`) WHERE (userscourse1.user_id=570) in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(1615): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(879): CJoinElement->runQuery(Object(CJoinQuery))
+#3 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(135): CJoinElement->find(Object(CDbCriteria))
+#4 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2721): CActiveFinder->query(Object(CDbCriteria), true)
+#5 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2949): CActiveRecord->query(Object(CDbCriteria), true)
+#6 D:\xampp\htdocs\splat\admin\protected\views\users\_formstaff.php(106): CActiveRecord->findAll('userscourse1.us...')
+#7 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#8 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('_formstaff', Array, true)
+#11 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(1152): CController->render('_formstaff', Array)
+#12 [internal function]: UsersController->actionUpdatestaff('570')
+#13 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#14 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#19 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#20 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#21 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#22 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#23 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('updatestaff')
+#24 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/updatesta...')
+#25 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#26 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#27 {main}
+REQUEST_URI=/splat/admin/users/updatestaff/570?type=staff&i=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/admin
+---
+2019/10/19 17:27:12 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'userscourse1.user_id' in 'where clause'. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`name` AS `t0_c1`, `t`.`type` AS `t0_c2`, `t`.`course_type` AS `t0_c3`, `t`.`course_level` AS `t0_c4`, `t`.`institution` AS `t0_c5`, `t`.`faculty` AS `t0_c6`, `t`.`department` AS `t0_c7`, `t`.`year` AS `t0_c8`, `t`.`description` AS `t0_c9`, `t`.`status` AS `t0_c10`, `t`.`anonymous` AS `t0_c11`, `t`.`created_by` AS `t0_c12`, `t`.`created_date` AS `t0_c13`, `t`.`updated_date` AS `t0_c14`, `userscourse`.`id` AS `t1_c0`, `userscourse`.`user_id` AS `t1_c1`, `userscourse`.`course_id` AS `t1_c2` FROM `courses` `t`  LEFT OUTER JOIN `user_courses` `userscourse` ON (`userscourse`.`course_id`=`t`.`id`) WHERE (userscourse1.user_id=570).
+in D:\xampp\htdocs\splat\admin\protected\views\users\_formstaff.php (106)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (1152)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/19 17:27:12 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'userscourse1.user_id' in 'where clause'. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`name` AS `t0_c1`, `t`.`type` AS `t0_c2`, `t`.`course_type` AS `t0_c3`, `t`.`course_level` AS `t0_c4`, `t`.`institution` AS `t0_c5`, `t`.`faculty` AS `t0_c6`, `t`.`department` AS `t0_c7`, `t`.`year` AS `t0_c8`, `t`.`description` AS `t0_c9`, `t`.`status` AS `t0_c10`, `t`.`anonymous` AS `t0_c11`, `t`.`created_by` AS `t0_c12`, `t`.`created_date` AS `t0_c13`, `t`.`updated_date` AS `t0_c14`, `userscourse`.`id` AS `t1_c0`, `userscourse`.`user_id` AS `t1_c1`, `userscourse`.`course_id` AS `t1_c2` FROM `courses` `t`  LEFT OUTER JOIN `user_courses` `userscourse` ON (`userscourse`.`course_id`=`t`.`id`) WHERE (userscourse1.user_id=570) in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(1615): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(879): CJoinElement->runQuery(Object(CJoinQuery))
+#3 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveFinder.php(135): CJoinElement->find(Object(CDbCriteria))
+#4 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2721): CActiveFinder->query(Object(CDbCriteria), true)
+#5 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2949): CActiveRecord->query(Object(CDbCriteria), true)
+#6 D:\xampp\htdocs\splat\admin\protected\views\users\_formstaff.php(106): CActiveRecord->findAll('userscourse1.us...')
+#7 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#8 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('_formstaff', Array, true)
+#11 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(1152): CController->render('_formstaff', Array)
+#12 [internal function]: UsersController->actionUpdatestaff('570')
+#13 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#14 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#19 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#20 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#21 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#22 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#23 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('updatestaff')
+#24 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/updatesta...')
+#25 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#26 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#27 {main}
+REQUEST_URI=/splat/admin/users/updatestaff/570?type=staff&i=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/admin
+---
+2019/10/19 17:33:54 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Array' at line 1. The SQL statement executed was: SELECT * FROM `courses` `t` WHERE faculty in Array .
+in D:\xampp\htdocs\splat\admin\protected\views\users\_formstaff.php (107)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (1152)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/19 17:33:54 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Array' at line 1. The SQL statement executed was: SELECT * FROM `courses` `t` WHERE faculty in Array  in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2949): CActiveRecord->query(Object(CDbCriteria), true)
+#3 D:\xampp\htdocs\splat\admin\protected\views\users\_formstaff.php(107): CActiveRecord->findAll('faculty in Arra...')
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('_formstaff', Array, true)
+#8 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(1152): CController->render('_formstaff', Array)
+#9 [internal function]: UsersController->actionUpdatestaff('570')
+#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('updatestaff')
+#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/updatesta...')
+#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#23 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/splat/admin/users/updatestaff/570?type=staff&i=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/admin
+---
+2019/10/19 17:35:55 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '4' at line 1. The SQL statement executed was: SELECT * FROM `courses` `t` WHERE faculty in 4 .
+in D:\xampp\htdocs\splat\admin\protected\views\users\_formstaff.php (108)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (1152)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/10/19 17:35:55 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '4' at line 1. The SQL statement executed was: SELECT * FROM `courses` `t` WHERE faculty in 4  in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(791): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2711): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2949): CActiveRecord->query(Object(CDbCriteria), true)
+#3 D:\xampp\htdocs\splat\admin\protected\views\users\_formstaff.php(108): CActiveRecord->findAll('faculty in 4 ')
+#4 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('_formstaff', Array, true)
+#8 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(1152): CController->render('_formstaff', Array)
+#9 [internal function]: UsersController->actionUpdatestaff('570')
+#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
+#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('updatestaff')
+#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/updatesta...')
+#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#23 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/splat/admin/users/updatestaff/570?type=staff&i=MQ%3D%3D
+HTTP_REFERER=http://localhost/splat/admin/users/admin
+---

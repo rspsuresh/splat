@@ -129,7 +129,7 @@ class Courses extends CActiveRecord
 
         $criteria->alias="t";
         $criteria->condition="t.faculty=".base64_decode($_GET['f']);
-        print_r($criteria);die;
+       // print_r($criteria);die;
         return new CActiveDataProvider($this,array('criteria'=>$criteria,));
 
 
