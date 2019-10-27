@@ -116,7 +116,8 @@ class UsersController extends Controller
                 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
                 $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
                 $url = Yii::app()->createAbsoluteUrl("site/login");
-                $to ="rsprampaul14321@gmail.com";
+                //$to ="rsprampaul14321@gmail.com";
+                $to =$model->email;
                 if($model->role ==3)
                 {
                     $subject = "SPLAT Staff Registration";
@@ -181,8 +182,8 @@ class UsersController extends Controller
                 $UserCourses->course_id = base64_decode($_GET['c']);
                 $UserCourses->save();
 
-               // $to = $model->username;
-                $to ='suresh@businessgateways.com';
+                $to = $model->email;
+               // $to ='suresh@businessgateways.com';
                 $course_name = $UserCourses->course->name;
                 $url = 'http://splat.bournemouth.ac.uk/site/login';
 
@@ -338,7 +339,8 @@ class UsersController extends Controller
                             $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
                             $subject="Splat User registration";
                             $url = Yii::app()->createAbsoluteUrl("site/login");
-                            $to ="rsprampaul14321@gmail.com";
+                            //$to ="rsprampaul14321@gmail.com";
+                            $to =$users->email;
                             $message = 'Dear '.$users->first_name.'<br/><br/>You have been added to the SPLAT website. 
                             Now you can login to assess your peers for the Course: '.$course_name.'<br/><br/>Your credentials are:<br/>
 							Website: '.$url.'<br/>

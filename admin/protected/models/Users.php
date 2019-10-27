@@ -98,7 +98,8 @@ class Users extends CActiveRecord
         }else if(!empty($this->email))
         {
             $courseid=base64_decode($_GET['c']);
-            $UserCour=UserCourses::model()->with('user')->find("user.email='{$this->email}' and t.course_id={$courseid}");
+            $email=trim($this->email);
+            $UserCour=UserCourses::model()->with('user')->find("user.email='{$email}' and t.course_id={$courseid}");
             if($UserCour && Yii::app()->controller->action->id =="staffusers")
             {
                 $this->addError('email','this staff already present in this course');
@@ -218,7 +219,8 @@ class Users extends CActiveRecord
         $cat = array();
         if ($query) {
             foreach ($query as $value) {
-                $cat[] = $value->name;
+                $level=!empty($value->course_level)? "- Level:".$value->course_level:"";
+                $cat[] = $value->course_type."-".$value->name." ".$level;
             }
             $return = implode(',', $cat);
         }

@@ -6,17 +6,12 @@
       <change beforePath="$PROJECT_DIR$/admin/protected/controllers/GroupusersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/GroupusersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/SiteController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/controllers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/Courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Courses.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/UserCourses.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/UserCourses.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/models/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/models/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/UsersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/runtime/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/runtime/application.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/_cform.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/_cform.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupusers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupusers/UsersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/views/users/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/cadmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/cadmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/ccreate.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/ccreate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/site/assesmentpage.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/assesmentpage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protected/controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/controllers/SiteController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -131,6 +126,11 @@
       <workItem from="1571149522874" duration="2341000" />
       <workItem from="1571239382569" duration="3146000" />
       <workItem from="1571497096624" duration="5252000" />
+      <workItem from="1571578333978" duration="2914000" />
+      <workItem from="1571838019185" duration="3897000" />
+      <workItem from="1572075227385" duration="2455000" />
+      <workItem from="1572099352082" duration="2981000" />
+      <workItem from="1572158272306" duration="16000" />
     </task>
     <servers />
   </component>
@@ -155,8 +155,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/admin/protected/controllers/UsersController.php</url>
-          <line>508</line>
-          <option name="timeStamp" value="1" />
+          <line>1144</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

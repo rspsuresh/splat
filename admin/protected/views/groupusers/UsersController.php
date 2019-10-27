@@ -106,8 +106,8 @@ class UsersController extends Controller
 					$UserCourses->save();
 				}
 				
-				//$to = $model->username;
-				$to ='suresh@businessgateways.com';
+				$to = $model->email;
+				//$to ='suresh@businessgateways.com';
 				$course_name = $model->courses->name;
 				$url = 'http://splat.bournemouth.ac.uk/site/login';
 				
@@ -158,8 +158,8 @@ class UsersController extends Controller
 				$UserCourses->course_id = base64_decode($_GET['c']);
 				$UserCourses->save();
 				
-				//$to = $model->username;
-				$to ='suresh@businessgateways.com';
+				$to = $model->email;
+				//$to ='suresh@businessgateways.com';
 				$course_name = $UserCourses->course->name;
 				$url = 'http://splat.bournemouth.ac.uk/site/login';
 				

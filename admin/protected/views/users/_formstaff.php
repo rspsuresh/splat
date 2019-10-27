@@ -39,7 +39,6 @@
                     <?php echo $form->labelEx($model,'email'); ?>
                 </div>
                 <div class="col-lg-8 padzero">
-                    <?php //echo "<pre>";print_r($model);die;?>
                     <?php echo $form->textField($model,'email',
                         array('size'=>60,
                             'maxlength'=>255,'placeholder'=>'Email')); ?>
@@ -73,21 +72,27 @@
                         <?php
                         if(isset($_GET['id'])) {
                             $facultymodel = UserFaculties::model()->findAll('user_id='.$_GET['id']);
+
                             if(count($facultymodel)>0) {
                                 foreach ($facultymodel as $feachValue)
+                                {
                                     $facarray[]=$feachValue->faculty_id;
                                     $fselectedOptions[$feachValue->faculty_id] = array('selected'=>'selected');
+                                }
                             }
                             $coursemodel = UserCourses::model()->findAll('user_id='.$_GET['id']);
+                            $facid=implode(',',$facarray);
 
                             if(count($coursemodel)>0) {
                                 foreach ($coursemodel as $ceachValue)
+                                {
                                     $cselectedOptions[$ceachValue->course_id] = array('selected'=>'selected');
+                                }
                             }
-                           // echo "<pre>";print_r($cselectedOptions);die;
+
                         }
                         ?>
-                        <?php echo $form->dropDownList($model, 'fac_id', CHtml::listData(Faculties::model()->findAll(), 'id', 'name'),
+                        <?php echo $form->dropDownList($model, 'fac_id', CHtml::listData(Faculties::model()->findAll("id in({$facid})"), 'id', 'name'),
                             array('empty'=>'Select faculty type','multiple'=>'multiple','options'=>$fselectedOptions,
                                 'ajax' => array(
                                     'type'=>'POST', //request type
@@ -104,8 +109,8 @@
                     </div>
                     <div class="col-lg-8 padzero">
                         <?php
-                        $facid=implode(',',$facarray);
-                        echo $form->dropDownList($model, 'course_id', CHtml::listData(Courses::model()->findAll("faculty in ( {$facid}) "), 'id', 'name'), array('empty'=>'Select Course','multiple'=>'multiple','options'=>$cselectedOptions)); ?>
+                        echo $form->dropDownList($model, 'course_id', CHtml::listData(Courses::model()->findAll("faculty in ( {$facid}) "), 'id',
+                            function($data){ return $data->course_type."-".$data->name." Level: ".$data->course_level." (".$data->faculty0->name.")";}), array('empty'=>'Select Course','multiple'=>'multiple','options'=>$cselectedOptions)); ?>
                         <?php echo $form->error($model,'course_id'); ?>
                     </div>
                 </div>
@@ -119,7 +124,8 @@
 <script>
     $(function() {
         $('.faccourse').show();
-        $('#Users_username,#Users_password').on('keypress', function(e) {
+        $('#Users_username,#Users_password,#Users_first_name').on('Users_first_name', function(e) {
+            alert('dfdfd')
             if (e.which == 32)
                 return false;
         });
