@@ -4,7 +4,8 @@
     <list default="true" id="569f891a-5c37-4652-9e91-bcf773c3ff1f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/controllers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/_cform.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/_cform.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protected/runtime/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/protected/runtime/application.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +125,7 @@
       <workItem from="1572075227385" duration="2455000" />
       <workItem from="1572099352082" duration="2981000" />
       <workItem from="1572158272306" duration="2714000" />
-      <workItem from="1572187431849" duration="8906000" />
+      <workItem from="1572187431849" duration="9922000" />
     </task>
     <servers />
   </component>

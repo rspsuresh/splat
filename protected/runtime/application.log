@@ -5380,3 +5380,30 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
 ---
+2019/10/27 18:24:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "webfonts/fa-solid-900.woff2".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('webfonts/fa-sol...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/webfonts/fa-solid-900.woff2
+HTTP_REFERER=http://localhost/splat/css/all.css
+---
+2019/10/27 18:24:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "webfonts/fa-solid-900.woff".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('webfonts/fa-sol...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/webfonts/fa-solid-900.woff
+HTTP_REFERER=http://localhost/splat/css/all.css
+---
+2019/10/27 18:24:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "webfonts/fa-solid-900.ttf".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('webfonts/fa-sol...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/webfonts/fa-solid-900.ttf
+HTTP_REFERER=http://localhost/splat/css/all.css
+---

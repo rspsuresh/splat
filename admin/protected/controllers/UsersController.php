@@ -938,28 +938,28 @@ class UsersController extends Controller
                     }
 
                     $facultymodel=Faculties::model()->findByPk($model->fac_id);
-                    $to =trim($_POST['Users']['username']);
-                    //$to ='suresh@businessgateways.com';
+                   $to =trim($_POST['Users']['email']);
+                    //$to ='rsprampaul14321@gmail.com';
                     $firstname=$_POST['Users']['first_name'];
                     $lastname=$_POST['Users']['lastname'];
                     $password=$model->password;
                     $course_name = $UserCourses->course->name;
-                    $url = $_SERVER['SERVER_NAME']."/site/login";
+                    $url = $_SERVER['SERVER_NAME']."/admin/site/login";
                     $subject = "SPLAT  Registration";
 
 
                     $subject = "SPLAT Staff Registration";
                     $crs = $course_name;
                     $fac = $facultymodel->name;
-                    $message = "<p>Dear $model->first_name $model->last_name
-                              </p><p>You have been granted <b>Staff</b> rights to the Bournemouth University SPLAT website</p>
+                    $message = "<p>Dear $model->first_name $model->last_name ,
+                              </p><p>You have been granted <b>Staff</b> rights to the Bournemouth University SPLAT website.</p>
                               <p><b>Allocated Faculties</b></p>
                               <p>$fac</p>
                               <p><b>Allocated Course</b></p>
                               <p>$crs</p>
                               <p>Your Credentials are</p>
-                              <p>Username :$model->username</p>
-                              <p>Paswword :$model->password</p>
+                              <p>Username :<b>$model->username</b></p>
+                              <p>Password :<b>$model->password</b></p>
                               <p>Link to the site:<a href='$url'> $url</a></p>";
 
                     $headers = "MIME-Version: 1.0" . "\r\n";
