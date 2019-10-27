@@ -125,7 +125,6 @@
     $(function() {
         $('.faccourse').show();
         $('#Users_username,#Users_password,#Users_first_name').on('Users_first_name', function(e) {
-            alert('dfdfd')
             if (e.which == 32)
                 return false;
         });
