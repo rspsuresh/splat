@@ -1924,3 +1924,340 @@ Stack trace:
 #16 {main}
 REQUEST_URI=/splat/admin/groups/update/8?c=MQ%3D%3D&i=MQ%3D%3D&f=MQ%3D%3D
 ---
+2019/10/27 15:05:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "readcountry.php".' in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('readcountry.php')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('readcountry.php')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/readCount...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/users/readCountry.php
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 15:05:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "readcountry.php".' in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('readcountry.php')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('readcountry.php')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/readCount...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/users/readCountry.php
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 15:05:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "readcountry.php".' in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('readcountry.php')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('readcountry.php')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/readCount...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/users/readCountry.php
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 15:05:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "loadericon.gif".' in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('loadericon.gif')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('loadericon.gif')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/LoaderIco...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/users/LoaderIcon.gif
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 15:05:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "readcountry.php".' in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('readcountry.php')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('readcountry.php')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/readCount...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/users/readCountry.php
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 15:05:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "readcountry.php".' in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('readcountry.php')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('readcountry.php')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/readCount...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/users/readCountry.php
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 15:05:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "readcountry.php".' in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('readcountry.php')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('readcountry.php')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/readCount...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/users/readCountry.php
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 15:05:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "readcountry.php".' in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('readcountry.php')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('readcountry.php')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/readCount...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/users/readCountry.php
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 15:07:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "loadericon.gif".' in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('loadericon.gif')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('loadericon.gif')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/LoaderIco...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/users/LoaderIcon.gif
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 15:07:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "loadericon.gif".' in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('loadericon.gif')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('loadericon.gif')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/LoaderIco...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/users/LoaderIcon.gif
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 15:11:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "loadericon.gif".' in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('loadericon.gif')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('loadericon.gif')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/LoaderIco...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/users/LoaderIcon.gif
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 15:24:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "loadericon.gif".' in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('loadericon.gif')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('loadericon.gif')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/LoaderIco...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/users/LoaderIcon.gif
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 15:26:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "loadericon.gif".' in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('loadericon.gif')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('loadericon.gif')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/LoaderIco...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/users/LoaderIcon.gif
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 15:27:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "loadericon.gif".' in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('loadericon.gif')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('loadericon.gif')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/LoaderIco...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/users/LoaderIcon.gif
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 15:27:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "loadericon.gif".' in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('loadericon.gif')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('loadericon.gif')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/LoaderIco...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/users/LoaderIcon.gif
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 15:31:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "loadericon.gif".' in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('loadericon.gif')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('loadericon.gif')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/LoaderIco...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/users/LoaderIcon.gif
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 15:31:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "loadericon.gif".' in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('loadericon.gif')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('loadericon.gif')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/LoaderIco...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/users/LoaderIcon.gif
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 15:31:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "loadericon.gif".' in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('loadericon.gif')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('loadericon.gif')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/LoaderIco...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/users/LoaderIcon.gif
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 15:58:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "getdetails".' in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('getdetails')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('getdetails')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('groupusers/getd...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/groupusers/getdetails?term=test
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 16:21:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "users".' in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('users')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('users')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/users/get...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/users/users/getdetails?phrase=t&format=json
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 16:21:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "users".' in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('users')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('users')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/users/get...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/users/users/getdetails?phrase=te&format=json
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 16:21:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "users".' in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('users')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('users')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/users/get...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/users/users/getdetails?phrase=tes&format=json
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 16:21:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "users".' in D:\xampp\htdocs\splat\yii\framework\web\CController.php:965
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(539): CController->missingAction('users')
+#1 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('users')
+#2 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/users/get...')
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/splat/admin/users/users/getdetails?phrase=test&format=json
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 16:38:04 [error] [exception.CException] exception 'CException' with message 'Property "Users.firstname" is not defined.' in D:\xampp\htdocs\splat\yii\framework\base\CComponent.php:259
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(289): CComponent->__get('firstname')
+#1 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(1171): CActiveRecord->__get('firstname')
+#2 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): UsersController->actionGetdetails()
+#3 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#4 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#5 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('getdetails')
+#12 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/getdetail...')
+#13 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#14 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/splat/admin/users/getdetails?phrase=t&format=json
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 16:38:04 [error] [exception.CException] exception 'CException' with message 'Property "Users.firstname" is not defined.' in D:\xampp\htdocs\splat\yii\framework\base\CComponent.php:259
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(289): CComponent->__get('firstname')
+#1 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(1171): CActiveRecord->__get('firstname')
+#2 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): UsersController->actionGetdetails()
+#3 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#4 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#5 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('getdetails')
+#12 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/getdetail...')
+#13 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#14 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/splat/admin/users/getdetails?phrase=te&format=json
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 16:38:04 [error] [exception.CException] exception 'CException' with message 'Property "Users.firstname" is not defined.' in D:\xampp\htdocs\splat\yii\framework\base\CComponent.php:259
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(289): CComponent->__get('firstname')
+#1 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(1171): CActiveRecord->__get('firstname')
+#2 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): UsersController->actionGetdetails()
+#3 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#4 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#5 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('getdetails')
+#12 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/getdetail...')
+#13 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#14 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/splat/admin/users/getdetails?phrase=tes&format=json
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 16:38:04 [error] [exception.CException] exception 'CException' with message 'Property "Users.firstname" is not defined.' in D:\xampp\htdocs\splat\yii\framework\base\CComponent.php:259
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(289): CComponent->__get('firstname')
+#1 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(1171): CActiveRecord->__get('firstname')
+#2 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): UsersController->actionGetdetails()
+#3 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#4 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#5 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('getdetails')
+#12 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/getdetail...')
+#13 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#14 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/splat/admin/users/getdetails?phrase=test&format=json
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---

@@ -101,7 +101,7 @@ $this->pageTitle=Yii::app()->name;
         padding:5px;
     }
 </style>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>./../css/all.css"
       integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <section id="wrapper" style="height:auto;">
 <div class="container fullbg">

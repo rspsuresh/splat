@@ -28,7 +28,7 @@ class UsersController extends Controller
         return array(
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
                 'actions'=>array('index','view', 'create', 'ccreate','update', 'admin','delete',
-                    'unauthorized','dynamiccourses','cadmin','download','deletemultiple','staffusers','mailprocess','updatestaff'),
+                    'unauthorized','dynamiccourses','cadmin','download','deletemultiple','staffusers','mailprocess','updatestaff','getdetails'),
                 'users'=>array('@'),
             ),
             array('deny',  // deny all users
@@ -922,7 +922,7 @@ class UsersController extends Controller
                     $model->institution_id=base64_decode($_GET['i']);
                     $model->fac_id=base64_decode($_GET['f']);
                     $model->role = '3';
-                    if($model->save(false))
+                    if($model->save(false) && $model->validate())
                     {
                         $UserFaculties = new UserFaculties();
                         $UserFaculties->user_id = $model->id;
@@ -1156,5 +1156,26 @@ class UsersController extends Controller
               'model'=>$model,
           ));
       }
+    }
+
+    public function actionGetdetails()
+    {
+        if(!empty($_GET))
+        {
+            $email=$_GET['phrase'];
+            $userModel=Users::model()->findAll("role=3 and email like '%{$email}%'");
+            if(!empty($userModel))
+            {
+               $arrauuser=[];
+                foreach ($userModel as $key=>$user)
+                {
+                     $arrauuser[$key]['firstname']=$user->first_name;
+                     $arrauuser[$key]['lastname']=$user->last_name;
+                     $arrauuser[$key]['Label']=$user->email;
+                }
+
+            }
+           echo json_encode($arrauuser,true);die;
+        }
     }
 }
