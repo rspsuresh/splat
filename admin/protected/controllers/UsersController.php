@@ -1164,14 +1164,22 @@ class UsersController extends Controller
         {
             $email=$_GET['phrase'];
             $userModel=Users::model()->findAll("role=3 and email like '%{$email}%'");
+            $course=$_GET['course'];
             if(!empty($userModel))
             {
                $arrauuser=[];
                 foreach ($userModel as $key=>$user)
                 {
+                    $exists=UserCourses::model()->find("user_id={$user->id} and course_id={$course}");
+
                      $arrauuser[$key]['firstname']=$user->first_name;
                      $arrauuser[$key]['lastname']=$user->last_name;
                      $arrauuser[$key]['Label']=$user->email;
+                     $arrauuser[$key]['exists']=0;
+                     if($exists)
+                     {
+                         $arrauuser[$key]['exists']=1;
+                     }
                 }
 
             }

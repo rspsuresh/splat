@@ -95,17 +95,15 @@
                 onSelectItemEvent: function() {
                     var fname = $("#Users_email").getSelectedItemData().firstname;
                     var lname = $("#Users_email").getSelectedItemData().lastname;
-                    $("#Users_first_name").val(fname).trigger('change');
-                    $("#Users_last_name").val(lname).trigger('change');
-
+                    var exists = $("#Users_email").getSelectedItemData().exists;
+                    if(!exists)
+                    {
+                        $("#Users_first_name").val(fname).trigger('change');
+                        $("#Users_last_name").val(lname).trigger('change');
+                    }
                 }
             }
         };
-
         $("#Users_email").easyAutocomplete(options);
-        /* $('#Users_email').autocomplete({
-             source: "<?php echo Yii::app()->createUrl('users/getdetails') ?>",
-            minLength: 2
-        });*/
     });
 </script>
