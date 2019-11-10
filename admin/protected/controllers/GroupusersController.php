@@ -659,16 +659,16 @@ class GroupusersController extends Controller
                 'condition'=>'course='.$_REQUEST['c'].' and user.status="active" and user.role=5',
                 'order'=>'t.grp_id asc'
             ));
+
             foreach($usermodel as $val)
             {
-                //$to =trim($val->user->email);
-                $to ='suresh@businessgateways.com';
+               $to =trim($val->user->email);
+                //$to ='rsprampaul14321@gmail.com';
                 $firstname=$val->user->first_name;
                 $lastname=$val->user->lastname;
                 $password=$val->user->password;
                 $url = $_SERVER['SERVER_NAME']."/site/login";
-                $subject = "Reminder Email: 
-";
+                $subject = "Reminder Email: ";
 
                 $headers = "MIME-Version: 1.0" . "\r\n";
                 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
@@ -680,7 +680,7 @@ class GroupusersController extends Controller
 				Password: '.$password;
 
                 $message.='<br><p>Kind regards</p><br><b>Splat Team</b>';
-               // mail($to,$subject,$message,$headers);
+                mail($to,$subject,$message,$headers);
             }
         }
 

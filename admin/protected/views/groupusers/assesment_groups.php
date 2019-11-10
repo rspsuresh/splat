@@ -95,13 +95,13 @@ $project=Projects::model()->findByPk($_GET['id']);
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-10">
+            <div class="col-lg-10 col-sm-10 col-xs-10 col-md-10">
                 <h3><?=$project->name?></h3>
             </div>
-            <div class="col-lg-1">
+            <div class="col-lg-1 col-md-1 col-xs-1">
                 <button class="btn btn-primary align" onclick="goBack()">Back</button>
             </div>
-            <div class="col-lg-12" id="main">
+            <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12" id="main">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <?php
                     $usermodelsql="SELECT user_id,users.first_name,users.last_name,users.username as username FROM `user_courses` 

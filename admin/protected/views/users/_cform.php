@@ -3,7 +3,6 @@
 /* @var $model Users */
 /* @var $form CActiveForm */
 ?>
-
 <div class="form">
     <?php
     $form=$this->beginWidget('CActiveForm', array(
@@ -70,6 +69,9 @@
     <?php echo CHtml::submitButton($model->isNewRecord ? 'Add' : 'Save',array('class'=>'save-btn')); ?>
     <?php $this->endWidget(); ?>
 </div><!-- form -->
+
+<script src="<?php echo Yii::app()->request->baseUrl; ?>./../js/jquery.easy-autocomplete.min.js"></script>
+<link href="<?php echo Yii::app()->request->baseUrl; ?>./../css/easy-autocomplete.min.css" rel="stylesheet" type="text/css"/>
 <script>
     $(function() {
         $('#Users_username,#Users_password').on('keypress', function(e) {
@@ -79,5 +81,29 @@
         $('#Users_password').bind("cut copy paste",function(e) {
             e.preventDefault();
         });
+    });
+</script>
+<script>
+    $( document ).ready(function() {
+        var course='<?=base64_decode($_GET['c'])?>'
+        var options = {
+            url: function(phrase) {
+                return "getdetails?phrase=" + phrase + "&format=json&course="+course;
+            },
+            getValue: "Label",
+            list: {
+                onSelectItemEvent: function() {
+                    var fname = $("#Users_email").getSelectedItemData().firstname;
+                    var lname = $("#Users_email").getSelectedItemData().lastname;
+                    var exists = $("#Users_email").getSelectedItemData().exists;
+                    if(!exists)
+                    {
+                        $("#Users_first_name").val(fname).trigger('change');
+                        $("#Users_last_name").val(lname).trigger('change');
+                    }
+                }
+            }
+        };
+        $("#Users_email").easyAutocomplete(options);
     });
 </script>

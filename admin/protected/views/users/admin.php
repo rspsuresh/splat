@@ -100,6 +100,7 @@ $('.search-form form').submit(function(){
                     //'value'=>'$data->courses->name',
                     'value'=>function($data)
                     {
+                        //echo "<pre>";print_r($data);die;
                         return Users::courses($data->course_id);
                     },
                 ),

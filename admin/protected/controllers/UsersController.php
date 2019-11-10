@@ -28,7 +28,7 @@ class UsersController extends Controller
         return array(
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
                 'actions'=>array('index','view', 'create', 'ccreate','update', 'admin','delete',
-                    'unauthorized','dynamiccourses','cadmin','download','deletemultiple','staffusers','mailprocess','updatestaff'),
+                    'unauthorized','dynamiccourses','cadmin','download','deletemultiple','staffusers','mailprocess','updatestaff','getdetails'),
                 'users'=>array('@'),
             ),
             array('deny',  // deny all users
@@ -147,10 +147,10 @@ class UsersController extends Controller
                     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
                     $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
                     $url = Yii::app()->createAbsoluteUrl("site/login");
-                    //$to = trim($model->username);
-                    $to = 'suresh@businessgateways.com';
+                    $to = trim($model->email);
+                    //$to = 'suresh@businessgateways.com';
                     if ($model->role == 3) {
-                        $subject = "SPLAT Staff Registration";
+                        $subject = "Splat Staff Registration.";
                         $crs = implode('\n', $course);
                         $fac = implode('\n', $faculties);
                         $message = "<p>Dear $model->first_name $model->last_name
@@ -164,7 +164,7 @@ class UsersController extends Controller
                               <p>Paswword :$model->password</p>
                               <p>Link to the site:<a href='$url'> $url</a></p>";
                     } else if ($model->role == 1) {
-                        $subject = "SPLAT Admin Registration";
+                        $subject = "Splat Admin Registration.";
                         $message = "<p>Dear $model->first_name $model->last_name
                               </p><p>You have been granted admin rights for the Bournemouth University SPLAT website.</p>
                               <p>Your Credentials are as follows</p>
@@ -173,7 +173,7 @@ class UsersController extends Controller
                               <p>Link to the site:<a href='$url'>$url</a></p>";
                     } else if ($model->role == 5) {
                         $studenturl = $_SERVER['SERVER_NAME']."/site/login";
-                        $subject = "SPLAT Student Registration";
+                        $subject = "Splat Student Registration";
                         $crs = implode(',', $course);
                         $fac = implode(',', $faculties);
                         $coursereplace=str_replace("-","",$crs);
@@ -272,14 +272,14 @@ class UsersController extends Controller
 
 
 
-                //$to =trim($splitemail[0]);
-                $to ='suresh@businessgateways.com';
+                $to =$model->email;
+                //$to ='suresh@businessgateways.com';
                 $firstname=$_POST['Users']['first_name'];
                 $lastname=$_POST['Users']['lastname'];
                 $password=$model->password;
                 $course_name = $UserCourses->course->name;
                 $url = $_SERVER['SERVER_NAME']."/site/login";
-                $subject = "SPLAT User Registration";
+                $subject = "Splat User Registration";
 
                 $headers = "MIME-Version: 1.0" . "\r\n";
                 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
@@ -854,10 +854,12 @@ class UsersController extends Controller
         if(isset($_POST['Users']['fac_id']) && count($_POST['Users']['fac_id'])>0) {
             $faculties = implode(',',$_POST['Users']['fac_id']);
             $data =	Courses::model()->findAll('faculty in ('.$faculties.')');
-            $data = CHtml::listData($data,'id','name');
-            foreach($data as $value=>$name)
+           // echo "<pre>";print_r($data);die;
+            //$data = CHtml::listData($data,'id','name');
+            foreach($data as $value)
             {
-                echo CHtml::tag('option', array('value'=>$value),CHtml::encode($name),true);
+                $level=!empty($value->course_level)?" Level:".$value->course_level:"";
+                echo CHtml::tag('option', array('value'=>$value->id),CHtml::encode($value->course_type."-".$value->name."".$level),true);
             }
         }
     }
@@ -903,7 +905,7 @@ class UsersController extends Controller
         {
             if(isset($_POST['Users']))
             {
-                $checkmodel=Users::model()->findByAttributes(array('username'=>$_POST['Users']['username'],'email'=>$_POST['Users']['email']));
+                $checkmodel=Users::model()->findByAttributes(array('email'=>$_POST['Users']['email']));
                 //print_r($checkmodel);die;
                 if(count($checkmodel)==0)
                 {
@@ -920,7 +922,7 @@ class UsersController extends Controller
                     $model->institution_id=base64_decode($_GET['i']);
                     $model->fac_id=base64_decode($_GET['f']);
                     $model->role = '3';
-                    if($model->save(false))
+                    if($model->save(false) && $model->validate())
                     {
                         $UserFaculties = new UserFaculties();
                         $UserFaculties->user_id = $model->id;
@@ -936,34 +938,30 @@ class UsersController extends Controller
                     }
 
                     $facultymodel=Faculties::model()->findByPk($model->fac_id);
-                    //$to =trim($_POST['Users']['username']);
-                    $to ='suresh@businessgateways.com';
+                   $to =trim($_POST['Users']['email']);
+                    //$to ='rsprampaul14321@gmail.com';
                     $firstname=$_POST['Users']['first_name'];
                     $lastname=$_POST['Users']['lastname'];
                     $password=$model->password;
                     $course_name = $UserCourses->course->name;
-                    $url = $_SERVER['SERVER_NAME']."/site/login";
+                    $url = $_SERVER['SERVER_NAME']."/admin/site/login";
                     $subject = "SPLAT  Registration";
 
 
-                    $subject = "SPLAT Staff Registration";
+                    $subject = "Splat Staff Registration";
                     $crs = $course_name;
                     $fac = $facultymodel->name;
-                    $message = "<p>Dear $model->first_name $model->last_name
-                              </p><p>You have been granted <b>Staff</b> rights to the Bournemouth University SPLAT website</p>
-                              <p><b>Allocated Faculties</b></p>
-                              <p>$fac</p>
-                              <p><b>Allocated Course</b></p>
-                              <p>$crs</p>
+                    $message = "<p>Dear $model->first_name $model->last_name,
+                              </p><p>You have added to the course <b>'.$crs.'</b> as a course admin in  SPLAT website.</p>
                               <p>Your Credentials are</p>
-                              <p>Username :$model->username</p>
-                              <p>Paswword :$model->password</p>
-                              <p>Link to the site:<a href='$url'> $url</a></p>";
+                              <p>Link :<a href='$url'> $url</a></p>
+                              <p>Username :<b>$model->username</b></p>
+                              <p>Password :<b>$model->password</b></p>";
 
                     $headers = "MIME-Version: 1.0" . "\r\n";
                     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
                     $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
-                    //mail($to, $subject, $message, $headers);
+                    mail($to, $subject, $message, $headers);
                     Yii::app()->user->setFlash('success', 'A new staff has been created.');
 
                 }
@@ -1009,7 +1007,7 @@ class UsersController extends Controller
             $mailmodel=MailSend::model()->findAll('c_id='.$_POST['course'].' and i_id='.$_POST['inst'].' and f_id='.$_POST['fac'].' and as_id='.$_POST['asses']);
             $projectupdate=Projects::model()->findByPk($_POST['asses']);
             $projectupdate->status='live';
-            $projectupdate->update('status');
+           // $projectupdate->update('status');
             if(empty($mailmodel))
             {
 
@@ -1053,8 +1051,10 @@ class UsersController extends Controller
         {
             $condition=($type==2)?"'id not in ($ids )'":"'id in ($ids)'";
             $usersmodel=Users::model()->findAll('id in ('.$ids.')');
-            $course_name=Courses::model()->findByPk(base64_decode($_POST['course']));
-            $coursename=$course_name->course_type."". $course_name->name." Level".$course_name->course_level;
+
+            $course_name=Courses::model()->findByPk($_POST['course']);
+
+            $coursename=$course_name->course_type."". $course_name->name." Level ".$course_name->course_level;
             if(!empty($usersmodel))
             {
                 foreach($usersmodel as $user)
@@ -1065,13 +1065,14 @@ class UsersController extends Controller
                     $subject = "Splat User registration";
                     $url = $_SERVER['SERVER_NAME'] . "/site/login";
                     $to = $user->email;
-                    $message = 'Dear ' . $user->first_name . '<br/><br/>You have been added to the
-                                 Bournemouth University SPLAT website for the course ' . $coursename . '.
+                    //$to="rsprampaul14321@gmail.com";
+                    $message = 'Dear ' . $user->first_name . ',<br/><br/>You have been added to the
+                                 Bournemouth University SPLAT website for the course <b>' . $coursename . '</b> .
                                  You can now login to assess your peers.<br/><br/>Your credentials are:<br/>
                                  Website: ' . $url . '<br/>
-                                 Username: ' . $to . '<br/>
+                                 Username: ' . $user->email . '<br/>
                                  Password: ' . $user->password;
-                    //if(mail($to, $subject, $message, $headers)) {
+                    if(mail($to, $subject, $message, $headers)) {
                     $mailtosendmodel = new MailSend();
                     $mailtosendmodel->i_id = $_POST['inst'];
                     $mailtosendmodel->c_id = $_POST['course'];
@@ -1079,7 +1080,7 @@ class UsersController extends Controller
                     $mailtosendmodel->f_id = $_POST['fac'];
                     $mailtosendmodel->u_id = $user->id;
                     $mailtosendmodel->save(false);
-                    //  }
+                      }
 
                 }
             }
@@ -1108,13 +1109,10 @@ class UsersController extends Controller
     public function actionUpdatestaff($id)
     {
 
-      /*  ALTER TABLE `users` CHANGE `course_id` `course_id` INT(11) NULL DEFAULT NULL;
-ALTER TABLE `users` CHANGE `institution_id` `institution_id` INT(11) NULL DEFAULT NULL;
-ALTER TABLE `users` CHANGE `created_date` `created_date` DATETIME NULL DEFAULT NULL;
-ALTER TABLE `users` CHANGE `updated_date` updated_date` DATETIME NULL DEFAULT NULL;
-ALTER TABLE `users` CHANGE `fac_id` `fac_id` INT(11) NULL DEFAULT NULL;*/
       if(!empty($id))
       {
+          //Yii::app()->db->createCommand('ALTER TABLE `users` CHANGE `course_id` `course_id` VARCHAR(100) NULL DEFAULT NULL')->execute();
+          //Yii::app()->db->createCommand('ALTER TABLE `users` CHANGE `fac_id` `fac_id` VARCHAR(100) NULL DEFAULT NULL')->execute();
           $model=Users::model()->findByPk($_GET['id']);
           $model->scenario="staffupdate";
           if(!empty($_POST))
@@ -1122,6 +1120,8 @@ ALTER TABLE `users` CHANGE `fac_id` `fac_id` INT(11) NULL DEFAULT NULL;*/
               $model->first_name=$_POST['Users']['first_name'];
               $model->last_name=$_POST['Users']['last_name'];
               $model->email=$_POST['Users']['email'];
+              $model->course_id=implode(',',$_POST['Users']['course_id']);
+              $model->fac_id=implode(',',$_POST['Users']['fac_id']);
               if($model->save(false))
               {
                   $userfaculty=UserFaculties::model()->deleteAllByAttributes(['user_id' => $model->id]);
@@ -1140,7 +1140,38 @@ ALTER TABLE `users` CHANGE `fac_id` `fac_id` INT(11) NULL DEFAULT NULL;*/
                       $USercrs=New UserCourses();
                       $USercrs->user_id=$model->id;
                       $USercrs->course_id=$crsval;
-                      $USercrs->save();
+                      if($USercrs->save())
+                      {
+                          /*$facultymodel=Faculties::model()->findByPk($model->fac_id);
+                          $to =trim($_POST['Users']['email']);
+                          //$to ='rsprampaul14321@gmail.com';
+                          $firstname=$_POST['Users']['first_name'];
+                          $lastname=$_POST['Users']['lastname'];
+                          $password=$model->password;
+                          $course_name = $UserCourses->course->name;
+                          $url = $_SERVER['SERVER_NAME']."/admin/site/login";
+                          $subject = "SPLAT  Registration";
+
+
+                          $subject = "SPLAT Staff Update   ";
+                          $crs = $course_name;
+                          $fac = $facultymodel->name;
+                          $message = "<p>Dear $model->first_name $model->last_name ,
+                              </p><p>You have been granted <b>Staff</b> rights to the Bournemouth University SPLAT website.</p>
+                              <p><b>Allocated Faculties</b></p>
+                              <p>$fac</p>
+                              <p><b>Allocated Course</b></p>
+                              <p>$crs</p>
+                              <p>Your Credentials are</p>
+                              <p>Username :<b>$model->username</b></p>
+                              <p>Password :<b>$model->password</b></p>
+                              <p>Link to the site:<a href='$url'> $url</a></p>";
+
+                          $headers = "MIME-Version: 1.0" . "\r\n";
+                          $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                          $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
+                          mail($to, $subject, $message, $headers);*/
+                      }
                   }
 
                   Yii::app()->user->setFlash('success', 'A Staff user has been Updated.');
@@ -1152,5 +1183,34 @@ ALTER TABLE `users` CHANGE `fac_id` `fac_id` INT(11) NULL DEFAULT NULL;*/
               'model'=>$model,
           ));
       }
+    }
+
+    public function actionGetdetails()
+    {
+        if(!empty($_GET))
+        {
+            $email=$_GET['phrase'];
+            $userModel=Users::model()->findAll("role=3 and email like '%{$email}%'");
+            $course=$_GET['course'];
+            if(!empty($userModel))
+            {
+               $arrauuser=[];
+                foreach ($userModel as $key=>$user)
+                {
+                    $exists=UserCourses::model()->find("user_id={$user->id} and course_id={$course}");
+
+                     $arrauuser[$key]['firstname']=$user->first_name;
+                     $arrauuser[$key]['lastname']=$user->last_name;
+                     $arrauuser[$key]['Label']=$user->email;
+                     $arrauuser[$key]['exists']=0;
+                     if($exists)
+                     {
+                         $arrauuser[$key]['exists']=1;
+                     }
+                }
+
+            }
+           echo json_encode($arrauuser,true);die;
+        }
     }
 }

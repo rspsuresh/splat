@@ -117,7 +117,7 @@ $avg=0;
                                             <?php $stcheck=Users::model()->findByPk($groupuser->user_id);?>
                                             <?php
                                             if($stcheck->status=='active') { ?>
-                                                <div class="col-lg-3"><b>
+                                                <div class="col-lg-3 col-md-3 col-xs-3 col-sm-3"><b>
                                                         <?php if($_GET['u'] == $groupuser->user_id)
                                                             echo 'Self';
                                                         else
@@ -125,7 +125,7 @@ $avg=0;
                                                         ?>
                                                     </b>
                                                 </div>
-                                                <div class="col-lg-7">
+                                                <div class="col-lg-7 col-md-7 col-xs-7 col-sm-7">
                                                     <p>:
                                                         <?php if($_GET['u'] == $groupuser->user_id) {?>
                                                             <b style="color:red;" class="answser_<?=$i?>"

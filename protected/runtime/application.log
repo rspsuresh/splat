@@ -5058,3 +5058,352 @@ Stack trace:
 REQUEST_URI=/splat/site/projects/8?c=9&g=6
 HTTP_REFERER=http://localhost/splat/site/index
 ---
+2019/10/27 17:27:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "easy-autocomplete.min.css".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('easy-autocomple...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/easy-autocomplete.min.css
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 17:27:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "jquery.easy-autocomplete.min.js".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('jquery.easy-aut...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/jquery.easy-autocomplete.min.js
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 17:27:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "easy-autocomplete.min.css".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('easy-autocomple...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/easy-autocomplete.min.css
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 17:27:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "easy-autocomplete.min.css".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('easy-autocomple...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/easy-autocomplete.min.css
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 17:27:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "jquery.easy-autocomplete.min.js".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('jquery.easy-aut...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/jquery.easy-autocomplete.min.js
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 17:27:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "easy-autocomplete.min.css".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('easy-autocomple...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/easy-autocomplete.min.css
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 17:27:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('js/easy-autocom...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/js/easy-autocomplete.min.css.map
+---
+2019/10/27 17:28:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cs/easy-autocomplete.min.css".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('cs/easy-autocom...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/cs/easy-autocomplete.min.css
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 17:28:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cs/easy-autocomplete.min.css".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('cs/easy-autocom...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/cs/easy-autocomplete.min.css
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 17:28:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cs/easy-autocomplete.min.css".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('cs/easy-autocom...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/cs/easy-autocomplete.min.css
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 17:28:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "cs/easy-autocomplete.min.css".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('cs/easy-autocom...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/cs/easy-autocomplete.min.css
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2019/10/27 17:30:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 17:32:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 17:38:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 17:39:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 17:41:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 17:43:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 17:54:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 17:56:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 17:56:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 17:57:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 18:00:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 18:01:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 18:01:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 18:01:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 18:04:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 18:04:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 18:04:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 18:05:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 18:06:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 18:06:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 18:06:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 18:07:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 18:08:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 18:09:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 18:10:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 18:10:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 18:18:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 18:19:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/easy-autocomplete.min.css.map".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/10/27 18:24:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "webfonts/fa-solid-900.woff2".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('webfonts/fa-sol...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/webfonts/fa-solid-900.woff2
+HTTP_REFERER=http://localhost/splat/css/all.css
+---
+2019/10/27 18:24:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "webfonts/fa-solid-900.woff".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('webfonts/fa-sol...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/webfonts/fa-solid-900.woff
+HTTP_REFERER=http://localhost/splat/css/all.css
+---
+2019/10/27 18:24:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "webfonts/fa-solid-900.ttf".' in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('webfonts/fa-sol...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/webfonts/fa-solid-900.ttf
+HTTP_REFERER=http://localhost/splat/css/all.css
+---

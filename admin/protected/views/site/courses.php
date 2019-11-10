@@ -1,4 +1,5 @@
 <style>
+    .fa-input { font-family: FontAwesome, ‘Helvetica Neue’, Helvetica, Arial, sans-serif; }
     .user-assessment >p
     {
         font-size:20px !important;
@@ -44,8 +45,8 @@
     </div>
     <div class="script-section col-xs-12 col-lg-12 col-sm-12">
         <ul class="nav nav-tabs script-tab text-center" >
-            <li class="active"><a data-toggle="tab" href="#home" aria-expanded="true">Active (<?= count($model)?>)</a></li>
-            <li class="blue-clr"><a data-toggle="tab" href="#menu1" aria-expanded="false">Inactive (<?= count($imodel)?>)</a></li>
+            <li class="active"><a data-toggle="tab" href="#home" aria-expanded="true"> <i class="fa fa-toggle-on" style="color:white" aria-hidden="true"></i> Active (<?= count($model)?>)</a></li>
+            <li class="blue-clr"><a data-toggle="tab" href="#menu1" aria-expanded="false"><i class="fa fa-toggle-off" style="color:white" aria-hidden="true"></i> Inactive (<?= count($imodel)?>)</a></li>
         </ul>
         <div class="tab-content" >
             <div id="home" class="tab-pane fade in active">
@@ -324,9 +325,9 @@
             </div>
         </div>
 
-        <?php  if(Yii::app()->user->getState('role')=='Superuser' || Yii::app()->user->getState('role')=='Staff'){ ?>
-            <input type="button" value="Add a Course" class="add-course" data-toggle="modal" data-target="#courseModal">
-        <?php } ?>
+
+            <input type="button" value="&#xf02d; Add a Course" class="add-course fa-input" data-toggle="modal" data-target="#courseModal">
+
     </div>
 </section>
 <!-- model -->
@@ -412,7 +413,10 @@
                         <?php echo $form->error($formModel,'anonymous'); ?>
                     </div>
                 </div>
-                <?php echo CHtml::submitButton('Save',array('class'=>'save-btn')); ?>
+                <?php
+                echo CHtml::tag('button',[
+                    'id'=>'btsubmit','class'=>'save-btn fa-input','name'=>'yt3','type'=>'submit'
+                ],'<i class="fa fa-floppy-o" aria-hidden="true"></i> Save'); ?>
                 <?php $this->endWidget(); ?>
             </div>
         </div>

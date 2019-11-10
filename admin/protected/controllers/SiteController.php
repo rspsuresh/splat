@@ -397,8 +397,8 @@ class SiteController extends Controller
                             $UserCourses->course_id = base64_decode($_GET['c']);
                             $UserCourses->save();
 
-                            //$to = $users->username;
-                            $to = 'suresh@businessgateways.com';
+                            $to =trim($users->email);
+                           // $to = 'suresh@businessgateways.com';
                             $course_name = $users->courses->name;
                             $url = 'http://splat.bournemouth.ac.uk/site/login';
                             $subject = "SPLAT User Registration";
@@ -426,8 +426,8 @@ class SiteController extends Controller
                             $UserCourses->course_id = base64_decode($_GET['c']);
                             $UserCourses->save();
 
-                           // $to = $users->username;
-                            $to ='suresh@businessgateways.com';
+                            $to = $users->email;
+                            //$to ='suresh@businessgateways.com';
                             $course_name = $users->courses->name;
                             $url = 'http://splat.bournemouth.ac.uk/site/login';
                             $subject = "SPLAT User Registration";

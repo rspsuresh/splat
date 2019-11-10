@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/js/summernote-master/dist/summernote-bs4.css">
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/summernote-master/dist/summernote-bs4.js"></script>
 <style>
+    .fa-input { font-family: FontAwesome, ‘Helvetica Neue’, Helvetica, Arial, sans-serif; }
     .note-editable card-block{width:410px;}
     .container-fluid.bg-color {
         background-color: #00B9D1 !important;
@@ -193,7 +194,7 @@
                                         <?php echo $form->error($models,'status'); ?>
                                     </div>
                                 </div>
-                                <?php echo CHtml::submitButton('Save',array('class'=>'save-btn')); ?>
+                                <?php echo CHtml::submitButton('&#xf0c7; Save',array('class'=>'save-btn fa-input')); ?>
                                 <?php $this->endWidget(); ?>
                             </div>
                         </div>
@@ -210,7 +211,7 @@
         <?php endif; ?>
 		
         <?php if(Yii::app()->user->getState('role')=='Superuser'){ ?>
-            <input type="button" value="Add a Faculty" class="add-course" data-toggle="modal" data-target="#facultyModal">
+            <input type="button" value="&#xf02d; Add a Faculty" class="add-course fa-input" data-toggle="modal" data-target="#facultyModal">
         <?php } ?>
     </div>
 </section>
@@ -350,7 +351,10 @@
                           <?php echo $form->error($formModel,'status'); ?>
                       </div>
                   </div>-->
-                <?php echo CHtml::submitButton('Save',array('class'=>'save-btn')); ?>
+                <?php
+                echo CHtml::tag('button',[
+                    'id'=>'btsubmit','class'=>'save-btn fa-input','name'=>'files','type'=>'submit'
+                ],'<i class="fa fa-floppy-o" aria-hidden="true"></i> Save'); ?>
                 <?php $this->endWidget(); ?>
             </div>
         </div>
