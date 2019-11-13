@@ -232,6 +232,9 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                                 (
                                     'url'=>'$this->grid->controller->createUrl("/users/update", array("id"=>$data->id,"c"=>$_GET["c"],"i"=>$_GET["i"],"f"=>$_GET["f"]))',
                                 ),
+                                'delete'=>array(
+                                    'url'=>'$this->grid->controller->createUrl("/users/delete", array("id"=>$data->id,"c"=>$_GET["c"],"i"=>$_GET["i"],"f"=>$_GET["f"],"ajax"=>"users-grid"))',
+                                )
                             ),
                         ),
                     ),
@@ -241,26 +244,26 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                         <?php $grpmodel=Groups::model()->find('course_id='.base64_decode($_GET['c'])) ?>
 
                         <?php if($grpmodel) {
-                            echo CHtml::link('<i class="fa fa-user" style="color:white" aria-hidden="true"></i> &nbsp; Add a student to this course ', Yii::app()->createUrl('users/ccreate',
+                            echo CHtml::link('<i class="fa fa-user" style="color:white" aria-hidden="true"></i>&nbsp;Add a student to this course ', Yii::app()->createUrl('users/ccreate',
                                 array('c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'])),
                                 array('class'=>'admin-btn btn btn-info '));
                         }
                         ?>
 
-                        <button class="admin-btn btn-bs-file btn btn-info" title="Browse user">
-                            <i class="fa fa-users" style="color:white" aria-hidden="true"></i>  Bulk import users
-                            <?php
-                            $form=$this->beginWidget('CActiveForm', array(
-                                'id'=>'bulk_import_group_users',
-                                'htmlOptions' => array('enctype' => 'multipart/form-data'),
-                            ));
-                            ?>
-                            <input type="file"  onchange="filechange()" value="Bulk Import"  id="bulk_import_group_users" name="csv_file" accept=".csv" />
-                            <?php  $this->endWidget();?>
-                        </button>
+                        <label class="admin-btn btn-bs-file btn btn-info" title="Browse user">
+                   <i class="fa fa-users" style="color:white" aria-hidden="true"></i> Bulk import students
+                    <?php
+                    $form=$this->beginWidget('CActiveForm', array(
+                        'id'=>'bulk_import_group_users',
+                        'htmlOptions' => array('enctype' => 'multipart/form-data'),
+                    ));
+                    ?>
+                    <input type="file"  onchange="filechange()" value="Bulk Import"  id="bulk_import_group_users" name="csv_file" accept=".csv" />
+                    <?php  $this->endWidget();?>
+                </label>
                         <a href="<?= Yii::app()->CreateUrl('users/staffusers',array('c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f']))?>">
                             <button class="admin-btn btn-bs-file btn btn-info" title="Create Staff">
-                                <i class="fa fa-user" style="color:white" aria-hidden="true"></i> &nbsp; Add a Staff to this Course
+                                <i class="fa fa-user" style="color:white" aria-hidden="true"></i>&nbsp;Add a Staff to this Course
                             </button></a>
                     </div>
                     <div class="col-lg-12" style="padding-top: 10px">
@@ -342,7 +345,10 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                                 <button class="info-student pendingrelease" onclick="mailprocess(<?=base64_decode($_GET['c'])?>,<?=base64_decode($_GET['i'])?>,<?=base64_decode($_GET['f'])?>,<?=$models->id?>)"><i class="fa fa-clock-o ipend" aria-hidden="true"></i> Pending to students<span>(<?=$countcourseuser-$mailsendtowardscourseandassessment?>)</span>
                                 </button>
                             <?php } ?>
-                            <button onclick="sendremainder(<?=base64_decode($_GET['c'])?>,<?=base64_decode($_GET['i'])?>,<?=base64_decode($_GET['f'])?>,<?=$models->id?>)"  class="info-student"><i class="fa fa-paper-plane"  style="color:white" aria-hidden="true"></i> Send remainder</button>
+                            <button onclick="sendremainder(<?=base64_decode($_GET['c'])?>,<?=base64_decode($_GET['i'])?>,<?=base64_decode($_GET['f'])?>,<?=$models->id?>)"
+                                    class="info-student"><i class="fa fa-paper-plane"  style="color:white" aria-hidden="true"></i>
+                                Send remainder
+                            </button>
                         </td>
                         <td>
                             <a  href="<?php echo Yii::app()->createUrl('groupusers/groupasses',

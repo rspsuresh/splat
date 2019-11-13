@@ -350,7 +350,7 @@ class UsersController extends Controller
                         $usrgrp->delete();
                     }
                 }
-               $userdetls=Userdetails::model()->findAll('user_id='.$model->id.' and course='.base64_decode($_GET['c']));
+                $userdetls=Userdetails::model()->findAll('user_id='.$model->id.' and course='.base64_decode($_GET['c']));
                 if(!empty($userdetls))
                 {
                     foreach ($userdetls as $usrdt)
@@ -397,24 +397,24 @@ class UsersController extends Controller
                     $course_decode=base64_decode($_GET['c']);
                     $UserFaculties = UserFaculties::model()->findAll('user_id='.$model->id);
                     $UserCourses = UserCourses::model()->findAll('user_id='.$model->id." and course_id=".$course_decode);
-                   /* foreach($UserFaculties as $faculties){
-                        $faculties->delete();
-                    }*/
+                    /* foreach($UserFaculties as $faculties){
+                         $faculties->delete();
+                     }*/
                     /*foreach($UserCourses as $courses){
                         $courses->delete();
                     }*/
-                   /* foreach($_POST['Users']['fac_id'] as $fac_id){
-                        $UserFaculties = new UserFaculties();
-                        $UserFaculties->user_id = $model->id;
-                        $UserFaculties->faculty_id = $fac_id;
-                        $UserFaculties->save();
-                    }*/
-                  /*  foreach($_POST['Users']['course_id'] as $course_id){
-                        $UserCourses = new UserCourses();
-                        $UserCourses->user_id = $model->id;
-                        $UserCourses->course_id = $course_id;
-                        $UserCourses->save();
-                    }*/
+                    /* foreach($_POST['Users']['fac_id'] as $fac_id){
+                         $UserFaculties = new UserFaculties();
+                         $UserFaculties->user_id = $model->id;
+                         $UserFaculties->faculty_id = $fac_id;
+                         $UserFaculties->save();
+                     }*/
+                    /*  foreach($_POST['Users']['course_id'] as $course_id){
+                          $UserCourses = new UserCourses();
+                          $UserCourses->user_id = $model->id;
+                          $UserCourses->course_id = $course_id;
+                          $UserCourses->save();
+                      }*/
                     if(isset($_POST['grp']) && !empty($_POST['grp']) && $_POST['Users']['role'] ==5 )
                     {
                         $usersgroups=GroupUsers::model()->with('group')->findAll('user_id='.$model->id.'and group.course_id='.base64_decode($_GET['c']));
@@ -456,18 +456,47 @@ class UsersController extends Controller
     public function actionDelete($id)
     {
 
-        $delete=$this->loadModel($id)->delete();
-        $usersmodel=Users::model()->deleteByPk($id);
-        $userfaculty=UserFaculties::model()->deleteAllByAttributes(['user_id' => $id]);
-        $usercourse=UserCourses::model()->deleteAllByAttributes(['user_id' => $id]);
-        $insusemodel=InstitutionUser::model()->deleteAllByAttributes(['user_id'=>$id]);
-        $grpusers=GroupUsers::model()->deleteAllByAttributes(['user_id'=>$id]);
-        $asscomment=AssessComments::model()->deleteAllByAttributes(['from_user'=>$id]);
-        $asscomment=AssessComments::model()->deleteAllByAttributes(['to_user'=>$id]);
-        $assfrom=Assess::model()->deleteAllByAttributes(['from_user'=>$id]);
-        $assto=Assess::model()->deleteAllByAttributes(['to_user'=>$id]);
-        $userdt=Userdetails::model()->deleteAllByAttributes(['user_id'=>$id]);
+        Yii::app()->db->createCommand('SET group_concat_max_len = 10000')->execute();
+        $sql="SELECT group_concat(t.id) as grp_id FROM `groups` `t` WHERE course_id=".base64_decode($_GET['c']);
+        $resultgrp=Yii::app()->db->createCommand($sql)->queryRow();
+        $grpid=!empty($resultgrp['grp_id'])?$resultgrp['grp_id']:0;
 
+        $asql="SELECT group_concat(id) as aid FROM `assess` WHERE (from_user='$id' or to_user='$id') and grp_id in (".$grpid.")";
+        $resultas=Yii::app()->db->createCommand($asql)->queryRow();
+        $resultasid=!empty($resultas['aid'])?$resultas['aid']:0;
+
+        $usercourse=UserCourses::model()->findAllByAttributes(['user_id' => $id,'course_id'=>base64_decode($_GET['c'])]);
+        $userfaculty=UserFaculties::model()->findAllByAttributes(['user_id' => $id,'faculty_id'=>base64_decode($_GET['f'])]);
+
+        $decodefacult=base64_decode($_GET['f']);
+        $decodecourse=base64_decode($_GET['c']);
+
+ if($id)
+ {
+
+     if(count($usercourse)==1 && count($userfaculty)==1)
+     {
+         $delete=$this->loadModel($id)->delete();
+         $usersmodel=Users::model()->deleteByPk($id);
+     }
+
+     $deleteusefac="delete from user_faculties where user_id={$id} and faculty_id={$decodefacult}";
+     $deletecourseuser="delete from user_courses where user_id={$id} and course_id={$decodecourse}";
+     $assesfrom="delete from assess where from_user={$id} and grp_id in ({$grpid})";
+     $assesto="delete from assess where to_user={$id} and grp_id in ({$grpid})";
+     $assescommentto="delete from assess_comments where to_user={$id} and asses_id in ({$resultasid})";
+     $assescommentfrom="delete from assess_comments where from_user={$id} and asses_id in ({$resultasid})";
+     $delete_userdt="delete from tbl_userdetails where user_id={$id} and course={$decodecourse}";
+
+     Yii::app()->db->createCommand($deleteusefac)->execute();
+     Yii::app()->db->createCommand($deletecourseuser)->execute();
+     Yii::app()->db->createCommand($assesto)->execute();
+     Yii::app()->db->createCommand($assesfrom)->execute();
+     Yii::app()->db->createCommand($assescommentto)->execute();
+     Yii::app()->db->createCommand($assescommentfrom)->execute();
+     Yii::app()->db->createCommand($delete_userdt)->execute();
+
+ }
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
         if(!isset($_GET['ajax']))
             $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
@@ -506,20 +535,21 @@ class UsersController extends Controller
         $modeluser->unsetAttributes();  // clear any default values
         $savecount=0;
         $unsavecount=0;
-        if(isset($_FILES['csv_file'])) {
+        if(isset($_FILES['csv_file']) && !empty($_FILES['csv_file'])) {
             $savecount = 0;
             $unsavecount = 0;
             if (is_uploaded_file($_FILES['csv_file']['tmp_name'])) {
                 // echo $_FILES['csv_file']['tmp_name'];die;
                 $csvFile = fopen($_FILES['csv_file']['tmp_name'], 'r');
-
-                //skip first line
                 $header = fgetcsv($csvFile);
                 while (($line = fgetcsv($csvFile)) !== FALSE) {
                     $all_rows[] = array_combine($header, $line);
                 }
                 fclose($csvFile);
-                // echo "<pre>";print_r($all_rows);die;
+               if(empty($all_rows)) {
+                   echo "Error in file.Please check file.";die;
+               }
+
                 $uniquegrouparray = array_filter(array_unique(array_column($all_rows, $header[count($header) - 2])));
                 //echo "<pre>";print_r($uniquegrouparray);die;
                 $courseid = base64_decode($_GET['c']);
@@ -854,7 +884,7 @@ class UsersController extends Controller
         if(isset($_POST['Users']['fac_id']) && count($_POST['Users']['fac_id'])>0) {
             $faculties = implode(',',$_POST['Users']['fac_id']);
             $data =	Courses::model()->findAll('faculty in ('.$faculties.')');
-           // echo "<pre>";print_r($data);die;
+            // echo "<pre>";print_r($data);die;
             //$data = CHtml::listData($data,'id','name');
             foreach($data as $value)
             {
@@ -938,7 +968,7 @@ class UsersController extends Controller
                     }
 
                     $facultymodel=Faculties::model()->findByPk($model->fac_id);
-                   $to =trim($_POST['Users']['email']);
+                    $to =trim($_POST['Users']['email']);
                     //$to ='rsprampaul14321@gmail.com';
                     $firstname=$_POST['Users']['first_name'];
                     $lastname=$_POST['Users']['lastname'];
@@ -1007,7 +1037,7 @@ class UsersController extends Controller
             $mailmodel=MailSend::model()->findAll('c_id='.$_POST['course'].' and i_id='.$_POST['inst'].' and f_id='.$_POST['fac'].' and as_id='.$_POST['asses']);
             $projectupdate=Projects::model()->findByPk($_POST['asses']);
             $projectupdate->status='live';
-           // $projectupdate->update('status');
+            // $projectupdate->update('status');
             if(empty($mailmodel))
             {
 
@@ -1073,14 +1103,14 @@ class UsersController extends Controller
                                  Username: ' . $user->email . '<br/>
                                  Password: ' . $user->password;
                     if(mail($to, $subject, $message, $headers)) {
-                    $mailtosendmodel = new MailSend();
-                    $mailtosendmodel->i_id = $_POST['inst'];
-                    $mailtosendmodel->c_id = $_POST['course'];
-                    $mailtosendmodel->as_id = $_POST['asses'];
-                    $mailtosendmodel->f_id = $_POST['fac'];
-                    $mailtosendmodel->u_id = $user->id;
-                    $mailtosendmodel->save(false);
-                      }
+                        $mailtosendmodel = new MailSend();
+                        $mailtosendmodel->i_id = $_POST['inst'];
+                        $mailtosendmodel->c_id = $_POST['course'];
+                        $mailtosendmodel->as_id = $_POST['asses'];
+                        $mailtosendmodel->f_id = $_POST['fac'];
+                        $mailtosendmodel->u_id = $user->id;
+                        $mailtosendmodel->save(false);
+                    }
 
                 }
             }
@@ -1109,80 +1139,80 @@ class UsersController extends Controller
     public function actionUpdatestaff($id)
     {
 
-      if(!empty($id))
-      {
-          //Yii::app()->db->createCommand('ALTER TABLE `users` CHANGE `course_id` `course_id` VARCHAR(100) NULL DEFAULT NULL')->execute();
-          //Yii::app()->db->createCommand('ALTER TABLE `users` CHANGE `fac_id` `fac_id` VARCHAR(100) NULL DEFAULT NULL')->execute();
-          $model=Users::model()->findByPk($_GET['id']);
-          $model->scenario="staffupdate";
-          if(!empty($_POST))
-          {
-              $model->first_name=$_POST['Users']['first_name'];
-              $model->last_name=$_POST['Users']['last_name'];
-              $model->email=$_POST['Users']['email'];
-              $model->course_id=implode(',',$_POST['Users']['course_id']);
-              $model->fac_id=implode(',',$_POST['Users']['fac_id']);
-              if($model->save(false))
-              {
-                  $userfaculty=UserFaculties::model()->deleteAllByAttributes(['user_id' => $model->id]);
-                  $usercourse=UserCourses::model()->deleteAllByAttributes(['user_id' => $model->id]);
+        if(!empty($id))
+        {
+            //Yii::app()->db->createCommand('ALTER TABLE `users` CHANGE `course_id` `course_id` VARCHAR(100) NULL DEFAULT NULL')->execute();
+            //Yii::app()->db->createCommand('ALTER TABLE `users` CHANGE `fac_id` `fac_id` VARCHAR(100) NULL DEFAULT NULL')->execute();
+            $model=Users::model()->findByPk($_GET['id']);
+            $model->scenario="staffupdate";
+            if(!empty($_POST))
+            {
+                $model->first_name=$_POST['Users']['first_name'];
+                $model->last_name=$_POST['Users']['last_name'];
+                $model->email=$_POST['Users']['email'];
+                $model->course_id=implode(',',$_POST['Users']['course_id']);
+                $model->fac_id=implode(',',$_POST['Users']['fac_id']);
+                if($model->save(false))
+                {
+                    $userfaculty=UserFaculties::model()->deleteAllByAttributes(['user_id' => $model->id]);
+                    $usercourse=UserCourses::model()->deleteAllByAttributes(['user_id' => $model->id]);
 
-                  foreach ($_POST['Users']['fac_id'] as $val)
-                  {
-                      $USerfac=New UserFaculties();
-                      $USerfac->user_id=$model->id;
-                      $USerfac->faculty_id=$val;
-                      $USerfac->save();
-                  }
+                    foreach ($_POST['Users']['fac_id'] as $val)
+                    {
+                        $USerfac=New UserFaculties();
+                        $USerfac->user_id=$model->id;
+                        $USerfac->faculty_id=$val;
+                        $USerfac->save();
+                    }
 
-                  foreach ($_POST['Users']['course_id'] as $crsval)
-                  {
-                      $USercrs=New UserCourses();
-                      $USercrs->user_id=$model->id;
-                      $USercrs->course_id=$crsval;
-                      if($USercrs->save())
-                      {
-                          /*$facultymodel=Faculties::model()->findByPk($model->fac_id);
-                          $to =trim($_POST['Users']['email']);
-                          //$to ='rsprampaul14321@gmail.com';
-                          $firstname=$_POST['Users']['first_name'];
-                          $lastname=$_POST['Users']['lastname'];
-                          $password=$model->password;
-                          $course_name = $UserCourses->course->name;
-                          $url = $_SERVER['SERVER_NAME']."/admin/site/login";
-                          $subject = "SPLAT  Registration";
+                    foreach ($_POST['Users']['course_id'] as $crsval)
+                    {
+                        $USercrs=New UserCourses();
+                        $USercrs->user_id=$model->id;
+                        $USercrs->course_id=$crsval;
+                        if($USercrs->save())
+                        {
+                            /*$facultymodel=Faculties::model()->findByPk($model->fac_id);
+                            $to =trim($_POST['Users']['email']);
+                            //$to ='rsprampaul14321@gmail.com';
+                            $firstname=$_POST['Users']['first_name'];
+                            $lastname=$_POST['Users']['lastname'];
+                            $password=$model->password;
+                            $course_name = $UserCourses->course->name;
+                            $url = $_SERVER['SERVER_NAME']."/admin/site/login";
+                            $subject = "SPLAT  Registration";
 
 
-                          $subject = "SPLAT Staff Update   ";
-                          $crs = $course_name;
-                          $fac = $facultymodel->name;
-                          $message = "<p>Dear $model->first_name $model->last_name ,
-                              </p><p>You have been granted <b>Staff</b> rights to the Bournemouth University SPLAT website.</p>
-                              <p><b>Allocated Faculties</b></p>
-                              <p>$fac</p>
-                              <p><b>Allocated Course</b></p>
-                              <p>$crs</p>
-                              <p>Your Credentials are</p>
-                              <p>Username :<b>$model->username</b></p>
-                              <p>Password :<b>$model->password</b></p>
-                              <p>Link to the site:<a href='$url'> $url</a></p>";
+                            $subject = "SPLAT Staff Update   ";
+                            $crs = $course_name;
+                            $fac = $facultymodel->name;
+                            $message = "<p>Dear $model->first_name $model->last_name ,
+                                </p><p>You have been granted <b>Staff</b> rights to the Bournemouth University SPLAT website.</p>
+                                <p><b>Allocated Faculties</b></p>
+                                <p>$fac</p>
+                                <p><b>Allocated Course</b></p>
+                                <p>$crs</p>
+                                <p>Your Credentials are</p>
+                                <p>Username :<b>$model->username</b></p>
+                                <p>Password :<b>$model->password</b></p>
+                                <p>Link to the site:<a href='$url'> $url</a></p>";
 
-                          $headers = "MIME-Version: 1.0" . "\r\n";
-                          $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-                          $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
-                          mail($to, $subject, $message, $headers);*/
-                      }
-                  }
+                            $headers = "MIME-Version: 1.0" . "\r\n";
+                            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                            $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
+                            mail($to, $subject, $message, $headers);*/
+                        }
+                    }
 
-                  Yii::app()->user->setFlash('success', 'A Staff user has been Updated.');
-                  $this->redirect(Yii::app()->createUrl('users/admin'));
-              }
-          }
+                    Yii::app()->user->setFlash('success', 'A Staff user has been Updated.');
+                    $this->redirect(Yii::app()->createUrl('users/admin'));
+                }
+            }
 
-          $this->render('_formstaff',array(
-              'model'=>$model,
-          ));
-      }
+            $this->render('_formstaff',array(
+                'model'=>$model,
+            ));
+        }
     }
 
     public function actionGetdetails()
@@ -1194,23 +1224,23 @@ class UsersController extends Controller
             $course=$_GET['course'];
             if(!empty($userModel))
             {
-               $arrauuser=[];
+                $arrauuser=[];
                 foreach ($userModel as $key=>$user)
                 {
                     $exists=UserCourses::model()->find("user_id={$user->id} and course_id={$course}");
 
-                     $arrauuser[$key]['firstname']=$user->first_name;
-                     $arrauuser[$key]['lastname']=$user->last_name;
-                     $arrauuser[$key]['Label']=$user->email;
-                     $arrauuser[$key]['exists']=0;
-                     if($exists)
-                     {
-                         $arrauuser[$key]['exists']=1;
-                     }
+                    $arrauuser[$key]['firstname']=$user->first_name;
+                    $arrauuser[$key]['lastname']=$user->last_name;
+                    $arrauuser[$key]['Label']=$user->email;
+                    $arrauuser[$key]['exists']=0;
+                    if($exists)
+                    {
+                        $arrauuser[$key]['exists']=1;
+                    }
                 }
 
             }
-           echo json_encode($arrauuser,true);die;
+            echo json_encode($arrauuser,true);die;
         }
     }
 }
