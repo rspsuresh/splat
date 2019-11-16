@@ -6,8 +6,6 @@
       <change beforePath="$PROJECT_DIR$/admin/protected/controllers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/UsersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/runtime/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/runtime/application.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/views/users/cadmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/cadmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bulkimport/SPLAT-Bulk import template.csv" beforeDir="false" afterPath="$PROJECT_DIR$/bulkimport/SPLAT-Bulk import template.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bulkimport/Splat_Bulk_import.csv" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -140,6 +138,7 @@
       <workItem from="1573629687587" duration="3339000" />
       <workItem from="1573637800954" duration="4283000" />
       <workItem from="1573644679679" duration="1151000" />
+      <workItem from="1573875086668" duration="1471000" />
     </task>
     <servers />
   </component>
@@ -164,7 +163,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/admin/protected/controllers/UsersController.php</url>
-          <line>1169</line>
+          <line>1168</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

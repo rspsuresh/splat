@@ -660,7 +660,6 @@ class UsersController extends Controller
             }
         }
         if(isset($_POST['Projects']) && !empty($_POST['Projects'])){
-
             if(isset($_POST['Projects']['id']) && $_POST['Projects']['id']!='')
                 $formModel = Projects::model()->find('id='.$_POST['Projects']['id']);
             $formModel->attributes 	= $_POST['Projects'];

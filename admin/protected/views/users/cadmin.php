@@ -342,13 +342,20 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                                 <button class="info-student released"><i class="fa fa-check irlsd" aria-hidden="true"></i> Released to students<span></span>
                                 </button>
                             <?php } else { ?>
+                            <?php if($models->status !='completed'){ ?>
                                 <button class="info-student pendingrelease" onclick="mailprocess(<?=base64_decode($_GET['c'])?>,<?=base64_decode($_GET['i'])?>,<?=base64_decode($_GET['f'])?>,<?=$models->id?>)"><i class="fa fa-clock-o ipend" aria-hidden="true"></i> Pending to students<span>(<?=$countcourseuser-$mailsendtowardscourseandassessment?>)</span>
                                 </button>
+                                <?php } else {  ?>
+                                -
+                                <?php } ?>
                             <?php } ?>
-                            <button onclick="sendremainder(<?=base64_decode($_GET['c'])?>,<?=base64_decode($_GET['i'])?>,<?=base64_decode($_GET['f'])?>,<?=$models->id?>)"
-                                    class="info-student"><i class="fa fa-paper-plane"  style="color:white" aria-hidden="true"></i>
-                                Send remainder
-                            </button>
+
+                            <?php if($models->status =='current'){ ?>
+                                <button onclick="sendremainder(<?=base64_decode($_GET['c'])?>,<?=base64_decode($_GET['i'])?>,<?=base64_decode($_GET['f'])?>,<?=$models->id?>)"
+                                        class="info-student"><i class="fa fa-paper-plane"  style="color:white" aria-hidden="true"></i>
+                                    Send remainder
+                                </button>
+                            <?php } ?>
                         </td>
                         <td>
                             <a  href="<?php echo Yii::app()->createUrl('groupusers/groupasses',
@@ -362,7 +369,6 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                             </a>
                         </td>
                     </tr>
-
                     <div class="modal fade" id="courseModal_<?php echo $models->id;?>" role="dialog">
                         <div class="modal-dialog">
                             <!-- Modal content-->
@@ -404,7 +410,7 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                                         </div>
                                         <div class="col-lg-8 padzero formradio">
                                             <?php echo $form->radioButtonList($models,'status',
-                                                array('inactive'=>'Draft','completed'=>'Completed','live'=>'Live'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
+                                                array('inactive'=>'Draft','completed'=>'Completed','current'=>'Live'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
                                             <?php echo $form->error($models,'status'); ?>
                                         </div>
                                     </div>
@@ -443,8 +449,6 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
             <input type="button" value="&#xf0f6; Create an Assessment" class="add-course fa-input" data-toggle="modal" data-target="#projectModal">
         </div>
     </div>
-
-
     <h1 class="center m-projects user-assessment questioners">Manage Questionnaire</h1>
     <div class="script-section col-xs-12 col-lg-12 col-sm-12">
         <div class="mydiv">
