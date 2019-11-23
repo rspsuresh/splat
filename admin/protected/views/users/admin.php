@@ -113,13 +113,13 @@ $('.search-form form').submit(function(){
                 array
                 (
                     'class'=>'CButtonColumn',
-                    'template'=>'{view}{update}{delete}',
+                    'template'=>'{view}{update}',
                     'buttons'=>array
                     (
 
                         'update' => array
                         (
-                               // $inst=base64_encode($data->institution_id),
+                            'visible'=> '$data->role !=1',
                             'url'=>'$this->grid->controller->createUrl("/users/updatestaff", array("type"=>"staff","id"=>$data->id,"i"=>base64_encode($data->institution_id)))',
                         ),
                         'view'=>array(

@@ -103,3 +103,28 @@ Stack trace:
 REQUEST_URI=/splat/admin/users/admin
 HTTP_REFERER=http://localhost/splat/admin/site/index
 ---
+2019/11/23 16:43:19 [error] [php] implode(): Invalid arguments passed (D:\xampp\htdocs\splat\admin\protected\views\users\_formstaff.php:84)
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): UsersController->renderInternal()
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): UsersController->renderFile()
+#2 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): UsersController->renderPartial()
+#3 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(1215): UsersController->render()
+#4 unknown(0): UsersController->actionUpdatestaff()
+#5 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs()
+#6 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CInlineAction->runWithParamsInternal()
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): UsersController->runAction()
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#11 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): UsersController->filterAccessControl()
+#12 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): UsersController->runActionWithFilters()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): UsersController->run()
+#16 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#17 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#18 D:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/users/updatestaff/28?type=staff&i=MQ%3D%3D
+in D:\xampp\htdocs\splat\admin\protected\views\users\_formstaff.php (84)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (1215)
+in D:\xampp\htdocs\splat\admin\index.php (13)
