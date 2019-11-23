@@ -5407,3 +5407,35 @@ Stack trace:
 REQUEST_URI=/splat/webfonts/fa-solid-900.ttf
 HTTP_REFERER=http://localhost/splat/css/all.css
 ---
+2019/11/23 17:33:47 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/11/23 17:34:32 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/11/23 17:35:29 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2019/11/23 17:35:44 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(25): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---

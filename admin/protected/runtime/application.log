@@ -1,4 +1,4 @@
-2019/11/13 07:24:21 [error] [php] array_combine() expects parameter 1 to be array, null given (D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php:548)
+2019/11/18 16:53:58 [error] [php] array_combine(): Both parameters should have an equal number of elements (D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php:548)
 Stack trace:
 #0 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs()
 #1 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CInlineAction->runWithParamsInternal()
@@ -14,185 +14,10 @@ Stack trace:
 #11 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
 #12 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
 #13 D:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
-REQUEST_URI=/splat/admin/users/cadmin?i=MQ%3D%3D&f=NA%3D%3D&c=Ng%3D%3D
+REQUEST_URI=/splat/admin/users/cadmin?i=MQ%3D%3D&f=NQ%3D%3D&c=OQ%3D%3D
 in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (548)
 in D:\xampp\htdocs\splat\admin\index.php (13)
-2019/11/13 08:24:23 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '1,2' at line 1. The SQL statement executed was: delete from assess where to_user=784 and grp_id in 1,2.
-in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (493)
-in D:\xampp\htdocs\splat\admin\index.php (13)
-2019/11/13 08:24:23 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '1,2' at line 1. The SQL statement executed was: delete from assess where to_user=784 and grp_id in 1,2 in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:715
-Stack trace:
-#0 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(493): CDbCommand->execute()
-#1 [internal function]: UsersController->actionDelete('784')
-#2 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
-#3 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
-#4 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
-#5 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
-#6 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
-#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
-#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
-#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
-#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
-#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
-#12 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('delete')
-#13 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/delete')
-#14 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
-#15 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
-#16 {main}
-REQUEST_URI=/splat/admin/users/delete/784?ajax=users-grid&c=Ng%3D%3D&f=NA%3D%3D&i=MQ%3D%3D
-HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=NA%3D%3D&c=Ng%3D%3D
----
-2019/11/13 09:33:46 [error] [exception.CDbException] CDbException: CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
- in D:\xampp\htdocs\splat\yii\framework\db\CDbConnection.php:797
-Stack trace:
-#0 D:\xampp\htdocs\splat\yii\framework\db\CDbConnection.php(693): CDbConnection->open()
-#1 D:\xampp\htdocs\splat\yii\framework\db\CDbConnection.php(649): CDbConnection->setActive(true)
-#2 D:\xampp\htdocs\splat\yii\framework\base\CModule.php(787): CDbConnection->init()
-#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(917): CModule->getComponent('db')
-#4 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(1273): CApplication->getDb()
-#5 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(4771): CActiveRecord->getDbConnection()
-#6 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(821): CActiveRecordMetaData->__construct(Object(Users))
-#7 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(157): CActiveRecord->getMetaData()
-#8 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(534): CActiveRecord->__construct('search')
-#9 [internal function]: UsersController->actionCAdmin('Nw==')
-#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
-#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
-#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
-#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
-#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
-#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
-#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
-#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
-#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
-#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
-#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('cadmin')
-#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/cadmin')
-#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
-#23 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
-#24 {main}
-REQUEST_URI=/splat/admin/users/cadmin?i=MQ%3D%3D&f=NA%3D%3D&c=Nw%3D%3D
----
-2019/11/13 09:33:55 [error] [exception.CDbException] CDbException: CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
- in D:\xampp\htdocs\splat\yii\framework\db\CDbConnection.php:797
-Stack trace:
-#0 D:\xampp\htdocs\splat\yii\framework\db\CDbConnection.php(693): CDbConnection->open()
-#1 D:\xampp\htdocs\splat\yii\framework\db\CDbConnection.php(649): CDbConnection->setActive(true)
-#2 D:\xampp\htdocs\splat\yii\framework\base\CModule.php(787): CDbConnection->init()
-#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(917): CModule->getComponent('db')
-#4 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(1273): CApplication->getDb()
-#5 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(4771): CActiveRecord->getDbConnection()
-#6 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(821): CActiveRecordMetaData->__construct(Object(Users))
-#7 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(157): CActiveRecord->getMetaData()
-#8 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(534): CActiveRecord->__construct('search')
-#9 [internal function]: UsersController->actionCAdmin('Nw==')
-#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
-#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
-#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
-#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
-#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
-#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
-#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
-#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
-#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
-#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
-#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('cadmin')
-#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/cadmin')
-#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
-#23 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
-#24 {main}
-REQUEST_URI=/splat/admin/users/cadmin?i=MQ%3D%3D&f=NA%3D%3D&c=Nw%3D%3D
----
-2019/11/13 09:34:27 [error] [exception.CDbException] CDbException: CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
- in D:\xampp\htdocs\splat\yii\framework\db\CDbConnection.php:797
-Stack trace:
-#0 D:\xampp\htdocs\splat\yii\framework\db\CDbConnection.php(693): CDbConnection->open()
-#1 D:\xampp\htdocs\splat\yii\framework\db\CDbConnection.php(649): CDbConnection->setActive(true)
-#2 D:\xampp\htdocs\splat\yii\framework\base\CModule.php(787): CDbConnection->init()
-#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(917): CModule->getComponent('db')
-#4 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(1273): CApplication->getDb()
-#5 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(4771): CActiveRecord->getDbConnection()
-#6 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(821): CActiveRecordMetaData->__construct(Object(Users))
-#7 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(157): CActiveRecord->getMetaData()
-#8 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(534): CActiveRecord->__construct('search')
-#9 [internal function]: UsersController->actionCAdmin('Nw==')
-#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
-#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
-#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
-#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
-#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
-#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
-#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
-#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
-#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
-#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
-#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('cadmin')
-#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/cadmin')
-#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
-#23 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
-#24 {main}
-REQUEST_URI=/splat/admin/users/cadmin?i=MQ%3D%3D&f=NA%3D%3D&c=Nw%3D%3D
----
-2019/11/13 09:34:34 [error] [exception.CDbException] CDbException: CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
- in D:\xampp\htdocs\splat\yii\framework\db\CDbConnection.php:797
-Stack trace:
-#0 D:\xampp\htdocs\splat\yii\framework\db\CDbConnection.php(693): CDbConnection->open()
-#1 D:\xampp\htdocs\splat\yii\framework\db\CDbConnection.php(649): CDbConnection->setActive(true)
-#2 D:\xampp\htdocs\splat\yii\framework\base\CModule.php(787): CDbConnection->init()
-#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(917): CModule->getComponent('db')
-#4 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(1273): CApplication->getDb()
-#5 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(4771): CActiveRecord->getDbConnection()
-#6 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(821): CActiveRecordMetaData->__construct(Object(Users))
-#7 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(157): CActiveRecord->getMetaData()
-#8 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(534): CActiveRecord->__construct('search')
-#9 [internal function]: UsersController->actionCAdmin('Nw==')
-#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
-#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
-#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
-#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
-#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
-#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
-#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
-#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
-#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
-#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
-#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('cadmin')
-#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/cadmin')
-#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
-#23 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
-#24 {main}
-REQUEST_URI=/splat/admin/users/cadmin?i=MQ%3D%3D&f=NA%3D%3D&c=Nw%3D%3D
----
-2019/11/13 09:35:49 [error] [exception.CDbException] CDbException: CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
- in D:\xampp\htdocs\splat\yii\framework\db\CDbConnection.php:797
-Stack trace:
-#0 D:\xampp\htdocs\splat\yii\framework\db\CDbConnection.php(693): CDbConnection->open()
-#1 D:\xampp\htdocs\splat\yii\framework\db\CDbConnection.php(649): CDbConnection->setActive(true)
-#2 D:\xampp\htdocs\splat\yii\framework\base\CModule.php(787): CDbConnection->init()
-#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(917): CModule->getComponent('db')
-#4 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(1273): CApplication->getDb()
-#5 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(4771): CActiveRecord->getDbConnection()
-#6 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(821): CActiveRecordMetaData->__construct(Object(Users))
-#7 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(157): CActiveRecord->getMetaData()
-#8 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(534): CActiveRecord->__construct('search')
-#9 [internal function]: UsersController->actionCAdmin('Nw==')
-#10 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(UsersController), Array)
-#11 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(UsersController), Object(ReflectionMethod), Array)
-#12 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
-#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
-#14 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
-#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
-#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
-#17 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
-#18 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
-#19 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
-#20 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('cadmin')
-#21 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/cadmin')
-#22 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
-#23 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
-#24 {main}
-REQUEST_URI=/splat/admin/users/cadmin?i=MQ%3D%3D&f=NA%3D%3D&c=Nw%3D%3D
----
-2019/11/13 09:56:42 [error] [php] array_column() expects parameter 1 to be array, null given (D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php:553)
+2019/11/18 16:55:45 [error] [php] array_combine(): Both parameters should have an equal number of elements (D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php:548)
 Stack trace:
 #0 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs()
 #1 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CInlineAction->runWithParamsInternal()
@@ -208,10 +33,10 @@ Stack trace:
 #11 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
 #12 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
 #13 D:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
-REQUEST_URI=/splat/admin/users/cadmin?i=MQ%3D%3D&f=NA%3D%3D&c=Nw%3D%3D
-in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (553)
+REQUEST_URI=/splat/admin/users/cadmin?i=MQ%3D%3D&f=NQ%3D%3D&c=OQ%3D%3D
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (548)
 in D:\xampp\htdocs\splat\admin\index.php (13)
-2019/11/13 09:59:17 [error] [php] array_column() expects parameter 1 to be array, null given (D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php:553)
+2019/11/18 16:58:51 [error] [php] array_combine(): Both parameters should have an equal number of elements (D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php:548)
 Stack trace:
 #0 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs()
 #1 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CInlineAction->runWithParamsInternal()
@@ -227,36 +52,54 @@ Stack trace:
 #11 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
 #12 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
 #13 D:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
-REQUEST_URI=/splat/admin/users/cadmin?i=MQ%3D%3D&f=NA%3D%3D&c=Ng%3D%3D
-in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (553)
+REQUEST_URI=/splat/admin/users/cadmin?i=MQ%3D%3D&f=NQ%3D%3D&c=OQ%3D%3D
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (548)
 in D:\xampp\htdocs\splat\admin\index.php (13)
-2019/11/13 11:17:13 [error] [exception.CException] CException: Property "Users.lastname" is not defined. in D:\xampp\htdocs\splat\yii\framework\base\CComponent.php:259
+2019/11/23 15:36:42 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "images/email.png". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
 Stack trace:
-#0 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(289): CComponent->__get('lastname')
-#1 D:\xampp\htdocs\splat\admin\protected\controllers\GroupusersController.php(668): CActiveRecord->__get('lastname')
-#2 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): GroupusersController->actionSendremainder()
-#3 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
-#4 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
-#5 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
-#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
-#7 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
-#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
-#9 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
-#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
-#11 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('sendremainder')
-#12 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('groupusers/send...')
-#13 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
-#14 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
-#15 {main}
-REQUEST_URI=/splat/admin/groupusers/sendremainder?c=6
-HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=NA%3D%3D&c=Ng%3D%3D
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('images/email.pn...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/images/email.png
+HTTP_REFERER=http://localhost/splat/admin/users/admin
 ---
-2019/11/16 03:53:49 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
-in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (666)
+2019/11/23 15:48:04 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'role1' in 'where clause'. The SQL statement executed was: SELECT COUNT(*) FROM `users` `t` WHERE (role1) AND (status="active").
+in D:\xampp\htdocs\splat\admin\protected\views\users\admin.php (128)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (526)
 in D:\xampp\htdocs\splat\admin\index.php (13)
-2019/11/16 03:58:59 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
-in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (665)
-in D:\xampp\htdocs\splat\admin\index.php (13)
-2019/11/16 03:59:08 [warning] [application] Failed to set unsafe attribute "id" of "Projects".
-in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (665)
-in D:\xampp\htdocs\splat\admin\index.php (13)
+2019/11/23 15:48:04 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'role1' in 'where clause'. The SQL statement executed was: SELECT COUNT(*) FROM `users` `t` WHERE (role1) AND (status="active") in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(865): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(3211): CDbCommand->queryScalar()
+#2 D:\xampp\htdocs\splat\yii\framework\web\CActiveDataProvider.php(455): CActiveRecord->count(Object(CDbCriteria))
+#3 D:\xampp\htdocs\splat\yii\framework\web\CDataProvider.php(447): CActiveDataProvider->calculateTotalItemCount()
+#4 D:\xampp\htdocs\splat\yii\framework\web\CActiveDataProvider.php(355): CDataProvider->getTotalItemCount()
+#5 D:\xampp\htdocs\splat\yii\framework\web\CDataProvider.php(335): CActiveDataProvider->fetchData()
+#6 D:\xampp\htdocs\splat\yii\framework\zii\widgets\CBaseListView.php(249): CDataProvider->getData()
+#7 D:\xampp\htdocs\splat\yii\framework\zii\widgets\grid\CGridView.php(677): CBaseListView->init()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(293): CGridView->init()
+#9 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(359): CBaseController->createWidget('zii.widgets.gri...', Array)
+#10 D:\xampp\htdocs\splat\admin\protected\views\users\admin.php(128): CBaseController->widget('zii.widgets.gri...', Array)
+#11 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#12 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('admin', Array, true)
+#15 D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php(526): CController->render('admin', Array)
+#16 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): UsersController->actionAdmin()
+#17 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#18 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#19 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#20 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#21 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#22 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#23 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#24 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('admin')
+#26 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('users/admin')
+#27 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#28 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/splat/admin/users/admin
+HTTP_REFERER=http://localhost/splat/admin/site/index
+---

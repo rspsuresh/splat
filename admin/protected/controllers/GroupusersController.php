@@ -439,7 +439,8 @@ class GroupusersController extends Controller
         $html.='<th>End-of-Line Indicator</th></tr>';
         $html.="<tbody>";
 
-        $usermodelsql="SELECT user_id,users.first_name,users.last_name,users.username as username FROM `user_courses` 
+        $usermodelsql="SELECT user_id,users.first_name,users.last_name,users.username as username
+                  FROM `user_courses` 
                   join users on user_courses.user_id=users.id and users.role=5 and users.status='active'
                   WHERE user_courses.`course_id` = ".base64_decode($_GET["c"]);
 

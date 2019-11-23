@@ -529,13 +529,13 @@ class UsersController extends Controller
 
     public function actionCAdmin($c)
     {
-
+        ini_set('auto_detect_line_endings',TRUE);
         $this->pageTitle = "SPLAT-Course admin";
         $modeluser=new Users('search');
         $modeluser->unsetAttributes();  // clear any default values
         $savecount=0;
         $unsavecount=0;
-        if(isset($_FILES['csv_file']) && !empty($_FILES['csv_file'])) {
+        if(isset($_FILES['csv_file']) && !empty($_FILES['csv_file']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
             $savecount = 0;
             $unsavecount = 0;
             if (is_uploaded_file($_FILES['csv_file']['tmp_name'])) {
@@ -543,7 +543,10 @@ class UsersController extends Controller
                 $csvFile = fopen($_FILES['csv_file']['tmp_name'], 'r');
                 $header = fgetcsv($csvFile);
                 while (($line = fgetcsv($csvFile)) !== FALSE) {
-                    $all_rows[] = array_combine($header, $line);
+                    if(count($header)==count($line))
+                    {
+                        $all_rows[] = array_combine($header, $line);
+                    }
                 }
                 fclose($csvFile);
                if(empty($all_rows)) {

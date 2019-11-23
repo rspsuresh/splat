@@ -191,7 +191,7 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                         array('i'=>base64_encode($institution->id)));?>">Faculties</a> /
                     <a href="<?php echo Yii::app()->createUrl('site/courses',array('i'=>base64_encode($institution->id),
                         'f'=>base64_encode($faculty->id)));?>"><?php echo ucfirst($faculty->name);?></a> /
-                    <a href="<?=Yii::app()->createUrl('site/courseitems',array('c'=>$_GET['c'],'f'=>$_GET['f'],'i'=>$_GET['i']))?>"><?php echo ucfirst($course->name); ?></a></p>
+                    <b><?php echo ucfirst($course->name); ?></b></p>
             <?php }
             else { ?>
                 <p>

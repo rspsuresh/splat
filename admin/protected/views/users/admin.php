@@ -7,6 +7,7 @@
     {
         font-size: 14px !important;
     }
+    .view>img{width:16px;height: 16px}
     /*.footer-sec{*/
     /*    bottom:auto !important;*/
     /*}*/
@@ -106,7 +107,7 @@ $('.search-form form').submit(function(){
                 ),
                 array(
                     'header'=>'Role',
-                    'filter' => CHtml::dropDownlist('Users[role]', $model->role, CHtml::listData(Userrole::model()->findAll(), "id", "s_name"), array('empty'=>'select','class'=>'form-control')),
+                    'filter' => CHtml::dropDownlist('Users[role]', $model->role, CHtml::listData(Userrole::model()->findAll("s_name!='Student'"), "id", "s_name"), array('empty'=>'select','class'=>'form-control')),
                     'value'=>'$data->roles->s_name'
                 ),
                 array
@@ -121,6 +122,11 @@ $('.search-form form').submit(function(){
                                // $inst=base64_encode($data->institution_id),
                             'url'=>'$this->grid->controller->createUrl("/users/updatestaff", array("type"=>"staff","id"=>$data->id,"i"=>base64_encode($data->institution_id)))',
                         ),
+                        'view'=>array(
+                            'label'=>'View staff/admin',
+                            'imageUrl'=>Yii::app()->request->baseUrl.'/images/eye.png',
+                            'class'=>'eyeicon'
+                        )
                     ),
                 ),
             ),

@@ -120,6 +120,7 @@
         </div>
         <!-- form -->
     </div>
+
 </section>
 <script>
     $(function() {

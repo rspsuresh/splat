@@ -15,7 +15,7 @@
         <div class="col-lg-2"><?php echo $form->textField($model,'first_name',array('class'=>'form-control','placeholder'=>'Search first name')); ?></div>
         <div class="col-lg-2"><?php echo $form->textField($model,'last_name',array('class'=>'form-control','placeholder'=>'Search lastname ')); ?></div>-->
         <div class="col-lg-2">
-            <?php echo $form->dropDownList($model, 'role', CHtml::listData(Userrole::model()->findAll(), 'id', 's_name'), array('class'=>'form-control','empty'=>'Select User type')); ?>
+            <?php echo $form->dropDownList($model, 'role', CHtml::listData(Userrole::model()->findAll("s_name!='Student'"), 'id', 's_name'), array('class'=>'form-control','empty'=>'Select User type')); ?>
         </div>
         <div class="col-lg-2">
             <?php echo $form->dropDownList($model, 'course_id', CHtml::listData(Courses::model()->findAll(), 'id', 'name'),

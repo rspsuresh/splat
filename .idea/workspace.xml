@@ -3,9 +3,128 @@
   <component name="ChangeListManager">
     <list default="true" id="569f891a-5c37-4652-9e91-bcf773c3ff1f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/controllers/GroupusersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/GroupusersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/controllers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/UsersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/models/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Users.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/runtime/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/runtime/application.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupmaster/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupmaster/_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupmaster/_search.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupmaster/_search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupmaster/_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupmaster/_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupmaster/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupmaster/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupmaster/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupmaster/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupmaster/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupmaster/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupmaster/mapping.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupmaster/mapping.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupmaster/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupmaster/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupmaster/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupmaster/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groups/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groups/_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groups/_search.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groups/_search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groups/_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groups/_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groups/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groups/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groups/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groups/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groups/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groups/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groups/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groups/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groups/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groups/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupsdum/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupsdum/_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupsdum/_search.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupsdum/_search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupsdum/_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupsdum/_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupsdum/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupsdum/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupsdum/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupsdum/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupsdum/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupsdum/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupsdum/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupsdum/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupsdum/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupsdum/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupusers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupusers/UsersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupusers/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupusers/_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupusers/_search.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupusers/_search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupusers/_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupusers/_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupusers/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupusers/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupusers/assesment_groups.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupusers/assesment_groups.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupusers/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupusers/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupusers/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupusers/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupusers/projectadmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupusers/projectadmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupusers/projectadmin_old.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupusers/projectadmin_old.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupusers/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupusers/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupusers/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupusers/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupusers/viewusers.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupusers/viewusers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/layouts/column1.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/layouts/column1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/layouts/column2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/layouts/column2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/layouts/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/mapping/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/mapping/_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/mapping/_search.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/mapping/_search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/mapping/_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/mapping/_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/mapping/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/mapping/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/mapping/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/mapping/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/mapping/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/mapping/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/mapping/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/mapping/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/mapping/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/mapping/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/multipleassesment/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/multipleassesment/_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/multipleassesment/_search.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/multipleassesment/_search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/multipleassesment/_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/multipleassesment/_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/multipleassesment/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/multipleassesment/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/multipleassesment/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/multipleassesment/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/multipleassesment/editasses.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/multipleassesment/editasses.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/multipleassesment/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/multipleassesment/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/multipleassesment/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/multipleassesment/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/multipleassesment/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/multipleassesment/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/projectGroups/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/projectGroups/_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/projectGroups/_search.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/projectGroups/_search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/projectGroups/_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/projectGroups/_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/projectGroups/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/projectGroups/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/projectGroups/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/projectGroups/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/projectGroups/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/projectGroups/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/projectGroups/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/projectGroups/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/projectGroups/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/projectGroups/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/questionsadmin/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/questionsadmin/_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/questionsadmin/_search.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/questionsadmin/_search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/questionsadmin/_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/questionsadmin/_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/questionsadmin/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/questionsadmin/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/questionsadmin/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/questionsadmin/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/questionsadmin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/questionsadmin/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/questionsadmin/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/questionsadmin/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/questionsadmin/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/questionsadmin/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/sadmin/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/sadmin/_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/sadmin/_search.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/sadmin/_search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/sadmin/_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/sadmin/_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/sadmin/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/sadmin/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/sadmin/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/sadmin/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/sadmin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/sadmin/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/sadmin/unauthorized.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/sadmin/unauthorized.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/sadmin/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/sadmin/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/sadmin/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/sadmin/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/_course.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/_course.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/admineditprofile.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/admineditprofile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/admineditprofile_2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/admineditprofile_2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/adminpage.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/adminpage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/assessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/assessment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/course_items.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/course_items.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/courses.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/editprofile.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/editprofile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/error.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/error.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/faculties.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/faculties.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/index_2.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/index_2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/institutions.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/institutions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/pages/about.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/pages/about.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/project.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/project.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/responsepage.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/responsepage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/staffeditprofile.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/staffeditprofile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/unauthorized.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/unauthorized.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/usermap.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/usermap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/_cform.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/_cform.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/_formstaff.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/_formstaff.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/_search.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/_search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/views/users/cadmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/cadmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/ccreate.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/ccreate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/unauthorized.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/unauthorized.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protected/runtime/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/protected/runtime/application.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -138,7 +257,13 @@
       <workItem from="1573629687587" duration="3339000" />
       <workItem from="1573637800954" duration="4283000" />
       <workItem from="1573644679679" duration="1151000" />
-      <workItem from="1573875086668" duration="1471000" />
+      <workItem from="1573875086668" duration="2070000" />
+      <workItem from="1573983524788" duration="2486000" />
+      <workItem from="1574086042254" duration="1350000" />
+      <workItem from="1574089819205" duration="1843000" />
+      <workItem from="1574095297029" duration="1902000" />
+      <workItem from="1574170570486" duration="1320000" />
+      <workItem from="1574522086162" duration="4634000" />
     </task>
     <servers />
   </component>
@@ -163,7 +288,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/admin/protected/controllers/UsersController.php</url>
-          <line>1168</line>
+          <line>1171</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

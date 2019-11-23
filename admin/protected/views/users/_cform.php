@@ -1,8 +1,17 @@
-<?php
-/* @var $this UsersController */
-/* @var $model Users */
-/* @var $form CActiveForm */
-?>
+<style>
+    .mydiv{
+        float: left;
+        width: 100%;
+        border-radius: 10px;
+        border: 1px solid #1CBBB4;
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+    .table thead {
+        background-color: #03c6e3 !important;
+        color: white;
+    }
+</style>
 <div class="form">
     <?php
     $form=$this->beginWidget('CActiveForm', array(
@@ -69,6 +78,40 @@
     <?php echo CHtml::submitButton($model->isNewRecord ? 'Add' : 'Save',array('class'=>'save-btn')); ?>
     <?php $this->endWidget(); ?>
 </div><!-- form -->
+<?php
+  $course=base64_decode($_GET['c']);
+  $session_userid=Yii::app()->session['id'];
+  $staffuserssql="SELECT * FROM `user_courses` left join users on user_courses.user_id=users.id where users.role=3 and user_courses.course_id={$course} and users.id!={$session_userid}  GROUP BY users.id";
+  $resultofstaff=Yii::app()->db->createCommand($staffuserssql)->queryAll();
+?>
+<div class="row mydiv">
+    <h3 class="text-center">Course Staffs</h3>
+    <table class="table" id="stafftbl">
+        <thead>
+        <tr>
+            <th>S.No</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+        if(empty($resultofstaff)) {
+        foreach ($resultofstaff as$key=>$val) { ?>
+            <tr>
+                <td><?=$key+1?></td>
+                <td><?=$val['first_name']?></td>
+                <td><?=$val['last_name']?></td>
+                <td><?=$val['email']?></td>
+            </tr>
+        <?php } } else{  ?>
+        <tr>
+            <td colspan="4" class="text-center"><b>No Staff in this Course</b></td>
+        </tr>
+        <?php } ?>
+        </tbody></table>
+</div>
 
 <script src="<?php echo Yii::app()->request->baseUrl; ?>./../js/jquery.easy-autocomplete.min.js"></script>
 <link href="<?php echo Yii::app()->request->baseUrl; ?>./../css/easy-autocomplete.min.css" rel="stylesheet" type="text/css"/>

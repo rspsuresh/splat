@@ -102,7 +102,7 @@ class Users extends CActiveRecord
             $UserCour=UserCourses::model()->with('user')->find("user.email='{$email}' and t.course_id={$courseid}");
             if($UserCour && Yii::app()->controller->action->id =="staffusers")
             {
-                $this->addError('email','this staff already present in this course');
+                $this->addError('email','this staff is already present in this course');
             }
         }
     }
@@ -175,7 +175,7 @@ class Users extends CActiveRecord
         }
 		else
 		{
-		 $criteria->addCondition('role=3');	
+		 $criteria->addCondition('role in(3,1)');
 		}
        
         $criteria->compare('id',$this->id);
@@ -183,6 +183,7 @@ class Users extends CActiveRecord
         $criteria->compare('first_name',$this->first_name,true);
         $criteria->compare('last_name',$this->last_name,true);
         $criteria->compare('status',$this->status,true);
+        $criteria->compare('email',$this->email,true);
         //$criteria->compare('course_id',$this->course_id);
         $criteria->compare('role',$this->role);
         $criteria->order="FIELD(role,1,3,5)";
