@@ -664,12 +664,11 @@ class GroupusersController extends Controller
             foreach($usermodel as $val)
             {
                $to =trim($val->user->email);
-                //$to ='rsprampaul14321@gmail.com';
                 $firstname=$val->user->first_name;
-                $lastname=$val->user->lastname;
+                $lastname=$val->user->last_name;
                 $password=$val->user->password;
                 $url = $_SERVER['SERVER_NAME']."/site/login";
-                $subject = "Reminder Email: ";
+                $subject = "Splat Remainder Email: ";
 
                 $headers = "MIME-Version: 1.0" . "\r\n";
                 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
@@ -683,6 +682,8 @@ class GroupusersController extends Controller
                 $message.='<br><p>Kind regards</p><br><b>Splat Team</b>';
                 mail($to,$subject,$message,$headers);
             }
+
+            echo "Y";die;
         }
 
     }

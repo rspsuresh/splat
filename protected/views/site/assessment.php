@@ -28,7 +28,8 @@
     }
     .btn-infomy:hover
     {
-        text-decoration:none;
+        text-decoration:none !important;
+        color:#00B9D1 !important;
     }
 </style>
 <section id="wrapper" style="height:auto !important;margin-top:5px;">
@@ -36,7 +37,7 @@
     $assesmentdetails=Projects::model()->findByPk($_GET['id'])?>
     <div class="container-fluid user-assessment">
         <div class="col-lg-4" style="text-align: left">
-            <a href="#"  onclick="window.history.back()" class="btn btn-infomy btn-lg">
+            <a  href="<?=Yii::app()->createUrl('site/index')?>"   class="btn-infomy btn-lg">
                 <span class="glyphicon glyphicon-arrow-left"></span>
             </a>
         </div>
@@ -45,29 +46,35 @@
         </div>
     </div>
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h3 style="color:#00BACF">Description</h3>
+        <?php if(!empty($assesmentdetails->description)) { ?>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 style="color:#00BACF">Description</h3>
+                </div>
+                <div class="col-lg-12">
+                    <h4><?=$assesmentdetails->description?></h4>
+                </div>
             </div>
-            <div class="col-lg-12">
-                <h4><?=$assesmentdetails->description?></h4>
-            </div>
-        </div>
+        <?php } ?>
         <div class="row">
             <h2 style="color:#00BACF;text-align: center;">Assessment - <?=$assesmentdetails->name?></h2>
         </div>
         <form method="POST" id="assesmentsubmit">
             <input type="hidden" value="<?=$_GET['id']?>" name="assesmentid">
-            <h3>Please provide feedback for the below questions.</h3>
+            <h3>Please provide your feedback for the following:</h3>
+            <?php if($course->anonymous ==1) { ?>
+                <h4 style="color: red">* All the responses are anonymous</h4>
+            <?php } ?>
             <?php
-            $groupusers = Userdetails::model()->with('user')->findAll('grp_id='.$_GET['g'].' and user.status="active"');
+            $courseid=$_GET['course'];
+            $groupusers=Userdetails::model()->with('user')->findAll('grp_id='.$_GET['g'].' and user.status="active" and t.course='.$courseid);
             // echo "<pre>";print_r(array_column($groupusers,'user_id'));die;
             $sqldcque="SELECT GROUP_CONCAT(question_id) as question 
                                               FROM `delete_custom_question` WHERE `course_id` =$projects->course";
             $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
             $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
 
-            $questions=Questions::model()->findAll('course='.$projects->course.' and status="active" or type="default" and id NOT IN ('.$ids.')');
+            $questions=Questions::model()->findAll('course='.$projects->course.' and status="active" and id NOT IN ('.$ids.')');
 
             if(count($questions)>0):
                 $i=0;
@@ -75,8 +82,8 @@
                     $i++;
                     ?>
                     <div class="user-form">
-                        <p style="font-weight:bold; ">
-                            <?php echo $i;?>.<?php echo $question->question; ?>
+                        <p>
+                            <?php echo $i;?>.&nbsp<?php echo $question->question; ?>
                         </p>
                         <?php
                         if(count($groupusers)>0):
@@ -90,10 +97,20 @@
                                 <?php if($groupuser->user->status =="active") { ?>
                                 <p class="selp-pad">
                                     <label>
-                                        <?php if(Yii::app()->user->id == $groupuser->user_id)
+                                        <?php if(Yii::app()->user->id == $groupuser->user_id) {
                                             echo 'Self';
-                                        else
-                                            echo ucfirst($groupuser->user->first_name." ".$groupuser->user->last_name);
+                                        }
+                                        else {
+                                            if($course->anonymous ==2)
+                                            {
+                                                echo ucfirst($groupuser->user->first_name . " " . $groupuser->user->last_name);
+                                            }
+                                            else
+                                            {
+                                                echo "Anonymous user";
+                                            }
+
+                                        }
                                         ?>
                                     </label>
                                     <?php  if($question->q_type =="R") { ?>
@@ -111,12 +128,9 @@
                                             <?php } ?>
                                         </select>
                                     <?php } else { ?>
-
-                                        <textarea name="assess[<?php echo $question->id;?>][<?php echo $groupuser->user_id; ?>]"><?=$assess->value ?></textarea>
-
+                                        <textarea rows="2" cols="80"  name="assess[<?php echo $question->id;?>][<?php echo $groupuser->user_id; ?>]"><?=$assess->value ?></textarea>
                                     <?php } ?>
                                 </p>
-
                             <?php } ?>
                             <?php endforeach; else: ?>
                             <p class="selp-pad">

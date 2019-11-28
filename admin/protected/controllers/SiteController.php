@@ -160,6 +160,7 @@ class SiteController extends Controller
             $formModel->created_by	= Yii::app()->user->id;
             $formModel->created_date= date('Y-m-d H:i:s');
             $formModel->updated_date= date('Y-m-d H:i:s');
+            $msg_str=$formModel->isNewRecord?"added":"updated";
             if($formModel->validate() && $formModel->save())
             {
                 if(empty($_POST['Courses']['id']))
@@ -170,7 +171,7 @@ class SiteController extends Controller
                     $usr_Course->save(false);
                 }
 
-                Yii::app()->user->setFlash('success','Course has been added successfully.');
+                Yii::app()->user->setFlash('success',"Course has been {$msg_str} successfully.");
                 $this->refresh();
             }
         }

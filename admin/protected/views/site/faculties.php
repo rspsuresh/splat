@@ -194,7 +194,7 @@
                                         <?php echo $form->error($models,'status'); ?>
                                     </div>
                                 </div>
-                                <?php echo CHtml::submitButton('&#xf0c7; Save',array('class'=>'save-btn fa-input')); ?>
+                                <?php echo CHtml::submitButton('Save',array('class'=>'save-btn fa-input')); ?>
                                 <?php $this->endWidget(); ?>
                             </div>
                         </div>

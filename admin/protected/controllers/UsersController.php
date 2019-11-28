@@ -529,6 +529,7 @@ class UsersController extends Controller
 
     public function actionCAdmin($c)
     {
+        //$mailmodel=MailSend::model()->findAll('as_id=19');echo "<pre>";print_r($mailmodel);die;
         ini_set('auto_detect_line_endings',TRUE);
         $this->pageTitle = "SPLAT-Course admin";
         $modeluser=new Users('search');
@@ -1036,9 +1037,10 @@ class UsersController extends Controller
     {
         if(isset($_POST) && !empty($_POST))
         {
+
             $mailmodel=MailSend::model()->findAll('c_id='.$_POST['course'].' and i_id='.$_POST['inst'].' and f_id='.$_POST['fac'].' and as_id='.$_POST['asses']);
             $projectupdate=Projects::model()->findByPk($_POST['asses']);
-            $projectupdate->status='live';
+            $projectupdate->status='current';
             // $projectupdate->update('status');
             if(empty($mailmodel))
             {
@@ -1047,7 +1049,9 @@ class UsersController extends Controller
                   join users on user_courses.user_id=users.id and users.role=5 and users.status='active'
                   WHERE user_courses.`course_id` = ".$_POST['course'];
                 $result=Yii::app()->db->createCommand($sql)->queryAll();
-                $uniquesdata=array_unique(array_column($result,'user_id'));
+                $array_col_alter=array_map(function($element){return $element['user_id'];}, $result);
+                //$uniquesdata=array_unique(array_column($result,'user_id'));
+                $uniquesdata=array_unique($array_col_alter);
                 if(empty($uniquesdata))
                 {
                     $uniquesdata=0;
@@ -1060,7 +1064,6 @@ class UsersController extends Controller
                 $tripsArray = CHtml::listData($usersmodel, 'id','email');
                 $tripsArrayfilter=array_filter($tripsArray);
                 $ids= implode(',', array_keys($tripsArrayfilter));
-
                 $this->readytosend($ids,'1');
             }
             else
@@ -1081,12 +1084,18 @@ class UsersController extends Controller
 
         if(is_string($ids))
         {
-            $condition=($type==2)?"'id not in ($ids )'":"'id in ($ids)'";
-            $usersmodel=Users::model()->findAll('id in ('.$ids.')');
-
+            if($type==2)
+            {
+                $usersmodel=Users::model()->findAll('id not in('.$ids.')');
+            }
+            else
+            {
+                $usersmodel=Users::model()->findAll('id in('.$ids.')');
+            }
+            //echo "<pre>";print_r(count($usersmodel));die;
             $course_name=Courses::model()->findByPk($_POST['course']);
 
-            $coursename=$course_name->course_type."". $course_name->name." Level ".$course_name->course_level;
+            $coursename=$course_name->course_type." ". $course_name->name." Level ".$course_name->course_level;
             if(!empty($usersmodel))
             {
                 foreach($usersmodel as $user)
@@ -1096,8 +1105,8 @@ class UsersController extends Controller
                     $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
                     $subject = "Splat User registration";
                     $url = $_SERVER['SERVER_NAME'] . "/site/login";
-                    $to = $user->email;
-                    //$to="rsprampaul14321@gmail.com";
+                  //  $to = $user->email;
+                    $to="rsprampaul14321@gmail.com";
                     $message = 'Dear ' . $user->first_name . ',<br/><br/>You have been added to the
                                  Bournemouth University SPLAT website for the course <b>' . $coursename . '</b> .
                                  You can now login to assess your peers.<br/><br/>Your credentials are:<br/>

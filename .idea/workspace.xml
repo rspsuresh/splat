@@ -3,9 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="569f891a-5c37-4652-9e91-bcf773c3ff1f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/runtime/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/runtime/application.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/controllers/GroupusersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/GroupusersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/SiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/controllers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/UsersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/faculties.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/faculties.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/responsepage.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/responsepage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/_cform.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/_cform.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/cadmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/cadmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protected/views/site/assessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/assessment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protected/views/site/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protected/views/site/project.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/project.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -144,7 +152,9 @@
       <workItem from="1574089819205" duration="1843000" />
       <workItem from="1574095297029" duration="1902000" />
       <workItem from="1574170570486" duration="1320000" />
-      <workItem from="1574522086162" duration="5364000" />
+      <workItem from="1574522086162" duration="6005000" />
+      <workItem from="1574783347491" duration="9197000" />
+      <workItem from="1574862813565" duration="11420000" />
     </task>
     <servers />
   </component>
@@ -169,7 +179,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/admin/protected/controllers/UsersController.php</url>
-          <line>1171</line>
+          <line>1180</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

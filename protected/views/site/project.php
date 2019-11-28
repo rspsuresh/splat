@@ -74,10 +74,26 @@
     .page-active {
         display: block;
     }
+    .btn-infomy {
+        color: #fff;
+        background-color:#212323;
+    }
+    .btn-infomy:hover
+    {
+        text-decoration:none !important;
+        color:#00B9D1 !important;
+    }
 </style>
 <section id="wrapper" >
     <div class="container-fluid user-assessment">
-        <p><?php echo ucfirst($projects->name); ?></p>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="text-align: left">
+            <a  href="<?=Yii::app()->createUrl('site/index')?>"   class="btn-infomy btn-lg">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+            </a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <p><?php echo ucfirst($projects->name); ?></p>
+        </div>
     </div>
     <div class="script-section col-lg-12 col-xs-12 col-sm-12">
         <?php
@@ -155,7 +171,7 @@
                                                 and from_user='.$groupuser->user_id.' 
                                                 and to_user='.Yii::app()->user->id.' and question='.$iquestion->id.' and grp_id='.$_GET['g']);
                                                             ?>
-                                                            <p class="m-t-10"><?php echo $i;?>. <?php echo $iquestion->question;?> : <b><?php if(count($iassess)>0) echo $iassess->value; else echo '-'; ?></b></p>
+                                                            <p class="m-t-10" style="font-size:17px !important;"><?php echo $i;?>.&nbsp; <?php echo $iquestion->question;?> : <b><?php if(count($iassess)>0) echo $iassess->value; else echo '-'; ?></b></p>
                                                         <?php
                                                         endforeach;
                                                         ?>
@@ -231,8 +247,8 @@
                                                 and from_user='.Yii::app()->user->id.' 
                                                 and to_user='.$groupuser->user_id.' and question='.$iquestion->id.' and grp_id='.$_GET['g']);
                                                             ?>
-                                                            <p class="m-t-10">
-                                                                <?php echo $i;?>.<?php echo $iquestion->question;?>
+                                                            <p class="m-t-10" style="font-size:17px !important;">
+                                                                <?php echo $i;?>.&nbsp<?php echo $iquestion->question;?>
                                                                 :
                                                                 <b><?php if(count($iassess)>0) echo $iassess->value; else echo '-'; ?></b>
                                                             </p>

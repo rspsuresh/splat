@@ -13,7 +13,7 @@
     }
     .ing
     {
-        font-size: 18px !important;
+        font-size: 17px !important;
     }
     .align{
         margin-top:5px;

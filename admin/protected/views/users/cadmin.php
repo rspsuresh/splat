@@ -201,7 +201,7 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                             array('i'=>base64_encode($institution->id),
                                 'f'=>base64_encode($faculty->id)));?>">
                             <?php echo ucfirst($faculty->name);?></a> /
-                        <a href="<?=Yii::app()->createUrl('site/courseitems',array('c'=>$_GET['c'],'f'=>$_GET['f'],'i'=>$_GET['i']))?>"><?php echo ucfirst($course->name); ?></a>
+                        <b><?php echo ucfirst($course->name); ?></b>
                 </p>
             <?php } ?>
         </div>
@@ -233,6 +233,10 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                                     'url'=>'$this->grid->controller->createUrl("/users/update", array("id"=>$data->id,"c"=>$_GET["c"],"i"=>$_GET["i"],"f"=>$_GET["f"]))',
                                 ),
                                 'delete'=>array(
+                                    'label' => 'delete',
+                                     'options' => array(
+                                         'confirm' => 'Are you sure you want to delete this student?',
+                                     ),
                                     'url'=>'$this->grid->controller->createUrl("/users/delete", array("id"=>$data->id,"c"=>$_GET["c"],"i"=>$_GET["i"],"f"=>$_GET["f"],"ajax"=>"users-grid"))',
                                 )
                             ),
@@ -324,7 +328,12 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
                             <?=date('d-m-Y H:i',strtotime($models->assess_date))?>
                         </td>
                         <?php
-                        $countcourseuser=Userdetails::model()->count('course='.base64_decode($_GET['c']));
+                       // $countcourseuser=Userdetails::model()->count('course='.base64_decode($_GET['c']));
+                        $sql_crs="SELECT user_id as user_id FROM `user_courses` 
+                  join users on user_courses.user_id=users.id and users.role=5 and users.status='active'
+                  WHERE user_courses.`course_id` = ".base64_decode($_GET['c']);
+                        $countcourseuser=Yii::app()->db->createCommand($sql_crs)->queryAll();
+                        $countcourseuser=count($countcourseuser);
                         $mailsendtowardscourseandassessment=MailSend::model()->count(array(
                             'condition'=>'c_id='.base64_decode($_GET['c']).' and as_id='.$models->id,
                             'group'=>'as_id,u_id'));
@@ -848,10 +857,10 @@ $course = Courses::model()->find('id='.base64_decode($_GET['c']));
     }
     function sendremainder(c,i,f,p)
     {
-        $("#loading").show();
         var data={course:c,inst:i,fac:f,asses:p};
-        if(confirm('Are you sure want to send remainder mail?'))
+        if(confirm('Are you sure want to send the remainder mail to the students who haven\'t submitted yet?'))
         {
+            $("#loading").show();
             $.ajax({
                 url: "<?php echo Yii::app()->createUrl('groupusers/sendremainder?c=') ?>"+c,
                 type: "post",
