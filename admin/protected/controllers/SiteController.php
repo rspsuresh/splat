@@ -493,7 +493,7 @@ class SiteController extends Controller
         $message='';
         if(isset($_POST['id']) && !empty($_POST['id'])){
             $pmodel=Projects::model()->findByPk($_POST['id']);
-            $pmodel->status="inactive";
+            $pmodel->status="terminated";
             $pmodel->save(false);
             $message = "Assesment has been deleted successfully";
             $msg['status'] = 'S';

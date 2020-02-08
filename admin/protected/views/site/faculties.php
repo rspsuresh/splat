@@ -82,10 +82,27 @@
     {
         padding:5px;
     }
-    /*.footer-sec{*/
-    /*    bottom:auto !important;*/
-    /*}*/
+    .dataTables_wrapper .dataTables_filter input {
+        margin-left: 0.5em;
+        border: 1px solid #000 !important;
+        padding: 6px 10px !important;
+        border-radius: 5px !important;
+
+    }
+	.table thead {
+    background-color: #03c6e3 !important;
+}
+    .table th {
+        border: 1px white solid;
+        padding: 0.3em;
+        color: white;
+    }
+    .table.dataTable thead th, table.dataTable thead td,table.dataTable.no-footer{
+        border-bottom: none !important;
+    }
 </style>
+<link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+<script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
 <section id="wrapper" >
     <?php  if(Yii::app()->user->getState('role')=='Staff') { ?>
         <div class="container fullbg">
@@ -114,42 +131,33 @@
         <p>Manage Faculties</p>
     </div>
     <div class="script-section col-xs-12 col-lg-12 col-sm-12">
-        <?php
-        $i=0;
-        if(count($model)>0):
-            foreach($model as $models):
-                $i++;
-                ?>
-                <div class="script-text" id="row_<?php echo $models->id ?>">
-                    <h1><a href="<?php echo Yii::app()->createUrl('site/courses',array('i'=>$_GET['i'],
-                            'f'=>base64_encode($models->id))); ?>" class="item_link">
-                            <?php echo $i; ?>. <?php echo ucfirst($models->name); ?></a>
-                        <span class="pull-right">
-                <?php  if(Yii::app()->user->getState('role')=='Superuser'){ ?>
-                    <i class="fa fa-trash" onclick="ConfirmDelete('<?php echo $models->id ?>',1)"></i>
-                <?php } ?>
-                            <i class="fa fa-cog" data-toggle="modal" data-target="#facultyModal_<?php echo $models->id; ?>"></i>
-			</span>
-                        <?php //} ?>
-                    </h1>
-                    <?php if(Yii::app()->user->getState('role')=='Superuser') { ?>
-                        <p>
-                            <span>Total Courses: <?php echo Courses::model()->count('faculty='.$models->id .' and status="active"' ); ?></span>
-                        </p>
-                    <?php }
-                    else {
-                        $result=Yii::app()->db->createCommand('select group_concat(course_id) as course  from user_courses where user_id="'.Yii::app()->session['id'].'"')->queryAll();
-                        $course=($result>0)?$result[0]['course']:"0";
-                        //$stfmodel = Courses::model()->count('faculty=' . base64_decode($models->id) . ' and status="active"  and  id in('.$course.')');?>
-                        <p>
-                            <span>Available Courses: <?php echo Courses::model()->count('faculty=' .$models->id . ' and status="active"  and  id in('.$course.')'); ?></span>
-                        </p>
-                    <?php } ?>
-
-
-
-                </div>
-                <div class="modal fade" id="facultyModal_<?php echo $models->id;?>" role="dialog">
+    <table id='tblfaculty' class="table table-striped">
+      <thead>
+<tr data-href="<?php echo Yii::app()->createUrl('site/courses',array('i'=>$_GET['i'],
+                            'f'=>base64_encode($models->id))); ?>">
+<th>Facultly Name</th>
+<th>Total Courses</th>
+<th>Actions</th>
+</tr>
+      </thead>
+<tbody>
+<?php $i=0;
+    foreach($model as $models) { ?>
+<tr data-href="<?php echo Yii::app()->createUrl('site/courses',array('i'=>$_GET['i'],
+                            'f'=>base64_encode($models->id))); ?>">
+    <td><?php echo ucfirst($models->name); ?></td>
+	<td>
+  <?php if(Yii::app()->user->getState('role')=='Superuser') { ?>
+  <?php echo Courses::model()->count('faculty='.$models->id .' and status="active"' ); ?>
+  <?php } else { 
+   $result=Yii::app()->db->createCommand('select group_concat(course_id) as course  from user_courses where user_id="'.Yii::app()->session['id'].'"')->queryAll();
+   $course=($result>0)?$result[0]['course']:"0";
+   echo Courses::model()->count('faculty=' .$models->id . ' and status="active"  and  id in('.$course.')'); ?>
+  <?php }  ?>
+  </td>
+  <td><i class="fa fa-trash" onclick="ConfirmDelete('<?php echo $models->id ?>',1)"></i>
+  <i class="fa fa-cog" data-toggle="modal" data-target="#facultyModal_<?php echo $models->id; ?>"></i></td>
+  <div class="modal fade" id="facultyModal_<?php echo $models->id;?>" role="dialog">
                     <div class="modal-dialog">
                         <!-- Modal content-->
                         <div class="modal-content col-xs-12 col-lg-12 col-sm-12">
@@ -200,75 +208,31 @@
                         </div>
                     </div>
                 </div>
-                <?php
-            endforeach;
-        else:
-
-            ?>
-            <div class="script-text">
-                <h1>No Faculties found.</h1>
-            </div>
-        <?php endif; ?>
-		
+  <?php } ?>
+    </tr>
+</tbody>
+    </table>
         <?php if(Yii::app()->user->getState('role')=='Superuser'){ ?>
             <input type="button" value="&#xf02d; Add a Faculty" class="add-course fa-input" data-toggle="modal" data-target="#facultyModal">
         <?php } ?>
     </div>
 </section>
-
-<!--<div class="modal fade" id="emailModal" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content col-xs-12 col-lg-12 col-sm-12">
-            <div class="modal-header col-lg-12">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title text-center">Email Template</h4>
-            </div>
-            <div class="model-form col-lg-12 col-xs-12 col-sm-12 form">
-                <?php /*$form=$this->beginWidget('CActiveForm', array(
-                    'id'=>'email-form',
-                    'enableClientValidation'=>true,
-                    'clientOptions'=>array(
-                        'validateOnSubmit'=>true,
-                    ),
-                )); */?>
-                <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
-                    <div class="col-lg-4 padzero">
-                        <?php /*echo $form->labelEx($makemodel,'name'); */?>
-                    </div>
-                    <div class="col-lg-8 padzero">
-                        <?php /*echo $form->textField($makemodel,'name', array('placeholder'=>'Name')); */?>
-                        <?php /*echo $form->error($makemodel,'name'); */?>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
-                    <div class="col-lg-4 padzero">
-                        <?php /*echo $form->labelEx($makemodel,'description'); */?>
-                    </div>
-                    <div class="col-lg-8 padzero">
-                        <?php /*echo $form->textarea($makemodel,'description', array('placeholder'=>'Description','class'=>'summernote')); */?>
-                        <?php /*echo $form->error($makemodel,'description'); */?>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
-                    <div class="col-lg-4 padzero">
-                        <?php /*echo $form->labelEx($makemodel,'status'); */?>
-                    </div>
-                    <div class="col-lg-8 padzero formradio">
-                        <?php /*echo $form->radioButtonList($makemodel,'status', array('active'=>'Active','inactive'=>'Inactive'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); */?>
-                        <?php /*echo $form->error($makemodel,'status'); */?>
-                    </div>
-                </div>
-                <?php /*echo CHtml::submitButton('Save',array('class'=>'save-btn')); */?>
-                <?php /*$this->endWidget(); */?>
-            </div>
-        </div>
-    </div>
-</div>-->
 <script>
     $(function() {
-        $('.summernote').summernote({
-            height: 200
-        });
+       $("#tblfaculty").dataTable({
+    "bPaginate" : $('#tblfaculty tbody tr').length>5,
+   "iDisplayLength": 5,
+   "searching":$('#tblfaculty tbody tr').length>=3?true:false,
+  language: { infoEmpty: "No Faculties found.",
+                emptyTable: "No Faculties found.",
+                zeroRecords: "No Faculties found.",
+				"info": "Showing _START_ to _END_ of _TOTAL_ faculties",
+    },
+});
+$('#tblfaculty').on( 'click', 'tbody tr', function () {
+    window.location.href = $(this).data('href');
+});
+$('.dataTables_filter input').addClass('course-field');
     });
     function ConfirmDelete(id,type)
     {

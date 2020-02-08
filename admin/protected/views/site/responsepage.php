@@ -36,10 +36,10 @@ $avg=0;
 ?>
 <section>
     <?php
-      $facultymdel=Faculties::model()->findByPk(base64_decode($_GET['f']));
-      $couesemodels=Courses::model()->findByPk(base64_decode($_GET['c']));
-      $assessmodel=Projects::model()->findByPk($_GET['p']);
-      $groupmodel=Groups::model()->findByPk($_GET['g']);
+    $facultymdel=Faculties::model()->findByPk(base64_decode($_GET['f']));
+    $couesemodels=Courses::model()->findByPk(base64_decode($_GET['c']));
+    $assessmodel=Projects::model()->findByPk($_GET['p']);
+    $groupmodel=Groups::model()->findByPk($_GET['g']);
     ?>
     <div class="container ">
         <div class="user-institute">
@@ -53,18 +53,14 @@ $avg=0;
         </div>
 
         <button class="btn btn-primary align" onclick="goBack()">Back</button>
-        <?php $cmpsql="SELECT CAST(A.submitted_at AS DATE) as subdate,B.assess_date from assess as A left join projects as B on A.project=B.id and B.status !='inactive' where from_user={$_GET['u']}";
-               $cmpsqlresult=Yii::app()->db->createCommand($cmpsql)->queryRow();
-               if(!empty($cmpsqlresult)) {
-                   $date2=date_create($cmpsqlresult['subdate']);
-                   $date1=date_create($cmpsqlresult['assess_date']);
-                   $diff=date_diff($date1,$date2);
-                   $resultgign=$diff->format("%R%a");
-                   if($resultgign >=1)
-                   {
-                       echo "<button class=\"btn btn-danger align\">Late Submission</button>";
-                   }
-               }?>
+        <?php $cmpsql="SELECT datediff(cast(B.assess_date as DATE),CAST(A.submitted_at AS DATE)) as diff from assess as A left join projects as B on A.project=B.id and B.status !='inactive' where A.from_user={$_GET['u']} and B.id={$_GET['p']}";
+        $cmpsqlresult=Yii::app()->db->createCommand($cmpsql)->queryRow();
+        if(!empty($cmpsqlresult)) {
+            if($cmpsqlresult['diff'] < 0)
+            {
+                echo "<button class=\"btn btn-danger align\">Late Submission</button>";
+            }
+        }?>
 
         <button class="btn btn-success align">Mean Score : <span id="score">
                 <?php echo $meanscore?></span></button>
@@ -110,8 +106,8 @@ $avg=0;
                                     foreach($groupusers as $groupuser){
                                         $assess = Assess::model()->find('question=:q and project=:p and 
                                         from_user=:f and to_user=:t and grp_id=:grp',
-                                            array(':q'=>$question->id,':p'=>$projects->id,':t'=>$_GET['u'],
-                                                ':f'=>$groupuser->user_id,':grp'=>$_GET['g']));
+                                                                        array(':q'=>$question->id,':p'=>$projects->id,':t'=>$_GET['u'],
+                                                                            ':f'=>$groupuser->user_id,':grp'=>$_GET['g']));
                                         ?>
                                         <div class="row">
                                             <?php $stcheck=Users::model()->findByPk($groupuser->user_id);?>

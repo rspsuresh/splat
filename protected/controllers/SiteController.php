@@ -140,7 +140,7 @@ class SiteController extends Controller
                 }
 
             }
-            Yii::app()->user->setFlash('success','Assessment has been updated successfully.');
+            Yii::app()->user->setFlash('success','Thank you. Your response is submitted.');
             $this->redirect(Yii::app()->createUrl('site/index'));
         }
 
@@ -368,14 +368,15 @@ class SiteController extends Controller
             $model->attributes=$_POST['ForgotForm'];
             // validate user input and redirect to the previous page if valid
             if($model->validate()){
-                $user = Users::model()->find('username=:username',array(':username'=>$model->username));
+                $user = Users::model()->find('username=:username or email=:username',array(':username'=>$model->username));
+                echo "<pre>";print_r($user);die;
                 if(count($user)>0){
                     $password = bin2hex(openssl_random_pseudo_bytes(4));
                     $user->password = $password;
                     $user->save();
 
                     $to = $user->email;
-                    //$to = 'suresh@businessgateways.com';
+                    //$to = 'rsprampaul14321@gmail.com';
                     $url = 'http://splat.bournemouth.ac.uk/site/login';
 
                     $subject = "SPLAT Password Reset";
@@ -384,15 +385,14 @@ class SiteController extends Controller
                     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
                     $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
 
-                    $message = 'Dear '.$user->first_name.'<br/><br/>Your password has been reset. Now you can login with your new password.<br/><br/>
+                    $message = 'Dear '.$user->first_name.',<br/><br/>Your password has been reset. Now you can login with your new password.<br/><br/>
 					Your credentials are:<br/>
 					Website: '.$url.'<br/>
-					Username: '.$to.'<br/>
+					Username: '.$user->first_name." ".$user->last_name.'<br/>
 					Password: '.$user->password;
 
                     mail($to,$subject,$message,$headers);
                     Yii::app()->user->setFlash('success','We have sent your password to your email.');
-
                     $this->redirect(Yii::app()->user->returnUrl);
                 } else {
                     $model->addError('username','Incorrect username');

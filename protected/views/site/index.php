@@ -119,8 +119,7 @@
                                     <div id="collapse_<?php echo $course['id']; ?>" class="panel-collapse collapse in">
                                         <div class="panel-body" id="activecount">
                                             <?php
-                                            $assesmentsql="SELECT *  FROM `projects` WHERE `institution` ={$course['institution']} 
-                                                                AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='current'";
+                                            $assesmentsql="SELECT *  FROM `projects` WHERE `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='current'";
                                             $aseesresult=Yii::app()->db->CreateCommand($assesmentsql)->QueryAll();
                                             if(!empty($aseesresult)) {
                                                 foreach ($aseesresult as $asees)  {
@@ -171,10 +170,14 @@
                                             <?php
                                             $assesmentsql="SELECT *  FROM `projects` WHERE `institution` ={$course['institution']} 
                                                   AND `faculty` ={$course['faculty']} AND `course` ={$course['id']} and `status`='completed'";
+                                            $check_assment=
                                             $aseesresultcom=Yii::app()->db->CreateCommand($assesmentsql)->QueryAll();
                                             if(!empty($aseesresultcom)) {
                                                 foreach ($aseesresultcom as $asees)  {
                                                     foreach($groupfindresult as $grpresult):
+                                                        $assess_check="select * from assess where from_user={$userid} and project={$asees['id']} and grp_id={$grpresult['id']}";
+//                                                    $result_assess=Yii::app()->db->createCommand($assess_check)->queryRow();
+//                                                    $styleclass=!empty($result_assess)?"completed_assess":"non_completed";
                                                     ?>
                                                     <div class="script-texts actclass" style="margin-left:30px;"
                                                          id="ssd"

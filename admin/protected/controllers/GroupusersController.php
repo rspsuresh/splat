@@ -199,7 +199,7 @@ class GroupusersController extends Controller
 
                 //skip first line
                 $header = fgetcsv($csvFile);
-               // echo "<pre>";print_r($header);die;
+                // echo "<pre>";print_r($header);die;
                 while (($line = fgetcsv($csvFile)) !== FALSE) {
                     $all_rows[] = array_combine($header, $line);
                 }
@@ -431,7 +431,7 @@ class GroupusersController extends Controller
         $test="";
         $html='<table id="resulttable" class="table" border = \'1\'>
 <tr><th scope="col">Username</th><th>Email</th><th>First Name</th><th>Last Name</th>';
-        $html.='<th>'.$project->name.'</th>';
+        $html.='<th>'.$project->name.' results</th>';
         $html.='<th>Group Name</th>';
         $html.='<th>Team Mean</th>';
         $html.='<th>Late Submission</th>';
@@ -445,8 +445,8 @@ class GroupusersController extends Controller
                   WHERE user_courses.`course_id` = ".base64_decode($_GET["c"]);
 
         $usermodel=Userdetails::model()->with('user')->findAll( array('condition'=>'course='.base64_decode($_GET["c"]).' and user.status="active" and user.role=5',
-            'order'=>'t.grp_id asc'
-        ));
+                                                                    'order'=>'t.grp_id asc'
+                                                                ));
         $courseid=base64_decode($_GET['c']);
 
         $sqldcque="SELECT GROUP_CONCAT(question_id) as question 
@@ -461,19 +461,20 @@ class GroupusersController extends Controller
         {
 
             $userdetails=Userdetails::model()->find("course=".$courseid." and user_id=".$val['user_id']);
-           // echo "<pre>";print_r($userdetails[0]['grp_id']);
+            $indvmeanscr=Yii::app()->db->Createcommand('SELECT sum(A.value)/count(*) as avg  FROM `assess` as A left join questions as B
+                                                on B.id=A.question WHERE A.`to_user` ='.$val['user_id'].' and B.q_type="R" and A.grp_id='.$val->groupname->id)->queryRow();
 
             if($userdetails)
             {
-                $meansql="SELECT (sum(value)/$dividedcount) as mean FROM `assess` WHERE `project` ={$_GET['p']} AND `grp_id` ={$val->groupname->id}  ORDER BY `id`  DESC";
-                //echo $userdetails->grp_id."<br>";
-                $grpuserscount=count(Userdetails::model()->findAll("grp_id=".$val->groupname->id));
-                $meansocre=Yii::app()->db->Createcommand($meansql)->QueryAll();
-                $scoremean=(!empty($meansocre[0]['mean']))?$meansocre[0]['mean']/$grpuserscount:"#";
+                $grpuser=Userdetails::model()->with('user')->findAll('grp_id='.$val->groupname->id.' and user.status="active" and t.course='.$courseid);
+                foreach ($grpuser as $mgval) {
+                    $grpmeanscr=Yii::app()->db->Createcommand('SELECT sum(A.value)/count(*) as avg  FROM `assess` as A left join questions as B
+                                                                on B.id=A.question WHERE A.`to_user` ='.$mgval->user->id.' and B.q_type="R"  and A.grp_id='.$val->groupname->id)->queryRow();
+                    $calcular_mean[]=$grpmeanscr['avg'];
+                }
+                $final_mean_for_grp=array_sum($calcular_mean)/count($calcular_mean);
             }
-            else{
-                $scoremean="#";
-            } 
+
             $test.="<td>".$val->user->username."</td><td>".$val->user->email."</td><td>".$val->user->first_name."</td><td>".$val->user->last_name."</td>";
             $resultsql="SELECT sum(value) as total,submitted_at FROM `assess`
                  left join questions on assess.question=questions.id
@@ -483,31 +484,23 @@ class GroupusersController extends Controller
                  order by assess.question asc";
             $sumresult=Yii::app()->db->Createcommand($resultsql)->QueryAll();
 
-            $rowfind="SELECT * FROM `assess` left join questions on assess.question=questions.id
-                  where to_user={$val->user->id} and (value !='' and value !=0) 
-                  and questions.q_type='R' and  questions.status='active' and  assess.grp_id={$val->groupname->id}
-                  and assess.project={$_GET["p"]} 
-                  group by assess.from_user order by assess.question asc";
-            $rowfindresult=Yii::app()->db->Createcommand($rowfind)->QueryAll();
-            if(count($rowfindresult) >0)
-            {
 
-                $assesvaluebyquestion=($sumresult[0]['total'])/($dividedcount);
-                $asses=($assesvaluebyquestion)/count($rowfindresult);
-                $valuecheck=(!empty($asses))?$asses:'#';
-                $test.='<td aligh="left">'.round($valuecheck, 2).'</td>';
-            }
-            else
-            {
-                $test.='<td>#</td>';
-               // $test.='<td>#</td>';
-            }
+            $valuecheck=!is_null($indvmeanscr['avg'])?round($indvmeanscr['avg'], 2):"#";
+            $test.='<td aligh="left">'.$valuecheck.'</td>';
+
             $test.='<td>'.$val->groupname->name.'</td>';
-            $test.='<td>'.$scoremean.'</td>';
-            $date=!empty($sumresult[0]['submitted_at'])?$sumresult[0]['submitted_at']:date("Y-m-d H:i:s");
-            $differncesql="select timediff('$project->assess_date','$date') as diff";
-            $executequery=Yii::app()->db->Createcommand($differncesql)->queryRow();
-            $sign=(stristr($executequery['diff'],'-')==$executequery['diff'])?"Yes":"No";
+            $test.='<td>'.round($final_mean_for_grp,2).'</td>';
+            $calcular_mean=[];$final_mean_for_grp=0;
+
+            $cmpsql="SELECT datediff(cast(B.assess_date as DATE),CAST(A.submitted_at AS DATE)) as diff,A.submitted_at as submitted from assess as A left join projects as B on A.project=B.id and B.status !='inactive' where A.from_user={$val->user->id} and B.id={$project->id}";
+            $cmpsqlresult=Yii::app()->db->createCommand($cmpsql)->queryRow();
+
+
+            if(!is_null($cmpsqlresult['submitted']))
+                $sign=($cmpsqlresult['diff'] < 0) ?'Yes':'No';
+            else
+                $sign="No Response";
+
             $test.='<td>'.$sign.'</td>';
             $test.='<td>#</td>';
             $html.="<tr>".$test."</tr>";
@@ -515,7 +508,7 @@ class GroupusersController extends Controller
         }
 
         $html.='</table>';
-       echo $html;die;
+        echo $html;die;
     }
     public function actiongroupasses($id)
     {
@@ -654,16 +647,22 @@ class GroupusersController extends Controller
     {
         if(isset($_POST['course']))
         {
-            $projectmodel=Projects::model()->findByPk($_POST['p']);
+            $assessment_ids=$_POST['asses'];
+            $course=$_POST['course'];
+            $response_submiturs=Assess::model()->with('project0')->findAll('project='.$assessment_ids.' and project0.course='.$course);
+            $test=array_map(function($element){return $element['from_user'];}, $response_submiturs);
+            $array_userid=array_unique($test);
+            $str_userids=!empty($array_userid)?implode(',',$array_userid):0;
 
-            $usermodel=Userdetails::model()->with('user')->findAll( array(
-                'condition'=>'course='.$_REQUEST['c'].' and user.status="active" and user.role=5',
-                'order'=>'t.grp_id asc'
-            ));
+
+            $usermodel=Userdetails::model()->with('user')->findAll(
+                array('condition'=>'course='.$_REQUEST['c'].' and user.status="active" and user.role=5 and user.id  not in ('.$str_userids.')', 'order'=>'t.grp_id asc'));
+
+            //echo "<pre>";print_r($usermodel);die;
 
             foreach($usermodel as $val)
             {
-               $to =trim($val->user->email);
+                $to =trim($val->user->email);
                 $firstname=$val->user->first_name;
                 $lastname=$val->user->last_name;
                 $password=$val->user->password;
@@ -674,7 +673,7 @@ class GroupusersController extends Controller
                 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
                 $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
 
-                $message = 'Hi '.$firstname.'<br/><br/>You have been registered to take part in the Peer assessment review. Please login to submit your entry before the deadline: '. date('Y-m-d', strtotime($projectmodel->assess_date)).'<br/><br/>Your credentials are:<br/>
+                $message = 'Hi '.$firstname.',<br/><br/>You have been registered to take part in the Peer assessment review. Please login to submit your entry before the deadline: '. date('Y-m-d', strtotime($projectmodel->assess_date)).'<br/><br/>Your credentials are:<br/>
 				Link to the site:'.$url.'<br/>
 				Username: '.$to.'<br/>
 				Password: '.$password;

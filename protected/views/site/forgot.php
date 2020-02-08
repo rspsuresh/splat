@@ -31,6 +31,7 @@
 					</div>
 					<?php echo CHtml::submitButton('Forgot',array('class'=>'login-button')); ?>
 				<?php $this->endWidget(); ?>
+                <a href="<?php echo Yii::app()->createUrl('site/login'); ?>" style="float:right;color:#00B9D1;">Login Page</a>
 			</div>
 		</div>
 		<script src="<?php echo Yii::app()->request->baseUrl;?>/js/bootstrap.min.js"></script>

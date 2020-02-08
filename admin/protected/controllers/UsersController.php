@@ -210,10 +210,6 @@ class UsersController extends Controller
 
     public function actionCCreate()
     {
-        /*$fmodel=Users::model()->findAll();
-        echo "<pre>";print_r($fmodel);die;*/
-        /*$dmodel=Users::model()->findByPk(139);
-        $dmodel->delete();*/
         $model=new Users;
         $this->pageTitle="Splat - User create";
         // Uncomment the following line if AJAX validation is needed
@@ -529,7 +525,7 @@ class UsersController extends Controller
 
     public function actionCAdmin($c)
     {
-        //$mailmodel=MailSend::model()->findAll('as_id=19');echo "<pre>";print_r($mailmodel);die;
+
         ini_set('auto_detect_line_endings',TRUE);
         $this->pageTitle = "SPLAT-Course admin";
         $modeluser=new Users('search');
@@ -626,7 +622,7 @@ class UsersController extends Controller
         }
 
         $this->pageTitle="SPLAT - Course items";
-        $model = Projects::model()->findAll('faculty='.base64_decode($_GET['f']).' and course='.base64_decode($_GET['c']).' and institution='.base64_decode($_GET['i']));
+        $model = Projects::model()->findAll('faculty='.base64_decode($_GET['f']).' and course='.base64_decode($_GET['c']).' and institution='.base64_decode($_GET['i']).' and status !="terminated"');
         $formModel = new Projects();
         $formModel->faculty = base64_decode($_GET['f']);
         $formModel->institution = base64_decode($_GET['i']);
@@ -906,7 +902,7 @@ class UsersController extends Controller
             Yii::app()->getRequest()->sendFile($name,file_get_contents( $filePath));
         }
         else {
-            die('The provided file path is not valid.');
+            echo 'The provided file path is not valid.';die;
         }
 
     }
@@ -972,7 +968,6 @@ class UsersController extends Controller
 
                     $facultymodel=Faculties::model()->findByPk($model->fac_id);
                     $to =trim($_POST['Users']['email']);
-                    //$to ='rsprampaul14321@gmail.com';
                     $firstname=$_POST['Users']['first_name'];
                     $lastname=$_POST['Users']['lastname'];
                     $password=$model->password;
@@ -1038,6 +1033,7 @@ class UsersController extends Controller
         if(isset($_POST) && !empty($_POST))
         {
 
+
             $mailmodel=MailSend::model()->findAll('c_id='.$_POST['course'].' and i_id='.$_POST['inst'].' and f_id='.$_POST['fac'].' and as_id='.$_POST['asses']);
             $projectupdate=Projects::model()->findByPk($_POST['asses']);
             $projectupdate->status='current';
@@ -1081,7 +1077,6 @@ class UsersController extends Controller
 
     public  function readytosend($ids,$type)
     {
-
         if(is_string($ids))
         {
             if($type==2)
@@ -1092,7 +1087,6 @@ class UsersController extends Controller
             {
                 $usersmodel=Users::model()->findAll('id in('.$ids.')');
             }
-            //echo "<pre>";print_r(count($usersmodel));die;
             $course_name=Courses::model()->findByPk($_POST['course']);
 
             $coursename=$course_name->course_type." ". $course_name->name." Level ".$course_name->course_level;
@@ -1103,10 +1097,9 @@ class UsersController extends Controller
                     $headers = "MIME-Version: 1.0" . "\r\n";
                     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
                     $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
-                    $subject = "Splat User registration";
+                    $subject = "Splat Assessment Release";
                     $url = $_SERVER['SERVER_NAME'] . "/site/login";
-                  //  $to = $user->email;
-                    $to="rsprampaul14321@gmail.com";
+                    $to = $user->email;
                     $message = 'Dear ' . $user->first_name . ',<br/><br/>You have been added to the
                                  Bournemouth University SPLAT website for the course <b>' . $coursename . '</b> .
                                  You can now login to assess your peers.<br/><br/>Your credentials are:<br/>

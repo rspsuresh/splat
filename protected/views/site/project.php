@@ -220,13 +220,13 @@
 
                                                         else
                                                         {
-                                                            if($projects->course0->anonymous ==1)
+                                                          /*  if($projects->course0->anonymous ==1)
                                                             {
                                                                 echo "From anonymous user";
                                                             }
-                                                            else{
+                                                            else{*/
                                                                 echo $groupuser->user->first_name." ".$groupuser->user->last_name;
-                                                            }
+                                                           /* }*/
                                                         }
                                                         ?>
 

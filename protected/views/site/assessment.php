@@ -62,9 +62,6 @@
         <form method="POST" id="assesmentsubmit">
             <input type="hidden" value="<?=$_GET['id']?>" name="assesmentid">
             <h3>Please provide your feedback for the following:</h3>
-            <?php if($course->anonymous ==1) { ?>
-                <h4 style="color: red">* All the responses are anonymous</h4>
-            <?php } ?>
             <?php
             $courseid=$_GET['course'];
             $groupusers=Userdetails::model()->with('user')->findAll('grp_id='.$_GET['g'].' and user.status="active" and t.course='.$courseid);
@@ -101,14 +98,16 @@
                                             echo 'Self';
                                         }
                                         else {
-                                            if($course->anonymous ==2)
-                                            {
-                                                echo ucfirst($groupuser->user->first_name . " " . $groupuser->user->last_name);
-                                            }
-                                            else
-                                            {
-                                                echo "Anonymous user";
-                                            }
+	                                        echo ucfirst($groupuser->user->first_name . " " . $groupuser->user->last_name);
+                                            //if($course->anonymous ==2)
+                                            //{
+                                            //    echo ucfirst($groupuser->user->first_name . " " . $groupuser->user->last_name);
+                                            //}
+                                            //else
+                                            //{
+                                            //    echo "Anonymous user";
+                                            //}
+
 
                                         }
                                         ?>
@@ -134,37 +133,38 @@
                             <?php } ?>
                             <?php endforeach; else: ?>
                             <p class="selp-pad">
-                                <label>No users assigned to project.</label>
+                                <label>No users assigned to the project.</label>
                             </p>
                         <?php endif; ?>
                     </div>
                 <?php endforeach; else:?>
                 <div class="user-form">
-                    <p>No questions assigned yet.</p>
+                    <p>No questions added to the project yet.</p>
                 </div>
             <?php endif;?>
             <?php
             $prjid=$_GET['id'];
             $assess = Assess::model()->find('project=:p and from_user=:f and to_user=:t and grp_id=:grp',
-                array(':p'=>$prjid,':f'=>Yii::app()->user->id,':t'=>Yii::app()->user->id,':grp'=>$_GET['g']));?>
-            <?php if(count($assess) ==0) { ?>
-                <input type="submit" class="add-course" value="Submit"> <div style="clear:both;"></div><br/>
-            <?php } ?>
+                array(':p'=>$prjid,':f'=>Yii::app()->user->id,':t'=>Yii::app()->user->id,':grp'=>$_GET['g']));
+				$project_check=Projects::model()->findByPk($prjid);
+				?>
+            <?php //if($project_check->status =='current' ||) { ?>
+            <?php if(!empty($assess)) { ?>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <input type="submit" class="add-course" value="Update">
+                    </div>
+
+                </div>
+
+            <?php } else { ?>
+
+                <input type="submit" class="add-course" value="Submit">
+                <?php } ?>
+            <div style="clear:both;"></div><br/>
         </form>
     </div>
 </section>
-<script>
-    $(document).ready(function() {
-        $("#assesmentsubmit").submit(function(e){
-            if(confirm("The responses submitted are permanent are cannot be edited and submitted again. Are you sure want to submit your response ?"))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-            $('input[type="submit"]').hide();
-        });
-    });
-</script>
+

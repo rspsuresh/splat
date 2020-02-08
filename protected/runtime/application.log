@@ -5439,3 +5439,83 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
 ---
+2020/01/04 18:03:39 [error] [exception.ParseError] ParseError: syntax error, unexpected '$project_check' (T_VARIABLE), expecting identifier (T_STRING) in D:\xampp\htdocs\splat\protected\views\site\assessment.php:150
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#2 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('assessment', Array, true)
+#3 D:\xampp\htdocs\splat\protected\controllers\SiteController.php(152): CController->render('assessment', Array)
+#4 [internal function]: SiteController->actionAssessment('11')
+#5 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#11 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#12 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('assessment')
+#16 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/assessment')
+#17 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#18 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#19 {main}
+REQUEST_URI=/splat/site/assessment/11?course=10&g=94
+HTTP_REFERER=http://localhost/splat/site/index
+---
+2020/01/08 16:01:39 [error] [exception.ParseError] ParseError: syntax error, unexpected '}', expecting end of file in D:\xampp\htdocs\splat\protected\views\site\assessment.php:163
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#2 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('assessment', Array, true)
+#3 D:\xampp\htdocs\splat\protected\controllers\SiteController.php(152): CController->render('assessment', Array)
+#4 [internal function]: SiteController->actionAssessment('11')
+#5 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#11 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#12 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('assessment')
+#16 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/assessment')
+#17 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#18 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#19 {main}
+REQUEST_URI=/splat/site/assessment/11?course=10&g=94
+HTTP_REFERER=http://localhost/splat/
+---
+2020/01/08 16:38:52 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'where from_user=889 and project=20 and grp_id=43' at line 1. The SQL statement executed was: select * from where from_user=889 and project=20 and grp_id=43.
+in D:\xampp\htdocs\splat\protected\views\site\index.php (179)
+in D:\xampp\htdocs\splat\protected\controllers\SiteController.php (58)
+in D:\xampp\htdocs\splat\index.php (16)
+2020/01/08 16:38:52 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'where from_user=889 and project=20 and grp_id=43' at line 1. The SQL statement executed was: select * from where from_user=889 and project=20 and grp_id=43 in D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php:1085
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbCommand.php(829): CDbCommand->queryInternal('fetch', Array, Array)
+#1 D:\xampp\htdocs\splat\protected\views\site\index.php(179): CDbCommand->queryRow()
+#2 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(251): require('D:\\xampp\\htdocs...')
+#3 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#4 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#5 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('index', Array, true)
+#6 D:\xampp\htdocs\splat\protected\controllers\SiteController.php(58): CController->render('index', Array)
+#7 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): SiteController->actionIndex()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#10 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#12 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#15 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('index')
+#17 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/index')
+#18 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#19 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#20 {main}
+REQUEST_URI=/splat/site/index
+HTTP_REFERER=http://localhost/splat/site/assessment/11?course=10&g=94
+---

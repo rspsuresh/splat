@@ -102,6 +102,8 @@ $project=Projects::model()->findByPk($_GET['id']);
                 <button class="btn btn-primary align" onclick="goBack()">Back</button>
             </div>
             <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12" id="main">
+
+                <input type="hidden" id="noofgroups" value="">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <?php
                     $usermodelsql="SELECT user_id,users.first_name,users.last_name,users.username as username FROM `user_courses` 
@@ -123,11 +125,11 @@ $project=Projects::model()->findByPk($_GET['id']);
                     foreach($chunkarray as $ckey =>$cval) {
                         foreach($cval as $val) {
 
-                            Yii::app()->db->createCommand('SET group_concat_max_len = 1000000')->execute();
-                            $totalusertowardsgrp=count(Userdetails::model()->findAll('course='.base64_decode($_GET['c']).' and grp_id='.$val->id));
-                            $meansql="SELECT (sum(value)/$dividedcount) as mean FROM `assess` join `projects` on projects.id=assess.`project` and projects.status !='inactive' WHERE assess.`project` ={$_GET['p']} AND `grp_id` ={$val->id}  ORDER BY assess.`id`  DESC";
-                            $meansocre=Yii::app()->db->Createcommand($meansql)->QueryAll();
-                            $scoremean=(!empty($meansocre[0]['mean']))?$meansocre[0]['mean']/$totalusertowardsgrp:"0";
+//                            Yii::app()->db->createCommand('SET group_concat_max_len = 1000000')->execute();
+//                            $totalusertowardsgrp=count(Userdetails::model()->findAll('course='.base64_decode($_GET['c']).' and grp_id='.$val->id));
+//                            $meansql="SELECT (sum(value)/$dividedcount) as mean FROM `assess` join `projects` on projects.id=assess.`project` and projects.status !='inactive' WHERE assess.`project` ={$_GET['p']} AND `grp_id` ={$val->id}  ORDER BY assess.`id`  DESC";
+//                            $meansocre=Yii::app()->db->Createcommand($meansql)->QueryAll();
+//                            $scoremean=(!empty($meansocre[0]['mean']))?$meansocre[0]['mean']/$totalusertowardsgrp:"0";
                             ?>
 
                             <div class="panel panel-default page page_<?=$ckey+1?>">
@@ -145,7 +147,16 @@ $project=Projects::model()->findByPk($_GET['id']);
                                         <a class="collapsed" role="button" data-toggle="collapse"
                                            data-parent="#accordion" href="#collapseOne<?=$val->id?>"
                                            aria-expanded="false" aria-controls="collapseOne<?=$val->id?>">
-                                            <?=$val->name?><span style="float:right">Completed Users : <?=count($finishedusermodel).'/'.count($grpuser)?></span>   <span style="float:right;margin-right: 30px;">Group mean : <?=round($scoremean,2)?></span>
+                                            <?php
+                                            $calcular_mean=[];$final_mean_for_grp=0;
+                                            foreach ($grpuser as $mgval) {
+                                                $grpmeanscr=Yii::app()->db->Createcommand('SELECT sum(A.value)/count(*) as avg  FROM `assess` as A left join questions as B
+                                                on B.id=A.question WHERE A.`to_user` ='.$mgval->user->id.' and B.q_type="R" and  A.grp_id='.$val->id)->queryRow();
+                                                $calcular_mean[]=$grpmeanscr['avg'];
+                                            } $final_mean_for_grp=array_sum($calcular_mean)/count($calcular_mean)?>
+                                            <?=$val->name?><span style="float:right">Completed Users : <?=count($finishedusermodel).'/'.count($grpuser)?></span>
+                                            <span style="float:right;margin-right: 30px;">Group mean : <?=!empty($final_mean_for_grp)?round($final_mean_for_grp,2):0;?>
+                                            </span>
                                         </a>
                                     </h4>
                                 </div>
@@ -166,17 +177,22 @@ $project=Projects::model()->findByPk($_GET['id']);
                                                 FROM `assess` WHERE `to_user` ={$gval->user->id} and `project`={$_GET['p']}";
                                                 $noofuserexact=Yii::app()->db->Createcommand($sqlusercountexact)->queryRow();
                                                 //echo "<pre>";print_r($noofuserexact);
+                                                $indvmeanscr=Yii::app()->db->Createcommand('SELECT sum(A.value)/count(*) as avg  FROM `assess` as A left join questions as B
+                                                on B.id=A.question WHERE A.`to_user` ='.$gval->user->id.' and B.q_type="R" and A.grp_id='.$val->id)->queryRow();
+                                                //echo "<pre>";print_r($indvmeanscr);die;
                                                 $scoremeanind=(!empty($meansocreind[0]['mean']))?$meansocreind[0]['mean']/$noofuserexact['noofuser']:"0";
                                                 ?>
-                                                <?php $action=Yii::app()->CreateUrl('site/responsepage',
-                                                    array('id'=>$project->id,
-                                                        'u'=>$gval->user->id,'c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'],
-                                                        'g'=>$val->id, 'p'=>$_GET['p']));?>
-                                                <a class="quick-btn"  href="<?php echo $action?>">
+                                                <?php
+                                                $cmpsql_sub="SELECT datediff(cast(B.assess_date as DATE),CAST(A.submitted_at AS DATE)) as diff from assess as A left join projects as B on A.project=B.id and B.status !='inactive' where from_user={$gval->user->id} and A.project={$_GET['p']}";
+                                                $late_result=Yii::app()->db->createCommand($cmpsql_sub)->queryRow();
+                                                $action=Yii::app()->CreateUrl('site/responsepage',
+                                                                                    array('id'=>$project->id,
+                                                                                        'u'=>$gval->user->id,'c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'],
+                                                                                        'g'=>$val->id, 'p'=>$_GET['p']));?>
+                                                <a class="quick-btn"  href="<?php echo $action?>" <?=$late_result['diff'] <0 ?'style="border: 3px solid red"  title="late submission"':''?>>
                                                     <br/>
-                                                    <span> <?=$gval->user->first_name." ".$gval->user->last_name?>
-                                            </span>
-                                                    <p style="color:red;text-decoration:none;"><?=round($scoremeanind,2)?></p>
+                                                    <span> <?=$gval->user->first_name." ".$gval->user->last_name?></span>
+                                                    <p style="color:red;text-decoration:none;" class="group_<?=$val->id?>" data-mtn="<?=!empty($indvmeanscr['avg'])?round($indvmeanscr['avg'],2):0?>"><?=!empty($indvmeanscr['avg'])?round($indvmeanscr['avg'],2):0?></p>
                                                 </a>
                                             <?php }
                                         }
