@@ -44,6 +44,12 @@
   #course_tbl.dataTable thead th, table.dataTable thead td,table.dataTable.no-footer{
     border-bottom: none !important;
   }
+  tr { cursor:pointer}
+  table.dataTable.no-footer{ border:1px solid #03c6e3  !important;}
+  th {border-top:1px solid #03c6e3  !important;}
+    .coursenameclr{border-left:1px solid #03c6e3  !important;}
+    .coursenameclr_end{border-right:1px solid #03c6e3  !important;}
+  tr:nth-child(even) {background-color: #f2f2f2 !important;}
 </style>
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jqueryui/jquery-ui.min.js">
 </script>
@@ -106,7 +112,7 @@
               <table id='course_tbl'>
                 <thead>
                   <tr>
-                    <th>Course Name
+                    <th class="coursenameclr">Course Name
                     </th>
                     <th>Level
                     </th>
@@ -114,7 +120,7 @@
                     </th>
                     <th>Users
                     </th>
-                    <th>Action
+                    <th class="coursenameclr_end">Action
                     </th>
                   </tr>
                 </thead>

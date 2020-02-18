@@ -11,6 +11,25 @@
         background-color: #03c6e3 !important;
         color: white;
     }
+
+    .dataTables_wrapper .dataTables_filter input {
+        margin-left: 0.5em;
+        border: 1px solid #000 !important;
+        padding: 6px 10px !important;
+        border-radius: 5px !important;
+
+    }
+    .table thead {
+        background-color: #03c6e3 !important;
+    }
+    .table th {
+        border: 1px white solid;
+        padding: 0.3em;
+        color: white;
+    }
+    .table.dataTable thead th, table.dataTable thead td,table.dataTable.no-footer{
+        border-bottom: none !important;
+    }
 </style>
 <div class="form">
     <?php
@@ -73,7 +92,13 @@
                 <?php echo $form->error($model,'grp'); ?>
             </div>
         </div>
-    <?php } ?>
+    <?php } else { ?>
+        <style>
+            .save-btn{
+                margin-top: 5px !important;
+            }
+        </style>
+   <?php } ?>
     <?php $model->institution_id = '1'; ?>
     <?php echo CHtml::submitButton($model->isNewRecord ? 'Add' : 'Save',array('class'=>'save-btn')); ?>
     <?php $this->endWidget(); ?>
@@ -112,6 +137,8 @@
 <?php } ?>
 <script src="<?php echo Yii::app()->request->baseUrl; ?>./../js/jquery.easy-autocomplete.min.js"></script>
 <link href="<?php echo Yii::app()->request->baseUrl; ?>./../css/easy-autocomplete.min.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>./../css/jquery.dataTables.min.css">
+<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>./../css/jquery.dataTables.min.js"></script>
 <script>
     $(function() {
         $('#Users_username,#Users_password').on('keypress', function(e) {
@@ -121,6 +148,18 @@
         $('#Users_password').bind("cut copy paste",function(e) {
             e.preventDefault();
         });
+        $("#stafftbl").dataTable({
+            "bPaginate" : $('#stafftbl tbody tr').length>5,
+            "iDisplayLength": 5,
+            "searching":$('#stafftbl tbody tr').length>=5?true:false,
+            language: {
+                //infoEmpty: "No Inactive Course found.",
+                emptyTable: "No Result found.",
+                //zeroRecords: "No Inactive Course found.",
+                "info": "Showing _START_ to _END_ of _TOTAL_ Staffs.",
+            },
+        });
+        $('.dataTables_filter input').addClass('course-field');
     });
 </script>
 <script>

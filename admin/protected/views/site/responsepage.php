@@ -39,6 +39,7 @@ $avg=0;
     $facultymdel=Faculties::model()->findByPk(base64_decode($_GET['f']));
     $couesemodels=Courses::model()->findByPk(base64_decode($_GET['c']));
     $assessmodel=Projects::model()->findByPk($_GET['p']);
+    $project_pk=$_GET['p'];
     $groupmodel=Groups::model()->findByPk($_GET['g']);
     ?>
     <div class="container ">
@@ -61,9 +62,11 @@ $avg=0;
                 echo "<button class=\"btn btn-danger align\">Late Submission</button>";
             }
         }?>
-
+       <?php  if(count($questions)>0) { ?>
         <button class="btn btn-success align">Mean Score : <span id="score">
-                <?php echo $meanscore?></span></button>
+                <?php echo $meanscore?></span>
+        </button>
+        <?php } ?>
         <div class="user-assessment">
             <?php
             $indarray=array();
@@ -106,7 +109,7 @@ $avg=0;
                                     foreach($groupusers as $groupuser){
                                         $assess = Assess::model()->find('question=:q and project=:p and 
                                         from_user=:f and to_user=:t and grp_id=:grp',
-                                                                        array(':q'=>$question->id,':p'=>$projects->id,':t'=>$_GET['u'],
+                                                                        array(':q'=>$question->id,':p'=>$project_pk,':t'=>$_GET['u'],
                                                                             ':f'=>$groupuser->user_id,':grp'=>$_GET['g']));
                                         ?>
                                         <div class="row">
@@ -172,8 +175,10 @@ $avg=0;
             } ?>
         </div>
         <?php
-        $meanscore=array_sum(array_filter($sum))/$avg;
-        $meanscore=number_format((float)$meanscore,1,'.','');
+        if(count($questions)>0) {
+            $meanscore = array_sum(array_filter($sum)) / $avg;
+            $meanscore = number_format((float)$meanscore, 1, '.', '');
+        }
         ?>
 </section>
 <style>

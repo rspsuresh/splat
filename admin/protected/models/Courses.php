@@ -49,7 +49,7 @@ class Courses extends CActiveRecord
             array('status', 'length', 'max'=>8),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, name,institution, faculty, department,course_level, description,year,status, created_by, created_date, updated_date', 'safe', 'on'=>'search'),
+            array('id, name,institution, faculty, department,course_level, description,year,status, created_by, created_date, updated_date,marks', 'safe', 'on'=>'search'),
         );
     }
 

@@ -2,113 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="569f891a-5c37-4652-9e91-bcf773c3ff1f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/admin/css/splattable.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/protected/controllers/StaffregController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/css/form.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/css/form.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/controllers/GroupmasterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/GroupmasterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/controllers/GroupsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/GroupsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/controllers/GroupsdumController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/GroupsdumController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/controllers/GroupusersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/GroupusersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/controllers/GroupusersController_old.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/GroupusersController_old.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/controllers/MappingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/MappingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/controllers/MultipleassesmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/MultipleassesmentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/controllers/ProjectgroupsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/ProjectgroupsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/controllers/QuestionsadminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/QuestionsadminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/controllers/SadminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/SadminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/SiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/controllers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/controllers/course_items.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/course_items.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/Assess.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Assess.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/AssessComments.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/AssessComments.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/ContactForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/ContactForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/CourseTypes.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/CourseTypes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/models/Courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Courses.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/DeleteCustomQuestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/DeleteCustomQuestion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/Departments.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Departments.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/EmailTemplate.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/EmailTemplate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/Faculties.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Faculties.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/GroupUsers.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/GroupUsers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/Groupmaster.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Groupmaster.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/Groups.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Groups.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/Groupsdum.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Groupsdum.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/InstitutionUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/InstitutionUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/Institutions.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Institutions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/LoginForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/LoginForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/MailSend.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/MailSend.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/Mapping.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Mapping.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/Multipleassesment.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Multipleassesment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/ProjectGroups.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/ProjectGroups.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/Projects.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Projects.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/Questions.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Questions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/Questionsadmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Questionsadmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/Sadmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Sadmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/UserCourses.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/UserCourses.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/UserFaculties.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/UserFaculties.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/Userdetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Userdetails.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/Userrole.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Userrole.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/UsersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/runtime/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/runtime/application.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupusers/assesment_groups.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupusers/assesment_groups.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/course_items.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/course_items.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/views/site/courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/courses.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/views/site/faculties.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/faculties.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/views/site/responsepage.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/responsepage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/cadmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/cadmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/controllers/SiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/controllers/UsersRegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/controllers/UsersRegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/Assess.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/Assess.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/AssessComments.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/AssessComments.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/ContactForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/ContactForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/CourseTypes.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/CourseTypes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/Courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/Courses.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/Departments.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/Departments.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/Faculties.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/Faculties.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/ForgotForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/ForgotForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/GroupUsers.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/GroupUsers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/Groupmaster.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/Groupmaster.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/Groups.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/Groups.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/InstitutionUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/InstitutionUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/Institutions.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/Institutions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/LoginForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/LoginForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/Multipleassesment.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/Multipleassesment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/ProjectGroups.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/ProjectGroups.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/Projects.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/Projects.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/Questions.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/Questions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/Userdetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/Userdetails.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/Users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/UsersRegistration.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/UsersRegistration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/Usersn.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/Usersn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/runtime/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/protected/runtime/application.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/layouts/column1.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/layouts/column1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/layouts/column2.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/layouts/column2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/layouts/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/site/_courseitems.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/_courseitems.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/site/assesmentpage.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/assesmentpage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/site/assessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/assessment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/site/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/contact.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/site/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/site/editprofile.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/editprofile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/site/error.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/error.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/site/forgot.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/forgot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/site/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/site/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/site/pages/about.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/pages/about.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/site/pages/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/pages/test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/site/project.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/project.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/site/staffeditprofile.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/staffeditprofile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/usersRegistration/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/usersRegistration/_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/usersRegistration/_search.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/usersRegistration/_search.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/usersRegistration/_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/usersRegistration/_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/usersRegistration/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/usersRegistration/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/usersRegistration/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/usersRegistration/create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/usersRegistration/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/usersRegistration/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/usersRegistration/registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/usersRegistration/registration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/usersRegistration/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/usersRegistration/update.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/usersRegistration/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/usersRegistration/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/_cform.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/_cform.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +59,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SearchEverywhereHistoryKey" value="sitecon&#9;FILE&#9;file://H:/xampp/htdocs/splat/admin/protected/controllers/SiteController.php&#10;course&#9;FILE&#9;file://H:/xampp/htdocs/splat/admin/protected/views/site/course_items.php&#10;courseitem&#9;FILE&#9;file://C:/xampp/htdocs/splat/admin/protected/views/site/course_items.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../news_portal" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
   </component>
@@ -246,6 +149,10 @@
       <workItem from="1578495481313" duration="7827000" />
       <workItem from="1580747720632" duration="5481000" />
       <workItem from="1580833314548" duration="4263000" />
+      <workItem from="1581706141591" duration="1143000" />
+      <workItem from="1581755990318" duration="4953000" />
+      <workItem from="1581773570542" duration="1240000" />
+      <workItem from="1582047524544" duration="2968000" />
     </task>
     <servers />
   </component>
@@ -274,6 +181,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1575010572180" />
+    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1581706219844">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1581706219844" />
+    <state x="451" y="199" key="NewPhpClassDialog" timestamp="1581761487849">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="451" y="199" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1581761487849" />
     <state x="186" y="9" key="SettingsEditor" timestamp="1575010346058">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -286,13 +201,17 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1580836048258" />
-    <state x="390" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1580833530113">
+    <state x="390" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1582047532576">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="390" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1580833530113" />
-    <state x="339" y="17" width="672" height="676" key="search.everywhere.popup" timestamp="1580833591214">
+    <state x="390" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1582047532576" />
+    <state x="390" y="0" width="585" height="728" key="find.popup" timestamp="1581757159098">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="17" width="672" height="676" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1580833591214" />
+    <state x="390" y="0" width="585" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1581757159098" />
+    <state x="339" y="17" width="672" height="676" key="search.everywhere.popup" timestamp="1582047871982">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="17" width="672" height="676" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1582047871982" />
   </component>
 </project>

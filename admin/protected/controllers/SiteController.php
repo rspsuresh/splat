@@ -160,6 +160,7 @@ class SiteController extends Controller
             $formModel->created_by	= Yii::app()->user->id;
             $formModel->created_date= date('Y-m-d H:i:s');
             $formModel->updated_date= date('Y-m-d H:i:s');
+		$formModel->marks=$_POST['Courses']['marks'];
             $msg_str=$formModel->isNewRecord?"added":"updated";
             if($formModel->validate() && $formModel->save())
             {

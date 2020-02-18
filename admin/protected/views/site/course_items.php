@@ -1,4 +1,5 @@
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/js/jqueryui/jquery-ui.min.js"></script>
+<!--<script type="text/javascript" src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>-->
 <link rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/js/jqueryui/jquery-ui.min.css">
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/js/datetimepicker/datetimepicker.js"></script>
 <link rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/js/datetimepicker/datetimepicker.css">

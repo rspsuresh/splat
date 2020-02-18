@@ -185,8 +185,8 @@ $('.search-form form').submit(function(){
                 }
             });
         }
-        else {
-            alert("Please minimum one row");
-        }
+        // else {
+        //     alert("Please minimum one row");
+        // }
     }
 </script>
