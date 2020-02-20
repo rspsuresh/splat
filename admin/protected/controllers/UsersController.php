@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 class UsersController extends Controller
 {
     /**
@@ -980,11 +980,11 @@ class UsersController extends Controller
                     $crs = $course_name;
                     $fac = $facultymodel->name;
                     $message = "<p>Dear $model->first_name $model->last_name,
-                              </p><p>You have added to the course <b>'.$crs.'</b> as a course admin in  SPLAT website.</p>
+                              </p><p>You have added to the course <b>$crs</b> as a course admin in  SPLAT website.</p>
                               <p>Your Credentials are</p>
-                              <p>Link :<a href='$url'> $url</a></p>
-                              <p>Username :<b>$model->username</b></p>
-                              <p>Password :<b>$model->password</b></p>";
+                              <p>Link: <a href='$url'> $url</a></p>
+                              <p>Username: <b>$model->username</b></p>
+                              <p>Password: <b>$model->password</b></p>";
 
                     $headers = "MIME-Version: 1.0" . "\r\n";
                     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";

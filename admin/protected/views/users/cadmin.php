@@ -21,9 +21,6 @@ $('.search-form form').submit(function(){
         border-bottom:2px solid #00B9CF;
         color:#00B9CF !important;
     }
-    /*.footer-sec{*/
-    /*    bottom:auto !important;*/
-    /*}*/
     i.fa.fa-youtube-play {
         color: #e52d27 !important;
         font-size:16px !important;
@@ -122,7 +119,6 @@ $('.search-form form').submit(function(){
         z-index: 99;
         text-align: center;
     }
-
     #loading-image {
         position: absolute;
         top: 100px;
@@ -177,7 +173,6 @@ $institution = Institutions::model()->find('id='.base64_decode($_GET['i']));
 $faculty = Faculties::model()->find('id='.base64_decode($_GET['f']));
 $course = Courses::model()->find('id='.base64_decode($_GET['c']));
 $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode($_GET['c'])));
-
 ?>
 <div id="loading" style="display:none">
     <img id="loading-image"  src="<?=Yii::app()->request->baseUrl?>/../images/loading.gif" alt="Loading..." />
@@ -217,6 +212,11 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
                 <?php $this->widget('zii.widgets.grid.CGridView', array(
                     'id'=>'users-grid',
                     'dataProvider'=>$modeluser->search(),
+                    'summaryText'=>'<div class="row"><div class="col-lg-6" style="text-align: left">Show '.CHtml::dropDownList('listname', '',
+                            Yii::app()->params['Pagination'], array("data-md-selectize" => true, "id" => "selectf",
+                                'class' => 'show_page',
+                                'options' => array(yii::app()->session['pagination'] =>
+                                    array('selected' => 'selected')))).' users per page </div><div class="col-lg-6" style="text-align: right;">Displaying {start}-{end} of {count} result(s).</div></div>',
                     'emptyText'=>"No users imported yet.",
                     'filter'=>$modeluser,
                     'columns'=>array(
@@ -529,7 +529,7 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
                                 <?php echo $form->labelEx($iquestion,'question'); ?>
                             </div>
                             <div class="col-lg-8 padzero">
-                                <?php echo $form->textArea($iquestion,'question', array('placeholder'=>'Question')); ?>
+                                <?php echo $form->textArea($iquestion,'question', array('placeholder'=>'Question','class'=>'summernote')); ?>
                                 <?php echo $form->error($iquestion,'question'); ?>
                             </div>
                         </div>
@@ -685,19 +685,10 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
                         <?php echo $form->labelEx($questions,'question'); ?>
                     </div>
                     <div class="col-lg-8 padzero">
-                        <?php echo $form->textArea($questions,'question', array('placeholder'=>'Question')); ?>
+                        <?php echo $form->textArea($questions,'question', array('placeholder'=>'Question','class'=>'summernote')); ?>
                         <?php echo $form->error($questions,'question'); ?>
                     </div>
                 </div>
-                <!--                <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero" style="display:none;">-->
-                <!--                    <div class="col-lg-4 padzero">-->
-                <!--                        --><?php //echo $form->labelEx($questions,'type'); ?>
-                <!--                    </div>-->
-                <!--                    <div class="col-lg-8 padzero formradio">-->
-                <!--                        --><?php //echo $form->radioButtonList($questions,'type', array('default'=>'Default','custom'=>'Custom'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
-                <!--                        --><?php //echo $form->error($questions,'type'); ?>
-                <!--                    </div>-->
-                <!--                </div>-->
                 <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
                     <div class="col-lg-4 padzero">
                         <?php echo $form->labelEx($questions,'q_type'); ?>
@@ -789,6 +780,12 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
         $('.datepickerp').datetimepicker({format: 'DD-MM-YYYY HH:mm'});
 
     });
+    $(document).on('change', '#selectf',function() {
+        $('#users-grid').yiiGridView('update', {
+            data:'pagesize='+$(this).val()
+        });
+        return false;
+    });
     function ConfirmDelete(id,type,course)
 
     {
@@ -853,20 +850,24 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
 
     function mailprocess(c,i,f,p)
     {
-        $("#loading").show();
+
         var data={course:c,inst:i,fac:f,asses:p};
-        $.ajax({
-            url: "<?php echo Yii::app()->createUrl('users/mailprocess') ?>",
-            type: "post",
-            data:data,
-            success: function (result) {
-                if(result.trim() =='Y')
-                {
-                    $("#loading").hide();
-                    window.location.reload();
+        if(confirm('Are you sure you want to release to students ? Student\'s will be sent an email and can provide feedback to each other. '))
+        {
+            $("#loading").show();
+            $.ajax({
+                url: "<?php echo Yii::app()->createUrl('users/mailprocess') ?>",
+                type: "post",
+                data:data,
+                success: function (result) {
+                    if(result.trim() =='Y')
+                    {
+                        $("#loading").hide();
+                        window.location.reload();
+                    }
                 }
-            }
-        });
+            });
+        }
     }
     function sendremainder(c,i,f,p)
     {

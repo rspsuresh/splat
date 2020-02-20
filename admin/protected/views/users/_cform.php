@@ -76,6 +76,7 @@
             <?php echo $form->labelEx($model,'last_name'); ?>
         </div>
         <div class="col-lg-8 padzero">
+            <input type="hidden" name="Users[role]" value="1">
             <?php echo $form->textField($model,'last_name',array('size'=>60,'maxlength'=>255,'placeholder'=>'Last Name')); ?>
             <?php echo $form->error($model,'last_name'); ?>
         </div>
@@ -128,9 +129,9 @@
                         <td><?=$val['email']?></td>
                     </tr>
                 <?php } } else{  ?>
-                <tr>
-                    <td colspan="4" class="text-center"><b>No Staff in this Course</b></td>
-                </tr>
+<!--                <tr>-->
+<!--                    <td colspan="4" class="text-center"><b>No Staff in this Course</b></td>-->
+<!--                </tr>-->
             <?php } ?>
             </tbody></table>
     </div>
@@ -153,9 +154,7 @@
             "iDisplayLength": 5,
             "searching":$('#stafftbl tbody tr').length>=5?true:false,
             language: {
-                //infoEmpty: "No Inactive Course found.",
-                emptyTable: "No Result found.",
-                //zeroRecords: "No Inactive Course found.",
+                emptyTable: "No Staffs found.",
                 "info": "Showing _START_ to _END_ of _TOTAL_ Staffs.",
             },
         });

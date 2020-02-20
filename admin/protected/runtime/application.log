@@ -3615,3 +3615,784 @@ Stack trace:
 #10 {main}
 REQUEST_URI=/splat/admin/staffreg/staff
 ---
+2020/02/20 18:23:59 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/site/index
+---
+2020/02/20 18:24:03 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/site/faculties?i=MQ==
+---
+2020/02/20 18:24:06 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/site/courses?i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 18:24:13 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=NA%3D%3D&c=Ng%3D%3D
+---
+2020/02/20 18:24:16 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 18:24:36 [error] [php] mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php:992)
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#1 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): UsersController->runAction()
+#2 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#3 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#4 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): UsersController->filterAccessControl()
+#5 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#6 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): UsersController->runActionWithFilters()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): UsersController->run()
+#9 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#10 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#11 D:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (992)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:24:36 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 18:25:44 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 18:25:49 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 18:26:15 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 18:26:21 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 18:45:14 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 18:49:57 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 18:50:08 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:50:09 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:50:12 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:50:20 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:51:22 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:51:51 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 18:52:07 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:52:08 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:52:09 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:52:12 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:53:35 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:54:02 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:55:28 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:55:53 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:56:03 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:56:18 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 18:56:34 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:57:29 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 18:57:41 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:57:55 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 18:58:03 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:58:11 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:58:15 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:58:17 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:58:19 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:59:33 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 18:59:37 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:59:47 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:59:52 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:59:54 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 18:59:55 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:00:21 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:00:31 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:00:34 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:00:36 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:01:34 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:01:41 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:01:46 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:03:12 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:03:23 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:03:25 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:03:37 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:03:46 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:03:50 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:03:52 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:04:02 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:06:04 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:06:11 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:06:20 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:06:34 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:06:47 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:08:11 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:08:16 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:08:20 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:10:27 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:10:36 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:10:46 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:10:49 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:13:07 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:13:16 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:13:18 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:13:21 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:13:22 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:14:00 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:14:02 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:14:02 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:14:02 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:14:02 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:14:03 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:14:03 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:14:10 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:16:27 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:17:14 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:17:26 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:17:28 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:20:27 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:20:37 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:20:41 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:20:44 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:20:45 [warning] [application] Failed to set unsafe attribute "role" of "Users".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (877)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (932)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/20 19:21:47 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:27:26 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:27:30 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:27:57 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:28:56 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:31:07 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:31:10 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:32:50 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:34:12 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:36:53 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:38:10 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=Ng%3D%3D&i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:38:27 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?c=Ng%3D%3D&f=NA%3D%3D&i=MQ%3D%3D
+---
+2020/02/20 19:39:08 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?c=Ng%3D%3D&f=NA%3D%3D&i=MQ%3D%3D
+---
+2020/02/20 19:39:25 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?c=Ng%3D%3D&f=NA%3D%3D&i=MQ%3D%3D
+---
+2020/02/20 19:39:55 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?c=Ng%3D%3D&f=NA%3D%3D&i=MQ%3D%3D
+---
+2020/02/20 19:39:56 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?c=Ng%3D%3D&f=NA%3D%3D&i=MQ%3D%3D
+---
+2020/02/20 19:39:58 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?c=Ng%3D%3D&f=NA%3D%3D&i=MQ%3D%3D
+---
+2020/02/20 19:39:59 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?c=Ng%3D%3D&f=NA%3D%3D&i=MQ%3D%3D
+---
+2020/02/20 19:40:24 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?c=Ng%3D%3D&f=NA%3D%3D&i=MQ%3D%3D
+---
+2020/02/20 19:40:34 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/site/courses?i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:40:52 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/site/courses?i=MQ%3D%3D&f=NA%3D%3D
+---
+2020/02/20 19:41:46 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=NA%3D%3D&c=Ng%3D%3D
+---
+2020/02/20 19:44:05 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=NA%3D%3D&c=Ng%3D%3D
+---
+2020/02/20 19:44:52 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=NA%3D%3D&c=Ng%3D%3D
+---

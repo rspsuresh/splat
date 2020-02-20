@@ -189,11 +189,17 @@ class Users extends CActiveRecord
         $criteria->order="FIELD(role,1,3,5)";
         $criteria->addCondition('status="active"');
 
+        if (isset($_GET['pagesize'])) {
+            $pagination = $_REQUEST['pagesize'];
+            Yii::app()->session['pagination'] = $_GET['pagesize'];
+        } else {
+            $pagination = yii::app()->session['pagination'];
+        }
 
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
             'pagination' => array(
-                'pageSize' => 10,
+                'pageSize' => $pagination,
             ),
         ));
     }

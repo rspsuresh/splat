@@ -11,7 +11,7 @@ body{
 	-webkit-font-smoothing: subpixel-antialiased;
 
 }
-
+.errorMessage{color:red !important;}
 a:focus {
 
 	outline: 0;

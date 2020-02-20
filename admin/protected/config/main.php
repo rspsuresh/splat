@@ -79,5 +79,6 @@ return array(
     'params'=>array(
         // this is used in contact page
         'adminEmail'=>'webmaster@example.com',
+        'Pagination'=>[10=>10,20=>20,50=>50]
     ),
 );

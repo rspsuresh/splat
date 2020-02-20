@@ -126,7 +126,8 @@
                 </thead>
                 <tbody>
                   <?php foreach ($model as $key => $models) {?>
-                  <tr>
+                  <tr data-href="<?php echo Yii::app()->createUrl('users/cadmin',array('i'=>$_GET['i'],
+                                                'f'=>$_GET['f'], 'c'=>trim(base64_encode($models->id)))); ?>">
                     <td>
                       <?php echo ucwords($models->course_type . " " . $models->name); ?>
                     </td>
@@ -555,6 +556,10 @@ echo CHtml::tag('button', [
         "info": "Showing _START_ to _END_ of _TOTAL_ Inactive Courses",
       },
     });
+$('#course_tbl tbody tr td').not(":last-child").click(function(){
+    var url=$(this).closest('tr').attr('data-href');
+    window.location.assign(url);
+});
     $('.dataTables_filter input').addClass('course-field');
     $('.datepicker').each(function(){
       $(this).datepicker({

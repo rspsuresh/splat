@@ -50,10 +50,14 @@ $('.search-form form').submit(function(){
                 'model'=>$model,
             )); ?>
         </div><!-- search-form -->
-
         <?php $this->widget('zii.widgets.grid.CGridView', array(
             'id'=>'users-grid',
             'dataProvider'=>$model->search(),
+            'summaryText'=>'<div class="row"><div class="col-lg-6" style="text-align: left">Show '.CHtml::dropDownList('listname', '',
+                Yii::app()->params['Pagination'], array("data-md-selectize" => true, "id" => "selectf",
+                'class' => 'show_page',
+                    'options' => array(yii::app()->session['pagination'] =>
+                        array('selected' => 'selected')))).' users per page </div><div class="col-lg-6">Displaying {start}-{end} of {count} result(s).</div></div>',
             'filter'=>$model,
             'columns'=>array(
                 array(
@@ -69,7 +73,7 @@ $('.search-form form').submit(function(){
                 'last_name',
                 'username',*/
                 array(
-                    'header' => 'First Name',
+                    'name' => 'first_name',
                     'filter' => CHtml::textField('Users[first_name]', $model->first_name,array('placeholder'=>'Enter first name','class'=>'form-control')),
                     'value'=>function($data)
                     {
@@ -77,7 +81,7 @@ $('.search-form form').submit(function(){
                     },
                 ),
                 array(
-                    'header' => 'Last Name',
+                    'name' => 'last_name',
                     'filter' => CHtml::textField('Users[last_name]', $model->last_name,array('placeholder'=>'Enter last name','class'=>'form-control')),
                     //'value'=>'$data->courses->name',
                     'value'=>function($data)
@@ -86,7 +90,7 @@ $('.search-form form').submit(function(){
                     },
                 ),
                 array(
-                    'header' => 'Email',
+                    'name' => 'email',
                     'filter' => CHtml::textField('Users[email]', $model->username,array('placeholder'=>'Enter  email','class'=>'form-control')),
                     //'value'=>'$data->courses->name',
                     'value'=>function($data)
@@ -106,7 +110,7 @@ $('.search-form form').submit(function(){
                     },
                 ),
                 array(
-                    'header'=>'Role',
+                    'name'=>'role',
                     'filter' => CHtml::dropDownlist('Users[role]', $model->role, CHtml::listData(Userrole::model()->findAll("s_name!='Student'"), "id", "s_name"), array('empty'=>'select','class'=>'form-control')),
                     'value'=>'$data->roles->s_name'
                 ),
@@ -148,6 +152,12 @@ $('.search-form form').submit(function(){
         });
         var data=$.param($(inputSelector));
         $.fn.yiiGridView.update(id, {data: data});
+        return false;
+    });
+    $(document).on('change', '#selectf',function() {
+        $('#users-grid').yiiGridView('update', {
+            data:'pagesize='+$(this).val()
+        });
         return false;
     });
     function searchdiv()

@@ -1,4 +1,4 @@
-<?php /* @var $this Controller */ ?>
+﻿<?php /* @var $this Controller */ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +27,8 @@
     $cs->registerCoreScript('jquery');?>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap.min.js"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/datetimepicker/datetimepicker.js"></script>
-
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.js"></script>
 </head>
 <style>
     table tbody
@@ -119,9 +120,7 @@
         </div>
     </div>
 </header>
-
 <?php echo $content; ?>
-
 <div class="clear"></div>
 <footer class="footer-sec col-xs-12 col-lg-12 col-sm-12">
     <div class="container">
@@ -148,6 +147,9 @@
         }).on('hide.bs.collapse', function(){
             $(this).parent().find('i').removeClass("fa fa-angle-down").addClass("fa fa-angle-right");
         });
+    });
+    $(document).ready(function() {
+        $('.summernote').summernote();
     });
 </script>
 <?php

@@ -22,7 +22,7 @@
 								<?php echo $form->labelEx($model,'question'); ?>
 							</div>
 							<div class="col-lg-8 padzero">
-								<?php echo $form->textArea($model,'question', array('placeholder'=>'Question')); ?>
+								<?php echo $form->textArea($model,'question', array('placeholder'=>'Question','class'=>'summernote')); ?>
 								<?php echo $form->error($model,'question'); ?>
 							</div>
 						</div>
