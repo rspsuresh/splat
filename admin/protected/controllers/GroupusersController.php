@@ -33,7 +33,7 @@ class GroupusersController extends Controller
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
                 'actions'=>array('create','update', 'admin','delete',
-                    'projectgroups','groupasses','viewusers','deleteasses','unlockusers','usercheck','download','pasteusers','sendremainder'),
+                    'projectgroups','groupasses','viewusers','deleteasses','unlockusers','usercheck','download','pasteusers','sendremainder','downloadreport'),
                 'users'=>array('@'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -196,15 +196,12 @@ class GroupusersController extends Controller
             if(is_uploaded_file($_FILES['csv_file']['tmp_name'])) {
                 // echo $_FILES['csv_file']['tmp_name'];die;
                 $csvFile = fopen($_FILES['csv_file']['tmp_name'], 'r');
-
                 //skip first line
                 $header = fgetcsv($csvFile);
-                // echo "<pre>";print_r($header);die;
                 while (($line = fgetcsv($csvFile)) !== FALSE) {
                     $all_rows[] = array_combine($header, $line);
                 }
                 fclose($csvFile);
-                //echo "<pre>";print_r($all_rows);die;
                 $uniquegrouparray=array_filter(array_unique(array_column($all_rows,$header[count($header) -2])));
                 $courseid=base64_decode($_GET['c']);
                 if(is_array($uniquegrouparray) && !empty($uniquegrouparray))
@@ -222,17 +219,12 @@ class GroupusersController extends Controller
                             if($grpmodels->save(false))
                             {
                                 $projectgroupp=ProjectGroups::model()->find("group_id=".$grpmodels->id." and course_id=".$_GET['p']);
-                                //echo "<pre>";print_r($projectgroupp);
                                 if(count($projectgroupp) <=0)
                                 {
                                     $prjmodelgrp=new ProjectGroups();
                                     $prjmodelgrp->course_id=$_GET['p'];
                                     $prjmodelgrp->group_id=$grpmodels->id;
-                                    if($prjmodelgrp->save(false))
-                                    {
-
-                                    }
-                                    else
+                                    if(!$prjmodelgrp->save(false))
                                     {
                                         echo "<pre>";print_r($prjmodelgrp->getErrors());
                                     }
@@ -240,10 +232,8 @@ class GroupusersController extends Controller
                             }
                         }
                     }
-
                     foreach($all_rows as $key =>$values)
                     {
-
                         if(!empty($all_rows))
                         {
                             $explodeusrdata=explode('@',$values['Email']);
@@ -277,109 +267,8 @@ class GroupusersController extends Controller
                                 $this->mappingusers($usersmodel->id,$values[$header[count($header) -2]],$courseid);
                             }
                         }
-
-
                     }
-
                 }
-
-//                if (!empty($all_rows)) {
-//                    if(isset($all_rows[0]['Username']) && isset($all_rows[0]['Email']) && isset($all_rows[0]['First Name']) && isset($all_rows[0]['Last Name']))
-//                    {
-//                        foreach ($all_rows as $key => $val) {
-//                            //while(($line = fgetcsv($csvFile)) !== FALSE){
-//                            $users = Users::model()->find("(username='" . $val['Username'] . "' or email='" . $val["Email"] . "') and status='active'");
-//                            if (count($users) == 0) {
-//                                $users = new Users();
-//                                $emailexplode=explode('@',$val['Email']);
-//                                $users->username = $emailexplode[0];
-//                                $users->first_name = $val['First Name'];
-//                                $users->last_name = $val['Last Name'];
-//                                $users->email = $val['Email'];
-//                                $users->course_id = base64_decode($_GET['c']);
-//                                $users->fac_id = base64_decode($_GET['f']);
-//                                $users->institution_id = base64_decode($_GET['i']);
-//                                $password = bin2hex(openssl_random_pseudo_bytes(4));
-//                                $users->password = $password;
-//                                $users->role = '5';
-//                                $users->created_date = date('Y-m-d h:i:s');
-//                                $users->updated_date = date('Y-m-d h:i:s');
-//
-//                                if ($users->save(false)) {
-//                                    //echo "ffsdfdsf";die;
-//                                    $savecount = $savecount + 1;
-//                                    $UserFaculties = new UserFaculties();
-//                                    $UserFaculties->user_id = $users->id;
-//                                    $UserFaculties->faculty_id = base64_decode($_GET['f']);
-//                                    $UserFaculties->save(false);
-//
-//                                    $UserCourses = new UserCourses();
-//                                    $UserCourses->user_id = $users->id;
-//                                    $UserCourses->course_id = base64_decode($_GET['c']);
-//                                    $UserCourses->save(false);
-//
-//                                    //$to = $users->username;
-//                                    $course_name = $users->courses->name;
-//
-//                                    $headers = "MIME-Version: 1.0" . "\r\n";
-//                                    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-//                                    $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
-//                                    $subject = "Splat User registration";
-//                                    $url = $_SERVER['SERVER_NAME'] . "/site/login";
-//                                    $to = $users->email;
-//                                    $message = 'Dear ' . $users->first_name . '<br/><br/>You have been added to the
-//                                 Bournemouth University SPLAT website for the course ' . $course_name . '.
-//                                 You can now login to assess your peers.<br/><br/>Your credentials are:<br/>
-//                                 Website: ' . $url . '<br/>
-//                                 Username: ' . $to . '<br/>
-//                                 Password: ' . $users->password;
-//                                    mail($to, $subject, $message, $headers);
-//                                }
-//                                else
-//                                {
-//                                    echo "<pre>";print_r($users->getErrors());die;
-//                                }
-//                            }
-//                            else {
-//                                $facultymodel=UserFaculties::model()->findByAttributes(array('user_id'=>$users->id,'faculty_id'=>base64_decode($_GET['c'])));
-//                                $coursemodel=UserCourses::model()->findByAttributes(array('user_id'=>$users->id,'course_id'=>base64_decode($_GET['c'])));
-//                                if(empty($facultymodel) && empty($coursemodel))
-//                                {
-//                                    $UserFaculties = new UserFaculties();
-//                                    $UserFaculties->user_id = $users->id;
-//                                    $UserFaculties->faculty_id = base64_decode($_GET['f']);
-//                                    $UserFaculties->save(false);
-//
-//                                    $UserCourses = new UserCourses();
-//                                    $UserCourses->user_id = $users->id;
-//                                    $UserCourses->course_id = base64_decode($_GET['c']);
-//                                    $UserCourses->save(false);
-//                                }
-//                                else{
-//                                    $unsavecount = $unsavecount+1;
-//                                }
-//
-//                            }
-//                        }
-//                        fclose($csvFile);
-//                        if($savecount >0)
-//                        {
-//                            Yii::app()->user->setFlash('success',$savecount."- new users has been created.");
-//                        }
-//                        if($unsavecount >0)
-//                        {
-//                            Yii::app()->user->setFlash('error',$unsavecount." - Existing users have been assigned to this course.");
-//                        }
-//
-//                        $this->refresh();
-//                    }
-//                    else
-//                    {
-//                        Yii::app()->user->setFlash('error','Fields are not matched.please try after some time');
-//                    }
-//
-//                }
-
             }
         }
 
@@ -622,14 +511,11 @@ class GroupusersController extends Controller
             $list= Yii::app()->db->createCommand('SELECT GROUP_CONCAT(user_id) as user FROM `group_users` where group_id='.$id)->queryAll();
             $data=$list[0]['user'];
 
-            //echo $data;die;
-
             $cond=(isset($list[0]['user']))? "and A.user_id not in($data)":'';
             $sql='SELECT A.*,concat(first_name," ",last_name) as name FROM `user_courses` as A left join users as B on B.id=A.user_id
                              WHERE A.course_id='.$_POST['course'].' and B.role=5 and B.status="active" '. $cond;
             $result=Yii::app()->db->CreateCommand($sql)->QueryAll();
             $html='';
-            //echo "<pre>";print_r($result);die;
             if(!empty($result))
             {
                 foreach($result as $val)
@@ -654,12 +540,9 @@ class GroupusersController extends Controller
             $array_userid=array_unique($test);
             $str_userids=!empty($array_userid)?implode(',',$array_userid):0;
 
-
             $usermodel=Userdetails::model()->with('user')->findAll(
                 array('condition'=>'course='.$_REQUEST['c'].' and user.status="active" and user.role=5 and user.id  not in ('.$str_userids.')', 'order'=>'t.grp_id asc'));
-
             //echo "<pre>";print_r($usermodel);die;
-
             foreach($usermodel as $val)
             {
                 $to =trim($val->user->email);
@@ -679,11 +562,103 @@ class GroupusersController extends Controller
 				Password: '.$password;
 
                 $message.='<br><p>Kind regards</p><br><b>Splat Team</b>';
-                mail($to,$subject,$message,$headers);
+                if(Yii::app()->params['live'] ==true){
+                    mail($to,$subject,$message,$headers);
+                }
             }
 
             echo "Y";die;
         }
+    }
 
+    public function actionDownloadreport()
+    {
+         if(isset($_GET['p']) && isset($_GET['c']))
+         {
+             $project=Projects::model()->find("id=".$_GET['p']);
+             $test="";
+             $html='<table id="resulttable" class="table display" border = \'1\' style="width:100%">
+<thead><tr><th scope="col">Username</th><th>Email</th><th>First Name</th><th>Last Name</th>';
+             $html.='<th>'.$project->name.' results</th>';
+             $html.='<th>Group Name</th>';
+             $html.='<th>Team Mean</th>';
+             $html.='<th>Late Submission</th>';
+//        $html.='<th>Late Submission</th></tr>';
+             $html.='<th>End-of-Line Indicator</th></tr></thead>';
+             $html.="<tbody>";
+
+             $usermodelsql="SELECT user_id,users.first_name,users.last_name,users.username as username
+                  FROM `user_courses` 
+                  join users on user_courses.user_id=users.id and users.role=5 and users.status='active'
+                  WHERE user_courses.`course_id` = ".base64_decode($_GET["c"]);
+
+             $usermodel=Userdetails::model()->with('user')->findAll( array('condition'=>'course='.base64_decode($_GET["c"]).' and user.status="active" and user.role=5',
+                 'order'=>'t.grp_id asc'
+             ));
+             $courseid=base64_decode($_GET['c']);
+
+             $sqldcque="SELECT GROUP_CONCAT(question_id) as question 
+                                   FROM `delete_custom_question` WHERE `course_id` =$courseid";
+             $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
+             $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
+             $questions=Questions::model()->findAll('faculty='.base64_decode($_GET['f']).' and q_type="R"
+                         and course='.base64_decode($_GET['c']).' and status="active" or type="default" and id NOT IN ('.$ids.') ');
+             $dividedcount=count($questions);
+
+             foreach($usermodel as $key =>$val)
+             {
+
+                 $userdetails=Userdetails::model()->find("course=".$courseid." and user_id=".$val['user_id']);
+                 $indvmeanscr=Yii::app()->db->Createcommand('SELECT sum(A.value)/count(*) as avg  FROM `assess` as A left join questions as B
+                                                on B.id=A.question WHERE A.`to_user` ='.$val['user_id'].' and B.q_type="R" and A.grp_id='.$val->groupname->id)->queryRow();
+
+                 if($userdetails)
+                 {
+                     $grpuser=Userdetails::model()->with('user')->findAll('grp_id='.$val->groupname->id.' and user.status="active" and t.course='.$courseid);
+                     foreach ($grpuser as $mgval) {
+                         $grpmeanscr=Yii::app()->db->Createcommand('SELECT sum(A.value)/count(*) as avg  FROM `assess` as A left join questions as B
+                                                                on B.id=A.question WHERE A.`to_user` ='.$mgval->user->id.' and B.q_type="R"  and A.grp_id='.$val->groupname->id)->queryRow();
+                         $calcular_mean[]=$grpmeanscr['avg'];
+                     }
+                     $final_mean_for_grp=array_sum($calcular_mean)/count($calcular_mean);
+                 }
+
+                 $test.="<td>".$val->user->username."</td><td>".$val->user->email."</td><td>".$val->user->first_name."</td><td>".$val->user->last_name."</td>";
+                 $resultsql="SELECT sum(value) as total,submitted_at FROM `assess`
+                 left join questions on assess.question=questions.id
+                  where to_user={$val->user->id} and (value !='' and value !=0) and assess.grp_id={$val->groupname->id}
+                   and questions.q_type='R' and  questions.status='active' 
+                  and assess.project={$_GET["p"]} 
+                 order by assess.question asc";
+                 $sumresult=Yii::app()->db->Createcommand($resultsql)->QueryAll();
+
+
+                 $valuecheck=!is_null($indvmeanscr['avg'])?round($indvmeanscr['avg'], 2):"#";
+                 $test.='<td aligh="left">'.$valuecheck.'</td>';
+
+                 $test.='<td>'.$val->groupname->name.'</td>';
+                 $test.='<td>'.round($final_mean_for_grp,2).'</td>';
+                 $calcular_mean=[];$final_mean_for_grp=0;
+
+                 $cmpsql="SELECT datediff(cast(B.assess_date as DATE),CAST(A.submitted_at AS DATE)) as diff,A.submitted_at as submitted from assess as A left join projects as B on A.project=B.id and B.status !='inactive' where A.from_user={$val->user->id} and B.id={$project->id}";
+                 $cmpsqlresult=Yii::app()->db->createCommand($cmpsql)->queryRow();
+
+
+                 if(!is_null($cmpsqlresult['submitted']))
+                     $sign=($cmpsqlresult['diff'] < 0) ?'Yes':'No';
+                 else
+                     $sign="No Response";
+
+                 $test.='<td>'.$sign.'</td>';
+                 $test.='<td>#</td>';
+                 $html.="<tr>".$test."</tr>";
+                 $test="";
+             }
+
+             $html.='</table>';
+             $this->render('/site/downloadreport',array(
+                 'html'=>$html
+             ));
+         }
     }
 }

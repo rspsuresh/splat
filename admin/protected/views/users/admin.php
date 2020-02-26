@@ -117,7 +117,7 @@ $('.search-form form').submit(function(){
                 array
                 (
                     'class'=>'CButtonColumn',
-                    'template'=>'{view}{update}',
+                    'template'=>'<span>{view}</span>&nbsp<span>{update}</span>',
                     'buttons'=>array
                     (
 

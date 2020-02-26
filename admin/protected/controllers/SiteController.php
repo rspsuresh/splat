@@ -160,7 +160,7 @@ class SiteController extends Controller
             $formModel->created_by	= Yii::app()->user->id;
             $formModel->created_date= date('Y-m-d H:i:s');
             $formModel->updated_date= date('Y-m-d H:i:s');
-		$formModel->marks=$_POST['Courses']['marks'];
+		    $formModel->marks=$_POST['Courses']['marks'];
             $msg_str=$formModel->isNewRecord?"added":"updated";
             if($formModel->validate() && $formModel->save())
             {
@@ -410,8 +410,10 @@ class SiteController extends Controller
 							Website: '.$url.'<br/>
 							Username: '.$to.'<br/>
 							Password: '.$users->password;
+                            if(Yii::app()->params['live'] ==true){
+                                mail($to,$subject,$message,$headers);
+                            }
 
-                            mail($to,$subject,$message,$headers);
                         }
                     } else {
                         $UserFaculties = UserFaculties::model()->findAll('user_id='.$users->id.' and faculty_id='.base64_decode($_GET['f']));
@@ -439,8 +441,10 @@ class SiteController extends Controller
 							Website: '.$url.'<br/>
 							Username: '.$to.'<br/>
 							Password: '.$users->password;
+                            if(Yii::app()->params['live'] ==true){
+                                mail($to,$subject,$message,$headers);
+                            }
 
-                            mail($to,$subject,$message,$headers);
                         }
                     }
                 }
@@ -575,13 +579,7 @@ class SiteController extends Controller
             $deleteuser=Users::model()->findByPk($userid);
             $deleteuser->status="inactive";
             $deleteuser->update('status');
-            /*
-             $grp=GroupUsers::model()->deleteAll("user_id=".$userid);
-              $institute=InstitutionUser::model()->deleteAll("user_id=".$userid);
-             $usercourse=UserCourses::model()->deleteAll("user_id=".$userid);
-             $userfaculty=UserFaculties::model()->deleteAll("user_id=".$userid);
-            $asses=Assess::model()->deleteAll("from_user=".$userid." or to_user=".$userid);
-            */
+
 
             $message = "User has been deleted successfully";
             $msg['status'] = 'S';
@@ -633,15 +631,10 @@ class SiteController extends Controller
         {
             $model = Faculties::model()->findAll('institution='.base64_decode($i));
         }
-        //print_r(count($model));die;
         $formModel = new Faculties();
-        /* $emodels=new EmailTemplate;
-         $makemodel=new EmailTemplate;*/
         $this->pageTitle="SPLAT - Faculty";
         $formModel->institution = base64_decode($i);
         $institution = Institutions::model()->find('id='.base64_decode($i));
-        /*$emodels = EmailTemplate::model()->findAll('ins_id='.base64_decode($i));*/
-        //print_r($emodels);die;
         if(isset($_POST['Faculties'])){
             if(isset($_POST['Faculties']['id']) && $_POST['Faculties']['id']!='')
                 $formModel = Faculties::model()->find('id='.$_POST['Faculties']['id']);
@@ -656,37 +649,11 @@ class SiteController extends Controller
                 $this->refresh();
             }
         }
-        /*if(isset($_POST['EmailTemplate'])){
-            //print_r($_POST['EmailTemplate']);die;
-            if(isset($_POST['EmailTemplate']['id']) && $_POST['EmailTemplate']['id']!='')
-            {
-                $emodels = EmailTemplate::model()->find('id='.$_POST['EmailTemplate']['id']);
-                $emodels->attributes=$_POST['EmailTemplate'];
-                if($emodels->save(false))
-                {
-                    Yii::app()->user->setFlash('success','EmailTemplate has been updated successfully.');
-                    $this->refresh();
-                }
-            }
-            else{
-                $makemodel->attributes 	= $_POST['EmailTemplate'];
-                $makemodel->ins_id	= base64_decode($i);
-                $makemodel->created_date= date('Y-m-d H:i:s');
-
-                if($makemodel->validate() && $makemodel->save())
-                {
-                    Yii::app()->user->setFlash('success','EmailTemplate has been added successfully.');
-                    $this->refresh();
-                }
-            }
-        }*/
         $this->render('faculties',
             array(
                 'model' => $model,
                 'formModel' => $formModel,
                 'institution' => $institution,
-                /*'emodels'=>$emodels,
-                'makemodel'=>$makemodel*/
             )
         );
     }
@@ -930,23 +897,14 @@ class SiteController extends Controller
     {
         $this->pageTitle="SPLAT - Response";
         $projects = Projects::model()->find('id='.$id);
-        //$questions	= Questions::model()->findAll('course='.base64_decode($_GET['c']));
         $courseid=base64_decode($_GET['c']);
         $sqldcque="SELECT GROUP_CONCAT(question_id) as question 
          FROM `delete_custom_question` WHERE `course_id` =$courseid";
         $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
         $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
-        //$questions=Questions::model()->findAll('faculty='.base64_decode($_GET['f']).' and course='.base64_decode($_GET['c']).' and status="active" or type="default" and id NOT IN ('.$ids.')');
         $questions=Questions::model()->findAll('faculty='.base64_decode($_GET['f']).' and course='.base64_decode($_GET['c']).' and status="active"     and id NOT IN ('.$ids.')');
-        //echo "<pre>";print_r($question);die;
         $groupUsers = GroupUsers::model()->findAll('group_id='.$_GET['g']);
-        $this->render('responsepage',
-            array(
-                'projects' => $projects,
-                'groupUsers' => $groupUsers,
-                'questions'=> $questions
-            )
-        );
+        $this->render('responsepage', array('projects' => $projects, 'groupUsers' => $groupUsers, 'questions'=> $questions));
     }
     public function actionAssesmentchange()
     {
@@ -1001,29 +959,4 @@ class SiteController extends Controller
         }
         echo $msg;die;
     }
-    public function actionExcel()
-    {
-        $i=10;
-        $table="<table border = '1'> <tr><th>group name</th><th>firstname</th><th>lastname</th><th>spa</th><th>teamscore</th></tr>";
-        for($i=1;$i<=10;$i++)
-        {
-            $table.="<tr>
-<td>Group $i</td>
-<td>
-<p>suresh $i</p></td>
-            <td><p style='border:1px solid black;'>dsfdsfsdfdsf</p>
-             </td>
-             <td>10</td>
-             <td>20</td>
-         </tr>";
-        }
-        $table.="</table>";
-        $file="demo.xls";
-        header("Content-type: application/vnd.ms-excel");
-        header("Content-Disposition: attachment; filename=$file");
-        echo $table;die;
-    }
-
-
-
 }

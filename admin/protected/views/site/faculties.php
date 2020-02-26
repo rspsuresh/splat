@@ -1,109 +1,5 @@
-<style>
-.fa-input { font-family: FontAwesome, ‘Helvetica Neue’, Helvetica, Arial, sans-serif; }
-.note-editable card-block{width:410px;}
-.container-fluid.bg-color {
-background-color: #00B9D1 !important;
-padding:40px 0px;
-margin-bottom:22px;opacity:0.9;
-}
-.head-bg{margin-bottom:0px;}
-.bg-text{
-color: #ffffff;
-font-size: 37px;
-font-weight: bold;
-text-align: center;
-}
-.oppo-color{
-color:#5FFC7B;
-}
-.production{
-color: #fff;
-font-size: 20px;
-font-weight: bold;
-padding: 20px 0 0;
-}
-.recent {
-
-margin-top: 60px;
-padding: 0;
-}
-.font-normal{
-font-family:"Conv_helveticaneuecyr-roman" !important;
-font-weight:bold !important;
-color:#337AB7 !important;
-font-size:22px !important;
-}
-.user-assessment>p
-{font-size:20px !important;}
-.script-text h1 {
-color: #000;
-font-size: 16px !important;
-}
-.add-course
-{
-font-size: 15px !important;
-font-weight:bold;
-}
-.fullbg{
-background-image: url(/images/Asses.jpg);
-display:block;
-width:100%;
-height:500px;
-}
-.container-fluid.bg-color1 {
-background-color: rgb(242, 242, 242);
-
-margin-top: 150px;
-width: 500px;
-}
-.container-fluid.bg-color2 {
-background-color: rgb(242, 242, 242);
-
-margin-top: 15px;
-width: 610px;
-}
-.welcome
-{
-font-size: 30px;
-text-align: center;
-}
-.welcomeforp
-{
-text-align: center;
-font-size:20px
-}
-.containers >p
-{
-margin:0px !important;
-}
-.container-fluid.bg-color2>.containers
-{
-padding:5px;
-}
-.dataTables_wrapper .dataTables_filter input {
-margin-left: 0.5em;
-border: 1px solid #000 !important;
-padding: 6px 10px !important;
-border-radius: 5px !important;
-
-}
-.table thead {
-background-color: #03c6e3 !important;
-}
-.table th {
-border: 1px white solid;
-padding: 0.3em;
-color: white;
-}
-.table.dataTable thead th, table.dataTable thead td,table.dataTable.no-footer{
-border-bottom: none !important;
-}
-    tr { cursor:pointer}
-table.dataTable.no-footer{ border:1px solid #03c6e3  !important;}
-    .facnameend{border-right:1px solid #03c6e3  !important}
-    .facname{border-left:1px solid #03c6e3  !important}
-</style>
 <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>./../css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>./../css/faculty.css">
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>./../css/jquery.dataTables.min.js"></script>
 <section id="wrapper" >
 <?php  if(Yii::app()->user->getState('role')=='Staff') { ?>
@@ -223,20 +119,20 @@ echo Courses::model()->count('faculty=' .$models->id . ' and status="active"  an
 <script type="text/javascript">
 $(function() {
 $("#tblfaculty").dataTable({
-"bPaginate" : $('#tblfaculty tbody tr').length>5,
-"iDisplayLength": 5,
-"searching":$('#tblfaculty tbody tr').length>=5?true:false,
+"bPaginate" : $('#tblfaculty tbody tr').length>10,
+"iDisplayLength": 10,
+"searching":$('#tblfaculty tbody tr').length>=10?true:false,
 language: { infoEmpty: "No Faculties found.",
 emptyTable: "No Faculties found.",
 zeroRecords: "No Faculties found.",
 "info": "Showing _START_ to _END_ of _TOTAL_ faculties",
 },
 });
-$('#tblfaculty tbody tr td').not(":last-child").click(function(){
+$('.dataTables_filter input').addClass('course-field');
+});
+$(document).on('click','#tblfaculty tbody tr td:not(":last-child")',function(){
     var url=$(this).closest('tr').attr('data-href');
     window.location.assign(url);
-});
-$('.dataTables_filter input').addClass('course-field');
 });
 function ConfirmDelete(id,type)
 {

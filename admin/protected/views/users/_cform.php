@@ -6,6 +6,7 @@
         border: 1px solid #1CBBB4;
         padding: 10px;
         margin-bottom: 15px;
+        margin-top:20px;
     }
     .table thead {
         background-color: #03c6e3 !important;
@@ -33,15 +34,20 @@
 </style>
 <div class="form">
     <?php
+    $action_boolean=Yii::app()->controller->action->id =='staffusers'?true:false;
     $form=$this->beginWidget('CActiveForm', array(
         'id'=>'users-form',
-        'enableClientValidation'=>true,
-        'enableAjaxValidation'=>true,
-        //'htmlOptions' => array('enctype' => 'multipart/form-data'),
-        'clientOptions'=>array(
-            'validateOnSubmit'=>true,
+        'enableAjaxValidation' => $action_boolean,
+        'enableClientValidation' => true,
+        'clientOptions' => array(
+            'validateOnSubmit' => true,
+            'validateOnChange' => false,
+            'validateOnType' => false,
+            'afterValidate' => 'js:function(form, data, hasError) { saveUserForm(form, data, hasError);}',
         ),
-    )); ?>
+    ));
+
+    ?>
     <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
         <div class="col-lg-4 padzero">
             <?php echo $form->labelEx($model,'email'); ?>
@@ -51,6 +57,9 @@
             <?php echo $form->error($model,'email'); ?>
         </div>
     </div>
+    <input type="hidden" name="course" value="<?=$_GET['c']?>">
+    <input type="hidden" name="institution" value="<?=$_GET['i']?>">
+    <input type="hidden" name="faculty" value="<?=$_GET['f']?>">
     <?php if(!$model->getIsNewRecord()) { ?>
         <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
             <div class="col-lg-4 padzero">
@@ -76,12 +85,17 @@
             <?php echo $form->labelEx($model,'last_name'); ?>
         </div>
         <div class="col-lg-8 padzero">
-            <input type="hidden" name="Users[role]" value="1">
             <?php echo $form->textField($model,'last_name',array('size'=>60,'maxlength'=>255,'placeholder'=>'Last Name')); ?>
             <?php echo $form->error($model,'last_name'); ?>
         </div>
     </div>
     <?php if(isset($_GET['c']) && $model->isNewRecord && Yii::app()->controller->action->id !="staffusers") { ?>
+        <style>
+            .save-btn{
+                margin-bottom: 10px;
+                margin-top:0px !important;
+            }
+        </style>
         <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
             <div class="col-lg-4 padzero">
                 <?php echo $form->labelEx($model,'grp'); ?>
@@ -103,7 +117,8 @@
     <?php $model->institution_id = '1'; ?>
     <?php echo CHtml::submitButton($model->isNewRecord ? 'Add' : 'Save',array('class'=>'save-btn')); ?>
     <?php $this->endWidget(); ?>
-</div><!-- form -->
+</div>
+<!-- form -->
 <?php if(Yii::app()->controller->action->id =='staffusers') {
     $course=base64_decode($_GET['c']);
     $staffuserssql="SELECT * FROM `user_courses` left join users on user_courses.user_id=users.id where users.role=3 and user_courses.course_id={$course} GROUP BY users.id";
@@ -122,16 +137,13 @@
             <tbody>
             <?php
             if(!empty($resultofstaff)) {
-                foreach ($resultofstaff as $key=>$val) { ?>
+                foreach (array_reverse($resultofstaff) as $key=>$val) { ?>
                     <tr>
                         <td><?=$key+1?></td>
                         <td><?=$val['first_name']." ".$val['last_name']?></td>
                         <td><?=$val['email']?></td>
                     </tr>
                 <?php } } else{  ?>
-<!--                <tr>-->
-<!--                    <td colspan="4" class="text-center"><b>No Staff in this Course</b></td>-->
-<!--                </tr>-->
             <?php } ?>
             </tbody></table>
     </div>
@@ -141,6 +153,53 @@
 <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>./../css/jquery.dataTables.min.css">
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>./../css/jquery.dataTables.min.js"></script>
 <script>
+    function saveUserForm(form, data, hasError) {
+        if (!hasError) {
+            var formData = new FormData($('#users-form')[0]);
+            var course='<?=$_GET['c']?>';
+            var inst='<?=$_GET['i']?>';
+            var faculty='<?=$_GET['f']?>';
+            <?php if(Yii::app()->controller->action->id =='staffusers') { ?>
+            var url = `staffusers?c=${course}&i=${inst}&f=${faculty}`;
+            <?php } else { ?>
+            var url = `ccreate?c=${course}&i=${inst}&f=${faculty}`;
+            <?php } ?>
+            $.ajax({
+                url: url,
+                type: "post",
+                data: formData,
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (result) {
+                     var obj = JSON.parse(result);
+                     if(obj.flag =='S')
+                     {
+                         $.notify("Staff added successfully", "success");
+                         setTimeout(function(){
+                             window.location.reload();
+                             }, 3000);
+                     }
+                     else if(obj.flag =='E')
+                     {
+                         $.notify("Staff is already present in this course!", "error");
+                     }
+                     else if(obj.flag =='S200')
+                     {
+                         $.notify("New Student added successfully", "success");
+                         setTimeout(function(){
+                             window.location.assign('<?=Yii::app()->createUrl('users/cadmin',array('c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f']))?>');
+                         }, 3000);
+
+                     }
+                     else if(obj.flag =='E200')
+                     {
+                         $.notify("Student is already present in this course!", "error");
+                     }
+                }
+            });
+        }
+    }
     $(function() {
         $('#Users_username,#Users_password').on('keypress', function(e) {
             if (e.which == 32)
@@ -150,9 +209,9 @@
             e.preventDefault();
         });
         $("#stafftbl").dataTable({
-            "bPaginate" : $('#stafftbl tbody tr').length>5,
-            "iDisplayLength": 5,
-            "searching":$('#stafftbl tbody tr').length>=5?true:false,
+            "bPaginate" : $('#stafftbl tbody tr').length>10,
+            "iDisplayLength": 10,
+            "searching":$('#stafftbl tbody tr').length>=10?true:false,
             language: {
                 emptyTable: "No Staffs found.",
                 "info": "Showing _START_ to _END_ of _TOTAL_ Staffs.",
@@ -162,6 +221,7 @@
     });
 </script>
 <script>
+    <?php if(Yii::app()->controller->action->id =='staffusers') { ?>
     $( document ).ready(function() {
         var course='<?=base64_decode($_GET['c'])?>'
         var options = {
@@ -184,4 +244,5 @@
         };
         $("#Users_email").easyAutocomplete(options);
     });
+<?php } ?>
 </script>

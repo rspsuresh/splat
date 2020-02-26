@@ -1,0 +1,158 @@
+#overflowneed {
+    height: 300px;
+    overflow-y:auto;}
+.fa-input { font-family: FontAwesome, ‘Helvetica Neue’, Helvetica, Arial, sans-serif; }
+.redclr,.deleteassesment:hover{
+    color:red;
+}
+.ifanchor{
+    border-bottom:2px solid #00B9CF;
+    color:#00B9CF !important;
+}
+i.fa.fa-youtube-play {
+    color: #e52d27 !important;
+    font-size:16px !important;
+}
+.view
+{
+    display:none;
+}
+.btn-bs-file{
+    position:relative;
+}
+.btn-bs-file input[type="file"]{
+    position: absolute;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    width:0;
+    height:0;
+    outline: none;
+    cursor: inherit;
+}
+.admin-manage{border-bottom:none !important; }
+.mydiv
+{    float: left;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #1CBBB4;
+    padding: 10px;}
+.user-assessment p,.m-projects
+{
+    font-size:20px !important;
+    font-weight:bold;
+}
+.script-text .current-status > p {
+    font-size: 16px;
+}
+.current-fa p > li {
+    font-size: 16px;
+}
+.current-fa .fa-trash {
+    font-size: 22px !important;
+    margin-top: 10px;
+}
+.add-course{
+    font-size:17px !important;
+    font-weight:bold;
+}
+.script-text >h1 >a {
+    font-size: 16px;
+}
+.common
+{
+    font-size: 20px !important;
+    font-weight: bold;
+}
+.m-projects-user
+{
+    color: #00B9CF;
+    font-size: 30px;
+    text-align: left;
+    margin-top: 0px;
+
+}
+.table th{
+    color:white;
+}
+.table thead{
+    background-color:#03c6e3 !important;
+}
+.info-student{
+    background-color:#03c6e3 !important;
+    color:#f0ffff;
+    padding: 8px;
+    border:none;
+    border-radius:3px;
+    margin-bottom: 3px;
+}
+.grayclass{
+    background-color: grey !important;
+}
+.info-gray {
+    background-color:grey !important;
+    color: #f0ffff;
+    padding: 8px;
+    border: none;
+    border-radius: 3px;
+}
+#loading {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: block;
+    opacity: 0.7;
+    background-color: #fff;
+    z-index: 99;
+    text-align: center;
+}
+#loading-image {
+    position: absolute;
+    top: 100px;
+    left: 691px;
+    z-index: 100;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th
+{
+    vertical-align:unset !important;
+}
+.questioners
+{
+    width: 100%;
+    float: left;
+    color: snow;padding:15px!important;
+}
+.released
+{
+    background-color: gray !important;
+}
+.irlsd
+{
+    font-size:19px !important;
+    color:darkgreen !important;
+}
+.irls
+{
+    font-size:19px !important;
+    color:white !important;
+}
+.ipend
+{
+    font-size:19px !important;
+    color:red !important;
+}
+.table th
+{
+    border: 1px white solid;
+    padding: 0.3em;
+}
+td
+{
+
+}
+.crnone
+{
+    cursor: auto !important;
+}
+.grid-view .empty{ font-style: normal !important;}

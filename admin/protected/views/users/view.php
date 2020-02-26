@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="container-fluid user-assessment">
-        <p>View Users #<?php echo $model->id; ?></p>
+        <p>View  <?=$model->role =='3'?'User':'Admin'?> #<?php echo $model->id; ?></p>
     </div>
 
     <?php $this->widget('zii.widgets.CDetailView', array(

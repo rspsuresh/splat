@@ -144,9 +144,15 @@ class UsersController extends Controller
                               <p>Username :$model->username</p>
                               <p>Password :$model->password</p>
                               <p>Link to the  site:<a href='$url'>$url</a></p>";
+
+                    if(Yii::app()->params['live'] ==true){
+                        mail($to,$subject,$message,$headers);
+                    }
+                }
+                if(Yii::app()->params['live'] ==true){
                     mail($to,$subject,$message,$headers);
                 }
-                mail($to,$subject,$message,$headers);
+
                 Yii::app()->user->setFlash('success','A new user has been created.');
                 $this->redirect(array('admin'));
             }
@@ -346,7 +352,11 @@ class UsersController extends Controller
 							Website: '.$url.'<br/>
 							Username: '.$to.'<br/>
 							Password: '.$users->password;
-                            mail($to,$subject,$message,$headers);
+                            if(Yii::app()->params['live'] ==true)
+                            {
+                                mail($to,$subject,$message,$headers);
+                            }
+
                         }
                     }
                 }

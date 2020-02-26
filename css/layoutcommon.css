@@ -1,0 +1,34 @@
+table tbody
+{
+    font-size:16px;
+}
+table th
+{
+    font-size:17px !important;
+}
+td >select>option
+{
+    font-size:21px;
+}
+ul.yiiPager a:link, ul.yiiPager a:visited
+{
+    border:solid 1px #00B9D1 !important;
+    color:#00B9D1 !important;
+}
+p a:hover
+{
+    color:#00B9CF !important;
+}
+ul.yiiPager a:link, ul.yiiPager a:visited
+{
+    border: solid 1px #9aafe5;
+    font-weight: bold;
+    color: #0e509e;
+    padding: 5px 20px;
+    text-decoration: none;
+}
+ul.yiiPager .selected a
+{
+    background: #00B9D1;
+    color: #FFFFFF !important;
+}

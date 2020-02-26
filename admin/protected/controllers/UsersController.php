@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 class UsersController extends Controller
 {
     /**
@@ -28,7 +28,7 @@ class UsersController extends Controller
         return array(
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
                 'actions'=>array('index','view', 'create', 'ccreate','update', 'admin','delete',
-                    'unauthorized','dynamiccourses','cadmin','download','deletemultiple','staffusers','mailprocess','updatestaff','getdetails'),
+                    'unauthorized','dynamiccourses','cadmin','download','deletemultiple','staffusers','mailprocess','updatestaff','getdetails','deletemultiplestudent'),
                 'users'=>array('@'),
             ),
             array('deny',  // deny all users
@@ -187,7 +187,10 @@ class UsersController extends Controller
                               <p>Paswword :$model->password</p>
                               <p>Link to the site:<a href='$studenturl'>$studenturl</a></p>";
                     }
-                    mail($to, $subject, $message, $headers);
+                    if(Yii::app()->params['live'] ==true){
+                        mail($to, $subject, $message, $headers);
+                    }
+
                     Yii::app()->user->setFlash('success', 'A new user has been created.');
                 }
                 else
@@ -214,19 +217,19 @@ class UsersController extends Controller
         $this->pageTitle="Splat - User create";
         // Uncomment the following line if AJAX validation is needed
         $this->performAjaxValidation($model);
-        if(isset($_POST['Users']))
+        if(isset($_POST['Users'])  && Yii::app()->request->isAjaxRequest)
         {
             $checkmodel=Users::model()->findByAttributes(array('email'=>$_POST['Users']['email']));
-            //print_r($checkmodel);die;
+            $user_status=['code'=>'S200','flag'=>'S200'];
             if(count($checkmodel)==0)
             {
+                $model=new Users;
                 $splitemail=explode('@',$_POST['Users']['email']);
                 $model->created_date = date('Y-m-d H:i:s');
                 $model->updated_date = date('Y-m-d H:i:s');
                 $model->username=trim($splitemail[0]);
                 $model->email=$_POST['Users']['email'];
                 $model->password=$this->randompassword();
-                //$model->password=trim($_POST['Users']['password']);
                 $model->first_name=$_POST['Users']['first_name'];
                 $model->last_name=$_POST['Users']['last_name'];
                 $model->course_id=base64_decode($_GET['c']);
@@ -242,51 +245,49 @@ class UsersController extends Controller
                     $UserCourses = new UserCourses();
                     $UserCourses->user_id = $model->id;
                     $UserCourses->course_id = base64_decode($_GET['c']);
-                    $UserCourses->save();
-                    $fMsg="A new student has been created";
-                    $fstatus="success";
+                    if($UserCourses->save()){
+                        //                    $fMsg="A new student has been created";
+//                    $fstatus="success";
 
-                    $groupusermodel=GroupUsers::model()->find("group_id=".$_POST['Users']['grp']." and user_id=".$model->id);
-                    if(empty($groupusermodel))
-                    {
-                        $groupusermodel=new GroupUsers();
-                        $groupusermodel->user_id=$model->id;
-                        $groupusermodel->group_id=$_POST['Users']['grp'];
+//                    $groupusermodel=GroupUsers::model()->find("group_id=".$_POST['Users']['grp']." and user_id=".$model->id);
+//                    if(empty($groupusermodel))
+//                    {
+                        $groupusermodel = new GroupUsers();
+                        $groupusermodel->user_id = $model->id;
+                        $groupusermodel->group_id = $_POST['Users']['grp'];
                         $groupusermodel->save(false);
-                    }
-
-                    $userdetail=Userdetails::model()->find('grp_id='.$_POST['Users']['grp'].' and course='.base64_decode($_GET['c']));
-                    if(empty($userdetail))
-                    {
-                        $userdetailmodel=new Userdetails();
-                        $userdetail->course=base64_decode($_GET['c']);
-                        $userdetail->user_id=$model->id;
-                        $userdetail->grp_id=$_POST['Users']['grp'];
+//                    }
+//
+//                    $userdetail=Userdetails::model()->find('grp_id='.$_POST['Users']['grp'].' and course='.base64_decode($_GET['c']));
+//                    if(empty($userdetail))
+//                    {
+                        $userdetail = new Userdetails();
+                        $userdetail->course = base64_decode($_GET['c']);
+                        $userdetail->user_id = $model->id;
+                        $userdetail->grp_id = $_POST['Users']['grp'];
                         $userdetail->save(false);
+                        // }
+
+                        $to = $model->email;
+                        //$to ='suresh@businessgateways.com';
+                        $firstname = $_POST['Users']['first_name'];
+                        $lastname = $_POST['Users']['lastname'];
+                        $password = $model->password;
+                        $course_name = $UserCourses->course->name;
+                        $url = $_SERVER['SERVER_NAME'] . "/site/login";
+                        $subject = "Splat User Registration";
+
+                        $headers = "MIME-Version: 1.0" . "\r\n";
+                        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                        $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
+
+                        $message = 'Dear ' . $firstname . '<br/><br/>You have been added to the Bournemouth University SPLAT website . Now you can login to assess your peers for the Course: ' . $course_name . '<br/><br/>Your credentials are:<br/>
+				Link to the site:' . $url . '<br/>
+				Username: ' . $to . '<br/>
+				Password: ' . $password;
+                        //    mail($to,$subject,$message,$headers);
                     }
                 }
-
-
-
-                $to =$model->email;
-                //$to ='suresh@businessgateways.com';
-                $firstname=$_POST['Users']['first_name'];
-                $lastname=$_POST['Users']['lastname'];
-                $password=$model->password;
-                $course_name = $UserCourses->course->name;
-                $url = $_SERVER['SERVER_NAME']."/site/login";
-                $subject = "Splat User Registration";
-
-                $headers = "MIME-Version: 1.0" . "\r\n";
-                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-                $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
-
-                $message = 'Dear '.$firstname.'<br/><br/>You have been added to the Bournemouth University SPLAT website . Now you can login to assess your peers for the Course: '.$course_name.'<br/><br/>Your credentials are:<br/>
-				Link to the site:'.$url.'<br/>
-				Username: '.$to.'<br/>
-				Password: '.$password;
-                mail($to,$subject,$message,$headers);
-
             }
             else
             {
@@ -306,16 +307,10 @@ class UsersController extends Controller
                     $UserCourses->save(false);
                 }
                 else{
-                    $fMsg="A student already exists with the email";
-                    $fstatus="error";
-                    Yii::app()->user->setFlash($fstatus,$fMsg);
-                    $this->redirect(Yii::app()->createUrl('users/cadmin',array('c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'])));
-
+                    $user_status=['code'=>'E200','flag'=>'E200'];
                 }
             }
-            Yii::app()->user->setFlash($fstatus,$fMsg);
-            $this->redirect(Yii::app()->createUrl('users/cadmin',array('c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'])));
-
+            echo json_encode($user_status,true);die;
         }
 
         $this->render('ccreate',array(
@@ -449,11 +444,33 @@ class UsersController extends Controller
      * If deletion is successful, the browser will be redirected to the 'admin' page.
      * @param integer $id the ID of the model to be deleted
      */
-    public function actionDelete($id)
+    public function actionDeletemultiplestudent()
+    {
+        $str_of_ids=$_POST['id'];
+        $arr_stu=explode(',',$str_of_ids);
+
+        foreach ($arr_stu as $val)
+        {
+          $this->actionDelete($val,$_POST);
+        }
+       echo json_encode(['status'=>200,'flag'=>'S']);die;
+    }
+    public function actionDelete($id,$data=[])
     {
 
+       if(!empty($data))
+       {
+           $crs=base64_decode($_POST['c']);
+           $ins=base64_decode($_POST['i']);
+           $fac=base64_decode($_POST['f']);
+       }
+       else{
+           $crs=base64_decode($_GET['c']);
+           $ins=base64_decode($_GET['i']);
+           $fac=base64_decode($_GET['f']);
+       }
         Yii::app()->db->createCommand('SET group_concat_max_len = 10000')->execute();
-        $sql="SELECT group_concat(t.id) as grp_id FROM `groups` `t` WHERE course_id=".base64_decode($_GET['c']);
+        $sql="SELECT group_concat(t.id) as grp_id FROM `groups` `t` WHERE course_id=$crs";
         $resultgrp=Yii::app()->db->createCommand($sql)->queryRow();
         $grpid=!empty($resultgrp['grp_id'])?$resultgrp['grp_id']:0;
 
@@ -461,11 +478,11 @@ class UsersController extends Controller
         $resultas=Yii::app()->db->createCommand($asql)->queryRow();
         $resultasid=!empty($resultas['aid'])?$resultas['aid']:0;
 
-        $usercourse=UserCourses::model()->findAllByAttributes(['user_id' => $id,'course_id'=>base64_decode($_GET['c'])]);
-        $userfaculty=UserFaculties::model()->findAllByAttributes(['user_id' => $id,'faculty_id'=>base64_decode($_GET['f'])]);
+        $usercourse=UserCourses::model()->findAllByAttributes(['user_id' => $id,'course_id'=>$crs]);
+        $userfaculty=UserFaculties::model()->findAllByAttributes(['user_id' => $id,'faculty_id'=>$fac]);
 
-        $decodefacult=base64_decode($_GET['f']);
-        $decodecourse=base64_decode($_GET['c']);
+        $decodefacult=$fac;
+        $decodecourse=$crs;
 
  if($id)
  {
@@ -494,7 +511,7 @@ class UsersController extends Controller
 
  }
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-        if(!isset($_GET['ajax']))
+        if(!isset($_GET['ajax']) && Yii::app()->Controller->action->id =='admin')
             $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
     }
 
@@ -649,8 +666,7 @@ class UsersController extends Controller
          FROM `delete_custom_question` WHERE `course_id` = $questions->course";
         $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
         $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
-        //echo base64_decode($_GET['c']);die;
-        //$question=Questions::model()->findAll('course='.base64_decode($_GET['c']).' and status="active" or type="default" and id NOT IN ('.$ids.')');
+
         $question=Questions::model()->findAll('course='.base64_decode($_GET['c']).' and status="active"  and id NOT IN ('.$ids.')');
         $existing_users = array();
         $institutionUsers = InstitutionUser::model()->findAll('institution=:i and faculty=:f and course=:c', array(':i'=>base64_decode($_GET['i']),':f'=>base64_decode($_GET['f']),':c'=>base64_decode($c)));
@@ -684,19 +700,19 @@ class UsersController extends Controller
         }
 
 
-        if(isset($_POST['Groups'])){
-            if(isset($_POST['Groups']['id']) && $_POST['Groups']['id']!='')
-                $formModel = Groups::model()->find('id='.$_POST['Groups']['id']);
-            $formModel->attributes 	= $_POST['Groups'];
-            $formModel->status = 'active';
-            $formModel->created_date= date('Y-m-d H:i:s');
-            $formModel->updated_date= date('Y-m-d H:i:s');
-            if($formModel->validate() && $formModel->save())
-            {
-                Yii::app()->user->setFlash('success','Group has been added successfully.');
-                $this->refresh();
-            }
-        }
+//        if(isset($_POST['Groups'])){
+//            if(isset($_POST['Groups']['id']) && $_POST['Groups']['id']!='')
+//                $formModel = Groups::model()->find('id='.$_POST['Groups']['id']);
+//            $formModel->attributes 	= $_POST['Groups'];
+//            $formModel->status = 'active';
+//            $formModel->created_date= date('Y-m-d H:i:s');
+//            $formModel->updated_date= date('Y-m-d H:i:s');
+//            if($formModel->validate() && $formModel->save())
+//            {
+//                Yii::app()->user->setFlash('success','Group has been added successfully.');
+//                $this->refresh();
+//            }
+//        }
 
         if(isset($_POST['Questions'])){
             if(isset($_POST['Questions']['id']) && $_POST['Questions']['id']!='')
@@ -704,6 +720,10 @@ class UsersController extends Controller
             $questions->attributes 	= $_POST['Questions'];
             $questions->q_type=$_POST['Questions']['q_type'];
             $questions->type=$_POST['Questions']['type'];
+            if(Yii::app()->user->getState('role') != "Superuser")
+            {
+            $questions->staff_id=Yii::app()->session['id'];
+            }
             if($questions->validate() && $questions->save())
             {
                 Yii::app()->user->setFlash('success','Question has been added successfully.');
@@ -715,26 +735,25 @@ class UsersController extends Controller
             }
         }
 
-        if(isset($_POST['ProjectGroups'])){
-            $projectGroup = ProjectGroups::model()->find('group_id='.$_POST['ProjectGroups']['group_id']);
-            if(count($projectGroup)<=0){
-                $projectGroups = new ProjectGroups();
-                $projectGroups->attributes 	= $_POST['ProjectGroups'];
-                if($projectGroups->validate() && $projectGroups->save())
-                {
-                    Yii::app()->user->setFlash('success','Group has been added successfully.');
-                    $this->refresh();
-                }
-            }else {
-                Yii::app()->user->setFlash('error','Sorry group already exists.');
-                $this->refresh();
-            }
-        }
+//        if(isset($_POST['ProjectGroups'])){
+//            $projectGroup = ProjectGroups::model()->find('group_id='.$_POST['ProjectGroups']['group_id']);
+//            if(count($projectGroup)<=0){
+//                $projectGroups = new ProjectGroups();
+//                $projectGroups->attributes 	= $_POST['ProjectGroups'];
+//                if($projectGroups->validate() && $projectGroups->save())
+//                {
+//                    Yii::app()->user->setFlash('success','Group has been added successfully.');
+//                    $this->refresh();
+//                }
+//            }else {
+//                Yii::app()->user->setFlash('error','Sorry group already exists.');
+//                $this->refresh();
+//            }
+//        }
 
 
         if(isset($_POST['defaultQuestions'])){
             if(isset($_POST['defaultQuestions']) && count(['defaultQuestions'])>0){
-
                 foreach($_POST['defaultQuestions'] as $dquestions){
                     $ownmdquestions = Questions::model()->findByPk($dquestions);
                     $mdquestions = Questions::model()->find("id=".$dquestions." and type='custom' and course=".base64_decode($_GET['c'])." and faculty=".base64_decode($_GET['f'])." and institution=".base64_decode($_GET['i']));
@@ -747,6 +766,7 @@ class UsersController extends Controller
                         $questions->question= $ownmdquestions->question;
                         $questions->type= 'custom';
                         $questions->q_type=$ownmdquestions->q_type;
+                        $questions->que_refid=$dquestions;
                         $questions->status= 'active';
                         if($questions->validate())
                         {
@@ -930,12 +950,12 @@ class UsersController extends Controller
         $this->pageTitle="Splat - Staff create";
         // Uncomment the following line if AJAX validation is needed
         $this->performAjaxValidation($model);
-        if(Yii::app()->request->isPostRequest)
+        if(Yii::app()->request->isPostRequest && Yii::app()->request->isAjaxRequest)
         {
+            $status=['code'=>200,'flag'=>"S"];
             if(isset($_POST['Users']))
             {
                 $checkmodel=Users::model()->findByAttributes(array('email'=>$_POST['Users']['email']));
-                //print_r($checkmodel);die;
                 if(count($checkmodel)==0)
                 {
                     $model->created_date = date('Y-m-d H:i:s');
@@ -989,8 +1009,10 @@ class UsersController extends Controller
                     $headers = "MIME-Version: 1.0" . "\r\n";
                     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
                     $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
-                    mail($to, $subject, $message, $headers);
-                    Yii::app()->user->setFlash('success', 'A new staff has been created.');
+                    if(Yii::app()->params['live'] ==true)
+                    {
+                        mail($to, $subject, $message, $headers);
+                    }
 
                 }
                 else
@@ -1011,15 +1033,10 @@ class UsersController extends Controller
                         $UserCourses->save(false);
                     }
                     else{
-                        $fMsg="A staff already exists with the email";
-                        $fstatus="error";
-                        Yii::app()->user->setFlash($fstatus,$fMsg);
-                        $this->redirect(Yii::app()->createUrl('users/cadmin',array('c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'])));
-
+                        $status=['code'=>101,'flag'=>"E"];
                     }
                 }
-                Yii::app()->user->setFlash($fstatus,$fMsg);
-                $this->redirect(Yii::app()->createUrl('users/cadmin',array('c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'])));
+                echo json_encode($status,true);die;
             }
         }
 
@@ -1036,8 +1053,11 @@ class UsersController extends Controller
 
             $mailmodel=MailSend::model()->findAll('c_id='.$_POST['course'].' and i_id='.$_POST['inst'].' and f_id='.$_POST['fac'].' and as_id='.$_POST['asses']);
             $projectupdate=Projects::model()->findByPk($_POST['asses']);
-            $projectupdate->status='current';
-            // $projectupdate->update('status');
+            if($projectupdate->status =='inactive')
+            {
+                $projectupdate->status='current';
+                $projectupdate->update('status');
+            }
             if(empty($mailmodel))
             {
 

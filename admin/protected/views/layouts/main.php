@@ -1,4 +1,4 @@
-﻿<?php /* @var $this Controller */ ?>
+<?php /* @var $this Controller */ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +11,6 @@
     <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/apple-icon-72x72.png" type="image/x-icon">
     <link href=“https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css”/>
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
-
     <!-- blueprint CSS framework -->
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection">
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print">
@@ -27,46 +26,10 @@
     $cs->registerCoreScript('jquery');?>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap.min.js"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/datetimepicker/datetimepicker.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.js"></script>
+    <link href="<?php echo Yii::app()->request->baseUrl; ?>/../css/summernote.min.css" rel="stylesheet">
+    <link href="<?php echo Yii::app()->request->baseUrl; ?>/../css/layoutcommon.css" rel="stylesheet">
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/../css/summernote.min.js"></script>
 </head>
-<style>
-    table tbody
-    {
-        font-size:16px;
-    }
-    table th
-    {
-        font-size:17px !important;
-    }
-    td >select>option
-    {
-        font-size:21px;
-    }
-    ul.yiiPager a:link, ul.yiiPager a:visited
-    {
-        border:solid 1px #00B9D1 !important;
-        color:#00B9D1 !important;
-    }
-    p a:hover
-    {
-        color:#00B9CF !important;
-    }
-    ul.yiiPager a:link, ul.yiiPager a:visited
-    {
-        border: solid 1px #9aafe5;
-        font-weight: bold;
-        color: #0e509e;
-        padding: 5px 20px;
-        text-decoration: none;
-    }
-    ul.yiiPager .selected a
-    {
-        background: #00B9D1;
-        color: #FFFFFF !important;
-    }
-
-</style>
 <body>
 <header class="header">
     <div class="container">

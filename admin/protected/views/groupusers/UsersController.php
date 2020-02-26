@@ -122,7 +122,10 @@ class UsersController extends Controller
 				Username: '.$to.'<br/>
 				Password: '.$model->password;
 
-				mail($to,$subject,$message,$headers);
+                if(Yii::app()->params['live'] ==true)
+                {
+                    mail($to,$subject,$message,$headers);
+                }
                 Yii::app()->user->setFlash('success','A new user has been created.');
                 $this->redirect(array('admin'));
             }		
@@ -174,7 +177,10 @@ class UsersController extends Controller
 				Username: '.$to.'<br/>
 				Password: '.$model->password;
 
-				mail($to,$subject,$message,$headers);
+                if(Yii::app()->params['live'] ==true)
+                {
+                    mail($to,$subject,$message,$headers);
+                }
                 Yii::app()->user->setFlash('success','A new user has been created.');
                 $this->redirect(Yii::app()->createUrl('users/cadmin',array('c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'])));
             }		

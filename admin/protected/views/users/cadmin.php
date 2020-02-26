@@ -12,163 +12,9 @@ $('.search-form form').submit(function(){
 });
 ");
 ?>
-<style>
-    .fa-input { font-family: FontAwesome, ‘Helvetica Neue’, Helvetica, Arial, sans-serif; }
-    .redclr,.deleteassesment:hover{
-        color:red;
-    }
-    .ifanchor{
-        border-bottom:2px solid #00B9CF;
-        color:#00B9CF !important;
-    }
-    i.fa.fa-youtube-play {
-        color: #e52d27 !important;
-        font-size:16px !important;
-    }
-    .view
-    {
-        display:none;
-    }
-    .btn-bs-file{
-        position:relative;
-    }
-    .btn-bs-file input[type="file"]{
-        position: absolute;
-        filter: alpha(opacity=0);
-        opacity: 0;
-        width:0;
-        height:0;
-        outline: none;
-        cursor: inherit;
-    }
-    .admin-manage{border-bottom:none !important; }
-    .mydiv
-    {    float: left;
-        width: 100%;
-        border-radius: 10px;
-        border: 1px solid #1CBBB4;
-        padding: 10px;}
-    .user-assessment p,.m-projects
-    {
-        font-size:20px !important;
-        font-weight:bold;
-    }
-    .script-text .current-status > p {
-        font-size: 16px;
-    }
-    .current-fa p > li {
-        font-size: 16px;
-    }
-    .current-fa .fa-trash {
-        font-size: 22px !important;
-        margin-top: 10px;
-    }
-    .add-course{
-        font-size:17px !important;
-        font-weight:bold;
-    }
-    .script-text >h1 >a {
-        font-size: 16px;
-    }
-    .common
-    {
-        font-size: 20px !important;
-        font-weight: bold;
-    }
-    .m-projects-user
-    {
-        color: #00B9CF;
-        font-size: 30px;
-        text-align: left;
-        margin-top: 0px;
-
-    }
-    .table th{
-        color:white;
-    }
-    .table thead{
-        background-color:#03c6e3 !important;
-    }
-    .info-student{
-        background-color:#03c6e3 !important;
-        color:#f0ffff;
-        padding: 8px;
-        border:none;
-        border-radius:3px;
-        margin-bottom: 3px;
-    }
-    .grayclass{
-        background-color: grey !important;
-    }
-    .info-gray {
-        background-color:grey !important;
-        color: #f0ffff;
-        padding: 8px;
-        border: none;
-        border-radius: 3px;
-    }
-    #loading {
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        position: fixed;
-        display: block;
-        opacity: 0.7;
-        background-color: #fff;
-        z-index: 99;
-        text-align: center;
-    }
-    #loading-image {
-        position: absolute;
-        top: 100px;
-        left: 691px;
-        z-index: 100;
-    }
-    .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th
-    {
-        vertical-align:unset !important;
-    }
-    .questioners
-    {
-        width: 100%;
-        float: left;
-        color: snow;padding:15px!important;
-    }
-    .released
-    {
-        background-color: gray !important;
-    }
-    .irlsd
-    {
-        font-size:19px !important;
-        color:darkgreen !important;
-    }
-    .irls
-    {
-        font-size:19px !important;
-        color:white !important;
-    }
-    .ipend
-    {
-        font-size:19px !important;
-        color:red !important;
-    }
-    .table th
-    {
-        border: 1px white solid;
-        padding: 0.3em;
-    }
-    td
-    {
-
-    }
-    .crnone
-    {
-        cursor: auto !important;
-    }
-</style>
+<link rel="stylesheet" href="<?=Yii::app()->request->baseUrl?>/../css/cadmin.css">
 <?php
+$user_count=$modeluser->search()->getItemCount();
 $institution = Institutions::model()->find('id='.base64_decode($_GET['i']));
 $faculty = Faculties::model()->find('id='.base64_decode($_GET['f']));
 $course = Courses::model()->find('id='.base64_decode($_GET['c']));
@@ -209,6 +55,7 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
     <div class="container-fluid">
         <div class="script-section col-xs-12 col-lg-12 col-sm-12">
             <div class="mydiv">
+                <a class="admin-btn btn btn-danger" style="visibility: hidden" onclick="deleteuser()" id="deletebutton" href="#">Delete students</a>
                 <?php $this->widget('zii.widgets.grid.CGridView', array(
                     'id'=>'users-grid',
                     'dataProvider'=>$modeluser->search(),
@@ -220,6 +67,15 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
                     'emptyText'=>"No users imported yet.",
                     'filter'=>$modeluser,
                     'columns'=>array(
+                        array(
+                            'name' => 'check',
+                            'id' => 'selectedIds',
+                            'value' => '$data["id"]',
+                            'class' => 'CCheckBoxColumn',
+                            'selectableRows' => '100',
+                            'headerHtmlOptions' => array("class" => "", 'onchange' => "fn_onclick();"),
+                            'htmlOptions' => array("class" => "", 'onchange' => "fn_onclick();"),
+                        ),
                         'email',
                         'first_name',
                         'last_name',
@@ -227,7 +83,7 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
                         (
                             "header" => "Actions",
                             'class'=>'CButtonColumn',
-                            'template'=>'{view}{update}{delete}',
+                            'template'=>'<span>{view}</span>&nbsp<span>{update}</span>&nbsp<span color="red">{delete}</span>',
                             'buttons'=>array
                             (
                                 'update' => array
@@ -286,27 +142,24 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
                 </div>
             </div>
         </div>
-
-
     </div>
-    <div class="container-fluid user-assessment">
-        <p>Manage Assesments</p>
-    </div>
-    <div class="script-section col-xs-12 col-lg-12 col-sm-12">
-        <div  class="mydiv">
-            <p class="row-inactive">
-                <span class="glyphicon glyphicon-info-sign crnone" style="color:#337ab7 !important;"></span>
-                <!--<span style="color:red">
-                    Projects can be created here and students can be grouped inside the project.A project can have multiple assessments points set while creation.
-                </span>-->
-                <span style="color:red">
+    <div id="swapping">
+        <div id="swapping_1">
+            <div class="container-fluid user-assessment">
+                <p>Manage Assesments</p>
+            </div>
+            <div class="script-section col-xs-12 col-lg-12 col-sm-12">
+                <div  class="mydiv">
+                    <p class="row-inactive">
+                        <span class="glyphicon glyphicon-info-sign crnone" style="color:#337ab7 !important;"></span>
+                        <span style="color:red">
                     Add an assessment to view the users and groups. Users are grouped automatically based on the import file.
                 </span>
-            </p>
-            <?php
-            $i=0;
-            if(count($model)>0):
-                echo ' <table class="table">
+                    </p>
+                    <?php
+                    $i=0;
+                    if(count($model)>0):
+                        echo ' <table class="table">
                                 <thead>
                                 <tr> 
                                     <th>Assessment  Name</th>
@@ -317,170 +170,205 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
                                 </tr>
                                 </thead>
                                 <tbody>';
-                foreach($model as $models):
-                    $i++;
-                    $as_complete_user=Yii::app()->db->createCommand('select count(*) as complete_users from assess where project='.$models->id.' group by from_user')->queryAll();
-                    $total_com_count=count($as_complete_user);
-                    ?>
-                    <tr >
-                        <td><a href="javascript:void(0)">
+                        foreach($model as $models):
+                            $i++;
+                            $as_complete_user=Yii::app()->db->createCommand('select count(*) as complete_users from assess where project='.$models->id.' group by from_user')->queryAll();
+                            $total_com_count=count($as_complete_user);
+                            ?>
+                            <tr >
+                                <td><a href="javascript:void(0)">
 
-                                <i class="fa fa-cog" title="edit settings" data-toggle="modal" data-target="#courseModal_<?php echo $models->id;?>"></i>
-                            </a>  <a href="javascript:void(0);" style="color:#000000;"><?php echo ucfirst($models->name);?></a><br>
-                            <?php if($models->status !='inactive') { ?>
-                                <span style="color:red">Submission : <?=$total_com_count?>/<?=$no_of_userin_course?></span>
-                            <?php } ?>
-                        </td>
-                        <td>
-                            <?php echo $models->status !='current'?ucfirst($models->status):"Live";?>
-                        </td>
-                        <td>
-                            <?=date('d-m-Y H:i',strtotime($models->assess_date))?>
-                        </td>
-                        <?php
-                        $sql_crs="SELECT user_id as user_id FROM `user_courses` 
+                                        <i class="fa fa-cog" title="edit settings" data-toggle="modal" data-target="#courseModal_<?php echo $models->id;?>"></i>
+                                    </a>  <a href="javascript:void(0);" style="color:#000000;"><?php echo ucfirst($models->name);?></a><br>
+                                    <?php if($models->status !='inactive') { ?>
+                                        <span style="color:red">Submission : <?=$total_com_count?>/<?=$no_of_userin_course?></span>
+                                    <?php } ?>
+                                </td>
+                                <td>
+                                    <?php if($model->status =='inactive') { ?>
+                                        <?php echo "Draft"?>
+                                    <?php } else { ?>
+                                    <?php echo $models->status !='current'?ucfirst($models->status):"Live";?>
+                                    <?php } ?>
+                                </td>
+                                <td>
+                                    <?=date('d-m-Y H:i',strtotime($models->assess_date))?>
+                                </td>
+                                <?php
+                                $sql_crs="SELECT user_id as user_id FROM `user_courses` 
                   join users on user_courses.user_id=users.id and users.role=5 and users.status='active'
                   WHERE user_courses.`course_id` = ".base64_decode($_GET['c']);
-                        $countcourseuser=Yii::app()->db->createCommand($sql_crs)->queryAll();
-                        $countcourseuser=count($countcourseuser);
-                        $mailsendtowardscourseandassessment=MailSend::model()->count(array(
-                                                                                         'condition'=>'c_id='.base64_decode($_GET['c']).' and as_id='.$models->id,
-                                                                                         'group'=>'as_id,u_id'));
+                                $countcourseuser=Yii::app()->db->createCommand($sql_crs)->queryAll();
+                                $countcourseuser=count($countcourseuser);
+                                $mailsendtowardscourseandassessment=MailSend::model()->count(array(
+                                    'condition'=>'c_id='.base64_decode($_GET['c']).' and as_id='.$models->id,
+                                    'group'=>'as_id,u_id'));
 
-                        $countdata=count(Userdetails::model()->findAll('course='.base64_decode($_GET['c'])))
-                            -
-                            count(MailSend::model()->findAll("c_id=".base64_decode($_GET['c'])." and as_id=".$models->id));
-                        $countdatafinal=($countdata  >1)?$countdata:0;
-                        ?>
-                        <td>
-                            <?php if($mailsendtowardscourseandassessment==0) {?>
-                                <button class="info-student release" onclick="mailprocess(<?=base64_decode($_GET['c'])?>,<?=base64_decode($_GET['i'])?>,<?=base64_decode($_GET['f'])?>,<?=$models->id?>)"><i class="fa fa-envelope-o irls" aria-hidden="true"></i> Release to students  <span>(<?=$countcourseuser?>)</span>
-                                </button>
-                            <?php } else if($mailsendtowardscourseandassessment ==$countcourseuser ||  $mailsendtowardscourseandassessment > $countcourseuser) { ?>
-                                <button class="info-student released"><i class="fa fa-check irlsd" aria-hidden="true"></i> Released to students<span></span>
-                                </button>
-                            <?php } else { ?>
-                                <?php if($models->status !='completed'){ ?>
-                                    <button class="info-student pendingrelease" onclick="mailprocess(<?=base64_decode($_GET['c'])?>,<?=base64_decode($_GET['i'])?>,<?=base64_decode($_GET['f'])?>,<?=$models->id?>)"><i class="fa fa-clock-o ipend" aria-hidden="true"></i> Pending to students<span>(<?=$countcourseuser-$mailsendtowardscourseandassessment?>)</span>
-                                    </button>
-                                <?php } else {  ?>
+                                $countdata=count(Userdetails::model()->findAll('course='.base64_decode($_GET['c'])))
                                     -
-                                <?php } ?>
-                            <?php } ?>
+                                    count(MailSend::model()->findAll("c_id=".base64_decode($_GET['c'])." and as_id=".$models->id));
+                                $countdatafinal=($countdata  >1)?$countdata:0;
+                                ?>
+                                <td>
+                                    <?php
+                                    if($user_count >0) {
+                                        if($mailsendtowardscourseandassessment==0) {?>
+                                            <button class="info-student release"
+                                                    data-status="<?=strtolower($models->status)?>"
+                                                    onclick="mailprocess(<?=base64_decode($_GET['c'])?>,<?=base64_decode($_GET['i'])?>,<?=base64_decode($_GET['f'])?>,<?=$models->id?>,this)">
+                                                <i class="fa fa-envelope-o irls" aria-hidden="true"></i> Release to students  <span>(<?=$countcourseuser?>)</span>
+                                            </button>
 
-                            <?php if($models->status =='current'){ ?>
-                                <button onclick="sendremainder(<?=base64_decode($_GET['c'])?>,<?=base64_decode($_GET['i'])?>,<?=base64_decode($_GET['f'])?>,<?=$models->id?>)"
-                                        class="info-student"><i class="fa fa-paper-plane"  style="color:white" aria-hidden="true"></i>
-                                    Send remainder
-                                </button>
-                            <?php } ?>
-                        </td>
-                        <td>
-                            <a  href="<?php echo Yii::app()->createUrl('groupusers/groupasses',
-                                                                       array('id'=>$models->id,'c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'],'p'=>$models->id));?>">
-                                <button class="info-student"><i class="fa fa-eye" style="color:white" aria-hidden="true"></i> View</button></a>
-                            <a  class="download" title="Download responses"
-                                data-status="<?=$models->status?>"
-                                data-projectname="<?=$models->name?>"
-                                data-project='<?=$models->id?>'>
-                                <button  class="info-student"><i class="fa fa-download" style="color:white" aria-hidden="true"></i> Download</button>
-                            </a>
-                        </td>
-                    </tr>
-                    <div class="modal fade" id="courseModal_<?php echo $models->id;?>" role="dialog">
-                        <div class="modal-dialog">
-                            <!-- Modal content-->
-                            <div class="modal-content col-xs-12 col-lg-12 col-sm-12">
-                                <div class="modal-header col-lg-12">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title text-center">Assesments</h4>
-                                </div>
-                                <div class="model-form col-lg-12 col-xs-12 col-sm-12 form">
-                                    <?php $form=$this->beginWidget('CActiveForm', array(
-                                        'id'=>'course-form'.$models->id,
-                                        'enableClientValidation'=>true,
-                                        'clientOptions'=>array(
-                                            'validateOnSubmit'=>true,
-                                        ),
-                                    )); ?>
-                                    <?php echo $form->hiddenField($models,'id'); ?>
-                                    <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
-                                        <div class="col-lg-4 padzero">
-                                            <?php echo $form->labelEx($models,'name'); ?>
-                                        </div>
-                                        <div class="col-lg-8 padzero">
-                                            <?php echo $form->textField($models,'name', array('placeholder'=>'Name')); ?>
-                                            <?php echo $form->error($models,'name'); ?>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
-                                        <div class="col-lg-4 padzero">
-                                            <?php echo $form->labelEx($models,'description'); ?>
-                                        </div>
-                                        <div class="col-lg-8 padzero">
-                                            <?php echo $form->textarea($models,'description', array('placeholder'=>'Description')); ?>
-                                            <?php echo $form->error($models,'description'); ?>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
-                                        <div class="col-lg-4 padzero">
-                                            <?php echo $form->labelEx($models,'status'); ?>
-                                        </div>
-                                        <div class="col-lg-8 padzero formradio">
-                                            <?php echo $form->radioButtonList($models,'status',
-                                                                              array('inactive'=>'Draft','completed'=>'Completed','current'=>'Live'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
-                                            <?php echo $form->error($models,'status'); ?>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
-                                        <div class="col-lg-4 padzero">
-                                            <label for="Projects_assess_date" class="required">Assessment Due date <span class="required">*</span></label>
-                                        </div>
-                                        <div class="col-lg-8 padzero">
-                                            <?php
-                                            $models->assess_date=date('d-m-Y H:i:s',strtotime($models->assess_date));
-                                            echo $form->textField($models,'assess_date', array('placeholder'=>'yyyy-mm-dd','class'=>'datepickerp')); ?>
-                                            <?php echo $form->error($models,'assess_date'); ?>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
-                                        <div class="col-lg-4 padzero">
-                                            <?php $course=base64_decode($_GET['c']);?>
-                                            <a class="deleteassesment" style="cursor: pointer" onclick="ConfirmDelete('<?php echo $models->id ?>',1,'<?=$course?>')">
-                                                <i class="fa fa-trash"></i>
-                                                <b>Delete Assessment</b>
-                                            </a>
+                                        <?php } else if($mailsendtowardscourseandassessment ==$countcourseuser ||  $mailsendtowardscourseandassessment > $countcourseuser) { ?>
+                                            <button class="info-student released" data-status="<?=strtolower($models->status)?>">
+                                                <i class="fa fa-check irlsd" aria-hidden="true"></i>
+                                                Released to students
+                                            </button>
+                                        <?php } else { ?>
+                                            <?php if($models->status !='completed'){ ?>
+                                                <button class="info-student pendingrelease"
+                                                        data-status="<?=strtolower($models->status)?>"
+                                                        onclick="mailprocess(<?=base64_decode($_GET['c'])?>,<?=base64_decode($_GET['i'])?>,<?=base64_decode($_GET['f'])?>,<?=$models->id?>,this)">
+                                                    <i class="fa fa-clock-o ipend" aria-hidden="true"></i>
+                                                    Pending to students<span>
+                                                        (<?=$countcourseuser-$mailsendtowardscourseandassessment?>)
+                                        </span>
+                                                </button>
+                                            <?php } else {  ?>
+                                                -
+                                            <?php } ?>
+                                        <?php } ?>
+                                        <?php if($models->status =='current'){ ?>
+                                            <button
+                                                    data-status="<?=strtolower($models->status)?>"
+                                                    onclick="sendremainder(<?=base64_decode($_GET['c'])?>,<?=base64_decode($_GET['i'])?>,<?=base64_decode($_GET['f'])?>,<?=$models->id?>,this)"
+                                                    class="info-student">
+                                                <i class="fa fa-paper-plane"  style="color:white" aria-hidden="true"></i>
+                                                Send remainder
+                                            </button>
+                                        <?php } } else {  $emty_cnt='<button class="btn btn-danger">
+                                    No users found in this course
+                                </button>';
+                                        echo $emty_cnt;
+                                        ?>
 
+                                    <?php } ?>
+                                </td>
+                                <td>
+                                    <?php if($user_count >0) { ?>
+                                        <a  href="<?php echo Yii::app()->createUrl('groupusers/groupasses',
+                                            array('id'=>$models->id,'c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'],'p'=>$models->id));?>">
+                                            <button class="info-student"><i class="fa fa-eye" style="color:white" aria-hidden="true"></i> View</button></a>
+                                        <a  class="download1" title="Download responses" target="_blank"
+                                            href="<?=Yii::app()->createUrl('groupusers/Downloadreport',array('id'=>$models->id,'c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'],'p'=>$models->id))?>"
+                                            data-status="<?=$models->status?>"
+                                            data-projectname="<?=$models->name?>"
+                                            data-project='<?=$models->id?>'>
+                                            <button  class="info-student">
+                                                <i class="fa fa-download" style="color:white" aria-hidden="true"></i>
+                                                Download</button>
+                                        </a>
+                                    <?php } else  { echo $emty_cnt ?>
+                                    <?php }  ?>
+                                </td>
+                                <div class="modal fade" id="courseModal_<?php echo $models->id;?>" role="dialog">
+                                    <div class="modal-dialog">
+                                        <!-- Modal content-->
+                                        <div class="modal-content col-xs-12 col-lg-12 col-sm-12">
+                                            <div class="modal-header col-lg-12">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title text-center">Assesments</h4>
+                                            </div>
+                                            <div class="model-form col-lg-12 col-xs-12 col-sm-12 form">
+                                                <?php $form=$this->beginWidget('CActiveForm', array(
+                                                    'id'=>'course-form'.$models->id,
+                                                    'enableClientValidation'=>true,
+                                                    'clientOptions'=>array(
+                                                        'validateOnSubmit'=>true,
+                                                    ),
+                                                )); ?>
+                                                <?php echo $form->hiddenField($models,'id'); ?>
+                                                <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
+                                                    <div class="col-lg-4 padzero">
+                                                        <?php echo $form->labelEx($models,'name'); ?>
+                                                    </div>
+                                                    <div class="col-lg-8 padzero">
+                                                        <?php echo $form->textField($models,'name', array('placeholder'=>'Name')); ?>
+                                                        <?php echo $form->error($models,'name'); ?>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
+                                                    <div class="col-lg-4 padzero">
+                                                        <?php echo $form->labelEx($models,'description'); ?>
+                                                    </div>
+                                                    <div class="col-lg-8 padzero">
+                                                        <?php echo $form->textarea($models,'description', array('placeholder'=>'Description')); ?>
+                                                        <?php echo $form->error($models,'description'); ?>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
+                                                    <div class="col-lg-4 padzero">
+                                                        <?php echo $form->labelEx($models,'status'); ?>
+                                                    </div>
+                                                    <div class="col-lg-8 padzero formradio">
+                                                        <?php echo $form->radioButtonList($models,'status',
+                                                            array('inactive'=>'Draft','completed'=>'Completed','current'=>'Live'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
+                                                        <?php echo $form->error($models,'status'); ?>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
+                                                    <div class="col-lg-4 padzero">
+                                                        <label for="Projects_assess_date" class="required">Assessment Due date <span class="required">*</span></label>
+                                                    </div>
+                                                    <div class="col-lg-8 padzero">
+                                                        <?php
+                                                        $models->assess_date=date('d-m-Y H:i:s',strtotime($models->assess_date));
+                                                        echo $form->textField($models,'assess_date', array('placeholder'=>'yyyy-mm-dd','class'=>'datepickerp')); ?>
+                                                        <?php echo $form->error($models,'assess_date'); ?>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
+                                                    <div class="col-lg-4 padzero">
+                                                        <?php $course=base64_decode($_GET['c']);?>
+                                                        <a class="deleteassesment" style="cursor: pointer" onclick="ConfirmDelete('<?php echo $models->id ?>',1,'<?=$course?>')">
+                                                            <i class="fa fa-trash"></i>
+                                                            <b>Delete Assessment</b>
+                                                        </a>
+
+                                                    </div>
+                                                </div>
+                                                <?php echo CHtml::submitButton('Save',array('class'=>'save-btn')); ?>
+                                                <?php $this->endWidget(); ?>
+                                            </div>
                                         </div>
                                     </div>
-                                    <?php echo CHtml::submitButton('Save',array('class'=>'save-btn')); ?>
-                                    <?php $this->endWidget(); ?>
                                 </div>
-                            </div>
+                            </tr>
+
+                        <?php
+                        endforeach;
+                        echo '</tbody></table>';
+                    else:
+                        ?>
+                        <div class="script-text">
+                            <h1>Create an Assessment project.</h1>
                         </div>
-                    </div>
-                <?php
-                endforeach;
-                echo '</tbody></table>';
-            else:
-                ?>
-                <div class="script-text">
-                    <h1>Create an Assessment project.</h1>
+                    <?php endif; ?>
+                    <input type="button" value="&#xf0f6; Create an Assessment" class="add-course fa-input" data-toggle="modal" data-target="#projectModal">
                 </div>
-            <?php endif; ?>
-            <input type="button" value="&#xf0f6; Create an Assessment" class="add-course fa-input" data-toggle="modal" data-target="#projectModal">
+            </div>
         </div>
-    </div>
-    <h1 class="center m-projects user-assessment questioners">Manage Questionnaire</h1>
-    <div class="script-section col-xs-12 col-lg-12 col-sm-12">
-        <div class="mydiv">
-            <p><span style="color:red;"><a href="JavaScript:Void(0);">
+        <div id="swapping_2">
+            <h1 class="center m-projects user-assessment questioners">Manage Questionnaire</h1>
+            <div class="script-section col-xs-12 col-lg-12 col-sm-12" style="background-color:white">
+                <div class="mydiv">
+                    <p><span style="color:red;"><a href="JavaScript:Void(0);">
           <span class="glyphicon glyphicon-info-sign crnone"></span>
         </a>Please select or create questions for peers to be assessed on.You can either select the questions from the default question set or create custom questions of your own.</a></span></p>
-            <?php
-            $i=0;
-            if(count($question)>0):
-            echo ' <table class="table">
+                    <?php
+                    $i=0;
+                    if(count($question)>0):
+                    echo ' <table class="table questiontable"  id="que_table">
                                 <thead>
                                 <tr>
                                     <th>S.No</th>
@@ -489,87 +377,88 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
                                 </tr>
                                 </thead>
                                 <tbody>';
-            foreach($question as $iquestion):
-            $i++;
-            ?>
-            <tr>
-                <td><?php echo $i; ?></td>
-                <td><?php echo ucfirst($iquestion->question); ?></td>
-                <td>
-                    <span class="pull-left">
+                    foreach($question as $iquestion):
+                    $i++;
+                    ?>
+                    <tr>
+                        <td><?php echo $i; ?></td>
+                        <td><?php echo ucfirst($iquestion->question); ?></td>
+                        <td>
+                        <span class="pull-left">
                     <i class="fa fa-trash" onclick="ConfirmDelete('<?php echo $iquestion->id ?>',2,'')"></i>
                         <?php if($iquestion->type !="default") { ?>
                             <i class="fa fa-pencil" data-toggle="modal" data-target="#questionModal_<?php echo $iquestion->id; ?>"></i>
                         <?php } ?>
 
                     </span>
-                </td>
-            </tr>
-            </span>
-        </div>
-        <div class="modal fade" id="questionModal_<?php echo $iquestion->id;?>" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content col-xs-12 col-lg-12 col-sm-12">
-                    <div class="modal-header col-lg-12">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title text-center">Questions</h4>
-                    </div>
-                    <div class="model-form col-lg-12 col-xs-12 col-sm-12 form">
-                        <?php $form=$this->beginWidget('CActiveForm', array(
-                            'id'=>'question-form'.$iquestion->id,
-                            'enableClientValidation'=>true,
-                            'clientOptions'=>array(
-                                'validateOnSubmit'=>true,
-                            ),
-                        )); ?>
-                        <?php echo $form->hiddenField($iquestion,'id'); ?>
-                        <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
-                            <div class="col-lg-4 padzero">
-                                <?php echo $form->labelEx($iquestion,'question'); ?>
-                            </div>
-                            <div class="col-lg-8 padzero">
-                                <?php echo $form->textArea($iquestion,'question', array('placeholder'=>'Question','class'=>'summernote')); ?>
-                                <?php echo $form->error($iquestion,'question'); ?>
+                        </td>
+                        <div class="modal fade" id="questionModal_<?php echo $iquestion->id;?>" role="dialog">
+                            <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content col-xs-12 col-lg-12 col-sm-12">
+                                    <div class="modal-header col-lg-12">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title text-center">Questions</h4>
+                                    </div>
+                                    <div class="model-form col-lg-12 col-xs-12 col-sm-12 form">
+                                        <?php $form=$this->beginWidget('CActiveForm', array(
+                                            'id'=>'question-form'.$iquestion->id,
+                                            'enableClientValidation'=>true,
+                                            'clientOptions'=>array(
+                                                'validateOnSubmit'=>true,
+                                            ),
+                                        )); ?>
+                                        <?php echo $form->hiddenField($iquestion,'id'); ?>
+                                        <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
+                                            <div class="col-lg-4 padzero">
+                                                <?php echo $form->labelEx($iquestion,'question'); ?>
+                                            </div>
+                                            <div class="col-lg-8 padzero">
+                                                <?php echo $form->textArea($iquestion,'question', array('placeholder'=>'Question','class'=>'summernote')); ?>
+                                                <?php echo $form->error($iquestion,'question'); ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero" style="display:none">
+                                            <div class="col-lg-4 padzero">
+                                                <?php echo $form->labelEx($iquestion,'type'); ?>
+                                            </div>
+                                            <div class="col-lg-8 padzero formradio">
+                                                <?php echo $form->radioButtonList($iquestion,'type', array('default'=>'Default','custom'=>'Custom'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
+                                                <?php echo $form->error($iquestion,'type'); ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero" style="display:none;">
+                                            <div class="col-lg-4 padzero">
+                                                <?php echo $form->labelEx($iquestion,'q_type'); ?>
+                                            </div>
+                                            <div class="col-lg-8 padzero formradio">
+                                                <?php echo $form->radioButtonList($iquestion,'q_type', array('R'=>'Rating','S'=>'Text'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
+                                                <?php echo $form->error($iquestion,'q_type'); ?>
+                                            </div>
+                                        </div>
+                                        <?php echo CHtml::submitButton('Save',array('class'=>'save-btn')); ?>
+                                        <?php $this->endWidget(); ?>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero" style="display:none">
-                            <div class="col-lg-4 padzero">
-                                <?php echo $form->labelEx($iquestion,'type'); ?>
-                            </div>
-                            <div class="col-lg-8 padzero formradio">
-                                <?php echo $form->radioButtonList($iquestion,'type', array('default'=>'Default','custom'=>'Custom'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
-                                <?php echo $form->error($iquestion,'type'); ?>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero" style="display:none;">
-                            <div class="col-lg-4 padzero">
-                                <?php echo $form->labelEx($iquestion,'q_type'); ?>
-                            </div>
-                            <div class="col-lg-8 padzero formradio">
-                                <?php echo $form->radioButtonList($iquestion,'q_type', array('R'=>'Rating','S'=>'Text'), array('labelOptions'=>array('style'=>'display:inline'),'separator'=>'  ')); ?>
-                                <?php echo $form->error($iquestion,'q_type'); ?>
-                            </div>
-                        </div>
-                        <?php echo CHtml::submitButton('Save',array('class'=>'save-btn')); ?>
-                        <?php $this->endWidget(); ?>
-                    </div>
+                    </tr>
                 </div>
+                <?php
+                endforeach;
+                echo "</tbody></table>";
+                else:
+                    ?>
+                    <div class="script-text" style="border:none !important">
+                        <h1>No questions for display.</h1>
+                    </div>
+                <?php endif; ?>
+                <?php  //if(Yii::app()->user->getState('role')=='Superuser'){ ?>
+                &nbsp;&nbsp;<input type="button" value="&#xf059; Create a custom question" class="add-course fa-input" data-toggle="modal" data-target="#questionModal">
+                <input type="button" value="&#xf059; Select from default Question" class="add-course fa-input" data-toggle="modal" data-target="#dquestionModal" style="margin-right:10px;">
+                <?php //}?>
             </div>
         </div>
-        <?php
-        endforeach;
-        echo "</tbody></table>";
-        else:
-            ?>
-            <div class="script-text" style="border:none !important">
-                <h1>No questions for display.</h1>
-            </div>
-        <?php endif; ?>
-        <?php  //if(Yii::app()->user->getState('role')=='Superuser'){ ?>
-        &nbsp;&nbsp;<input type="button" value="&#xf059; Create a custom question" class="add-course fa-input" data-toggle="modal" data-target="#questionModal">
-        <input type="button" value="&#xf059; Select from default Question" class="add-course fa-input" data-toggle="modal" data-target="#dquestionModal" style="margin-right:10px;">
-        <?php //}?>
     </div>
 </section>
 <!-- model -->
@@ -724,14 +613,52 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
                 )); ?>
                 <div class="col-xs-12 col-lg-12 col-sm-12 course-field padzero">
                     <?php
+
+                    $course_qu=base64_decode($_GET['c']);
+                    $condtion_q='';
+                    $session_staff = Yii::app()->session['id'];
+
+
+ 
                     $questioncheck=Yii::app()->db->CreateCommand('select GROUP_CONCAT(question_id) as questionid from delete_custom_question')->QueryAll();
                     $question=(!empty($questioncheck[0]['questionid']))?$questioncheck[0]['questionid']:0;
-                    //$defaultQue=Questions::model()->findAll("type='default' and status='active' and id not in (".$question.")");
-                    $defaultQuerating=Questions::model()->findAll("type='default' and status='active' and q_type='R'");
-                    $defaultQuetxt=Questions::model()->findAll("type='default' and status='active' and q_type='S'");
 
-                    if(count($defaultQuerating) > 0  || count($defaultQuetxt) > 0  ) { ?>
-                        <div class="col-lg-12 padzero">
+                    $def_ques_result=Yii::app()->db->CreateCommand('SELECT GROUP_CONCAT(que_refid) as question FROM `questions` where course='.$course_qu.' and que_refid IS NOT NULL ORDER BY `id`  DESC')->QueryAll();
+                    $def_ques_result=(!empty($def_ques_result[0]['question']))?$def_ques_result[0]['question']:0;
+                    $defaultQuerating=Questions::model()->findAll("type='default' and status='active' and q_type='R' and id not in($def_ques_result)");
+                    $defaultQuetxt=Questions::model()->findAll("type='default' and status='active' and q_type='S' and id not in($def_ques_result)");
+
+
+                    if(count($defaultQuerating) > 0  || count($defaultQuetxt) > 0) { ?>
+                        <div class="col-lg-12 padzero"  id="overflowneed">
+                            <?php
+                            if(Yii::app()->user->getState('role') != "Superuser") {
+                                $condtion_q=' and staff_id='.$session_staff;
+                                $non_repeat_sql="SELECT GROUP_CONCAT(que_refid) as question FROM `questions` where course={$course_qu} and que_refid IS NOT NULL ORDER BY `id`  DESC";
+                                $non_repeat_result=Yii::app()->db->CreateCommand($non_repeat_sql)->QueryAll();
+                                $rep_question=(!empty($non_repeat_result[0]['question']))?$non_repeat_result[0]['question']:0;
+
+                                $rating=Questions::model()->findAll("course !={$course_qu} $condtion_q and status1='active' and q_type='R' and id not in($rep_question)");
+                                $text=Questions::model()->findAll("course !={$course_qu} $condtion_q and status='active' and q_type='S' and id not in($rep_question)");
+
+                            if(count($rating) > 0 || count($text) >0 ) { ?>
+                                <?php if(count($rating) >0 ) { ?>
+                                    <p class="redclr"><strong>Created by You in Other Course: Rating Scale (1-10)</strong></p>
+                                    <?php echo CHtml::checkBoxList(
+                                        'defaultQuestions',
+                                        '',
+                                        CHtml::listData($rating,'id','question'));
+                                    ?>
+                                    <?php } ?>
+
+                            <?php if(count($text) >0 ) { ?>
+                                <p class="redclr"><strong>Created by You in Other Course: Text</strong></p>
+                                <?php echo CHtml::checkBoxList(
+                                    'defaultQuestions',
+                                    '',
+                                    CHtml::listData($text,'id','question'));
+                                ?>
+                            <?php } } } ?>
                             <?php if(count($defaultQuerating) > 0 ) { ?>
                                 <p class="redclr"><strong>Rating Scale (1-10)</strong></p>
                                 <?php echo CHtml::checkBoxList(
@@ -774,94 +701,104 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
         text-align:left !important;
     }
 </style>
+<link rel="stylesheet" href="<?=Yii::app()->request->baseUrl?>/../css/jquery.dataTables.min.css">
+<script type="text/javascript" src="<?=Yii::app()->request->baseUrl?>/../css/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function(){
-        $('input[type="text"]').attr('autocomplete','off');
-        $('.datepickerp').datetimepicker({format: 'DD-MM-YYYY HH:mm'});
+    $(function() {
+        $("#que_table").dataTable({
+            "bPaginate": $('#que_table tbody tr').length > 10,
+            "iDisplayLength": 10,
+            "searching": $('#que_table tbody tr').length >= 10 ? true : false,
+            language: {
+                infoEmpty: "No questions found.",
+                emptyTable: "No questions found.",
+                zeroRecords: "No questions found.",
+                "info": "Showing _START_ to _END_ of _TOTAL_ Questions",
+            },
+        });
+        $('.dataTables_filter input').addClass('course-field');
+    });
+    $(document).ready(function() {
+        $('input[type="text"]').attr('autocomplete', 'off');
+        $('.datepickerp').datetimepicker({
+            format: 'DD-MM-YYYY HH:mm'
+        });
 
     });
-    $(document).on('change', '#selectf',function() {
+    $(document).on('change', '#selectf', function() {
         $('#users-grid').yiiGridView('update', {
-            data:'pagesize='+$(this).val()
+            data: 'pagesize=' + $(this).val()
         });
         return false;
     });
-    function ConfirmDelete(id,type,course)
 
-    {
+    function ConfirmDelete(id, type, course) {
 
-        if(type==1)
-        {
+        if (type == 1) {
             var x = confirm("Are you sure you want to delete assessment?");
-            var url='<?php echo Yii::app()->createUrl('site/deletecourseitems') ?>';
-        }
-        else if(type==2)
-        {
+            var url = '<?php echo Yii::app()->createUrl('site/deletecourseitems') ?>';
+        } else if (type == 2) {
             var x = confirm("Are you sure you want to delete the question?");
-            var url='<?php echo Yii::app()->createUrl('site/deleteque',array('c'=>$_GET['c'])) ?>';
-        }
-        else if(type==3)
-        {
+            var url = '<?php echo Yii::app()->createUrl('site/deleteque',array('c '=>$_GET['c'])) ?>';
+        } else if (type == 3) {
             var x = confirm("Are you sure you want to delete user?");
-            var url='<?php echo Yii::app()->createUrl('site/deleteuser') ?>';
-        }
-        else if(type==4)
-        {
+            var url = '<?php echo Yii::app()->createUrl('site/deleteuser') ?>';
+        } else if (type == 4) {
             var x = confirm("Are you sure you want to delete this group?");
-            var url='<?php echo Yii::app()->createUrl('site/deletegroup') ?>';
+            var url = '<?php echo Yii::app()->createUrl('site/deletegroup ') ?>';
         }
 
-        if (x)
-        {
+        if (x) {
             $.ajax({
-                url:url,
+                url: url,
                 type: 'post',
-                data: {'id': id,'course': course},
-                success: function (data) {
-                    if(type==1)
-                    {
+                data: {
+                    'id': id,
+                    'course': course
+                },
+                success: function(data) {
+                    if (type == 1) {
                         window.location.reload();
                         $.notify("Assesment deleted succesfully", "success");
-                    }
-                    else if(type==2)
-                    {
-                        $("#qrow_"+id).remove();
+                    } else if (type == 2) {
+                        $("#qrow_" + id).remove();
                         $.notify("Question deleted succesfully", "success");
                         window.location.reload();
-                    }
-                    else if(type==3)
-                    {
-                        $("#urow_"+id).remove();
+                    } else if (type == 3) {
+                        $("#urow_" + id).remove();
                         $.notify("User deleted succesfully", "success");
-                    }
-                    else if(type==4)
-                    {
-                        $("#groups_"+id).remove();
+                    } else if (type == 4) {
+                        $("#groups_" + id).remove();
                         $.notify("Group deleted succesfully", "success");
                     }
                 }
             });
-        }
-        else
-        {
+        } else {
             return false;
         }
     }
 
-    function mailprocess(c,i,f,p)
-    {
-
-        var data={course:c,inst:i,fac:f,asses:p};
-        if(confirm('Are you sure you want to release to students ? Student\'s will be sent an email and can provide feedback to each other. '))
+    function mailprocess(c, i, f, p,a) {
+        var status_asmt=$(a).attr('data-status');
+        if(status_asmt =='inactive')
         {
+            alert('please change Assesment status to live');
+            return false;
+        }
+        var data = {
+            course: c,
+            inst: i,
+            fac: f,
+            asses: p
+        };
+        if (confirm('Are you sure you want to release to students ? Student\'s will be sent an email and can provide feedback to each other. ')) {
             $("#loading").show();
             $.ajax({
                 url: "<?php echo Yii::app()->createUrl('users/mailprocess') ?>",
                 type: "post",
-                data:data,
-                success: function (result) {
-                    if(result.trim() =='Y')
-                    {
+                data: data,
+                success: function(result) {
+                    if (result.trim() == 'Y') {
                         $("#loading").hide();
                         window.location.reload();
                     }
@@ -869,35 +806,86 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
             });
         }
     }
-    function sendremainder(c,i,f,p)
-    {
-        var data={course:c,inst:i,fac:f,asses:p};
-        if(confirm('Are you sure want to send the remainder mail to the students who haven\'t submitted yet?'))
-        {
-            $("#loading").show();
-            $.ajax({
-                url: "<?php echo Yii::app()->createUrl('groupusers/sendremainder?c=') ?>"+c,
-                type: "post",
-                data:data,
-                success: function (result) {
-                    if(result.trim() =='Y')
-                    {
-                        $("#loading").hide();
-                        window.location.reload();
-                    }
-                }
-            });
-        }
+
+    function sendremainder(c, i, f, p,a) {
+       if($(a).attr('data-status') =='current') {
+           var data = {
+               course: c,
+               inst: i,
+               fac: f,
+               asses: p
+           };
+           if (confirm('Are you sure want to send the remainder mail to the students who haven\'t submitted yet?')) {
+               $("#loading").show();
+               $.ajax({
+                   url: "<?php echo Yii::app()->createUrl('groupusers/sendremainder?c=') ?>" + c,
+                   type: "post",
+                   data: data,
+                   success: function (result) {
+                       if (result.trim() == 'Y') {
+                           $("#loading").hide();
+                           window.location.reload();
+                       }
+                   }
+               });
+           }
+       }
+       else
+       {
+           alert('Assesment is not active');return false;
+       }
     }
     var labelID;
     $('.test').click(function() {
         labelID = $(this).attr('for');
-        $('#'+labelID).trigger('click');
+        $('#' + labelID).trigger('click');
     });
+    var main = document.getElementById("swapping");
+    for (var i = 2; i >= 1; i--) {
+        var div = document.getElementById("swapping_" + i);
+        if (div != null)
+            main.appendChild(div);
+    }
+    function fn_onclick() {
+        var cid = $.fn.yiiGridView.getChecked("users-grid", "selectedIds").toString();
+        if (cid != '') {
+            $("#deletebutton").css('visibility', 'visible');
+        }
+        else {
+            $("#deletebutton").css('visibility', 'hidden');
+        }
+    }
+    function deleteuser() {
+        var $id = $.fn.yiiGridView.getChecked("users-grid", "selectedIds").toString();
+        if (confirm("Are you want to delete the selected students?")) {
+            $.ajax({
+                url: "<?php echo Yii::app()->createUrl('users/deletemultiplestudent') ?>",
+                type: "post",
+                data: {id: $id,c:'<?=$_GET['c']?>',f:'<?=$_GET['f']?>',i:'<?=$_GET['i']?>'},
+                success: function (result) {
+                    var result=JSON.parse(result);
+                    if(result.flag="S")
+                    {
+                        $.notify("Deleted Successfully","success");
+                        $.fn.yiiGridView.update('users-grid');
+                        $("#deletebutton").css('visibility', 'hidden');
+                    }
+                    else
+                    {
+                        $.notify("Something went wrong .please try again after some time","danger");
+                    }
+                }
+            });
+        }
+        // else {
+        //     alert("Please minimum one row");
+        // }
+    }
+
 </script>
 </section>
-<div id="htmltable" style="display:none;">
-</div>
+<!--<div id="htmltable" style="display:none;">-->
+<!--</div>-->
 <!-- Modal -->
 <div id="myModalprv" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -918,7 +906,6 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
 
     </div>
 </div>
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.tabletoCSV.js"></script>
 <script type="text/javascript">
     $(function () {
         $('input[type="text"]').addClass('form-control');
@@ -932,26 +919,6 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
     {
         $('#bulk_import_group_users').submit();
     }
-
-    $(document).on('click','.download',function(){
-
-        var p=$(this).attr('data-project');
-        var projectname=$(this).attr('data-projectname');
-        var stustus=($(this).attr('data-status') =='completed')?'Are you sure want to download report?':'Assessment is not fully complete. Awaiting feedback from some students. Proceed to download?';
-        if(confirm(stustus))
-        {
-            var url="<?= Yii::app()->CreateUrl('groupusers/download',array('c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'],'p'=>''))?>"+p;
-            $.ajax({
-                url: url,
-                type: "get",
-                success: function (result) {
-                    $("#htmltable").html(result);
-                    $("#resulttable").tableToCSV(projectname);
-                    return false;
-                }
-            });
-        }
-    });
 </script>
 <script>
     function download1()

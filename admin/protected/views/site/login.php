@@ -19,7 +19,9 @@
 				<div class="thumbnails" style="background:none;">
 					<a class="navbar-brand" href="#"><img style="width:127px;height:40px;" src="<?php echo Yii::app()->request->baseUrl;?>/images/SPLAT logo new.png"></a>
 				</div>
-				<?php $form=$this->beginWidget('CActiveForm', array(
+				<?php
+                ini_set('display_error', 1);
+                $form=$this->beginWidget('CActiveForm', array(
 					'id'=>'login-form',
 					'enableClientValidation'=>true,
 					'clientOptions'=>array(

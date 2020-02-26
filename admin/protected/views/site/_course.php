@@ -30,13 +30,6 @@
         <p>Manage Courses</p>
     </div>
     <?php
-    /*
-    $sql="select group_concat(course_id) as course  from user_courses where user_id=".Yii::app()->session["id"];
-    $result=Yii::app()->db->createCommand($sql)->queryAll();
-    $course=($result>0)?$result[0]['course']:"0";
-    print_r($course);die;
-    $model = Courses::model()->findAll('faculty=' . base64_decode($_GET['f']) . ' and status="active"  and  id in('.$course.')');*/
-    // $model = Courses::model()->findAll('faculty=' . base64_decode($_GET['f']) . ' and status="active");
     $this->widget('zii.widgets.CListView', array(
         'dataProvider'=>$dataProvider,
         'itemView'=>'_course'

@@ -73,12 +73,11 @@ return array(
             ),
         ),
     ),
-
     // application-level parameters that can be accessed
     // using Yii::app()->params['paramName']
     'params'=>array(
-        // this is used in contact page
         'adminEmail'=>'webmaster@example.com',
-        'Pagination'=>[10=>10,20=>20,50=>50]
+        'Pagination'=>[10=>10,20=>20,50=>50],
+        'live'=>false
     ),
 );

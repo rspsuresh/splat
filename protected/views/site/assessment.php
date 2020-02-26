@@ -1,36 +1,5 @@
 <style>
-    .text-label
-    {
-        margin:0px !important;
-    }
-    .add-course
-    {
-        font-size: 18px !important;
-    }
-    .user-assessment
-    {
-        font-size:20px !important;
-    }
-    .user-form p {
-        font-size: 17px !important;
-    }
-    .comments label
-    {
-        font-size: 17px !important;
-    }
-    .footer-menu li a
-    {
-        font-size: 17px !important;
-    }
-    .btn-infomy {
-        color: #fff;
-        background-color:#212323;
-    }
-    .btn-infomy:hover
-    {
-        text-decoration:none !important;
-        color:#00B9D1 !important;
-    }
+    .text-label{margin:0!important}.add-course{font-size:18px!important}.user-assessment{font-size:20px!important}.user-form p{font-size:17px!important}.comments label{font-size:17px!important}.footer-menu li a{font-size:17px!important}.btn-infomy{color:#fff;background-color:#212323}.btn-infomy:hover{text-decoration:none!important;color:#00b9d1!important}
 </style>
 <section id="wrapper" style="height:auto !important;margin-top:5px;">
     <?php $course=Courses::model()->findByPk($_GET['course']);
@@ -65,12 +34,9 @@
             <?php
             $courseid=$_GET['course'];
             $groupusers=Userdetails::model()->with('user')->findAll('grp_id='.$_GET['g'].' and user.status="active" and t.course='.$courseid);
-            // echo "<pre>";print_r(array_column($groupusers,'user_id'));die;
-            $sqldcque="SELECT GROUP_CONCAT(question_id) as question 
-                                              FROM `delete_custom_question` WHERE `course_id` =$projects->course";
+            $sqldcque="SELECT GROUP_CONCAT(question_id) as question  FROM `delete_custom_question` WHERE `course_id` =$projects->course";
             $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
             $ids=($resdcq[0]['question'])?$resdcq[0]['question']:'0';
-
             $questions=Questions::model()->findAll('course='.$projects->course.' and status="active" and id NOT IN ('.$ids.')');
 
             if(count($questions)>0):

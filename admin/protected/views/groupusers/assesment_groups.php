@@ -88,7 +88,7 @@ $project=Projects::model()->findByPk($_GET['id']);
         <div class="user-institute">
             <p>You are here: <a href="/splat/admin/site/index">Home</a> /
                 <a href="<?=Yii::app()->createUrl('site/faculties',array('i'=>$_GET['i']));?>">Faculties</a> /
-                <a href="<?=Yii::app()->createUrl('site/faculties',array('i'=>$_GET['i'],'f'=>base64_encode($facultymdel->id)));?>"><?=$facultymdel->name?></a> /
+                <a href="<?=Yii::app()->createUrl('site/courses',array('i'=>$_GET['i'],'f'=>base64_encode($facultymdel->id)));?>"><?=$facultymdel->name?></a> /
                 <a href="<?=Yii::app()->createUrl('site/courses',array('i'=>$_GET['i'],'f'=>base64_encode($facultymdel->id),'c'=>base64_encode($couesemodels->id)));?>"><?=$couesemodels->name?></a> /
                 <a href="<?=Yii::app()->createUrl('users/cadmin',array('i'=>$_GET['i'],'f'=>base64_encode($facultymdel->id),'c'=>base64_encode($couesemodels->id)));?>"><?=$assessmodel->name?></a> / <b>Groups</b></p>
         </div>
@@ -113,7 +113,6 @@ $project=Projects::model()->findByPk($_GET['id']);
                     $usermodel=Yii::app()->db->createCommand($usermodelsql)->queryAll();
                     $courseid=base64_decode($_GET['c']);
 
-
                     $sqldcque="SELECT GROUP_CONCAT(question_id) as question 
                                    FROM `delete_custom_question` WHERE `course_id` =$courseid";
                     $resdcq=Yii::app()->db->createCommand($sqldcque)->queryAll();
@@ -123,26 +122,13 @@ $project=Projects::model()->findByPk($_GET['id']);
                     $dividedcount=count($questions);
                     $chunkarray=array_chunk($grp,10);
                     foreach($chunkarray as $ckey =>$cval) {
-                        foreach($cval as $val) {
-
-//                            Yii::app()->db->createCommand('SET group_concat_max_len = 1000000')->execute();
-//                            $totalusertowardsgrp=count(Userdetails::model()->findAll('course='.base64_decode($_GET['c']).' and grp_id='.$val->id));
-//                            $meansql="SELECT (sum(value)/$dividedcount) as mean FROM `assess` join `projects` on projects.id=assess.`project` and projects.status !='inactive' WHERE assess.`project` ={$_GET['p']} AND `grp_id` ={$val->id}  ORDER BY assess.`id`  DESC";
-//                            $meansocre=Yii::app()->db->Createcommand($meansql)->QueryAll();
-//                            $scoremean=(!empty($meansocre[0]['mean']))?$meansocre[0]['mean']/$totalusertowardsgrp:"0";
-                            ?>
-
+                        foreach($cval as $val) { ?>
                             <div class="panel panel-default page page_<?=$ckey+1?>">
                                 <div class="panel-heading" role="tab" id="headingOne<?=$val->id?>" style="background-color:#03c6e3;color:#fff; ">
                                     <?php
                                     $courseid=base64_decode($_GET['c']);
-                                    $grpuser=Userdetails::model()->with('user')->findAll('grp_id='.$val->id.' and user.status="active" and t.course='.$courseid);
-                                    $finishedusermodel=Assess::model()->findAll(
-                                        array(
-                                            'condition'=>'grp_id='.$val->id,
-                                            'group'=>'from_user'
-                                        ));
-                                    ?>
+                                    $grpuser=Userdetails::model()->with('user')->findAll('grp_id ='.$val->id.' and user.status="active" and t.course='.$courseid);
+                                    $finishedusermodel=Assess::model()->findAll(array('condition'=>'grp_id='.$val->id, 'group'=>'from_user')); ?>
                                     <h4 class="panel-title">
                                         <a class="collapsed" role="button" data-toggle="collapse"
                                            data-parent="#accordion" href="#collapseOne<?=$val->id?>"
@@ -153,7 +139,9 @@ $project=Projects::model()->findByPk($_GET['id']);
                                                 $grpmeanscr=Yii::app()->db->Createcommand('SELECT sum(A.value)/count(*) as avg  FROM `assess` as A left join questions as B
                                                 on B.id=A.question WHERE A.`to_user` ='.$mgval->user->id.' and B.q_type="R" and  A.grp_id='.$val->id)->queryRow();
                                                 $calcular_mean[]=$grpmeanscr['avg'];
-                                            } $final_mean_for_grp=array_sum($calcular_mean)/count($calcular_mean)?>
+                                            }
+                                            $final_mean_for_grp=!empty($calcular_mean)?array_sum($calcular_mean)/count($calcular_mean):0;
+                                            ?>
                                             <?=$val->name?><span style="float:right">Completed Users : <?=count($finishedusermodel).'/'.count($grpuser)?></span>
                                             <span style="float:right;margin-right: 30px;">Group mean : <?=!empty($final_mean_for_grp)?round($final_mean_for_grp,2):0;?>
                                             </span>
@@ -222,33 +210,25 @@ $project=Projects::model()->findByPk($_GET['id']);
         totalPages:<?=$totalcount?>,
 // the current page that show on start
         startPage: 1,
-
 // maximum visible pages
         visiblePages: 10,
-
         initiateStartPageClick: true,
-
 // template for pagination links
         href: false,
-
 // variable name in href template for page number
         hrefVariable: '{{number}}',
-
 // Text labels
         first: 'First',
         prev: 'Previous',
         next: 'Next',
         last: 'Last',
-
 // carousel-style pagination
         loop: false,
-
 // callback function
         onPageClick: function (event, page) {
             $('.page-active').removeClass('page-active');
             $('.page_'+page).addClass('page-active');
         },
-
 // pagination Classes
         paginationClass: 'pagination',
         nextClass: 'next',
@@ -258,7 +238,6 @@ $project=Projects::model()->findByPk($_GET['id']);
         pageClass: 'page',
         activeClass: 'active',
         disabledClass: 'disabled'
-
     });
 </script>
 

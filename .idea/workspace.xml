@@ -2,20 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="569f891a-5c37-4652-9e91-bcf773c3ff1f" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/admin/protected/views/site/downloadreport.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/cadmin.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/course.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/editprofile.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/faculty.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/layoutcommon.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/config/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/config/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/controllers/GroupusersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/GroupusersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/SiteController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/controllers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/models/Courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Courses.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/models/Questions.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Questions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/models/Userdetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Userdetails.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/models/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/UsersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/runtime/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/runtime/application.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupusers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupusers/UsersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupusers/assesment_groups.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupusers/assesment_groups.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupusers/projectadmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupusers/projectadmin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/layouts/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/questionsadmin/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/questionsadmin/_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/_course.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/_course.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/admineditprofile.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/admineditprofile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/views/site/courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/courses.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/courses.php___jb_tmp___" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/faculties.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/faculties.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/views/users/_cform.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/_cform.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/views/users/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/views/users/cadmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/cadmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/jquery.dataTables.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/jquery.dataTables.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/jquery.dataTables.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/css/jquery.dataTables.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protected/models/Courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/Courses.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protected/models/Questions.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/Questions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/protected/runtime/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/protected/runtime/application.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protected/views/site/assessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/assessment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yii/framework/web/helpers/CHtml.php" beforeDir="false" afterPath="$PROJECT_DIR$/yii/framework/web/helpers/CHtml.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,9 +85,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SearchEverywhereHistoryKey" value="sitecon&#9;FILE&#9;file://H:/xampp/htdocs/splat/admin/protected/controllers/SiteController.php&#10;course&#9;FILE&#9;file://H:/xampp/htdocs/splat/admin/protected/views/site/course_items.php&#10;courseitem&#9;FILE&#9;file://C:/xampp/htdocs/splat/admin/protected/views/site/course_items.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../news_portal" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager">
     <configuration name="UsersController.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/admin/protected/controllers/UsersController.php">
@@ -159,6 +181,12 @@
       <workItem from="1582047524544" duration="2968000" />
       <workItem from="1582129868535" duration="6969000" />
       <workItem from="1582222877067" duration="5153000" />
+      <workItem from="1582300540422" duration="145000" />
+      <workItem from="1582301191312" duration="2121000" />
+      <workItem from="1582303348348" duration="12484000" />
+      <workItem from="1582352407883" duration="25960000" />
+      <workItem from="1582559323457" duration="4681000" />
+      <workItem from="1582739126221" duration="7912000" />
     </task>
     <servers />
   </component>
@@ -195,29 +223,33 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="451" y="199" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1581761487849" />
-    <state x="186" y="9" key="SettingsEditor" timestamp="1575010346058">
+    <state x="518" y="295" key="NewPhpFileDialog" timestamp="1582378588647">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="186" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1575010346058" />
+    <state x="518" y="295" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1582378588647" />
+    <state x="186" y="9" key="SettingsEditor" timestamp="1582303316955">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="186" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1582303316955" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1576605833664">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1576605833664" />
-    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1580836048258">
+    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1582357287247">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1580836048258" />
-    <state x="390" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1582222902838">
+    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1582357287247" />
+    <state x="390" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1582739214787">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="390" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1582222902838" />
-    <state x="390" y="0" width="585" height="728" key="find.popup" timestamp="1582135608412">
+    <state x="390" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1582739214787" />
+    <state x="390" y="0" width="647" height="728" key="find.popup" timestamp="1582559368715">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="390" y="0" width="585" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1582135608412" />
-    <state x="339" y="17" width="672" height="676" key="search.everywhere.popup" timestamp="1582225463975">
+    <state x="390" y="0" width="647" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1582559368715" />
+    <state x="339" y="17" width="672" height="676" key="search.everywhere.popup" timestamp="1582743789152">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="17" width="672" height="676" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1582225463975" />
+    <state x="339" y="17" width="672" height="676" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1582743789152" />
   </component>
 </project>

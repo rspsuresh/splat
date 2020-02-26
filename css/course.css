@@ -1,0 +1,51 @@
+.fa-input {
+    font-family: FontAwesome, ‘Helvetica Neue’, Helvetica, Arial, sans-serif;
+}
+.user-assessment >p
+{
+    font-size:20px !important;
+}
+.script-text > h1
+{
+    font-size:16px;
+}
+.add-course
+{
+    font-weight:bold;
+    font-size:16px !important;
+}
+.grey
+{
+    color:grey;
+}
+.panel-group .panel
+{
+    padding:4px;
+    border-radius: 2px solid grey;
+}
+div[class~='.script-text']:last-of-type{
+    border-bottom: none !important;
+}
+.dataTables_wrapper .dataTables_filter input {
+    margin-left: 0.5em;
+    border: 1px solid #000 !important;
+    padding: 6px 10px !important;
+    border-radius: 5px !important;
+}
+#course_tbl thead tr {
+    background-color: #03c6e3 !important;
+}
+#course_tbl th {
+    border: 1px white solid;
+    padding: 0.3em;
+    color: white;
+}
+#course_tbl.dataTable thead th, table.dataTable thead td,table.dataTable.no-footer{
+    border-bottom: none !important;
+}
+tr { cursor:pointer}
+table.dataTable.no-footer{ border:1px solid #03c6e3  !important;}
+th {border-top:1px solid #03c6e3  !important;}
+.coursenameclr{border-left:1px solid #03c6e3  !important;}
+.coursenameclr_end{border-right:1px solid #03c6e3  !important;}
+tr:nth-child(even) {background-color: #f2f2f2 !important;}

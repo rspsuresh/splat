@@ -332,7 +332,7 @@ $project = Projects::model()->findByPk($_GET['p']);
 <?php //print_r($_SESSION);die;?>
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/js/jqueryui/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/js/jqueryui/jquery-ui.min.css">
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.tabletoCSV.js"></script>
+<!--<script src="--><?php //echo Yii::app()->request->baseUrl; ?><!--/js/jquery.tabletoCSV.js"></script>-->
 <style>
     .datepicker {
         z-index: 100000;

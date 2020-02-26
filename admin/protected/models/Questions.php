@@ -36,7 +36,7 @@ class Questions extends CActiveRecord
 			array('status', 'length', 'max'=>8),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, question, type,q_type, course, institution, faculty, status', 'safe', 'on'=>'search'),
+			array('id, question, type,q_type, course, institution, faculty, status,staff_id,que_refid', 'safe', 'on'=>'search'),
 		);
 	}
 
