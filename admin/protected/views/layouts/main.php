@@ -29,6 +29,11 @@
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/../css/summernote.min.css" rel="stylesheet">
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/../css/layoutcommon.css" rel="stylesheet">
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/../css/summernote.min.js"></script>
+    <style>
+        table tbody tr:hover{
+            background: #ECFBD4 !important;
+        }
+    </style>
 </head>
 <body>
 <header class="header">

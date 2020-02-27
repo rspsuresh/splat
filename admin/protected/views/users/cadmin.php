@@ -351,7 +351,7 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
                     else:
                         ?>
                         <div class="script-text">
-                            <h1>Create an Assessment project.</h1>
+                            <h3>Create an Assessment project.</h3>
                         </div>
                     <?php endif; ?>
                     <input type="button" value="&#xf0f6; Create an Assessment" class="add-course fa-input" data-toggle="modal" data-target="#projectModal">
@@ -638,48 +638,75 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
                                 $non_repeat_result=Yii::app()->db->CreateCommand($non_repeat_sql)->QueryAll();
                                 $rep_question=(!empty($non_repeat_result[0]['question']))?$non_repeat_result[0]['question']:0;
 
-                                $rating=Questions::model()->findAll("course !={$course_qu} $condtion_q and status1='active' and q_type='R' and id not in($rep_question)");
+                                $rating=Questions::model()->findAll("course !={$course_qu} $condtion_q and status='active' and q_type='R' and id not in($rep_question)");
                                 $text=Questions::model()->findAll("course !={$course_qu} $condtion_q and status='active' and q_type='S' and id not in($rep_question)");
 
                             if(count($rating) > 0 || count($text) >0 ) { ?>
                                 <?php if(count($rating) >0 ) { ?>
                                     <p class="redclr"><strong>Created by You in Other Course: Rating Scale (1-10)</strong></p>
-                                    <?php echo CHtml::checkBoxList(
-                                        'defaultQuestions',
-                                        '',
-                                        CHtml::listData($rating,'id','question'));
-                                    ?>
+
+
+                                    <?php
+                                    if(!empty($rating)) {
+                                        echo '<span id="defaultQuestions">';
+                                        foreach($rating as $val) { ?>
+                                            <input value="<?=$val->id?>" id="defaultQuestionsrateyou_<?=$val->id?>"
+                                                   type="checkbox"
+                                                   name="defaultQuestions[]"
+                                                   autocomplete="off">
+                                            <label for="defaultQuestionsrateyou_<?=$val->id?>"><?=$val->question?>
+                                            </label><br>
+                                        <?php }  echo '</span>'; } ?>
                                     <?php } ?>
 
                             <?php if(count($text) >0 ) { ?>
                                 <p class="redclr"><strong>Created by You in Other Course: Text</strong></p>
-                                <?php echo CHtml::checkBoxList(
-                                    'defaultQuestions',
-                                    '',
-                                    CHtml::listData($text,'id','question'));
-                                ?>
+                                    <?php
+                                    if(!empty($text)) {
+                                        echo '<span id="defaultQuestions">';
+                                        foreach($text as $val) { ?>
+                                            <input value="<?=$val->id?>" id="defaultQuestionstextyou_<?=$val->id?>"
+                                                   type="checkbox"
+                                                   name="defaultQuestions[]"
+                                                   autocomplete="off">
+                                            <label for="defaultQuestionstextyou_<?=$val->id?>"><?=$val->question?>
+                                            </label><br>
+                                        <?php }  echo '</span>'; } ?>
                             <?php } } } ?>
                             <?php if(count($defaultQuerating) > 0 ) { ?>
                                 <p class="redclr"><strong>Rating Scale (1-10)</strong></p>
-                                <?php echo CHtml::checkBoxList(
-                                    'defaultQuestions',
-                                    '',
-                                    CHtml::listData($defaultQuerating,'id','question'));
-                                ?>
+
+                                <?php
+                                if(!empty($defaultQuerating)) {
+                                    echo '<span id="defaultQuestions">';
+                                    foreach($defaultQuerating as $val) { ?>
+                                        <input value="<?=$val->id?>" id="defaultQuestionsratdef_<?=$val->id?>"
+                                               type="checkbox"
+                                               name="defaultQuestions[]"
+                                               autocomplete="off">
+                                        <label for="defaultQuestionsratdef_<?=$val->id?>"><?=$val->question?>
+                                        </label><br>
+                                    <?php }  echo '</span>'; } ?>
                             <?php } ?>
                             <?php if(count($defaultQuetxt) > 0) { ?>
                                 <p class="redclr"><strong>Text Box</strong></p>
-                                <?php echo CHtml::checkBoxList(
-                                    'defaultQuestions',
-                                    '',
-                                    CHtml::listData($defaultQuetxt,'id','question'));
-                                ?>
+                                <?php
+                                if(!empty($defaultQuetxt)) {
+                                echo '<span id="defaultQuestions">';
+                                foreach($defaultQuetxt as $val) { ?>
+                                        <input value="<?=$val->id?>" id="defaultQuestionstextdef_<?=$val->id?>"
+                                                                       type="checkbox"
+                                                                       name="defaultQuestions[]"
+                                                                       autocomplete="off">
+                                        <label for="defaultQuestionstextdef_<?=$val->id?>"><?=$val->question?>
+                                        </label><br>
+                                    <?php }  echo '</span>'; } ?>
                             <?php } ?>
                         </div>
                         <?php echo CHtml::submitButton('Add questions to your course ',array('class'=>'save-btn')); ?>
                     <?php }
                     else { ?>
-                        <h1>No Default Question found</h1>
+                        <h4 class="ndqf">No Default Question found</h4>
                     <?php } ?>
                 </div>
                 <?php $this->endWidget(); ?>
@@ -780,10 +807,10 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
 
     function mailprocess(c, i, f, p,a) {
         var status_asmt=$(a).attr('data-status');
+        var status_text=''
         if(status_asmt =='inactive')
         {
-            alert('please change Assesment status to live');
-            return false;
+            status_text='The assessment will be live.';
         }
         var data = {
             course: c,
@@ -791,7 +818,7 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
             fac: f,
             asses: p
         };
-        if (confirm('Are you sure you want to release to students ? Student\'s will be sent an email and can provide feedback to each other. ')) {
+        if (confirm('Are you sure you want to release to students ? Student\'s will be sent an email and can provide feedback to each other.'+status_text)) {
             $("#loading").show();
             $.ajax({
                 url: "<?php echo Yii::app()->createUrl('users/mailprocess') ?>",

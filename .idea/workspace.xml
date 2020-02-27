@@ -2,42 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="569f891a-5c37-4652-9e91-bcf773c3ff1f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/admin/protected/views/site/downloadreport.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/cadmin.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/course.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/editprofile.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/faculty.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/layoutcommon.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/config/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/config/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/controllers/GroupusersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/GroupusersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/SiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/controllers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/controllers/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/Courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Courses.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/Questions.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Questions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/Userdetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/Userdetails.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/models/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/models/UsersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/runtime/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/runtime/application.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupusers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupusers/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupusers/assesment_groups.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupusers/assesment_groups.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/groupusers/projectadmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/groupusers/projectadmin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/layouts/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/_course.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/_course.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/admineditprofile.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/admineditprofile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/courses.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/faculties.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/faculties.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/site/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/site/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/_cform.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/_cform.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/protected/views/users/cadmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/cadmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/protected/views/users/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/protected/views/users/view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/jquery.dataTables.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/jquery.dataTables.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/jquery.dataTables.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/css/jquery.dataTables.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/Courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/Courses.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/models/Questions.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/models/Questions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/protected/runtime/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/protected/runtime/application.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protected/views/site/assessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/protected/views/site/assessment.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yii/framework/web/helpers/CHtml.php" beforeDir="false" afterPath="$PROJECT_DIR$/yii/framework/web/helpers/CHtml.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yii/framework/yiilite.php" beforeDir="false" afterPath="$PROJECT_DIR$/yii/framework/yiilite.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +158,8 @@
       <workItem from="1582303348348" duration="12484000" />
       <workItem from="1582352407883" duration="25960000" />
       <workItem from="1582559323457" duration="4681000" />
-      <workItem from="1582739126221" duration="7912000" />
+      <workItem from="1582739126221" duration="9703000" />
+      <workItem from="1582824951371" duration="3469000" />
     </task>
     <servers />
   </component>
@@ -235,21 +208,21 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1576605833664" />
-    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1582357287247">
+    <state x="92" y="92" width="1182" height="544" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1582749630687">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1582357287247" />
-    <state x="390" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1582739214787">
+    <state x="92" y="92" width="1182" height="544" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1582749630687" />
+    <state x="390" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1582824976833">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="390" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1582739214787" />
+    <state x="390" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1582824976833" />
     <state x="390" y="0" width="647" height="728" key="find.popup" timestamp="1582559368715">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="390" y="0" width="647" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1582559368715" />
-    <state x="339" y="17" width="672" height="676" key="search.everywhere.popup" timestamp="1582743789152">
+    <state x="339" y="17" width="672" height="676" key="search.everywhere.popup" timestamp="1582748704325">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="17" width="672" height="676" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1582743789152" />
+    <state x="339" y="17" width="672" height="676" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1582748704325" />
   </component>
 </project>

@@ -737,8 +737,6 @@ class SiteController extends Controller
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }
-        //echo "<pre>";print_r(Users::model()->findAll());die;
-        // collect user input data
         if(isset($_POST['LoginForm']))
         {
             $model->attributes=$_POST['LoginForm'];
@@ -763,7 +761,6 @@ class SiteController extends Controller
                     $this->redirect(array("site/faculties?i=$insbs64&f=$facbs64"));
                 }
             }
-            //$this->redirect(Yii::app()->user->returnUrl);
         }
         // display the login form
         $this->render('login',array('model'=>$model));
