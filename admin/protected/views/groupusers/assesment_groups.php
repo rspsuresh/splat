@@ -148,7 +148,7 @@ $project=Projects::model()->findByPk($_GET['id']);
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapseOne<?=$val->id?>" class="panel-collapse collapse" role="tabpanel"
+                                <div id="collapseOne<?=$val->id?>" class="panel-collapse collapse in" role="tabpanel"
                                      aria-labelledby="headingOne<?=$val->id?>">
                                     <div class="panel-body">
                                         <?php

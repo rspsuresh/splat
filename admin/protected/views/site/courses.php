@@ -3,6 +3,11 @@
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jqueryui/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="<?=Yii::app()->request->baseUrl?>/../css/jquery.dataTables.min.css">
 <script type="text/javascript" src="<?=Yii::app()->request->baseUrl?>/../css/jquery.dataTables.min.js"></script>
+<style>
+    .dataTable tbody tr:hover {
+        background: #ECFBD4 !important;
+    }
+</style>
 <section id="wrapper" >
 <div class="container">
 <div class="user-institute">

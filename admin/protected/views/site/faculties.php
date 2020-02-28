@@ -1,6 +1,11 @@
 <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>./../css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>./../css/faculty.css">
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>./../css/jquery.dataTables.min.js"></script>
+<style>
+    table#tblfaculty.dataTable tbody tr:hover {
+        background: #ECFBD4 !important;
+    }
+</style>
 <section id="wrapper" >
 <?php  if(Yii::app()->user->getState('role')=='Staff') { ?>
 <div class="container fullbg">

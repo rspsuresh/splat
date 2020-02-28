@@ -181,7 +181,7 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
                                         <i class="fa fa-cog" title="edit settings" data-toggle="modal" data-target="#courseModal_<?php echo $models->id;?>"></i>
                                     </a>  <a href="javascript:void(0);" style="color:#000000;"><?php echo ucfirst($models->name);?></a><br>
                                     <?php if($models->status !='inactive') { ?>
-                                        <span style="color:red">Submission : <?=$total_com_count?>/<?=$no_of_userin_course?></span>
+                                        <span style="color:red">Submission : <?=$total_com_count?>/<?=$modeluser->search()->getTotalItemCount()?></span>
                                     <?php } ?>
                                 </td>
                                 <td>

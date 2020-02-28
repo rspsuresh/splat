@@ -30,8 +30,11 @@
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/../css/layoutcommon.css" rel="stylesheet">
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/../css/summernote.min.js"></script>
     <style>
-        table tbody tr:hover{
-            background: #ECFBD4 !important;
+        table.items{
+            border:2px solid #03c6e3 !important
+        }
+        .grid-view table.items tbody tr:hover {
+            background: inherit !important;
         }
        .errorMessage { color:red !important;}
     </style>

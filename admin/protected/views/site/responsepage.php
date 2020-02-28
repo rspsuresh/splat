@@ -87,7 +87,7 @@ $avg=0;
                     }
                     $i++;
                     ?>
-                    <div class="panel panel-default ">
+                    <div class="panel panel-default">
                         <div class="panel-heading accordion-toggle question-toggle collapsed"
                              data-toggle="collapse"  data-target="#question<?=$i?>">
                             <h4 class="panel-title">
@@ -102,7 +102,7 @@ $avg=0;
                             </h4>
                         </div>
                         <input type="hidden" class="usercount" value="<?= count($groupusers)?>">
-                        <div id="question<?=$i?>" class="panel-collapse collapse">
+                        <div id="question<?=$i?>" class="panel-collapse collapse in">
                             <div class="panel-body">
                                 <?php if(count($groupusers)>0){
                                     //print_r(count($groupusers));die;
