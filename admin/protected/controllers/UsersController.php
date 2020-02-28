@@ -568,7 +568,6 @@ class UsersController extends Controller
                }
 
                 $uniquegrouparray = array_filter(array_unique(array_column($all_rows, $header[count($header) - 2])));
-                //echo "<pre>";print_r($uniquegrouparray);die;
                 $courseid = base64_decode($_GET['c']);
                 if (is_array($uniquegrouparray) && !empty($uniquegrouparray) && isset($all_rows[0]['Username']) && isset($all_rows[0]['Email']) &&
                     isset($all_rows[0]['First Name']) && isset($all_rows[0]['Last Name'])) {
@@ -589,7 +588,7 @@ class UsersController extends Controller
                             if (!empty($all_rows)) {
                                 $explodeusrdata = explode('@', $values['Email']);
                                 $email = $values['Email'];
-                                $usersmodel = Users::model()->find("username='{$explodeusrdata[0]}' and email='{$email}'");
+                                $usersmodel = Users::model()->find("username='{$explodeusrdata[0]}' and email='{$email}' and role !=3");
                                 if (count($usersmodel) <= 0) {
                                     $usermodalmain = new Users();
                                     $usermodalmain->role = 5;
@@ -605,10 +604,8 @@ class UsersController extends Controller
                                     $usermodalmain->password = bin2hex(openssl_random_pseudo_bytes(4));
                                     $usermodalmain->profile = ' ';
                                     $usermodalmain->save();
-                                    //$savecount ++;
                                     $this->mappingusers($usermodalmain->id, $values[$header[count($header) - 2]], $courseid);
                                 } else {
-                                    // $unsavecount ++;
                                     $this->mappingusers($usersmodel->id, $values[$header[count($header) - 2]], $courseid);
                                 }
                             }
@@ -617,14 +614,7 @@ class UsersController extends Controller
                     }
                     catch (Exception $e) {
                         $transaction->rollBack();
-                        // other actions to perform on fail (redirect, alert, etc.)
                     }
-//                    if ($savecount > 0) {
-//                        Yii::app()->user->setFlash('success', $savecount . "- new users has been created.");
-//                    }
-//                    if ($unsavecount > 0) {
-//                        Yii::app()->user->setFlash('error', $unsavecount . " - Existing users have been assigned to this course.");
-//                    }
                     Yii::app()->user->setFlash('success',"users have been assigned to this course.");
                 } else {
                     Yii::app()->user->setFlash('error', 'Fields are not matched.please check file');
@@ -649,10 +639,7 @@ class UsersController extends Controller
         $faculty = Faculties::model()->find('id='.base64_decode($_GET['f']));
         $course = Courses::model()->find('id='.base64_decode($c));
 
-        //$projectGroups = new ProjectGroups();
-
         $groups = new Groups();
-        //echo "dfsdfsdf";die;
         $institutionUser = new InstitutionUser();
         $institutionUser->faculty = base64_decode($_GET['f']);
         $institutionUser->institution = base64_decode($_GET['i']);
@@ -694,26 +681,8 @@ class UsersController extends Controller
             {
                 Yii::app()->user->setFlash('success','Something went wrong.');
             }
-
-
             $this->refresh();
         }
-
-
-//        if(isset($_POST['Groups'])){
-//            if(isset($_POST['Groups']['id']) && $_POST['Groups']['id']!='')
-//                $formModel = Groups::model()->find('id='.$_POST['Groups']['id']);
-//            $formModel->attributes 	= $_POST['Groups'];
-//            $formModel->status = 'active';
-//            $formModel->created_date= date('Y-m-d H:i:s');
-//            $formModel->updated_date= date('Y-m-d H:i:s');
-//            if($formModel->validate() && $formModel->save())
-//            {
-//                Yii::app()->user->setFlash('success','Group has been added successfully.');
-//                $this->refresh();
-//            }
-//        }
-
         if(isset($_POST['Questions'])){
             if(isset($_POST['Questions']['id']) && $_POST['Questions']['id']!='')
                 $questions = Questions::model()->find('id='.$_POST['Questions']['id']);
@@ -734,24 +703,6 @@ class UsersController extends Controller
                 echo "<pre>";print_r($questions->getErrors());die;
             }
         }
-
-//        if(isset($_POST['ProjectGroups'])){
-//            $projectGroup = ProjectGroups::model()->find('group_id='.$_POST['ProjectGroups']['group_id']);
-//            if(count($projectGroup)<=0){
-//                $projectGroups = new ProjectGroups();
-//                $projectGroups->attributes 	= $_POST['ProjectGroups'];
-//                if($projectGroups->validate() && $projectGroups->save())
-//                {
-//                    Yii::app()->user->setFlash('success','Group has been added successfully.');
-//                    $this->refresh();
-//                }
-//            }else {
-//                Yii::app()->user->setFlash('error','Sorry group already exists.');
-//                $this->refresh();
-//            }
-//        }
-
-
         if(isset($_POST['defaultQuestions'])){
             if(isset($_POST['defaultQuestions']) && count(['defaultQuestions'])>0){
                 foreach($_POST['defaultQuestions'] as $dquestions){

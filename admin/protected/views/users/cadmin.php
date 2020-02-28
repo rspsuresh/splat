@@ -583,7 +583,7 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
                         <?php echo $form->labelEx($questions,'q_type'); ?>
                     </div>
                     <div class="col-lg-8 padzero formradio">
-                        <?php echo $form->radioButtonList($questions,'q_type', array('R'=>'Rating Scale (1-10)','S'=>'Text'), array('labelOptions'=>array('style'=>'display:inline','class'=>'typeques'),'separator'=>'  ')); ?>
+                        <?php echo $form->radioButtonList($questions,'q_type', array('R'=>'Rating Scale','S'=>'Text'), array('labelOptions'=>array('style'=>'display:inline','class'=>'typeques'),'separator'=>'  ')); ?>
                         <?php echo $form->error($questions,'q_type'); ?>
                     </div>
                 </div>
@@ -643,7 +643,7 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
 
                             if(count($rating) > 0 || count($text) >0 ) { ?>
                                 <?php if(count($rating) >0 ) { ?>
-                                    <p class="redclr"><strong>Created by You in Other Course: Rating Scale (1-10)</strong></p>
+                                    <p class="redclr"><strong>Created by You in Other Course: Rating Scale</strong></p>
 
 
                                     <?php
@@ -674,7 +674,7 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
                                         <?php }  echo '</span>'; } ?>
                             <?php } } } ?>
                             <?php if(count($defaultQuerating) > 0 ) { ?>
-                                <p class="redclr"><strong>Rating Scale (1-10)</strong></p>
+                                <p class="redclr"><strong>Rating Scale</strong></p>
 
                                 <?php
                                 if(!empty($defaultQuerating)) {
