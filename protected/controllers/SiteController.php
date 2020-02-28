@@ -99,12 +99,6 @@ class SiteController extends Controller
     public function actionAssessment($id)
     {
 
-       /* $checkasessdone=Assess::model()->find("project=".$id, " and grp_id=".$_GET['g']." and asses_id=".$_GET['asm']." and1 from_user=".Yii::app()->user->id);
-        if($checkasessdone)
-        {
-            Yii::app()->user->setFlash('error','Assesment already done.');
-            $this->redirect(Yii::app()->createUrl('site/projects',array('id'=>$id)));
-        }*/
 
         $projects = Projects::model()->find('id='.$id);
         $institutionUsers = InstitutionUser::model()->findAll('course='.$projects->course);

@@ -65,22 +65,12 @@
                                         }
                                         else {
 	                                        echo ucfirst($groupuser->user->first_name . " " . $groupuser->user->last_name);
-                                            //if($course->anonymous ==2)
-                                            //{
-                                            //    echo ucfirst($groupuser->user->first_name . " " . $groupuser->user->last_name);
-                                            //}
-                                            //else
-                                            //{
-                                            //    echo "Anonymous user";
-                                            //}
-
-
                                         }
                                         ?>
                                     </label>
                                     <?php  if($question->q_type =="R") { ?>
                                         <select  style="width:70px !important;" name="assess[<?php echo $question->id;?>][<?php echo $groupuser->user_id; ?>]">
-                                            <?php for($j=1;$j<=10;$j++) {
+                                            <?php for($j=1;$j<=$course->marks;$j++) {
                                                 $selected = "";
                                                 if(count($assess)>0){
                                                     if($j==$assess->value)

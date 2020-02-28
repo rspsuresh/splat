@@ -1109,3 +1109,116 @@ Stack trace:
 REQUEST_URI=/splat/admin//images/profile/jb.jpg
 HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=NQ%3D%3D&c=MTA%3D
 ---
+2020/02/27 19:23:09 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=MTA%3D&i=MQ%3D%3D&f=NQ%3D%3D
+---
+2020/02/27 19:23:23 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/staffusers?c=MTA%3D&i=MQ%3D%3D&f=NQ%3D%3D
+---
+2020/02/27 19:23:37 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/users/cadmin?i=MQ%3D%3D&f=NQ%3D%3D&c=MTA%3D
+---
+2020/02/27 19:23:47 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/groupusers/groupasses/11?c=MTA%3D&i=MQ%3D%3D&f=NQ%3D%3D&p=11
+---
+2020/02/28 16:00:05 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/site/index
+---
+2020/02/28 16:00:10 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "/images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('/images/profile...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin//images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/site/editprofile
+---
+2020/02/28 16:00:10 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "images/profile/jb.jpg". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('images/profile/...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/admin/images/profile/jb.jpg
+HTTP_REFERER=http://localhost/splat/admin/site/editprofile
+---
+2020/02/28 16:19:07 [error] [php] mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php:1129)
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): UsersController->actionMailprocess()
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#2 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): UsersController->runAction()
+#3 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#4 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#5 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): UsersController->filterAccessControl()
+#6 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): UsersController->runActionWithFilters()
+#9 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): UsersController->run()
+#10 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#11 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#12 D:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/users/mailprocess
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (1129)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (1083)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/28 16:19:54 [error] [php] mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php:1129)
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): UsersController->actionMailprocess()
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams()
+#2 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): UsersController->runAction()
+#3 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#4 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CAccessControlFilter->filter()
+#5 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): UsersController->filterAccessControl()
+#6 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter()
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#8 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): UsersController->runActionWithFilters()
+#9 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): UsersController->run()
+#10 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController()
+#11 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#12 D:\xampp\htdocs\splat\admin\index.php(13): CWebApplication->run()
+REQUEST_URI=/splat/admin/users/mailprocess
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (1129)
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (1083)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/28 16:34:57 [warning] [application] Failed to set unsafe attribute "id" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (156)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/28 16:34:57 [warning] [application] Failed to set unsafe attribute "course_level" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (156)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/28 16:34:57 [warning] [application] Failed to set unsafe attribute "description" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (156)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/28 16:34:57 [warning] [application] Failed to set unsafe attribute "marks" of "Courses".
+in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (156)
+in D:\xampp\htdocs\splat\admin\index.php (13)

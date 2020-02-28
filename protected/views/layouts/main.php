@@ -28,6 +28,9 @@
         <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/font-awesome.min.css">
 		 <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/chosen.js"></script>
         <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/chosen.css">
+        <style>
+            .errorMessage { color:red !important;}
+        </style>
 	</head>
 
 	<body>

@@ -10,7 +10,10 @@
         <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/apple-icon-72x72.png" type="image/x-icon">
 		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl;?>/css/bootstrap.min.css">
 		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl;?>/css/style.css">
-		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl;?>/css/form.css">  
+		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl;?>/css/form.css">
+        <style>
+            .errorMessage { color:red !important;}
+        </style>
 	</head>
 
 	<body style="background-color:#27282B">

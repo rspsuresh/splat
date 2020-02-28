@@ -260,7 +260,7 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
                                             array('id'=>$models->id,'c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'],'p'=>$models->id));?>">
                                             <button class="info-student"><i class="fa fa-eye" style="color:white" aria-hidden="true"></i> View</button></a>
                                         <a  class="download1" title="Download responses" target="_blank"
-                                            href="<?=Yii::app()->createUrl('groupusers/Downloadreport',array('id'=>$models->id,'c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'],'p'=>$models->id))?>"
+                                            href="<?=Yii::app()->createUrl('groupusers/downloadreport',array('id'=>$models->id,'c'=>$_GET['c'],'i'=>$_GET['i'],'f'=>$_GET['f'],'p'=>$models->id))?>"
                                             data-status="<?=$models->status?>"
                                             data-projectname="<?=$models->name?>"
                                             data-project='<?=$models->id?>'>

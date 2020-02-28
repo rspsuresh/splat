@@ -1126,14 +1126,18 @@ class UsersController extends Controller
                                  Website: ' . $url . '<br/>
                                  Username: ' . $user->email . '<br/>
                                  Password: ' . $user->password;
-                    if(mail($to, $subject, $message, $headers)) {
-                        $mailtosendmodel = new MailSend();
-                        $mailtosendmodel->i_id = $_POST['inst'];
-                        $mailtosendmodel->c_id = $_POST['course'];
-                        $mailtosendmodel->as_id = $_POST['asses'];
-                        $mailtosendmodel->f_id = $_POST['fac'];
-                        $mailtosendmodel->u_id = $user->id;
-                        $mailtosendmodel->save(false);
+
+                    if(Yii::app()->params['live'] ==true) {
+                        if(mail($to, $subject, $message, $headers))
+                        {
+                            $mailtosendmodel = new MailSend();
+                            $mailtosendmodel->i_id = $_POST['inst'];
+                            $mailtosendmodel->c_id = $_POST['course'];
+                            $mailtosendmodel->as_id = $_POST['asses'];
+                            $mailtosendmodel->f_id = $_POST['fac'];
+                            $mailtosendmodel->u_id = $user->id;
+                            $mailtosendmodel->save(false);
+                        }
                     }
 
                 }

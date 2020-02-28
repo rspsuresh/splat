@@ -33,6 +33,7 @@
         table tbody tr:hover{
             background: #ECFBD4 !important;
         }
+       .errorMessage { color:red !important;}
     </style>
 </head>
 <body>

@@ -545,7 +545,7 @@ ul{
 	max-width: 400px;
 	padding: 30px;
 	position: relative;
-	text-align: center;
+	text-align: left !important;
 	z-index: 1;
 }
 .login.form .thumbnails {

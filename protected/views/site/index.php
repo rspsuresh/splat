@@ -98,7 +98,7 @@
 						//$prj=Projects::model()->findAll();
 						//echo "<pre>";print_r($prj);die;
                         $userid=Yii::app()->user->id;
-                        $coursessql="SELECT * FROM `user_courses` as A left join courses as B on A.course_id=B.id and B.status=\"active\" WHERE A.`user_id` ={$userid}";
+                        $coursessql="SELECT * FROM `user_courses` as A left join courses as B on A.course_id=B.id and B.status=\"active\" WHERE A.`user_id` ={$userid} and B.id IS NOT NULL";
                         $courseresult=Yii::app()->db->CreateCommand($coursessql)->QueryAll();
                         if(count($courseresult)>0) {
                             foreach($courseresult as $course)    {

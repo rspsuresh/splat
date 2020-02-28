@@ -18,11 +18,18 @@
         width: 800px;
         margin: 0 auto;
     }
+    .margintop{margin-top:30px}
 </style>
 <section id="wrapper" style="height:auto !important;margin-top:5px;">
     <div class="container">
-        <div class="margintop">
-            <h4 class="text-center">Assesment Report Download</h4>
+        <div class="margintop row">
+            <div class="col-lg-2 col-sm-2 col-xs-2 col-md-2" style="padding-left:0 !important;">
+                <a  class="btn btn-info" href="<?php echo Yii::app()->createUrl('users/cadmin',array('i'=>$_GET['i'],
+                    'f'=>$_GET['f'], 'c'=>$_GET['c'])); ?>">Back </a>
+            </div>
+           <div class="col-lg-7 col-xs-7 col-sm-7 col-md-7">
+               <h4 class="text-center">Assesment Report Download</h4>
+           </div>
             <?=$html?>
         </div>
     </div>
