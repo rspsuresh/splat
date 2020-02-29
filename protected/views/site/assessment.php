@@ -1,5 +1,11 @@
 <style>
     .text-label{margin:0!important}.add-course{font-size:18px!important}.user-assessment{font-size:20px!important}.user-form p{font-size:17px!important}.comments label{font-size:17px!important}.footer-menu li a{font-size:17px!important}.btn-infomy{color:#fff;background-color:#212323}.btn-infomy:hover{text-decoration:none!important;color:#00b9d1!important}
+    .user-form {
+        padding: 30px 0;
+        border: 1px solid #00BACF !important;
+        margin-bottom: 10px !important;
+        border-radius: 5px;
+    }
 </style>
 <section id="wrapper" style="height:auto !important;margin-top:5px;">
     <?php $course=Courses::model()->findByPk($_GET['course']);
@@ -45,9 +51,16 @@
                     $i++;
                     ?>
                     <div class="user-form">
-                        <p>
-                            <?php echo $i;?>.&nbsp<?php echo $question->question; ?>
-                        </p>
+                        <div class="row">
+                            <div class="col-lg-11 col-sm-11 col-md-11"  style="margin-bottom:10px">
+                                <div class="col-lg-1">
+                                <?php echo $i;?>.
+                                </div>
+                                <div class="col-lg-10">
+                                <?php echo $question->question; ?>
+                                </div>
+                            </div>
+                        </div>
                         <?php
                         if(count($groupusers)>0):
                             foreach($groupusers as $groupuser):

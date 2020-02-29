@@ -30,7 +30,9 @@
     }
 </style>
 
-<?php $sum=array();
+<?php
+$sum=array();
+$rating=[];
 $meanscore='';
 $avg=0;
 ?>
@@ -62,10 +64,10 @@ $avg=0;
                 echo "<button class=\"btn btn-danger align\">Late Submission</button>";
             }
         }?>
-       <?php  if(count($questions)>0) { ?>
-        <button class="btn btn-success align">Mean Score : <span id="score">
+        <?php  if(count($questions)>0) { ?>
+            <button class="btn btn-success align">Mean Score : <span id="score">
                 <?php echo $meanscore?></span>
-        </button>
+            </button>
         <?php } ?>
         <div class="user-assessment">
             <?php
@@ -81,42 +83,51 @@ $avg=0;
             if(count($questions)>0){
                 $i=0;
                 foreach($questions as $question){
+                    $i++;
                     if($question->q_type=="R")
                     {
+                        $rating[]=$i;
                         $avg=$avg+1;
                     }
-                    $i++;
+
                     ?>
                     <div class="panel panel-default">
                         <div class="panel-heading accordion-toggle question-toggle collapsed"
                              data-toggle="collapse"  data-target="#question<?=$i?>">
-                            <h4 class="panel-title">
-                                <a href="#" class="ing">
-                                    <?= $i .". " . $question->question ?>
+                            <div class="row">
+                                <div class="col-lg-1 text-right">
+                                    <?=$i?>.
+                                </div>
+                                <div class="col-lg-8">
+                                    <a href="#" class="ing">
+                                        <?=  $question->question ?>
+                                    </a>
+                                </div>
+                                <div class="col-lg-2">
                                     <?php if($question->q_type=="R")  { ?>
-                                        : <b style="color:black !important"  data-qtype="<?=$question->q_type?>"
-                                             class="que" id="question_<?=$i?>"></b>
+                                        <b style="color:red !important"  data-qtype="<?=$question->q_type?>" data-queid="<?=$i?>" class="que" id="question_<?=$i?>"></b>
                                     <?php } ?>
+                                </div>
+                                <div class="col-lg-1">
                                     <i class="fa fa-angle-right pull-right blue-clr" aria-hidden="true"></i>
-                                </a>
-                            </h4>
+                                </div>
+                            </div>
                         </div>
                         <input type="hidden" class="usercount" value="<?= count($groupusers)?>">
                         <div id="question<?=$i?>" class="panel-collapse collapse in">
                             <div class="panel-body">
                                 <?php if(count($groupusers)>0){
-                                    //print_r(count($groupusers));die;
                                     foreach($groupusers as $groupuser){
                                         $assess = Assess::model()->find('question=:q and project=:p and 
                                         from_user=:f and to_user=:t and grp_id=:grp',
-                                                                        array(':q'=>$question->id,':p'=>$project_pk,':t'=>$_GET['u'],
-                                                                            ':f'=>$groupuser->user_id,':grp'=>$_GET['g']));
+                                            array(':q'=>$question->id,':p'=>$project_pk,':t'=>$_GET['u'],
+                                                ':f'=>$groupuser->user_id,':grp'=>$_GET['g']));
                                         ?>
                                         <div class="row">
                                             <?php $stcheck=Users::model()->findByPk($groupuser->user_id);?>
                                             <?php
                                             if($stcheck->status=='active') { ?>
-                                                <div class="col-lg-3 col-md-3 col-xs-3 col-sm-3"><b>
+                                                <div class="col-lg-offset-1 col-md-offset-3 col-sm-offset-3 col-lg-3 col-md-3 col-xs-3 col-sm-3"><b>
                                                         <?php if($_GET['u'] == $groupuser->user_id)
                                                             echo 'Self';
                                                         else
@@ -174,7 +185,10 @@ $avg=0;
                 <?php
             } ?>
         </div>
+
         <?php
+        $explode_asstring=implode(',',$rating);
+        echo '<input  type="hidden" id="rating" value='.$explode_asstring.'>';
         if(count($questions)>0) {
             $meanscore = array_sum(array_filter($sum)) / $avg;
             $meanscore = number_format((float)$meanscore, 1, '.', '');
@@ -194,16 +208,18 @@ $avg=0;
     function goBack() {
         window.history.back();
     }
-    //$("#score").text(<?php echo $meanscore ?>);
     var sumarr=0;
     $(window).on('load', function() {
         quelength=$(".que").length;
-        for(i=1;i<=quelength;i++)
+        var array_list=document.querySelectorAll('.que');
+        var rating_arr=$('#rating').val().split(',');
+        for(i=0;i<=quelength;i++)
         {
             var queans=[];
             var sum=0;
             var testarr=[];
-            $(".answser_"+i).each(function(index, element) {
+            var ques_id=rating_arr[i];
+            $(".answser_"+ques_id).each(function(index, element) {
                 if($(this).attr('data-val') !="#" ) {
                     testarr.push($(this).attr('data-val'));
                     sum=sum+parseInt($(this).attr('data-val'));
@@ -214,14 +230,15 @@ $avg=0;
             {
                 var usercount=parseInt($(".usercount").val())-1;
                 var cal=(sum/queans.length).toFixed(1);
-                $("#question_"+i).text(cal);
+                console.log(cal)
+                $("#question_"+ques_id).text(cal);
                 sumarr=sumarr+parseFloat(cal);
             }
             else
             {
-                if($("#question_"+i).attr('data-qtype') !="S")
+                if($("#question_"+ques_id).attr('data-qtype') !="S")
                 {
-                    $("#question_"+i).text('No response yet');
+                    $("#question_"+ques_id).text('No response yet');
                 }
             }
         }

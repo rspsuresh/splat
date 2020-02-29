@@ -19,6 +19,7 @@ class UserIdentity extends CUserIdentity
 	public function authenticate()
 	{
 		$record=Users::model()->find('(username=:username  or email=:username) and role =5',array(':username'=>$this->username));
+
         if($record===null)
             $this->errorCode=self::ERROR_USERNAME_INVALID;
         else if($record->password!==$this->password)

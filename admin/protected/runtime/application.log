@@ -1222,3 +1222,70 @@ in D:\xampp\htdocs\splat\admin\index.php (13)
 2020/02/28 16:34:57 [warning] [application] Failed to set unsafe attribute "marks" of "Courses".
 in D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php (156)
 in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/29 06:12:35 [error] [exception.CDbException] CDbException: CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+ in D:\xampp\htdocs\splat\yii\framework\db\CDbConnection.php:797
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\db\CDbConnection.php(693): CDbConnection->open()
+#1 D:\xampp\htdocs\splat\yii\framework\db\CDbConnection.php(649): CDbConnection->setActive(true)
+#2 D:\xampp\htdocs\splat\yii\framework\base\CModule.php(787): CDbConnection->init()
+#3 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(917): CModule->getComponent('db')
+#4 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(1273): CApplication->getDb()
+#5 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(1339): CActiveRecord->getDbConnection()
+#6 D:\xampp\htdocs\splat\yii\framework\db\ar\CActiveRecord.php(2919): CActiveRecord->getCommandBuilder()
+#7 D:\xampp\htdocs\splat\admin\protected\components\UserIdentity.php(20): CActiveRecord->find('(username=:user...', Array)
+#8 D:\xampp\htdocs\splat\admin\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#9 D:\xampp\htdocs\splat\yii\framework\validators\CInlineValidator.php(83): LoginForm->authenticate('password', Array)
+#10 D:\xampp\htdocs\splat\yii\framework\validators\CValidator.php(401): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#11 D:\xampp\htdocs\splat\yii\framework\base\CModel.php(317): CValidator->validate(Object(LoginForm), Array)
+#12 D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php(744): CModel->validate()
+#13 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(97): SiteController->actionLogin()
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#15 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#16 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#17 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#19 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#20 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#21 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('login')
+#23 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/login')
+#24 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#25 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/splat/admin/site/login
+HTTP_REFERER=http://localhost/splat/admin/site/login
+---
+2020/02/29 06:28:49 [error] [exception.ParseError] ParseError: syntax error, unexpected '?>' in D:\xampp\htdocs\splat\admin\protected\views\site\responsepage.php:95
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CBaseController.php(189): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#1 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1737): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#2 D:\xampp\htdocs\splat\yii\framework\web\CController.php(1563): CController->renderPartial('responsepage', Array, true)
+#3 D:\xampp\htdocs\splat\admin\protected\controllers\SiteController.php(904): CController->render('responsepage', Array)
+#4 [internal function]: SiteController->actionResponsepage('9')
+#5 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#6 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#11 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#12 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#13 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#14 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('responsepage')
+#16 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/responsepa...')
+#17 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#18 D:\xampp\htdocs\splat\admin\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/splat/admin/site/responsepage/9?u=1035&c=Nw%3D%3D&i=MQ%3D%3D&f=NA%3D%3D&g=3&p=9
+HTTP_REFERER=http://localhost/splat/admin/groupusers/groupasses/9?c=Nw%3D%3D&i=MQ%3D%3D&f=NA%3D%3D&p=9
+---
+2020/02/29 06:34:33 [warning] [application] Failed to set unsafe attribute "q_type" of "Questions".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (689)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/29 06:36:27 [warning] [application] Failed to set unsafe attribute "id" of "Questions".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (689)
+in D:\xampp\htdocs\splat\admin\index.php (13)
+2020/02/29 06:36:27 [warning] [application] Failed to set unsafe attribute "q_type" of "Questions".
+in D:\xampp\htdocs\splat\admin\protected\controllers\UsersController.php (689)
+in D:\xampp\htdocs\splat\admin\index.php (13)
