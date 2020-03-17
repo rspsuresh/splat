@@ -536,13 +536,15 @@ class GroupusersController extends Controller
             $assessment_ids=$_POST['asses'];
             $course=$_POST['course'];
             $response_submiturs=Assess::model()->with('project0')->findAll('project='.$assessment_ids.' and project0.course='.$course);
-            $test=array_map(function($element){return $element['from_user'];}, $response_submiturs);
+            $projectmodel=Projects::model()->findByPk($assessment_ids);
+            $test=array_map(function($element){
+                return $element['from_user'];
+                }, $response_submiturs);
             $array_userid=array_unique($test);
             $str_userids=!empty($array_userid)?implode(',',$array_userid):0;
 
             $usermodel=Userdetails::model()->with('user')->findAll(
                 array('condition'=>'course='.$_REQUEST['c'].' and user.status="active" and user.role=5 and user.id  not in ('.$str_userids.')', 'order'=>'t.grp_id asc'));
-            //echo "<pre>";print_r($usermodel);die;
             foreach($usermodel as $val)
             {
                 $to =trim($val->user->email);
