@@ -545,29 +545,32 @@ class GroupusersController extends Controller
 
             $usermodel=Userdetails::model()->with('user')->findAll(
                 array('condition'=>'course='.$_REQUEST['c'].' and user.status="active" and user.role=5 and user.id  not in ('.$str_userids.')', 'order'=>'t.grp_id asc'));
-            foreach($usermodel as $val)
-            {
-                $to =trim($val->user->email);
-                $firstname=$val->user->first_name;
-                $lastname=$val->user->last_name;
-                $password=$val->user->password;
-                $url = $_SERVER['SERVER_NAME']."/site/login";
-                $subject = "Splat Remainder Email: ";
+          if(!empty($usermodel)) {
+              foreach($usermodel as $val)
+              {
+                  $to =trim($val->user->email);
+                  $firstname=$val->user->first_name;
+                  $lastname=$val->user->last_name;
+                  $password=$val->user->password;
+                  $url = $_SERVER['SERVER_NAME']."/site/login";
+                  $subject = "Splat Remainder Email: ";
 
-                $headers = "MIME-Version: 1.0" . "\r\n";
-                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-                $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
+                  $headers = "MIME-Version: 1.0" . "\r\n";
+                  $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                  $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
 
-                $message = 'Hi '.$firstname.',<br/><br/>You have been registered to take part in the Peer assessment review. Please login to submit your entry before the deadline: '. date('Y-m-d', strtotime($projectmodel->assess_date)).'<br/><br/>Your credentials are:<br/>
+                  $message = 'Hi '.$firstname.',<br/><br/>You have been registered to take part in the Peer assessment review. Please login to submit your entry before the deadline: '. date('Y-m-d', strtotime($projectmodel->assess_date)).'<br/><br/>Your credentials are:<br/>
 				Link to the site:'.$url.'<br/>
 				Username: '.$to.'<br/>
 				Password: '.$password;
 
-                $message.='<br><p>Kind regards</p><br><b>Splat Team</b>';
-                if(Yii::app()->params['live'] ==true){
-                    mail($to,$subject,$message,$headers);
-                }
-            }
+                  $message.='<br><p>Kind regards</p><br><b>Splat Team</b>';
+                  if(Yii::app()->params['live'] ==true){
+                      mail($to,$subject,$message,$headers);
+                  }
+              }
+          }
+
 
             echo "Y";die;
         }
@@ -609,7 +612,8 @@ class GroupusersController extends Controller
 
              foreach($usermodel as $key =>$val)
              {
-
+                  if(is_null($val->groupname->id) || empty($val->groupname->id))
+                       continue;
                  $userdetails=Userdetails::model()->find("course=".$courseid." and user_id=".$val['user_id']);
                  $indvmeanscr=Yii::app()->db->Createcommand('SELECT sum(A.value)/count(*) as avg  FROM `assess` as A left join questions as B
                                                 on B.id=A.question WHERE A.`to_user` ='.$val['user_id'].' and B.q_type="R" and A.grp_id='.$val->groupname->id)->queryRow();

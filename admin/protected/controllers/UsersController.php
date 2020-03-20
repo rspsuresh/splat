@@ -388,24 +388,6 @@ class UsersController extends Controller
                     $course_decode=base64_decode($_GET['c']);
                     $UserFaculties = UserFaculties::model()->findAll('user_id='.$model->id);
                     $UserCourses = UserCourses::model()->findAll('user_id='.$model->id." and course_id=".$course_decode);
-                    /* foreach($UserFaculties as $faculties){
-                         $faculties->delete();
-                     }*/
-                    /*foreach($UserCourses as $courses){
-                        $courses->delete();
-                    }*/
-                    /* foreach($_POST['Users']['fac_id'] as $fac_id){
-                         $UserFaculties = new UserFaculties();
-                         $UserFaculties->user_id = $model->id;
-                         $UserFaculties->faculty_id = $fac_id;
-                         $UserFaculties->save();
-                     }*/
-                    /*  foreach($_POST['Users']['course_id'] as $course_id){
-                          $UserCourses = new UserCourses();
-                          $UserCourses->user_id = $model->id;
-                          $UserCourses->course_id = $course_id;
-                          $UserCourses->save();
-                      }*/
                     if(isset($_POST['grp']) && !empty($_POST['grp']) && $_POST['Users']['role'] ==5 )
                     {
                         $usersgroups=GroupUsers::model()->with('group')->findAll('user_id='.$model->id.'and group.course_id='.base64_decode($_GET['c']));
