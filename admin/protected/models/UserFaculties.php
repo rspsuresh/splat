@@ -41,7 +41,9 @@ class UserFaculties extends CActiveRecord
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-		return array(			'user' => array(self::BELONGS_TO, 'Users', 'user_id'),
+		return array(
+		    'user' => array(self::BELONGS_TO, 'Users', 'user_id'),
+		    'faculty' => array(self::BELONGS_TO, 'Faculties', 'faculty_id'),
 		);
 	}
 

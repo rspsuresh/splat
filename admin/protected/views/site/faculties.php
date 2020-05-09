@@ -58,7 +58,9 @@ $course=($result>0)?$result[0]['course']:"0";
 echo Courses::model()->count('faculty=' .$models->id . ' and status="active"  and  id in('.$course.')'); ?>
 <?php }  ?>
 </td>
-<td><i class="fa fa-trash" onclick="ConfirmDelete('<?php echo $models->id ?>',1)"></i>
+<td><?php if(Yii::app()->user->getState('role')=='Superuser') { ?>
+    <i class="fa fa-trash" onclick="ConfirmDelete('<?php echo $models->id ?>',1)"></i>
+    <?php  } ?>
 <i class="fa fa-cog" data-toggle="modal" data-target="#facultyModal_<?php echo $models->id; ?>"></i>
 </td>
 <div class="modal fade" id="facultyModal_<?php echo $models->id;?>" role="dialog">

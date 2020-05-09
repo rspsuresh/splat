@@ -78,6 +78,7 @@ return array(
     'params'=>array(
         'adminEmail'=>'webmaster@example.com',
         'Pagination'=>[10=>10,20=>20,50=>50],
-        'live'=>false
+        'live'=>false,
+        'autopassword'=>'StaffBu@2020'
     ),
 );

@@ -31,9 +31,13 @@ class UsersController extends Controller
                     'unauthorized','dynamiccourses','cadmin','download','deletemultiple','staffusers','mailprocess','updatestaff','getdetails','deletemultiplestudent'),
                 'users'=>array('@'),
             ),
-            array('deny',  // deny all users
+            array('allow',  // allow all users to perform 'index' and 'view' actions
+                'actions'=>array('autoreg'),
                 'users'=>array('*'),
-            ),
+           )
+//            array('deny',  // deny all users
+//                'users'=>array('*'),
+//            ),
         );
     }
     protected function beforeAction($action)
@@ -312,9 +316,8 @@ class UsersController extends Controller
             }
             echo json_encode($user_status,true);die;
         }
-
         $this->render('ccreate',array(
-            'model'=>$model,
+            'models'=>$model,
         ));
     }
 
@@ -388,6 +391,24 @@ class UsersController extends Controller
                     $course_decode=base64_decode($_GET['c']);
                     $UserFaculties = UserFaculties::model()->findAll('user_id='.$model->id);
                     $UserCourses = UserCourses::model()->findAll('user_id='.$model->id." and course_id=".$course_decode);
+                    /* foreach($UserFaculties as $faculties){
+                         $faculties->delete();
+                     }*/
+                    /*foreach($UserCourses as $courses){
+                        $courses->delete();
+                    }*/
+                    /* foreach($_POST['Users']['fac_id'] as $fac_id){
+                         $UserFaculties = new UserFaculties();
+                         $UserFaculties->user_id = $model->id;
+                         $UserFaculties->faculty_id = $fac_id;
+                         $UserFaculties->save();
+                     }*/
+                    /*  foreach($_POST['Users']['course_id'] as $course_id){
+                          $UserCourses = new UserCourses();
+                          $UserCourses->user_id = $model->id;
+                          $UserCourses->course_id = $course_id;
+                          $UserCourses->save();
+                      }*/
                     if(isset($_POST['grp']) && !empty($_POST['grp']) && $_POST['Users']['role'] ==5 )
                     {
                         $usersgroups=GroupUsers::model()->with('group')->findAll('user_id='.$model->id.'and group.course_id='.base64_decode($_GET['c']));
@@ -1203,5 +1224,86 @@ class UsersController extends Controller
             }
             echo json_encode($arrauuser,true);die;
         }
+    }
+    public function actionAutoreg(){
+        if($_GET['key'] ==Yii::app()->params['autopassword'] && isset($_GET['key'])){
+            $model=new Users;
+            $this->pageTitle="Splat - auto registration";
+            $model->scenario='autoreg';
+            if(isset($_POST['Users'])){
+                $splitemail=explode('@',$_POST['Users']['email']);
+                $checkuser=Users::model()->find("username='$splitemail[0]'");
+                if(empty($checkuser)){
+                    $model->created_date = date('Y-m-d H:i:s');
+                    $model->updated_date = date('Y-m-d H:i:s');
+                    $model->username=trim($splitemail[0]);
+                    $model->email=$_POST['Users']['email'];
+                    $model->password=$this->randompassword();
+                    $model->first_name=$_POST['Users']['first_name'];
+                    $model->last_name=$_POST['Users']['last_name'];
+                    $model->course_id=!empty($_POST['Users']['course_id'])?implode(',',$_POST['Users']['course_id']):0;
+                    $model->fac_id=implode(',',$_POST['Users']['fac_id']);
+                    $model->role=3;
+                    $model->last_name=$_POST['Users']['last_name'];
+                    $coursename=[];
+                    $coursefaculty=[];
+                    if($model->save(false)){
+                        if(!empty($_POST['Users']['course_id'])){
+                            foreach ($_POST['Users']['course_id'] as $val){
+                                $userCourse=New UserCourses();
+                                $crs=Courses::model()->findByPk($val);
+                                $coursename[]=$crs->name;
+                                $userCourse->user_id=$model->id;
+                                $userCourse->course_id=$val;
+                                $userCourse->save(false);
+                            }
+                        }
+
+                        if(!empty($_POST['Users']['fac_id'])){
+                            foreach($_POST['Users']['fac_id'] as $cval){
+                                $userFac=New UserFaculties();
+                                $userFac->user_id=$model->id;
+                                $fac=Faculties::model()->findByPk($cval);
+                                $coursefaculty[]=$fac->name;
+                                $userFac->faculty_id=$cval;
+                                $userFac->save(false);
+                            }
+                        }
+
+                        $to =trim($_POST['Users']['email']);
+                        //$to ='rsprampaul14321@gmail.com';
+                        $password=$model->password;
+                        $username=$model->username;
+                        $url = $_SERVER['SERVER_NAME']."/admin/site/login";
+                        $subject = "Splat Staff Registration";
+                        $crs =implode(',',$coursename);
+                        $fac = !empty($coursefaculty)?implode(',',$coursefaculty):'';
+                        $coursehtml=!empty($coursename)?"<p>Course :<b>$crs</b></p>":'';
+                        $message = "<p>Dear $model->first_name $model->last_name,</p>
+                                <p>You have been registered to SPLAT successfully</p>
+                                <p>Faculty :<b>$fac</b></p>
+                                  $coursehtml
+                              <p>Your Credentials are</p>
+                              <p>Link: <a href='$url'> $url</a></p>
+                              <p>Username: <b>$username</b></p>
+                              <p>Password: <b>$password</b></p>";
+                        $headers = "MIME-Version: 1.0" . "\r\n";
+                        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                        $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
+                        if(Yii::app()->params['live'] ==true)
+                        {
+                            mail($to, $subject, $message, $headers);
+                        }
+                        $this->redirect(Yii::app()->createUrl('site/login?error=0'));
+                    }
+                }else{
+                    $this->redirect(Yii::app()->createUrl('site/login?error=2'));
+                }
+            }
+            $this->render('/site/auto/_form',array('models'=>$model));
+        }else{
+            $this->redirect(Yii::app()->createUrl('site/login?error=1'));
+        }
+
     }
 }

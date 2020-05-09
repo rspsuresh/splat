@@ -48,6 +48,7 @@ class Users extends CActiveRecord
         return array(
             array('first_name, last_name,email,course_id, institution_id, fac_id, role', 'required','on'=>'normal'),
             array('first_name,last_name, course_id,fac_id,email', 'required','on'=>'update'),
+            array('first_name,last_name,fac_id,email', 'required','on'=>'autoreg'),
             array('institution_id', 'numerical', 'integerOnly'=>true),
             array('first_name,last_name','required','on'=>'edit'),
             array('email','ownvalidation'),

@@ -11,6 +11,7 @@
 		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl;?>/css/bootstrap.min.css">
 		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl;?>/css/style.css">
 		<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl;?>/css/form.css">
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/notify.js"></script>
         <style>
             .errorMessage { color:red !important;}
         </style>
@@ -40,10 +41,40 @@
 						<?php echo $form->error($model,'password'); ?>
 					</div>
 					<?php echo CHtml::submitButton('Login',array('class'=>'login-button')); ?>
-					 <!--<a href="#" class="pull-right">Forgot Password ?</a>-->
+					 <a  style="float:right;color:#00B9D1;" onclick="autoregistration()" class="pull-right">Staff Auto Registration?</a>
 				<?php $this->endWidget(); ?>
 			</div>
 		</div>
 		<script src="<?php echo Yii::app()->request->baseUrl;?>/js/bootstrap.min.js"></script>
 	</body>
+    <?php if(isset($_GET['error']) && $_GET['error'] ==0) {
+        echo '<script>
+				$.notify("Staff registered successfully", "success");
+				</script>'; } ?>
+    <?php if(isset($_GET['error']) && $_GET['error'] ==1) {
+        echo '<script>
+				$.notify("Staff registration key is invalid", "error");
+				</script>';
+    } ?>
+    <?php if(isset($_GET['error']) && $_GET['error'] ==2) {
+        echo '<script>
+				$.notify("Email already exists", "error");
+				</script>';
+    } ?>
 </html>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var uri = window.location.toString();
+        if (uri.indexOf("?") > 0) {
+            var clean_uri = uri.substring(0, uri.indexOf("?"));
+            window.history.replaceState({}, document.title, clean_uri);
+        }
+    });
+    function autoregistration() {
+      var password=prompt('Please enter the staff registration key','');
+        if(password){
+            var url='<?=Yii::app()->createUrl('users/autoreg?key=')?>'+password;
+            window.location=url
+        }
+    }
+</script>
