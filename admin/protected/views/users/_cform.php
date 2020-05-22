@@ -172,6 +172,7 @@
                 cache: false,
                 processData: false,
                 success: function (result) {
+                    var serveres=result.trim();
                      var obj = JSON.parse(result);
                      if(obj.flag =='S')
                      {

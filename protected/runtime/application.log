@@ -8422,3 +8422,1377 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/splat/css/summernote.min.js.map
 ---
+2020/03/17 18:33:35 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/03/17 18:36:08 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/09 16:19:32 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/15 18:48:03 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 11:43:49 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 13:36:23 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 13:36:23 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 13:40:48 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 13:40:48 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 13:45:38 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 13:45:38 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 13:47:24 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 13:47:24 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 13:48:13 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 13:48:13 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 13:50:59 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 13:50:59 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 13:53:11 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 13:53:11 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 13:55:27 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 13:55:27 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 13:58:06 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 13:58:07 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:00:37 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:00:37 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:02:00 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:02:00 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:03:21 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:03:21 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:03:59 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:03:59 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:04:21 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:05:32 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:05:37 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:05:48 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:08:03 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:09:49 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:09:50 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:13:02 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:13:02 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:14:54 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:14:54 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:15:22 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:15:22 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:21:02 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:23:38 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:23:39 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:23:41 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:23:41 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:24:59 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:24:59 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:25:03 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:25:03 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:25:21 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:25:21 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:26:07 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:26:07 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:30:45 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:30:45 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:32:05 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:32:05 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:32:08 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:32:52 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:32:53 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:35:27 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:35:27 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:35:47 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:37:41 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:37:41 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:40:39 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:40:42 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:40:43 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:42:59 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:43:00 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:43:10 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:43:10 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:43:12 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:43:14 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:44:45 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:44:46 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:44:49 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:44:49 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:44:50 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:44:50 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:44:51 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:44:51 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:44:53 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:44:53 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:44:54 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:44:55 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:44:56 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:44:57 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:44:58 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:44:58 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:44:58 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:44:58 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:45:26 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:45:26 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:45:29 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:45:30 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:45:31 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:45:31 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:45:31 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:45:32 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:45:33 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:45:33 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:45:33 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:45:34 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:45:34 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:45:34 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:45:34 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:45:35 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:45:36 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:45:36 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:45:36 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 14:45:40 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:45:48 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:46:39 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:49:34 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:49:59 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:55:42 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:56:03 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:56:29 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 14:56:54 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 15:00:03 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 15:05:39 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 15:06:01 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 15:06:19 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 15:07:08 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 15:07:55 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 15:08:14 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 15:09:38 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 15:10:25 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 15:10:36 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 15:10:49 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 15:18:49 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 15:19:48 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 15:21:36 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 15:21:40 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 15:21:43 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 16:50:15 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 16:55:48 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 17:43:39 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 17:45:27 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 17:47:09 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 17:47:25 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 17:47:46 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 17:47:50 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 17:47:57 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 17:48:02 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 17:48:08 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 17:48:22 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 17:48:25 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 17:48:33 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 17:48:38 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 17:48:38 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 17:49:04 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 17:49:54 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 17:49:54 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 17:50:03 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 17:50:04 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 17:50:27 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 17:50:27 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 17:50:30 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 17:50:30 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 17:53:33 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 17:53:33 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/16 17:54:04 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/summernote.min.js.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/summernote....')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/summernote.min.js.map
+---
+2020/05/16 17:54:04 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/easy-autocomplete.min.css.map". in D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php:571
+Stack trace:
+#0 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('css/easy-autoco...')
+#1 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/splat/css/easy-autocomplete.min.css.map
+---
+2020/05/18 17:38:48 [error] [exception.Error] Error: Class 'User' not found in D:\xampp\htdocs\splat\protected\controllers\SiteController.php:153
+Stack trace:
+#0 D:\xampp\htdocs\splat\protected\controllers\SiteController.php(137): SiteController->assessmentmail(Array, Object(Projects))
+#1 [internal function]: SiteController->actionAssessment('38')
+#2 D:\xampp\htdocs\splat\yii\framework\web\actions\CAction.php(217): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#3 D:\xampp\htdocs\splat\yii\framework\web\actions\CInlineAction.php(93): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#4 D:\xampp\htdocs\splat\yii\framework\web\CController.php(615): CInlineAction->runWithParams(Array)
+#5 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(265): CController->runAction(Object(CInlineAction))
+#6 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilter.php(79): CFilterChain->run()
+#7 D:\xampp\htdocs\splat\yii\framework\web\CController.php(2289): CFilter->filter(Object(CFilterChain))
+#8 D:\xampp\htdocs\splat\yii\framework\web\filters\CInlineFilter.php(115): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\xampp\htdocs\splat\yii\framework\web\filters\CFilterChain.php(259): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\xampp\htdocs\splat\yii\framework\web\CController.php(581): CFilterChain->run()
+#11 D:\xampp\htdocs\splat\yii\framework\web\CController.php(529): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(563): CController->run('assessment')
+#13 D:\xampp\htdocs\splat\yii\framework\web\CWebApplication.php(281): CWebApplication->runController('site/assessment')
+#14 D:\xampp\htdocs\splat\yii\framework\base\CApplication.php(369): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\splat\index.php(16): CApplication->run()
+#16 {main}
+REQUEST_URI=/splat/site/assessment/38?course=52&g=196
+HTTP_REFERER=http://localhost/splat/site/assessment/38?course=52&g=196
+---

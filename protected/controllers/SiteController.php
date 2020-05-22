@@ -134,7 +134,8 @@ class SiteController extends Controller
                 }
 
             }
-            Yii::app()->user->setFlash('success','Thank you. Your response is submitted.');
+            $this->assessmentmail($_POST,$projects);
+          Yii::app()->user->setFlash('success','Thank you. Your response is submitted.');
             $this->redirect(Yii::app()->createUrl('site/index'));
         }
 
@@ -147,7 +148,33 @@ class SiteController extends Controller
             )
         );
     }
+    public function assessmentmail($data,$projects){
+        if(!empty($data)){
+            $user=Users::model()->findByPk(Yii::app()->user->id);
+            $grp=$_GET['g'];
+            $course=Courses::model()->findByPk($projects->course);
+            $grpModel=Groups::model()->findByPk($grp);
+            $AsModel=Projects::model()->findByPk($projects->id);
 
+            if(!empty($course) && !empty($grpModel) && !empty($AsModel)){
+                $sub_or_update=$data['type']=='update'?'updated':'submitted';
+                $to = $user->email;
+                $url = 'http://splat.bournemouth.ac.uk/site/login';
+                $subject = "SPLAT Feedback";
+                $headers = "MIME-Version: 1.0" . "\r\n";
+                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                $headers .= 'From: SPLAT – Bournemouth University <lsivakumar@bournemouth.ac.uk>' . "\r\n";
+
+                $message = 'Dear '.$user->first_name.',<br/>
+					Thank you.Your response has been '.$sub_or_update.'<br/>
+					Course name: '.$projects->course0->name.'<br/>
+					Assessment name: '.$projects->name.'<br/>
+					Group name: '.$grpModel->name.'<br/>
+					Date subnitted/edited: '.date('Y-m-d H:i:s');
+                mail($to,$subject,$message,$headers);
+            }
+        }
+    }
     /**
      * This is the action to handle external exceptions.
      */
@@ -363,7 +390,6 @@ class SiteController extends Controller
             // validate user input and redirect to the previous page if valid
             if($model->validate()){
                 $user = Users::model()->find('username=:username or email=:username',array(':username'=>$model->username));
-                echo "<pre>";print_r($user);die;
                 if(count($user)>0){
                     $password = bin2hex(openssl_random_pseudo_bytes(4));
                     $user->password = $password;

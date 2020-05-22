@@ -119,17 +119,16 @@
 				?>
             <?php //if($project_check->status =='current' ||) { ?>
             <?php if(!empty($assess)) { ?>
+                <input type="hidden" name="type" value="update">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <input type="submit" class="add-course" value="Update">
                     </div>
-
                 </div>
-
             <?php } else { ?>
-
+                <input type="hidden" name="type" value="submit">
                 <input type="submit" class="add-course" value="Submit">
                 <?php } ?>
             <div style="clear:both;"></div><br/>

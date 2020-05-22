@@ -152,9 +152,9 @@ class Users extends CActiveRecord
 
         if(isset($_GET['c']) && !empty($_GET['c']))
         {
-            $sql="SELECT user_id as user_id FROM `user_courses` 
+            $sql="SELECT user_id as user_id FROM `user_courses`
                   join users on user_courses.user_id=users.id and users.role=5
-                  WHERE user_courses.`course_id` = ".base64_decode($_GET["c"]);
+                  WHERE user_courses.`course_id` = ".base64_decode($_GET["c"]).' and users.status="active"';
             $result=Yii::app()->db->createCommand($sql)->queryAll();
             $uniquesdata=array_unique(array_column($result,'user_id'));
 			if(empty($uniquesdata))
@@ -162,17 +162,18 @@ class Users extends CActiveRecord
 				$uniquesdata=0;
 			}
 			else{
-			  $uniquesdata=implode(',',$uniquesdata);	
+			  $uniquesdata=implode(',',$uniquesdata);
 			}
-           
-            $users=($result[0]['user_id'])?$result[0]['user_id']:0;
-            $criteria->addcondition(' id in(' . $uniquesdata .') and role =5');          // for exact match
-			 if(isset($_REQUEST['Users']['course_id']))
-        {
-            //$criteria->addCondition('course_id LIKE "%'.$this->course_id.'" or "%'.$this->course_id.'%"');
+            $usermodel=Userdetails::model()->with('user')->findAll( array('condition'=>'course='.base64_decode($_GET["c"]).' and user.status="active" and user.role=5',
+                'order'=>'t.grp_id asc'
+            ));
+            $data_arr=array_values(array_map(function($element){return $element['user_id'];}, $usermodel));
+              $string_data=!empty($data_arr)?implode(',',$data_arr):0;
+            $criteria->addcondition(' id in(' . $string_data .') and role =5');          // for exact match
+            if(isset($_REQUEST['Users']['course_id']))
+            {
             $criteria->addCondition("`course_id` LIKE '%$this->course_id%'" );
-
-        }
+            }
         }
 		else
 		{

@@ -14,7 +14,7 @@ $('.search-form form').submit(function(){
 ?>
 <link rel="stylesheet" href="<?=Yii::app()->request->baseUrl?>/../css/cadmin.css">
 <?php
-$user_count=$modeluser->search()->getItemCount();
+$user_count=$modeluser->search()->getItemCount() >0?$modeluser->search()->getItemCount():0;
 $institution = Institutions::model()->find('id='.base64_decode($_GET['i']));
 $faculty = Faculties::model()->find('id='.base64_decode($_GET['f']));
 $course = Courses::model()->find('id='.base64_decode($_GET['c']));
@@ -174,6 +174,12 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
                             $i++;
                             $as_complete_user=Yii::app()->db->createCommand('select count(*) as complete_users from assess where project='.$models->id.' group by from_user')->queryAll();
                             $total_com_count=count($as_complete_user);
+
+                            $sql_crs="SELECT user_id as user_id FROM `user_courses` 
+                                  join users on user_courses.user_id=users.id and users.role=5 and users.status='active'
+                                  WHERE user_courses.`course_id` =" .base64_decode($_GET['c'])." order by user_id desc ";
+                            $countcourseuser=Yii::app()->db->createCommand($sql_crs)->queryAll();
+                            $countcourseuser=count($countcourseuser);
                             ?>
                             <tr >
                                 <td><a href="javascript:void(0)">
@@ -181,7 +187,7 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
                                         <i class="fa fa-cog" title="edit settings" data-toggle="modal" data-target="#courseModal_<?php echo $models->id;?>"></i>
                                     </a>  <a href="javascript:void(0);" style="color:#000000;"><?php echo ucfirst($models->name);?></a><br>
                                     <?php if($models->status !='inactive') { ?>
-                                        <span style="color:red">Submission : <?=$total_com_count?>/<?=$modeluser->search()->getTotalItemCount()?></span>
+                                        <span style="color:red">Submission : <?=$total_com_count?>/<?=$countcourseuser?></span>
                                     <?php } ?>
                                 </td>
                                 <td>
@@ -195,18 +201,10 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
                                     <?=date('d-m-Y H:i',strtotime($models->assess_date))?>
                                 </td>
                                 <?php
-                                $sql_crs="SELECT user_id as user_id FROM `user_courses` 
-                  join users on user_courses.user_id=users.id and users.role=5 and users.status='active'
-                  WHERE user_courses.`course_id` = ".base64_decode($_GET['c']);
-                                $countcourseuser=Yii::app()->db->createCommand($sql_crs)->queryAll();
-                                $countcourseuser=count($countcourseuser);
                                 $mailsendtowardscourseandassessment=MailSend::model()->count(array(
                                     'condition'=>'c_id='.base64_decode($_GET['c']).' and as_id='.$models->id,
                                     'group'=>'as_id,u_id'));
-
-                                $countdata=count(Userdetails::model()->findAll('course='.base64_decode($_GET['c'])))
-                                    -
-                                    count(MailSend::model()->findAll("c_id=".base64_decode($_GET['c'])." and as_id=".$models->id));
+                                $countdata=$countcourseuser - $mailsendtowardscourseandassessment;
                                 $countdatafinal=($countdata  >1)?$countdata:0;
                                 ?>
                                 <td>
@@ -619,7 +617,7 @@ $no_of_userin_course=count(Userdetails::model()->findAll('course='.base64_decode
                     $session_staff = Yii::app()->session['id'];
 
 
- 
+
                     $questioncheck=Yii::app()->db->CreateCommand('select GROUP_CONCAT(question_id) as questionid from delete_custom_question')->QueryAll();
                     $question=(!empty($questioncheck[0]['questionid']))?$questioncheck[0]['questionid']:0;
 

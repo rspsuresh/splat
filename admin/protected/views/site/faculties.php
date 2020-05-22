@@ -54,7 +54,7 @@ foreach($model as $models) { ?>
 <?php echo Courses::model()->count('faculty='.$models->id .' and status="active"' ); ?>
 <?php } else {
 $result=Yii::app()->db->createCommand('select group_concat(course_id) as course  from user_courses where user_id="'.Yii::app()->session['id'].'"')->queryAll();
-$course=($result>0)?$result[0]['course']:"0";
+$course=$result[0]['course']?$result[0]['course']:"0";
 echo Courses::model()->count('faculty=' .$models->id . ' and status="active"  and  id in('.$course.')'); ?>
 <?php }  ?>
 </td>

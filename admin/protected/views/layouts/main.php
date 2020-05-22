@@ -88,7 +88,7 @@
         </div>
     </div>
 </header>
-<?php echo $content; ?>
+<?php echo  $content; ?>
 <div class="clear"></div>
 <footer class="footer-sec col-xs-12 col-lg-12 col-sm-12">
     <div class="container">

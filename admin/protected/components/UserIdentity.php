@@ -17,13 +17,13 @@ class UserIdentity extends CUserIdentity
 	public $_id;
 	public function authenticate()
 	{
-		$record=Users::model()->find('(username=:username  or email=:username)and role!=5',array(':username'=>$this->username));
+		$record=Users::model()->find('(username=:username  or email=:username) and role!=5',array(':username'=>$this->username));
         if($record===null)
             $this->errorCode=self::ERROR_USERNAME_INVALID;
         else if($record->password!==$this->password)
             $this->errorCode=self::ERROR_PASSWORD_INVALID;
         else
-        {			$this->_id					=	$record->id;
+        {	$this->_id					=	$record->id;
 			$this->username				=	$record->username;
 			Yii::app()->session['user'] = $record;
 			//Yii::app()->session['type']=$record->role;

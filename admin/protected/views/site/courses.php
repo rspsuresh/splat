@@ -86,9 +86,7 @@
 </td>
 <td>
 <?php
-$sql = "SELECT user_id as user_id FROM `user_courses`
-join users on user_courses.user_id=users.id and users.role=5
-WHERE user_courses.`course_id` = " . $models->id . " and users.status='active'";
+$sql = "SELECT B.user_id as user_id from users as A left join tbl_userdetails as B on A.id=B.user_id where B.course={$models->id} and A.status='active'";
 $result = Yii::app()->db->createCommand($sql)->queryAll();
 $uniquesdata = array_unique(array_column($result, 'user_id'));
 echo count($uniquesdata);?>
@@ -250,12 +248,11 @@ array(5=>'1-5',10=>'1-10')
 </td>
 <td>
 <?php
-$sql = "SELECT user_id as user_id FROM `user_courses`
-join users on user_courses.user_id=users.id and users.role=5
-WHERE user_courses.`course_id` = " . $models->id . " and users.status='active'";
+$sql = "SELECT B.user_id as user_id from users as A left join tbl_userdetails as B on A.id=B.user_id where B.course={$models->id} and A.status='inactive'";
 $result = Yii::app()->db->createCommand($sql)->queryAll();
-$uniquesdata = array_unique(array_column($result, 'user_id'));
-echo count($uniquesdata);?>
+
+$uniquesdatainc = array_unique(array_column($result, 'user_id'));
+echo count($uniquesdatainc);?>
 </td>
 <td>
 <span class="pull-right">

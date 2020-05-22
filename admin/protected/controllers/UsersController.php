@@ -317,7 +317,7 @@ class UsersController extends Controller
             echo json_encode($user_status,true);die;
         }
         $this->render('ccreate',array(
-            'models'=>$model,
+            'model'=>$model,
         ));
     }
 
@@ -1012,57 +1012,50 @@ class UsersController extends Controller
                 $projectupdate->status='current';
                 $projectupdate->update('status');
             }
-            if(empty($mailmodel))
-            {
-
-                $sql="SELECT user_id as user_id FROM `user_courses` 
+            $sql="SELECT user_id as user_id FROM `user_courses` 
                   join users on user_courses.user_id=users.id and users.role=5 and users.status='active'
                   WHERE user_courses.`course_id` = ".$_POST['course'];
-                $result=Yii::app()->db->createCommand($sql)->queryAll();
-                $array_col_alter=array_map(function($element){return $element['user_id'];}, $result);
-                //$uniquesdata=array_unique(array_column($result,'user_id'));
-                $uniquesdata=array_unique($array_col_alter);
-                if(empty($uniquesdata))
-                {
-                    $uniquesdata=0;
-                }
-                else{
-                    $uniquesdata=implode(',',$uniquesdata);
-                }
-                $users=($result[0]['user_id'])?$result[0]['user_id']:0;
-                $usersmodel=Users::model()->findAll("id in (".$uniquesdata.")");
-                $tripsArray = CHtml::listData($usersmodel, 'id','email');
-                $tripsArrayfilter=array_filter($tripsArray);
-                $ids= implode(',', array_keys($tripsArrayfilter));
+            $result=Yii::app()->db->createCommand($sql)->queryAll();
+            $tripsArrayfilter=$this->Userids($result);
+            $ids= implode(',', array_keys($tripsArrayfilter));
+            if(empty($mailmodel))
+            {
                 $this->readytosend($ids,'1');
             }
             else
             {
-                $tripsArray = CHtml::listData($mailmodel, 'u_id', 'c_id');
-                //echo "<pre>";print_r(count($tripsArray));die;
-                $tripsArrayfilter=array_filter($tripsArray);
-                $ids= implode(',', array_keys($tripsArrayfilter));
-                // echo $ids;die;
-                $this->readytosend($ids,'2');
+                $array_col_alter_mail=array_map(function($element){return $element['u_id'];}, $mailmodel);
+                $uniquesdatamail=array_unique($array_col_alter_mail);
+                $uniquesdata_mail=!empty($uniquesdatamail)?implode(',',$uniquesdatamail):0;
+                $sql="SELECT user_id as user_id FROM `user_courses` 
+                  join users on user_courses.user_id=users.id and users.role=5 and users.status='active'
+                  WHERE user_courses.`course_id` = ".$_POST['course']." and user_courses.user_id not in($uniquesdata_mail)";
+                $result=Yii::app()->db->createCommand($sql)->queryAll();
+                $tripsArrayfilter=$this->Userids($result);
+                $idspend= implode(',', array_keys($tripsArrayfilter));
+                $this->readytosend($idspend,'2');
             }
         }
         echo "Y";die;
     }
-
+    public function Userids($result){
+        if(!empty($result)){
+            $array_col_alter=array_map(function($element){return $element['user_id'];}, $result);
+            $uniquesdata=array_unique($array_col_alter);
+            $uniquesdata=!empty($uniquesdata)?implode(',',$uniquesdata):0;
+            $users=($result[0]['user_id'])?$result[0]['user_id']:0;
+            $usersmodel=Users::model()->findAll("id in (".$uniquesdata.")");
+            $tripsArray = CHtml::listData($usersmodel, 'id','email');
+            $tripsArrayfilter=array_filter($tripsArray);
+            return !empty($tripsArrayfilter)?$tripsArrayfilter:0;
+        }
+    }
     public  function readytosend($ids,$type)
     {
         if(is_string($ids))
         {
-            if($type==2)
-            {
-                $usersmodel=Users::model()->findAll('id not in('.$ids.')');
-            }
-            else
-            {
-                $usersmodel=Users::model()->findAll('id in('.$ids.')');
-            }
+            $usersmodel=Users::model()->findAll('id in('.$ids.')');
             $course_name=Courses::model()->findByPk($_POST['course']);
-
             $coursename=$course_name->course_type." ". $course_name->name." Level ".$course_name->course_level;
             if(!empty($usersmodel))
             {
@@ -1074,6 +1067,7 @@ class UsersController extends Controller
                     $subject = "Splat Assessment Release";
                     $url = $_SERVER['SERVER_NAME'] . "/site/login";
                     $to = $user->email;
+                    //$to='rsprampaul14321@gmail.com';
                     $message = 'Dear ' . $user->first_name . ',<br/><br/>You have been added to the
                                  Bournemouth University SPLAT website for the course <b>' . $coursename . '</b> .
                                  You can now login to assess your peers.<br/><br/>Your credentials are:<br/>
@@ -1271,7 +1265,6 @@ class UsersController extends Controller
                         }
 
                         $to =trim($_POST['Users']['email']);
-                        //$to ='rsprampaul14321@gmail.com';
                         $password=$model->password;
                         $username=$model->username;
                         $url = $_SERVER['SERVER_NAME']."/admin/site/login";
@@ -1280,8 +1273,8 @@ class UsersController extends Controller
                         $fac = !empty($coursefaculty)?implode(',',$coursefaculty):'';
                         $coursehtml=!empty($coursename)?"<p>Course :<b>$crs</b></p>":'';
                         $message = "<p>Dear $model->first_name $model->last_name,</p>
-                                <p>You have been registered to SPLAT successfully</p>
-                                <p>Faculty :<b>$fac</b></p>
+                                <p>You have been registered to SPLAT</p>
+                                <p>Faculty: <b>$fac</b></p>
                                   $coursehtml
                               <p>Your Credentials are</p>
                               <p>Link: <a href='$url'> $url</a></p>
